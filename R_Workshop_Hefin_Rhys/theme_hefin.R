@@ -1,0 +1,23 @@
+theme_hefin <- theme(axis.line.y = element_line(colour = "black", size = 0.1),
+                     axis.line.x = element_line(colour = "black", size = 0.1),
+                     panel.grid.minor = element_blank(),
+                     panel.background = element_rect(fill = "grey95"),
+                     panel.border = element_rect(colour = "black", fill = NA),
+                     axis.title.x = element_text(size = 20, margin = margin(5,0,0,0)),
+                     axis.title.y = element_text(size = 20, margin = margin(0,10,0,0)),
+                     axis.text = element_text(size = 16, colour = "black"),
+                     axis.text.x = element_text(margin = margin( t = 5)),
+                     plot.title = element_text(size = 32, hjust = 0),
+                     legend.position = c(0,9,0.85),
+                     legend.key.size = unit(1, "cm"),
+                     legend.text = element_text(size = 20),
+                     legend.text.align = 0,
+                     legend.title = element_blank(),
+                     legend.background = element_blank(),
+                     legend.key = element_rect(fill = NA, colour = NA),
+                     strip.text = element_text(size = 14, face = "bold"),
+                     strip.background = element_rect(colour = "black"),
+                     panel.spacing = unit(0, "lines"),
+                )
+
+theme_hefin

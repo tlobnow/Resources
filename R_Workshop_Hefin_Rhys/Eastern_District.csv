@@ -1,0 +1,3430 @@
+"","date","county","state","fips","cases","deaths"
+"1","2020-03-20","Accomack","Virginia",51001,1,0
+"2","2020-03-21","Accomack","Virginia",51001,1,0
+"3","2020-03-22","Accomack","Virginia",51001,1,0
+"4","2020-03-23","Accomack","Virginia",51001,1,0
+"5","2020-03-24","Accomack","Virginia",51001,1,0
+"6","2020-03-25","Accomack","Virginia",51001,1,0
+"7","2020-03-26","Accomack","Virginia",51001,2,0
+"8","2020-03-26","Northampton","Virginia",51131,1,0
+"9","2020-03-27","Accomack","Virginia",51001,2,0
+"10","2020-03-27","Northampton","Virginia",51131,1,0
+"11","2020-03-28","Accomack","Virginia",51001,2,0
+"12","2020-03-28","Lancaster","Virginia",51103,1,0
+"13","2020-03-28","Northampton","Virginia",51131,1,0
+"14","2020-03-28","Northumberland","Virginia",51133,2,0
+"15","2020-03-29","Accomack","Virginia",51001,3,0
+"16","2020-03-29","Lancaster","Virginia",51103,1,0
+"17","2020-03-29","Northampton","Virginia",51131,1,0
+"18","2020-03-29","Northumberland","Virginia",51133,2,0
+"19","2020-03-30","Accomack","Virginia",51001,6,0
+"20","2020-03-30","Lancaster","Virginia",51103,1,0
+"21","2020-03-30","Northampton","Virginia",51131,1,0
+"22","2020-03-30","Northumberland","Virginia",51133,2,0
+"23","2020-03-31","Accomack","Virginia",51001,7,0
+"24","2020-03-31","King and Queen","Virginia",51097,1,0
+"25","2020-03-31","Lancaster","Virginia",51103,1,0
+"26","2020-03-31","Northampton","Virginia",51131,1,0
+"27","2020-03-31","Northumberland","Virginia",51133,3,0
+"28","2020-04-01","Accomack","Virginia",51001,7,0
+"29","2020-04-01","King and Queen","Virginia",51097,1,0
+"30","2020-04-01","Lancaster","Virginia",51103,1,0
+"31","2020-04-01","Northampton","Virginia",51131,1,0
+"32","2020-04-01","Northumberland","Virginia",51133,3,0
+"33","2020-04-02","Accomack","Virginia",51001,10,0
+"34","2020-04-02","King and Queen","Virginia",51097,1,0
+"35","2020-04-02","Lancaster","Virginia",51103,1,0
+"36","2020-04-02","Northampton","Virginia",51131,1,0
+"37","2020-04-02","Northumberland","Virginia",51133,3,0
+"38","2020-04-03","Accomack","Virginia",51001,8,0
+"39","2020-04-03","King and Queen","Virginia",51097,1,0
+"40","2020-04-03","Lancaster","Virginia",51103,1,0
+"41","2020-04-03","Northampton","Virginia",51131,2,0
+"42","2020-04-03","Northumberland","Virginia",51133,3,0
+"43","2020-04-03","Richmond","Virginia",51159,1,0
+"44","2020-04-03","Westmoreland","Virginia",51193,1,0
+"45","2020-04-04","Accomack","Virginia",51001,8,0
+"46","2020-04-04","King and Queen","Virginia",51097,1,0
+"47","2020-04-04","Lancaster","Virginia",51103,1,0
+"48","2020-04-04","Northampton","Virginia",51131,2,0
+"49","2020-04-04","Northumberland","Virginia",51133,3,0
+"50","2020-04-04","Richmond","Virginia",51159,1,0
+"51","2020-04-04","Westmoreland","Virginia",51193,2,0
+"52","2020-04-05","Accomack","Virginia",51001,11,0
+"53","2020-04-05","King and Queen","Virginia",51097,1,0
+"54","2020-04-05","Lancaster","Virginia",51103,1,0
+"55","2020-04-05","Northampton","Virginia",51131,2,0
+"56","2020-04-05","Northumberland","Virginia",51133,3,0
+"57","2020-04-05","Richmond","Virginia",51159,1,0
+"58","2020-04-05","Westmoreland","Virginia",51193,2,0
+"59","2020-04-06","Accomack","Virginia",51001,11,0
+"60","2020-04-06","King and Queen","Virginia",51097,1,0
+"61","2020-04-06","Lancaster","Virginia",51103,1,0
+"62","2020-04-06","Northampton","Virginia",51131,2,0
+"63","2020-04-06","Northumberland","Virginia",51133,3,0
+"64","2020-04-06","Richmond","Virginia",51159,1,0
+"65","2020-04-06","Westmoreland","Virginia",51193,3,0
+"66","2020-04-07","Accomack","Virginia",51001,11,0
+"67","2020-04-07","King and Queen","Virginia",51097,1,0
+"68","2020-04-07","Lancaster","Virginia",51103,1,0
+"69","2020-04-07","Northampton","Virginia",51131,2,0
+"70","2020-04-07","Northumberland","Virginia",51133,3,0
+"71","2020-04-07","Richmond","Virginia",51159,2,0
+"72","2020-04-07","Westmoreland","Virginia",51193,3,0
+"73","2020-04-08","Accomack","Virginia",51001,11,0
+"74","2020-04-08","King and Queen","Virginia",51097,1,0
+"75","2020-04-08","Lancaster","Virginia",51103,1,0
+"76","2020-04-08","Northampton","Virginia",51131,2,0
+"77","2020-04-08","Northumberland","Virginia",51133,3,0
+"78","2020-04-08","Richmond","Virginia",51159,2,0
+"79","2020-04-08","Westmoreland","Virginia",51193,5,0
+"80","2020-04-09","Accomack","Virginia",51001,11,0
+"81","2020-04-09","King and Queen","Virginia",51097,2,0
+"82","2020-04-09","Lancaster","Virginia",51103,1,0
+"83","2020-04-09","Middlesex","Virginia",51119,2,0
+"84","2020-04-09","Northampton","Virginia",51131,2,0
+"85","2020-04-09","Northumberland","Virginia",51133,3,0
+"86","2020-04-09","Richmond","Virginia",51159,3,0
+"87","2020-04-09","Westmoreland","Virginia",51193,5,0
+"88","2020-04-10","Accomack","Virginia",51001,12,0
+"89","2020-04-10","King and Queen","Virginia",51097,2,0
+"90","2020-04-10","Lancaster","Virginia",51103,1,0
+"91","2020-04-10","Middlesex","Virginia",51119,3,0
+"92","2020-04-10","Northampton","Virginia",51131,4,0
+"93","2020-04-10","Northumberland","Virginia",51133,3,0
+"94","2020-04-10","Richmond","Virginia",51159,5,0
+"95","2020-04-10","Westmoreland","Virginia",51193,8,0
+"96","2020-04-11","Accomack","Virginia",51001,15,0
+"97","2020-04-11","King and Queen","Virginia",51097,2,0
+"98","2020-04-11","Lancaster","Virginia",51103,1,0
+"99","2020-04-11","Middlesex","Virginia",51119,3,0
+"100","2020-04-11","Northampton","Virginia",51131,4,0
+"101","2020-04-11","Northumberland","Virginia",51133,4,0
+"102","2020-04-11","Richmond","Virginia",51159,5,0
+"103","2020-04-11","Westmoreland","Virginia",51193,8,0
+"104","2020-04-12","Accomack","Virginia",51001,15,0
+"105","2020-04-12","King and Queen","Virginia",51097,2,0
+"106","2020-04-12","Lancaster","Virginia",51103,1,0
+"107","2020-04-12","Middlesex","Virginia",51119,3,0
+"108","2020-04-12","Northampton","Virginia",51131,4,0
+"109","2020-04-12","Northumberland","Virginia",51133,4,0
+"110","2020-04-12","Richmond","Virginia",51159,5,0
+"111","2020-04-12","Westmoreland","Virginia",51193,8,0
+"112","2020-04-13","Accomack","Virginia",51001,15,0
+"113","2020-04-13","King and Queen","Virginia",51097,2,0
+"114","2020-04-13","Lancaster","Virginia",51103,1,0
+"115","2020-04-13","Middlesex","Virginia",51119,3,0
+"116","2020-04-13","Northampton","Virginia",51131,4,0
+"117","2020-04-13","Northumberland","Virginia",51133,4,0
+"118","2020-04-13","Richmond","Virginia",51159,5,0
+"119","2020-04-13","Westmoreland","Virginia",51193,8,0
+"120","2020-04-14","Accomack","Virginia",51001,15,0
+"121","2020-04-14","King and Queen","Virginia",51097,2,0
+"122","2020-04-14","Lancaster","Virginia",51103,1,0
+"123","2020-04-14","Middlesex","Virginia",51119,3,0
+"124","2020-04-14","Northampton","Virginia",51131,4,0
+"125","2020-04-14","Northumberland","Virginia",51133,4,0
+"126","2020-04-14","Richmond","Virginia",51159,7,0
+"127","2020-04-14","Westmoreland","Virginia",51193,8,0
+"128","2020-04-15","Accomack","Virginia",51001,15,0
+"129","2020-04-15","King and Queen","Virginia",51097,2,0
+"130","2020-04-15","Lancaster","Virginia",51103,1,0
+"131","2020-04-15","Middlesex","Virginia",51119,3,0
+"132","2020-04-15","Northampton","Virginia",51131,4,0
+"133","2020-04-15","Northumberland","Virginia",51133,4,0
+"134","2020-04-15","Richmond","Virginia",51159,7,0
+"135","2020-04-15","Westmoreland","Virginia",51193,8,0
+"136","2020-04-16","Accomack","Virginia",51001,19,0
+"137","2020-04-16","Essex","Virginia",51057,2,0
+"138","2020-04-16","King and Queen","Virginia",51097,2,0
+"139","2020-04-16","Lancaster","Virginia",51103,1,0
+"140","2020-04-16","Middlesex","Virginia",51119,3,0
+"141","2020-04-16","Northampton","Virginia",51131,4,0
+"142","2020-04-16","Northumberland","Virginia",51133,5,0
+"143","2020-04-16","Richmond","Virginia",51159,7,0
+"144","2020-04-16","Westmoreland","Virginia",51193,9,0
+"145","2020-04-17","Accomack","Virginia",51001,28,0
+"146","2020-04-17","Essex","Virginia",51057,2,0
+"147","2020-04-17","King and Queen","Virginia",51097,2,0
+"148","2020-04-17","Lancaster","Virginia",51103,1,0
+"149","2020-04-17","Middlesex","Virginia",51119,3,0
+"150","2020-04-17","Northampton","Virginia",51131,5,0
+"151","2020-04-17","Northumberland","Virginia",51133,5,0
+"152","2020-04-17","Richmond","Virginia",51159,8,0
+"153","2020-04-17","Westmoreland","Virginia",51193,9,0
+"154","2020-04-18","Accomack","Virginia",51001,33,0
+"155","2020-04-18","Essex","Virginia",51057,2,0
+"156","2020-04-18","King and Queen","Virginia",51097,2,0
+"157","2020-04-18","Lancaster","Virginia",51103,1,0
+"158","2020-04-18","Middlesex","Virginia",51119,3,0
+"159","2020-04-18","Northampton","Virginia",51131,5,0
+"160","2020-04-18","Northumberland","Virginia",51133,5,0
+"161","2020-04-18","Richmond","Virginia",51159,8,0
+"162","2020-04-18","Westmoreland","Virginia",51193,10,0
+"163","2020-04-19","Accomack","Virginia",51001,42,0
+"164","2020-04-19","Essex","Virginia",51057,2,0
+"165","2020-04-19","King and Queen","Virginia",51097,2,0
+"166","2020-04-19","Lancaster","Virginia",51103,1,0
+"167","2020-04-19","Middlesex","Virginia",51119,3,0
+"168","2020-04-19","Northampton","Virginia",51131,7,0
+"169","2020-04-19","Northumberland","Virginia",51133,5,0
+"170","2020-04-19","Richmond","Virginia",51159,9,0
+"171","2020-04-19","Westmoreland","Virginia",51193,10,0
+"172","2020-04-20","Accomack","Virginia",51001,52,0
+"173","2020-04-20","Essex","Virginia",51057,2,0
+"174","2020-04-20","King and Queen","Virginia",51097,2,0
+"175","2020-04-20","Lancaster","Virginia",51103,1,0
+"176","2020-04-20","Middlesex","Virginia",51119,3,0
+"177","2020-04-20","Northampton","Virginia",51131,7,0
+"178","2020-04-20","Northumberland","Virginia",51133,5,0
+"179","2020-04-20","Richmond","Virginia",51159,9,0
+"180","2020-04-20","Westmoreland","Virginia",51193,10,0
+"181","2020-04-21","Accomack","Virginia",51001,52,1
+"182","2020-04-21","Essex","Virginia",51057,2,0
+"183","2020-04-21","King and Queen","Virginia",51097,2,0
+"184","2020-04-21","Lancaster","Virginia",51103,1,0
+"185","2020-04-21","Middlesex","Virginia",51119,3,0
+"186","2020-04-21","Northampton","Virginia",51131,7,0
+"187","2020-04-21","Northumberland","Virginia",51133,5,0
+"188","2020-04-21","Richmond","Virginia",51159,53,0
+"189","2020-04-21","Westmoreland","Virginia",51193,10,0
+"190","2020-04-22","Accomack","Virginia",51001,59,1
+"191","2020-04-22","Essex","Virginia",51057,2,0
+"192","2020-04-22","King and Queen","Virginia",51097,2,0
+"193","2020-04-22","Lancaster","Virginia",51103,1,0
+"194","2020-04-22","Middlesex","Virginia",51119,3,0
+"195","2020-04-22","Northampton","Virginia",51131,8,0
+"196","2020-04-22","Northumberland","Virginia",51133,5,0
+"197","2020-04-22","Richmond","Virginia",51159,53,0
+"198","2020-04-22","Westmoreland","Virginia",51193,12,0
+"199","2020-04-23","Accomack","Virginia",51001,76,2
+"200","2020-04-23","Essex","Virginia",51057,3,0
+"201","2020-04-23","King and Queen","Virginia",51097,2,0
+"202","2020-04-23","Lancaster","Virginia",51103,1,0
+"203","2020-04-23","Middlesex","Virginia",51119,3,0
+"204","2020-04-23","Northampton","Virginia",51131,12,0
+"205","2020-04-23","Northumberland","Virginia",51133,6,0
+"206","2020-04-23","Richmond","Virginia",51159,66,0
+"207","2020-04-23","Westmoreland","Virginia",51193,14,0
+"208","2020-04-24","Accomack","Virginia",51001,100,3
+"209","2020-04-24","Essex","Virginia",51057,3,0
+"210","2020-04-24","King and Queen","Virginia",51097,2,0
+"211","2020-04-24","Lancaster","Virginia",51103,1,0
+"212","2020-04-24","Middlesex","Virginia",51119,3,0
+"213","2020-04-24","Northampton","Virginia",51131,15,0
+"214","2020-04-24","Northumberland","Virginia",51133,6,0
+"215","2020-04-24","Richmond","Virginia",51159,66,0
+"216","2020-04-24","Westmoreland","Virginia",51193,14,0
+"217","2020-04-25","Accomack","Virginia",51001,146,3
+"218","2020-04-25","Essex","Virginia",51057,4,0
+"219","2020-04-25","King and Queen","Virginia",51097,2,0
+"220","2020-04-25","Lancaster","Virginia",51103,1,0
+"221","2020-04-25","Middlesex","Virginia",51119,4,0
+"222","2020-04-25","Northampton","Virginia",51131,20,0
+"223","2020-04-25","Northumberland","Virginia",51133,8,0
+"224","2020-04-25","Richmond","Virginia",51159,79,0
+"225","2020-04-25","Westmoreland","Virginia",51193,17,0
+"226","2020-04-26","Accomack","Virginia",51001,187,3
+"227","2020-04-26","Essex","Virginia",51057,6,0
+"228","2020-04-26","King and Queen","Virginia",51097,2,0
+"229","2020-04-26","Lancaster","Virginia",51103,1,0
+"230","2020-04-26","Middlesex","Virginia",51119,4,0
+"231","2020-04-26","Northampton","Virginia",51131,24,0
+"232","2020-04-26","Northumberland","Virginia",51133,8,0
+"233","2020-04-26","Richmond","Virginia",51159,89,0
+"234","2020-04-26","Westmoreland","Virginia",51193,20,0
+"235","2020-04-27","Accomack","Virginia",51001,195,3
+"236","2020-04-27","Essex","Virginia",51057,6,0
+"237","2020-04-27","King and Queen","Virginia",51097,2,0
+"238","2020-04-27","Lancaster","Virginia",51103,1,0
+"239","2020-04-27","Middlesex","Virginia",51119,4,0
+"240","2020-04-27","Northampton","Virginia",51131,28,0
+"241","2020-04-27","Northumberland","Virginia",51133,8,0
+"242","2020-04-27","Richmond","Virginia",51159,132,0
+"243","2020-04-27","Westmoreland","Virginia",51193,20,0
+"244","2020-04-28","Accomack","Virginia",51001,223,4
+"245","2020-04-28","Essex","Virginia",51057,6,0
+"246","2020-04-28","King and Queen","Virginia",51097,2,0
+"247","2020-04-28","Lancaster","Virginia",51103,1,0
+"248","2020-04-28","Middlesex","Virginia",51119,4,0
+"249","2020-04-28","Northampton","Virginia",51131,35,0
+"250","2020-04-28","Northumberland","Virginia",51133,8,0
+"251","2020-04-28","Richmond","Virginia",51159,141,0
+"252","2020-04-28","Westmoreland","Virginia",51193,21,0
+"253","2020-04-29","Accomack","Virginia",51001,229,4
+"254","2020-04-29","Essex","Virginia",51057,6,0
+"255","2020-04-29","King and Queen","Virginia",51097,2,0
+"256","2020-04-29","Lancaster","Virginia",51103,1,0
+"257","2020-04-29","Middlesex","Virginia",51119,4,0
+"258","2020-04-29","Northampton","Virginia",51131,36,0
+"259","2020-04-29","Northumberland","Virginia",51133,8,0
+"260","2020-04-29","Richmond","Virginia",51159,143,0
+"261","2020-04-29","Westmoreland","Virginia",51193,22,0
+"262","2020-04-30","Accomack","Virginia",51001,264,4
+"263","2020-04-30","Essex","Virginia",51057,7,0
+"264","2020-04-30","King and Queen","Virginia",51097,2,0
+"265","2020-04-30","Lancaster","Virginia",51103,2,0
+"266","2020-04-30","Middlesex","Virginia",51119,8,0
+"267","2020-04-30","Northampton","Virginia",51131,64,0
+"268","2020-04-30","Northumberland","Virginia",51133,9,0
+"269","2020-04-30","Richmond","Virginia",51159,144,0
+"270","2020-04-30","Westmoreland","Virginia",51193,21,0
+"271","2020-05-01","Accomack","Virginia",51001,303,5
+"272","2020-05-01","Essex","Virginia",51057,8,0
+"273","2020-05-01","King and Queen","Virginia",51097,2,0
+"274","2020-05-01","Lancaster","Virginia",51103,3,0
+"275","2020-05-01","Middlesex","Virginia",51119,7,0
+"276","2020-05-01","Northampton","Virginia",51131,82,0
+"277","2020-05-01","Northumberland","Virginia",51133,9,0
+"278","2020-05-01","Richmond","Virginia",51159,142,0
+"279","2020-05-01","Westmoreland","Virginia",51193,23,0
+"280","2020-05-02","Accomack","Virginia",51001,353,5
+"281","2020-05-02","Essex","Virginia",51057,8,0
+"282","2020-05-02","King and Queen","Virginia",51097,3,0
+"283","2020-05-02","Lancaster","Virginia",51103,3,0
+"284","2020-05-02","Middlesex","Virginia",51119,7,0
+"285","2020-05-02","Northampton","Virginia",51131,94,0
+"286","2020-05-02","Northumberland","Virginia",51133,9,0
+"287","2020-05-02","Richmond","Virginia",51159,143,0
+"288","2020-05-02","Westmoreland","Virginia",51193,25,0
+"289","2020-05-03","Accomack","Virginia",51001,400,6
+"290","2020-05-03","Essex","Virginia",51057,11,0
+"291","2020-05-03","King and Queen","Virginia",51097,3,0
+"292","2020-05-03","Lancaster","Virginia",51103,4,0
+"293","2020-05-03","Middlesex","Virginia",51119,7,0
+"294","2020-05-03","Northampton","Virginia",51131,134,1
+"295","2020-05-03","Northumberland","Virginia",51133,9,0
+"296","2020-05-03","Richmond","Virginia",51159,145,0
+"297","2020-05-03","Westmoreland","Virginia",51193,26,0
+"298","2020-05-04","Accomack","Virginia",51001,425,6
+"299","2020-05-04","Essex","Virginia",51057,16,0
+"300","2020-05-04","King and Queen","Virginia",51097,3,0
+"301","2020-05-04","Lancaster","Virginia",51103,5,0
+"302","2020-05-04","Middlesex","Virginia",51119,7,0
+"303","2020-05-04","Northampton","Virginia",51131,139,1
+"304","2020-05-04","Northumberland","Virginia",51133,9,0
+"305","2020-05-04","Richmond","Virginia",51159,145,0
+"306","2020-05-04","Westmoreland","Virginia",51193,31,0
+"307","2020-05-05","Accomack","Virginia",51001,429,7
+"308","2020-05-05","Essex","Virginia",51057,17,0
+"309","2020-05-05","King and Queen","Virginia",51097,3,0
+"310","2020-05-05","Lancaster","Virginia",51103,5,0
+"311","2020-05-05","Middlesex","Virginia",51119,7,0
+"312","2020-05-05","Northampton","Virginia",51131,140,1
+"313","2020-05-05","Northumberland","Virginia",51133,9,0
+"314","2020-05-05","Richmond","Virginia",51159,143,1
+"315","2020-05-05","Westmoreland","Virginia",51193,30,0
+"316","2020-05-06","Accomack","Virginia",51001,429,7
+"317","2020-05-06","Essex","Virginia",51057,17,0
+"318","2020-05-06","King and Queen","Virginia",51097,3,0
+"319","2020-05-06","Lancaster","Virginia",51103,5,0
+"320","2020-05-06","Middlesex","Virginia",51119,7,0
+"321","2020-05-06","Northampton","Virginia",51131,140,1
+"322","2020-05-06","Northumberland","Virginia",51133,9,0
+"323","2020-05-06","Richmond","Virginia",51159,143,1
+"324","2020-05-06","Westmoreland","Virginia",51193,30,0
+"325","2020-05-07","Accomack","Virginia",51001,463,7
+"326","2020-05-07","Essex","Virginia",51057,18,0
+"327","2020-05-07","King and Queen","Virginia",51097,4,0
+"328","2020-05-07","Lancaster","Virginia",51103,6,0
+"329","2020-05-07","Middlesex","Virginia",51119,7,0
+"330","2020-05-07","Northampton","Virginia",51131,149,3
+"331","2020-05-07","Northumberland","Virginia",51133,9,1
+"332","2020-05-07","Richmond","Virginia",51159,187,2
+"333","2020-05-07","Westmoreland","Virginia",51193,33,0
+"334","2020-05-08","Accomack","Virginia",51001,463,7
+"335","2020-05-08","Essex","Virginia",51057,18,0
+"336","2020-05-08","King and Queen","Virginia",51097,4,0
+"337","2020-05-08","Lancaster","Virginia",51103,6,0
+"338","2020-05-08","Middlesex","Virginia",51119,10,0
+"339","2020-05-08","Northampton","Virginia",51131,149,5
+"340","2020-05-08","Northumberland","Virginia",51133,9,1
+"341","2020-05-08","Richmond","Virginia",51159,187,3
+"342","2020-05-08","Westmoreland","Virginia",51193,35,0
+"343","2020-05-09","Accomack","Virginia",51001,496,7
+"344","2020-05-09","Essex","Virginia",51057,22,0
+"345","2020-05-09","King and Queen","Virginia",51097,5,0
+"346","2020-05-09","Lancaster","Virginia",51103,6,0
+"347","2020-05-09","Middlesex","Virginia",51119,10,0
+"348","2020-05-09","Northampton","Virginia",51131,159,5
+"349","2020-05-09","Northumberland","Virginia",51133,9,1
+"350","2020-05-09","Richmond","Virginia",51159,188,3
+"351","2020-05-09","Westmoreland","Virginia",51193,37,0
+"352","2020-05-10","Accomack","Virginia",51001,508,7
+"353","2020-05-10","Essex","Virginia",51057,23,0
+"354","2020-05-10","King and Queen","Virginia",51097,5,0
+"355","2020-05-10","Lancaster","Virginia",51103,6,0
+"356","2020-05-10","Middlesex","Virginia",51119,10,0
+"357","2020-05-10","Northampton","Virginia",51131,163,5
+"358","2020-05-10","Northumberland","Virginia",51133,10,1
+"359","2020-05-10","Richmond","Virginia",51159,189,3
+"360","2020-05-10","Westmoreland","Virginia",51193,38,0
+"361","2020-05-11","Accomack","Virginia",51001,524,7
+"362","2020-05-11","Essex","Virginia",51057,24,0
+"363","2020-05-11","King and Queen","Virginia",51097,5,0
+"364","2020-05-11","Lancaster","Virginia",51103,6,0
+"365","2020-05-11","Middlesex","Virginia",51119,10,0
+"366","2020-05-11","Northampton","Virginia",51131,170,5
+"367","2020-05-11","Northumberland","Virginia",51133,10,1
+"368","2020-05-11","Richmond","Virginia",51159,190,3
+"369","2020-05-11","Westmoreland","Virginia",51193,38,0
+"370","2020-05-12","Accomack","Virginia",51001,530,7
+"371","2020-05-12","Essex","Virginia",51057,26,0
+"372","2020-05-12","King and Queen","Virginia",51097,6,0
+"373","2020-05-12","Lancaster","Virginia",51103,7,0
+"374","2020-05-12","Middlesex","Virginia",51119,10,0
+"375","2020-05-12","Northampton","Virginia",51131,171,5
+"376","2020-05-12","Northumberland","Virginia",51133,10,1
+"377","2020-05-12","Richmond","Virginia",51159,200,3
+"378","2020-05-12","Westmoreland","Virginia",51193,41,0
+"379","2020-05-13","Accomack","Virginia",51001,545,7
+"380","2020-05-13","Essex","Virginia",51057,29,0
+"381","2020-05-13","King and Queen","Virginia",51097,6,0
+"382","2020-05-13","Lancaster","Virginia",51103,7,0
+"383","2020-05-13","Middlesex","Virginia",51119,10,0
+"384","2020-05-13","Northampton","Virginia",51131,174,5
+"385","2020-05-13","Northumberland","Virginia",51133,11,1
+"386","2020-05-13","Richmond","Virginia",51159,200,3
+"387","2020-05-13","Westmoreland","Virginia",51193,42,0
+"388","2020-05-14","Accomack","Virginia",51001,593,8
+"389","2020-05-14","Essex","Virginia",51057,29,0
+"390","2020-05-14","King and Queen","Virginia",51097,7,0
+"391","2020-05-14","Lancaster","Virginia",51103,7,0
+"392","2020-05-14","Middlesex","Virginia",51119,11,0
+"393","2020-05-14","Northampton","Virginia",51131,184,6
+"394","2020-05-14","Northumberland","Virginia",51133,15,1
+"395","2020-05-14","Richmond","Virginia",51159,203,4
+"396","2020-05-14","Westmoreland","Virginia",51193,42,0
+"397","2020-05-15","Accomack","Virginia",51001,648,9
+"398","2020-05-15","Essex","Virginia",51057,30,0
+"399","2020-05-15","King and Queen","Virginia",51097,7,0
+"400","2020-05-15","Lancaster","Virginia",51103,7,0
+"401","2020-05-15","Middlesex","Virginia",51119,11,0
+"402","2020-05-15","Northampton","Virginia",51131,193,7
+"403","2020-05-15","Northumberland","Virginia",51133,15,1
+"404","2020-05-15","Richmond","Virginia",51159,201,4
+"405","2020-05-15","Westmoreland","Virginia",51193,42,0
+"406","2020-05-16","Accomack","Virginia",51001,668,9
+"407","2020-05-16","Essex","Virginia",51057,31,0
+"408","2020-05-16","King and Queen","Virginia",51097,7,0
+"409","2020-05-16","Lancaster","Virginia",51103,7,0
+"410","2020-05-16","Middlesex","Virginia",51119,12,0
+"411","2020-05-16","Northampton","Virginia",51131,196,8
+"412","2020-05-16","Northumberland","Virginia",51133,17,1
+"413","2020-05-16","Richmond","Virginia",51159,204,4
+"414","2020-05-16","Westmoreland","Virginia",51193,42,0
+"415","2020-05-17","Accomack","Virginia",51001,688,9
+"416","2020-05-17","Essex","Virginia",51057,31,0
+"417","2020-05-17","King and Queen","Virginia",51097,7,0
+"418","2020-05-17","Lancaster","Virginia",51103,7,0
+"419","2020-05-17","Middlesex","Virginia",51119,12,0
+"420","2020-05-17","Northampton","Virginia",51131,198,9
+"421","2020-05-17","Northumberland","Virginia",51133,18,1
+"422","2020-05-17","Richmond","Virginia",51159,261,4
+"423","2020-05-17","Westmoreland","Virginia",51193,42,0
+"424","2020-05-18","Accomack","Virginia",51001,690,9
+"425","2020-05-18","Essex","Virginia",51057,31,0
+"426","2020-05-18","King and Queen","Virginia",51097,7,0
+"427","2020-05-18","Lancaster","Virginia",51103,7,0
+"428","2020-05-18","Middlesex","Virginia",51119,12,0
+"429","2020-05-18","Northampton","Virginia",51131,198,9
+"430","2020-05-18","Northumberland","Virginia",51133,18,1
+"431","2020-05-18","Richmond","Virginia",51159,263,4
+"432","2020-05-18","Westmoreland","Virginia",51193,42,0
+"433","2020-05-19","Accomack","Virginia",51001,701,9
+"434","2020-05-19","Essex","Virginia",51057,35,0
+"435","2020-05-19","King and Queen","Virginia",51097,7,0
+"436","2020-05-19","Lancaster","Virginia",51103,7,0
+"437","2020-05-19","Middlesex","Virginia",51119,12,0
+"438","2020-05-19","Northampton","Virginia",51131,204,11
+"439","2020-05-19","Northumberland","Virginia",51133,20,1
+"440","2020-05-19","Richmond","Virginia",51159,265,4
+"441","2020-05-19","Westmoreland","Virginia",51193,43,0
+"442","2020-05-20","Accomack","Virginia",51001,709,11
+"443","2020-05-20","Essex","Virginia",51057,35,0
+"444","2020-05-20","King and Queen","Virginia",51097,7,0
+"445","2020-05-20","Lancaster","Virginia",51103,7,0
+"446","2020-05-20","Middlesex","Virginia",51119,12,0
+"447","2020-05-20","Northampton","Virginia",51131,205,15
+"448","2020-05-20","Northumberland","Virginia",51133,21,1
+"449","2020-05-20","Richmond","Virginia",51159,263,4
+"450","2020-05-20","Westmoreland","Virginia",51193,42,0
+"451","2020-05-21","Accomack","Virginia",51001,709,11
+"452","2020-05-21","Essex","Virginia",51057,36,0
+"453","2020-05-21","King and Queen","Virginia",51097,7,0
+"454","2020-05-21","Lancaster","Virginia",51103,8,0
+"455","2020-05-21","Middlesex","Virginia",51119,12,0
+"456","2020-05-21","Northampton","Virginia",51131,206,16
+"457","2020-05-21","Northumberland","Virginia",51133,21,1
+"458","2020-05-21","Richmond","Virginia",51159,263,4
+"459","2020-05-21","Westmoreland","Virginia",51193,43,0
+"460","2020-05-22","Accomack","Virginia",51001,711,11
+"461","2020-05-22","Essex","Virginia",51057,36,0
+"462","2020-05-22","King and Queen","Virginia",51097,7,0
+"463","2020-05-22","Lancaster","Virginia",51103,10,0
+"464","2020-05-22","Middlesex","Virginia",51119,12,0
+"465","2020-05-22","Northampton","Virginia",51131,206,16
+"466","2020-05-22","Northumberland","Virginia",51133,22,1
+"467","2020-05-22","Richmond","Virginia",51159,267,4
+"468","2020-05-22","Westmoreland","Virginia",51193,43,0
+"469","2020-05-23","Accomack","Virginia",51001,722,11
+"470","2020-05-23","Essex","Virginia",51057,41,0
+"471","2020-05-23","King and Queen","Virginia",51097,7,0
+"472","2020-05-23","Lancaster","Virginia",51103,10,0
+"473","2020-05-23","Middlesex","Virginia",51119,12,0
+"474","2020-05-23","Northampton","Virginia",51131,210,16
+"475","2020-05-23","Northumberland","Virginia",51133,22,1
+"476","2020-05-23","Richmond","Virginia",51159,276,4
+"477","2020-05-23","Westmoreland","Virginia",51193,46,0
+"478","2020-05-24","Accomack","Virginia",51001,727,11
+"479","2020-05-24","Essex","Virginia",51057,43,0
+"480","2020-05-24","King and Queen","Virginia",51097,7,0
+"481","2020-05-24","Lancaster","Virginia",51103,10,0
+"482","2020-05-24","Middlesex","Virginia",51119,12,0
+"483","2020-05-24","Northampton","Virginia",51131,213,16
+"484","2020-05-24","Northumberland","Virginia",51133,22,1
+"485","2020-05-24","Richmond","Virginia",51159,275,4
+"486","2020-05-24","Westmoreland","Virginia",51193,48,0
+"487","2020-05-25","Accomack","Virginia",51001,731,11
+"488","2020-05-25","Essex","Virginia",51057,44,0
+"489","2020-05-25","King and Queen","Virginia",51097,7,0
+"490","2020-05-25","Lancaster","Virginia",51103,10,0
+"491","2020-05-25","Middlesex","Virginia",51119,12,0
+"492","2020-05-25","Northampton","Virginia",51131,216,17
+"493","2020-05-25","Northumberland","Virginia",51133,23,1
+"494","2020-05-25","Richmond","Virginia",51159,275,4
+"495","2020-05-25","Westmoreland","Virginia",51193,50,0
+"496","2020-05-26","Accomack","Virginia",51001,758,11
+"497","2020-05-26","Essex","Virginia",51057,44,0
+"498","2020-05-26","King and Queen","Virginia",51097,7,0
+"499","2020-05-26","Lancaster","Virginia",51103,10,0
+"500","2020-05-26","Middlesex","Virginia",51119,14,0
+"501","2020-05-26","Northampton","Virginia",51131,221,17
+"502","2020-05-26","Northumberland","Virginia",51133,23,1
+"503","2020-05-26","Richmond","Virginia",51159,278,4
+"504","2020-05-26","Westmoreland","Virginia",51193,54,0
+"505","2020-05-27","Accomack","Virginia",51001,780,12
+"506","2020-05-27","Essex","Virginia",51057,43,0
+"507","2020-05-27","King and Queen","Virginia",51097,8,0
+"508","2020-05-27","Lancaster","Virginia",51103,10,0
+"509","2020-05-27","Middlesex","Virginia",51119,14,0
+"510","2020-05-27","Northampton","Virginia",51131,225,18
+"511","2020-05-27","Northumberland","Virginia",51133,23,1
+"512","2020-05-27","Richmond","Virginia",51159,275,4
+"513","2020-05-27","Westmoreland","Virginia",51193,61,0
+"514","2020-05-28","Accomack","Virginia",51001,807,12
+"515","2020-05-28","Essex","Virginia",51057,46,0
+"516","2020-05-28","King and Queen","Virginia",51097,10,1
+"517","2020-05-28","Lancaster","Virginia",51103,10,0
+"518","2020-05-28","Middlesex","Virginia",51119,14,0
+"519","2020-05-28","Northampton","Virginia",51131,227,20
+"520","2020-05-28","Northumberland","Virginia",51133,25,1
+"521","2020-05-28","Richmond","Virginia",51159,275,4
+"522","2020-05-28","Westmoreland","Virginia",51193,63,1
+"523","2020-05-29","Accomack","Virginia",51001,827,12
+"524","2020-05-29","Essex","Virginia",51057,46,0
+"525","2020-05-29","King and Queen","Virginia",51097,10,1
+"526","2020-05-29","Lancaster","Virginia",51103,10,0
+"527","2020-05-29","Middlesex","Virginia",51119,14,0
+"528","2020-05-29","Northampton","Virginia",51131,228,20
+"529","2020-05-29","Northumberland","Virginia",51133,25,1
+"530","2020-05-29","Richmond","Virginia",51159,276,4
+"531","2020-05-29","Westmoreland","Virginia",51193,63,1
+"532","2020-05-30","Accomack","Virginia",51001,863,12
+"533","2020-05-30","Essex","Virginia",51057,46,0
+"534","2020-05-30","King and Queen","Virginia",51097,10,1
+"535","2020-05-30","Lancaster","Virginia",51103,10,0
+"536","2020-05-30","Middlesex","Virginia",51119,15,0
+"537","2020-05-30","Northampton","Virginia",51131,230,20
+"538","2020-05-30","Northumberland","Virginia",51133,25,1
+"539","2020-05-30","Richmond","Virginia",51159,275,4
+"540","2020-05-30","Westmoreland","Virginia",51193,63,1
+"541","2020-05-31","Accomack","Virginia",51001,909,12
+"542","2020-05-31","Essex","Virginia",51057,48,0
+"543","2020-05-31","King and Queen","Virginia",51097,13,1
+"544","2020-05-31","Lancaster","Virginia",51103,10,0
+"545","2020-05-31","Middlesex","Virginia",51119,15,0
+"546","2020-05-31","Northampton","Virginia",51131,237,23
+"547","2020-05-31","Northumberland","Virginia",51133,25,1
+"548","2020-05-31","Richmond","Virginia",51159,276,4
+"549","2020-05-31","Westmoreland","Virginia",51193,65,1
+"550","2020-06-01","Accomack","Virginia",51001,917,12
+"551","2020-06-01","Essex","Virginia",51057,48,0
+"552","2020-06-01","King and Queen","Virginia",51097,13,1
+"553","2020-06-01","Lancaster","Virginia",51103,10,0
+"554","2020-06-01","Middlesex","Virginia",51119,15,0
+"555","2020-06-01","Northampton","Virginia",51131,241,23
+"556","2020-06-01","Northumberland","Virginia",51133,25,1
+"557","2020-06-01","Richmond","Virginia",51159,287,4
+"558","2020-06-01","Westmoreland","Virginia",51193,68,1
+"559","2020-06-02","Accomack","Virginia",51001,939,12
+"560","2020-06-02","Essex","Virginia",51057,48,0
+"561","2020-06-02","King and Queen","Virginia",51097,13,1
+"562","2020-06-02","Lancaster","Virginia",51103,10,0
+"563","2020-06-02","Middlesex","Virginia",51119,15,0
+"564","2020-06-02","Northampton","Virginia",51131,243,23
+"565","2020-06-02","Northumberland","Virginia",51133,25,1
+"566","2020-06-02","Richmond","Virginia",51159,287,4
+"567","2020-06-02","Westmoreland","Virginia",51193,70,1
+"568","2020-06-03","Accomack","Virginia",51001,953,12
+"569","2020-06-03","Essex","Virginia",51057,48,0
+"570","2020-06-03","King and Queen","Virginia",51097,13,1
+"571","2020-06-03","Lancaster","Virginia",51103,10,0
+"572","2020-06-03","Middlesex","Virginia",51119,15,0
+"573","2020-06-03","Northampton","Virginia",51131,245,23
+"574","2020-06-03","Northumberland","Virginia",51133,25,1
+"575","2020-06-03","Richmond","Virginia",51159,287,5
+"576","2020-06-03","Westmoreland","Virginia",51193,76,1
+"577","2020-06-04","Accomack","Virginia",51001,966,12
+"578","2020-06-04","Essex","Virginia",51057,52,0
+"579","2020-06-04","King and Queen","Virginia",51097,21,1
+"580","2020-06-04","Lancaster","Virginia",51103,10,0
+"581","2020-06-04","Middlesex","Virginia",51119,15,0
+"582","2020-06-04","Northampton","Virginia",51131,247,25
+"583","2020-06-04","Northumberland","Virginia",51133,25,1
+"584","2020-06-04","Richmond","Virginia",51159,287,5
+"585","2020-06-04","Westmoreland","Virginia",51193,80,1
+"586","2020-06-05","Accomack","Virginia",51001,969,12
+"587","2020-06-05","Essex","Virginia",51057,53,0
+"588","2020-06-05","King and Queen","Virginia",51097,21,1
+"589","2020-06-05","Lancaster","Virginia",51103,10,0
+"590","2020-06-05","Middlesex","Virginia",51119,14,0
+"591","2020-06-05","Northampton","Virginia",51131,249,25
+"592","2020-06-05","Northumberland","Virginia",51133,25,1
+"593","2020-06-05","Richmond","Virginia",51159,289,5
+"594","2020-06-05","Westmoreland","Virginia",51193,80,1
+"595","2020-06-06","Accomack","Virginia",51001,970,13
+"596","2020-06-06","Essex","Virginia",51057,53,0
+"597","2020-06-06","King and Queen","Virginia",51097,22,1
+"598","2020-06-06","Lancaster","Virginia",51103,10,0
+"599","2020-06-06","Middlesex","Virginia",51119,14,0
+"600","2020-06-06","Northampton","Virginia",51131,251,25
+"601","2020-06-06","Northumberland","Virginia",51133,25,1
+"602","2020-06-06","Richmond","Virginia",51159,291,6
+"603","2020-06-06","Westmoreland","Virginia",51193,81,1
+"604","2020-06-07","Accomack","Virginia",51001,983,13
+"605","2020-06-07","Essex","Virginia",51057,53,0
+"606","2020-06-07","King and Queen","Virginia",51097,24,1
+"607","2020-06-07","Lancaster","Virginia",51103,10,0
+"608","2020-06-07","Middlesex","Virginia",51119,14,0
+"609","2020-06-07","Northampton","Virginia",51131,255,26
+"610","2020-06-07","Northumberland","Virginia",51133,25,1
+"611","2020-06-07","Richmond","Virginia",51159,293,6
+"612","2020-06-07","Westmoreland","Virginia",51193,81,1
+"613","2020-06-08","Accomack","Virginia",51001,983,13
+"614","2020-06-08","Essex","Virginia",51057,53,0
+"615","2020-06-08","King and Queen","Virginia",51097,24,1
+"616","2020-06-08","Lancaster","Virginia",51103,10,0
+"617","2020-06-08","Middlesex","Virginia",51119,14,0
+"618","2020-06-08","Northampton","Virginia",51131,255,26
+"619","2020-06-08","Northumberland","Virginia",51133,25,1
+"620","2020-06-08","Richmond","Virginia",51159,293,6
+"621","2020-06-08","Westmoreland","Virginia",51193,82,1
+"622","2020-06-09","Accomack","Virginia",51001,983,13
+"623","2020-06-09","Essex","Virginia",51057,53,0
+"624","2020-06-09","King and Queen","Virginia",51097,23,1
+"625","2020-06-09","Lancaster","Virginia",51103,10,0
+"626","2020-06-09","Middlesex","Virginia",51119,14,0
+"627","2020-06-09","Northampton","Virginia",51131,256,27
+"628","2020-06-09","Northumberland","Virginia",51133,25,1
+"629","2020-06-09","Richmond","Virginia",51159,289,5
+"630","2020-06-09","Westmoreland","Virginia",51193,83,1
+"631","2020-06-10","Accomack","Virginia",51001,984,13
+"632","2020-06-10","Essex","Virginia",51057,53,0
+"633","2020-06-10","King and Queen","Virginia",51097,24,1
+"634","2020-06-10","Lancaster","Virginia",51103,10,0
+"635","2020-06-10","Middlesex","Virginia",51119,14,0
+"636","2020-06-10","Northampton","Virginia",51131,257,27
+"637","2020-06-10","Northumberland","Virginia",51133,25,1
+"638","2020-06-10","Richmond","Virginia",51159,290,5
+"639","2020-06-10","Westmoreland","Virginia",51193,83,1
+"640","2020-06-11","Accomack","Virginia",51001,984,13
+"641","2020-06-11","Essex","Virginia",51057,52,0
+"642","2020-06-11","King and Queen","Virginia",51097,24,1
+"643","2020-06-11","Lancaster","Virginia",51103,11,0
+"644","2020-06-11","Middlesex","Virginia",51119,14,0
+"645","2020-06-11","Northampton","Virginia",51131,259,27
+"646","2020-06-11","Northumberland","Virginia",51133,25,1
+"647","2020-06-11","Richmond","Virginia",51159,290,5
+"648","2020-06-11","Westmoreland","Virginia",51193,83,1
+"649","2020-06-12","Accomack","Virginia",51001,987,13
+"650","2020-06-12","Essex","Virginia",51057,52,0
+"651","2020-06-12","King and Queen","Virginia",51097,24,1
+"652","2020-06-12","Lancaster","Virginia",51103,11,0
+"653","2020-06-12","Middlesex","Virginia",51119,14,0
+"654","2020-06-12","Northampton","Virginia",51131,259,27
+"655","2020-06-12","Northumberland","Virginia",51133,25,1
+"656","2020-06-12","Richmond","Virginia",51159,290,5
+"657","2020-06-12","Westmoreland","Virginia",51193,84,1
+"658","2020-06-13","Accomack","Virginia",51001,989,14
+"659","2020-06-13","Essex","Virginia",51057,52,0
+"660","2020-06-13","King and Queen","Virginia",51097,24,1
+"661","2020-06-13","Lancaster","Virginia",51103,11,0
+"662","2020-06-13","Middlesex","Virginia",51119,14,0
+"663","2020-06-13","Northampton","Virginia",51131,261,27
+"664","2020-06-13","Northumberland","Virginia",51133,26,1
+"665","2020-06-13","Richmond","Virginia",51159,291,5
+"666","2020-06-13","Westmoreland","Virginia",51193,85,1
+"667","2020-06-14","Accomack","Virginia",51001,993,14
+"668","2020-06-14","Essex","Virginia",51057,53,0
+"669","2020-06-14","King and Queen","Virginia",51097,24,1
+"670","2020-06-14","Lancaster","Virginia",51103,11,0
+"671","2020-06-14","Middlesex","Virginia",51119,14,0
+"672","2020-06-14","Northampton","Virginia",51131,262,27
+"673","2020-06-14","Northumberland","Virginia",51133,26,1
+"674","2020-06-14","Richmond","Virginia",51159,291,5
+"675","2020-06-14","Westmoreland","Virginia",51193,87,1
+"676","2020-06-15","Accomack","Virginia",51001,996,14
+"677","2020-06-15","Essex","Virginia",51057,53,0
+"678","2020-06-15","King and Queen","Virginia",51097,24,1
+"679","2020-06-15","Lancaster","Virginia",51103,11,0
+"680","2020-06-15","Middlesex","Virginia",51119,14,0
+"681","2020-06-15","Northampton","Virginia",51131,262,27
+"682","2020-06-15","Northumberland","Virginia",51133,27,1
+"683","2020-06-15","Richmond","Virginia",51159,292,5
+"684","2020-06-15","Westmoreland","Virginia",51193,87,1
+"685","2020-06-16","Accomack","Virginia",51001,1007,14
+"686","2020-06-16","Essex","Virginia",51057,53,0
+"687","2020-06-16","King and Queen","Virginia",51097,24,1
+"688","2020-06-16","Lancaster","Virginia",51103,11,0
+"689","2020-06-16","Middlesex","Virginia",51119,14,0
+"690","2020-06-16","Northampton","Virginia",51131,264,27
+"691","2020-06-16","Northumberland","Virginia",51133,27,1
+"692","2020-06-16","Richmond","Virginia",51159,294,6
+"693","2020-06-16","Westmoreland","Virginia",51193,87,1
+"694","2020-06-17","Accomack","Virginia",51001,1018,14
+"695","2020-06-17","Essex","Virginia",51057,53,0
+"696","2020-06-17","King and Queen","Virginia",51097,24,1
+"697","2020-06-17","Lancaster","Virginia",51103,11,0
+"698","2020-06-17","Middlesex","Virginia",51119,14,0
+"699","2020-06-17","Northampton","Virginia",51131,265,27
+"700","2020-06-17","Northumberland","Virginia",51133,27,1
+"701","2020-06-17","Richmond","Virginia",51159,294,6
+"702","2020-06-17","Westmoreland","Virginia",51193,87,1
+"703","2020-06-18","Accomack","Virginia",51001,1018,14
+"704","2020-06-18","Essex","Virginia",51057,54,0
+"705","2020-06-18","King and Queen","Virginia",51097,24,1
+"706","2020-06-18","Lancaster","Virginia",51103,11,0
+"707","2020-06-18","Middlesex","Virginia",51119,14,0
+"708","2020-06-18","Northampton","Virginia",51131,267,27
+"709","2020-06-18","Northumberland","Virginia",51133,27,1
+"710","2020-06-18","Richmond","Virginia",51159,295,5
+"711","2020-06-18","Westmoreland","Virginia",51193,87,1
+"712","2020-06-19","Accomack","Virginia",51001,1022,14
+"713","2020-06-19","Essex","Virginia",51057,54,0
+"714","2020-06-19","King and Queen","Virginia",51097,24,1
+"715","2020-06-19","Lancaster","Virginia",51103,11,0
+"716","2020-06-19","Middlesex","Virginia",51119,14,0
+"717","2020-06-19","Northampton","Virginia",51131,267,27
+"718","2020-06-19","Northumberland","Virginia",51133,28,1
+"719","2020-06-19","Richmond","Virginia",51159,301,7
+"720","2020-06-19","Westmoreland","Virginia",51193,87,1
+"721","2020-06-20","Accomack","Virginia",51001,1024,14
+"722","2020-06-20","Essex","Virginia",51057,54,0
+"723","2020-06-20","King and Queen","Virginia",51097,24,1
+"724","2020-06-20","Lancaster","Virginia",51103,12,0
+"725","2020-06-20","Middlesex","Virginia",51119,15,0
+"726","2020-06-20","Northampton","Virginia",51131,268,27
+"727","2020-06-20","Northumberland","Virginia",51133,28,1
+"728","2020-06-20","Richmond","Virginia",51159,317,7
+"729","2020-06-20","Westmoreland","Virginia",51193,88,1
+"730","2020-06-21","Accomack","Virginia",51001,1031,14
+"731","2020-06-21","Essex","Virginia",51057,54,0
+"732","2020-06-21","King and Queen","Virginia",51097,24,1
+"733","2020-06-21","Lancaster","Virginia",51103,12,0
+"734","2020-06-21","Middlesex","Virginia",51119,15,0
+"735","2020-06-21","Northampton","Virginia",51131,270,28
+"736","2020-06-21","Northumberland","Virginia",51133,28,1
+"737","2020-06-21","Richmond","Virginia",51159,317,7
+"738","2020-06-21","Westmoreland","Virginia",51193,91,1
+"739","2020-06-22","Accomack","Virginia",51001,1032,14
+"740","2020-06-22","Essex","Virginia",51057,54,0
+"741","2020-06-22","King and Queen","Virginia",51097,24,1
+"742","2020-06-22","Lancaster","Virginia",51103,12,0
+"743","2020-06-22","Middlesex","Virginia",51119,15,0
+"744","2020-06-22","Northampton","Virginia",51131,271,28
+"745","2020-06-22","Northumberland","Virginia",51133,28,1
+"746","2020-06-22","Richmond","Virginia",51159,317,7
+"747","2020-06-22","Westmoreland","Virginia",51193,91,1
+"748","2020-06-23","Accomack","Virginia",51001,1033,14
+"749","2020-06-23","Essex","Virginia",51057,54,0
+"750","2020-06-23","King and Queen","Virginia",51097,24,1
+"751","2020-06-23","Lancaster","Virginia",51103,12,0
+"752","2020-06-23","Middlesex","Virginia",51119,15,0
+"753","2020-06-23","Northampton","Virginia",51131,271,28
+"754","2020-06-23","Northumberland","Virginia",51133,28,1
+"755","2020-06-23","Richmond","Virginia",51159,318,8
+"756","2020-06-23","Westmoreland","Virginia",51193,92,1
+"757","2020-06-24","Accomack","Virginia",51001,1034,14
+"758","2020-06-24","Essex","Virginia",51057,54,0
+"759","2020-06-24","King and Queen","Virginia",51097,24,1
+"760","2020-06-24","Lancaster","Virginia",51103,12,0
+"761","2020-06-24","Middlesex","Virginia",51119,15,0
+"762","2020-06-24","Northampton","Virginia",51131,270,28
+"763","2020-06-24","Northumberland","Virginia",51133,28,1
+"764","2020-06-24","Richmond","Virginia",51159,295,6
+"765","2020-06-24","Westmoreland","Virginia",51193,92,1
+"766","2020-06-25","Accomack","Virginia",51001,1037,14
+"767","2020-06-25","Essex","Virginia",51057,54,0
+"768","2020-06-25","King and Queen","Virginia",51097,24,1
+"769","2020-06-25","Lancaster","Virginia",51103,12,0
+"770","2020-06-25","Middlesex","Virginia",51119,15,0
+"771","2020-06-25","Northampton","Virginia",51131,269,28
+"772","2020-06-25","Northumberland","Virginia",51133,28,1
+"773","2020-06-25","Richmond","Virginia",51159,295,6
+"774","2020-06-25","Westmoreland","Virginia",51193,92,1
+"775","2020-06-26","Accomack","Virginia",51001,1037,14
+"776","2020-06-26","Essex","Virginia",51057,56,0
+"777","2020-06-26","King and Queen","Virginia",51097,23,1
+"778","2020-06-26","Lancaster","Virginia",51103,10,0
+"779","2020-06-26","Middlesex","Virginia",51119,15,0
+"780","2020-06-26","Northampton","Virginia",51131,269,28
+"781","2020-06-26","Northumberland","Virginia",51133,38,1
+"782","2020-06-26","Richmond","Virginia",51159,296,4
+"783","2020-06-26","Westmoreland","Virginia",51193,93,2
+"784","2020-06-27","Accomack","Virginia",51001,1039,14
+"785","2020-06-27","Essex","Virginia",51057,56,0
+"786","2020-06-27","King and Queen","Virginia",51097,23,1
+"787","2020-06-27","Lancaster","Virginia",51103,10,0
+"788","2020-06-27","Middlesex","Virginia",51119,15,0
+"789","2020-06-27","Northampton","Virginia",51131,269,28
+"790","2020-06-27","Northumberland","Virginia",51133,38,1
+"791","2020-06-27","Richmond","Virginia",51159,296,4
+"792","2020-06-27","Westmoreland","Virginia",51193,100,2
+"793","2020-06-28","Accomack","Virginia",51001,1039,14
+"794","2020-06-28","Essex","Virginia",51057,56,0
+"795","2020-06-28","King and Queen","Virginia",51097,23,1
+"796","2020-06-28","Lancaster","Virginia",51103,11,0
+"797","2020-06-28","Middlesex","Virginia",51119,15,0
+"798","2020-06-28","Northampton","Virginia",51131,269,28
+"799","2020-06-28","Northumberland","Virginia",51133,38,1
+"800","2020-06-28","Richmond","Virginia",51159,296,4
+"801","2020-06-28","Westmoreland","Virginia",51193,104,2
+"802","2020-06-29","Accomack","Virginia",51001,1039,14
+"803","2020-06-29","Essex","Virginia",51057,57,0
+"804","2020-06-29","King and Queen","Virginia",51097,23,1
+"805","2020-06-29","Lancaster","Virginia",51103,11,0
+"806","2020-06-29","Middlesex","Virginia",51119,15,0
+"807","2020-06-29","Northampton","Virginia",51131,269,28
+"808","2020-06-29","Northumberland","Virginia",51133,39,1
+"809","2020-06-29","Richmond","Virginia",51159,296,4
+"810","2020-06-29","Westmoreland","Virginia",51193,105,2
+"811","2020-06-30","Accomack","Virginia",51001,1042,14
+"812","2020-06-30","Essex","Virginia",51057,58,0
+"813","2020-06-30","King and Queen","Virginia",51097,23,1
+"814","2020-06-30","Lancaster","Virginia",51103,11,0
+"815","2020-06-30","Middlesex","Virginia",51119,15,0
+"816","2020-06-30","Northampton","Virginia",51131,269,28
+"817","2020-06-30","Northumberland","Virginia",51133,37,1
+"818","2020-06-30","Richmond","Virginia",51159,298,4
+"819","2020-06-30","Westmoreland","Virginia",51193,108,2
+"820","2020-07-01","Accomack","Virginia",51001,1043,14
+"821","2020-07-01","Essex","Virginia",51057,59,0
+"822","2020-07-01","King and Queen","Virginia",51097,23,1
+"823","2020-07-01","Lancaster","Virginia",51103,11,0
+"824","2020-07-01","Middlesex","Virginia",51119,15,0
+"825","2020-07-01","Northampton","Virginia",51131,269,28
+"826","2020-07-01","Northumberland","Virginia",51133,37,1
+"827","2020-07-01","Richmond","Virginia",51159,298,4
+"828","2020-07-01","Westmoreland","Virginia",51193,108,2
+"829","2020-07-02","Accomack","Virginia",51001,1042,14
+"830","2020-07-02","Essex","Virginia",51057,59,0
+"831","2020-07-02","King and Queen","Virginia",51097,24,1
+"832","2020-07-02","Lancaster","Virginia",51103,11,0
+"833","2020-07-02","Middlesex","Virginia",51119,15,0
+"834","2020-07-02","Northampton","Virginia",51131,271,28
+"835","2020-07-02","Northumberland","Virginia",51133,37,1
+"836","2020-07-02","Richmond","Virginia",51159,298,4
+"837","2020-07-02","Westmoreland","Virginia",51193,108,2
+"838","2020-07-03","Accomack","Virginia",51001,1042,14
+"839","2020-07-03","Essex","Virginia",51057,59,0
+"840","2020-07-03","King and Queen","Virginia",51097,24,1
+"841","2020-07-03","Lancaster","Virginia",51103,11,0
+"842","2020-07-03","Middlesex","Virginia",51119,15,0
+"843","2020-07-03","Northampton","Virginia",51131,271,28
+"844","2020-07-03","Northumberland","Virginia",51133,36,1
+"845","2020-07-03","Richmond","Virginia",51159,298,4
+"846","2020-07-03","Westmoreland","Virginia",51193,108,2
+"847","2020-07-04","Accomack","Virginia",51001,1043,14
+"848","2020-07-04","Essex","Virginia",51057,59,0
+"849","2020-07-04","King and Queen","Virginia",51097,24,1
+"850","2020-07-04","Lancaster","Virginia",51103,11,0
+"851","2020-07-04","Middlesex","Virginia",51119,15,0
+"852","2020-07-04","Northampton","Virginia",51131,271,28
+"853","2020-07-04","Northumberland","Virginia",51133,36,1
+"854","2020-07-04","Richmond","Virginia",51159,298,4
+"855","2020-07-04","Westmoreland","Virginia",51193,108,2
+"856","2020-07-05","Accomack","Virginia",51001,1044,14
+"857","2020-07-05","Essex","Virginia",51057,59,0
+"858","2020-07-05","King and Queen","Virginia",51097,24,1
+"859","2020-07-05","Lancaster","Virginia",51103,11,0
+"860","2020-07-05","Middlesex","Virginia",51119,15,0
+"861","2020-07-05","Northampton","Virginia",51131,272,28
+"862","2020-07-05","Northumberland","Virginia",51133,37,1
+"863","2020-07-05","Richmond","Virginia",51159,299,4
+"864","2020-07-05","Westmoreland","Virginia",51193,116,2
+"865","2020-07-06","Accomack","Virginia",51001,1044,14
+"866","2020-07-06","Essex","Virginia",51057,59,0
+"867","2020-07-06","King and Queen","Virginia",51097,24,1
+"868","2020-07-06","Lancaster","Virginia",51103,11,0
+"869","2020-07-06","Middlesex","Virginia",51119,15,0
+"870","2020-07-06","Northampton","Virginia",51131,272,28
+"871","2020-07-06","Northumberland","Virginia",51133,37,1
+"872","2020-07-06","Richmond","Virginia",51159,299,4
+"873","2020-07-06","Westmoreland","Virginia",51193,116,2
+"874","2020-07-07","Accomack","Virginia",51001,1042,14
+"875","2020-07-07","Essex","Virginia",51057,59,0
+"876","2020-07-07","King and Queen","Virginia",51097,24,1
+"877","2020-07-07","Lancaster","Virginia",51103,11,0
+"878","2020-07-07","Middlesex","Virginia",51119,15,0
+"879","2020-07-07","Northampton","Virginia",51131,272,28
+"880","2020-07-07","Northumberland","Virginia",51133,37,1
+"881","2020-07-07","Richmond","Virginia",51159,300,4
+"882","2020-07-07","Westmoreland","Virginia",51193,118,2
+"883","2020-07-08","Accomack","Virginia",51001,1042,14
+"884","2020-07-08","Essex","Virginia",51057,59,0
+"885","2020-07-08","King and Queen","Virginia",51097,25,1
+"886","2020-07-08","Lancaster","Virginia",51103,11,0
+"887","2020-07-08","Middlesex","Virginia",51119,15,0
+"888","2020-07-08","Northampton","Virginia",51131,272,28
+"889","2020-07-08","Northumberland","Virginia",51133,37,1
+"890","2020-07-08","Richmond","Virginia",51159,299,4
+"891","2020-07-08","Westmoreland","Virginia",51193,118,2
+"892","2020-07-09","Accomack","Virginia",51001,1042,14
+"893","2020-07-09","Essex","Virginia",51057,64,0
+"894","2020-07-09","King and Queen","Virginia",51097,26,1
+"895","2020-07-09","Lancaster","Virginia",51103,12,0
+"896","2020-07-09","Middlesex","Virginia",51119,15,0
+"897","2020-07-09","Northampton","Virginia",51131,272,28
+"898","2020-07-09","Northumberland","Virginia",51133,37,1
+"899","2020-07-09","Richmond","Virginia",51159,304,4
+"900","2020-07-09","Westmoreland","Virginia",51193,124,2
+"901","2020-07-10","Accomack","Virginia",51001,1042,14
+"902","2020-07-10","Essex","Virginia",51057,63,0
+"903","2020-07-10","King and Queen","Virginia",51097,26,1
+"904","2020-07-10","Lancaster","Virginia",51103,12,0
+"905","2020-07-10","Middlesex","Virginia",51119,16,0
+"906","2020-07-10","Northampton","Virginia",51131,273,28
+"907","2020-07-10","Northumberland","Virginia",51133,38,1
+"908","2020-07-10","Richmond","Virginia",51159,308,6
+"909","2020-07-10","Westmoreland","Virginia",51193,171,2
+"910","2020-07-11","Accomack","Virginia",51001,1042,14
+"911","2020-07-11","Essex","Virginia",51057,63,0
+"912","2020-07-11","King and Queen","Virginia",51097,26,1
+"913","2020-07-11","Lancaster","Virginia",51103,13,0
+"914","2020-07-11","Middlesex","Virginia",51119,17,0
+"915","2020-07-11","Northampton","Virginia",51131,274,28
+"916","2020-07-11","Northumberland","Virginia",51133,40,1
+"917","2020-07-11","Richmond","Virginia",51159,311,6
+"918","2020-07-11","Westmoreland","Virginia",51193,183,2
+"919","2020-07-12","Accomack","Virginia",51001,1042,14
+"920","2020-07-12","Essex","Virginia",51057,63,0
+"921","2020-07-12","King and Queen","Virginia",51097,27,1
+"922","2020-07-12","Lancaster","Virginia",51103,13,0
+"923","2020-07-12","Middlesex","Virginia",51119,17,0
+"924","2020-07-12","Northampton","Virginia",51131,274,28
+"925","2020-07-12","Northumberland","Virginia",51133,40,1
+"926","2020-07-12","Richmond","Virginia",51159,311,6
+"927","2020-07-12","Westmoreland","Virginia",51193,183,2
+"928","2020-07-13","Accomack","Virginia",51001,1041,14
+"929","2020-07-13","Essex","Virginia",51057,64,0
+"930","2020-07-13","King and Queen","Virginia",51097,28,1
+"931","2020-07-13","Lancaster","Virginia",51103,16,0
+"932","2020-07-13","Middlesex","Virginia",51119,17,0
+"933","2020-07-13","Northampton","Virginia",51131,274,28
+"934","2020-07-13","Northumberland","Virginia",51133,47,1
+"935","2020-07-13","Richmond","Virginia",51159,312,6
+"936","2020-07-13","Westmoreland","Virginia",51193,183,2
+"937","2020-07-14","Accomack","Virginia",51001,1045,14
+"938","2020-07-14","Essex","Virginia",51057,66,0
+"939","2020-07-14","King and Queen","Virginia",51097,30,1
+"940","2020-07-14","Lancaster","Virginia",51103,20,0
+"941","2020-07-14","Middlesex","Virginia",51119,17,0
+"942","2020-07-14","Northampton","Virginia",51131,274,28
+"943","2020-07-14","Northumberland","Virginia",51133,47,1
+"944","2020-07-14","Richmond","Virginia",51159,310,5
+"945","2020-07-14","Westmoreland","Virginia",51193,185,2
+"946","2020-07-15","Accomack","Virginia",51001,1045,14
+"947","2020-07-15","Essex","Virginia",51057,66,0
+"948","2020-07-15","King and Queen","Virginia",51097,31,1
+"949","2020-07-15","Lancaster","Virginia",51103,22,0
+"950","2020-07-15","Middlesex","Virginia",51119,18,0
+"951","2020-07-15","Northampton","Virginia",51131,275,28
+"952","2020-07-15","Northumberland","Virginia",51133,47,1
+"953","2020-07-15","Richmond","Virginia",51159,309,4
+"954","2020-07-15","Westmoreland","Virginia",51193,186,2
+"955","2020-07-16","Accomack","Virginia",51001,1045,14
+"956","2020-07-16","Essex","Virginia",51057,68,0
+"957","2020-07-16","King and Queen","Virginia",51097,31,1
+"958","2020-07-16","Lancaster","Virginia",51103,22,0
+"959","2020-07-16","Middlesex","Virginia",51119,18,0
+"960","2020-07-16","Northampton","Virginia",51131,276,28
+"961","2020-07-16","Northumberland","Virginia",51133,47,1
+"962","2020-07-16","Richmond","Virginia",51159,309,4
+"963","2020-07-16","Westmoreland","Virginia",51193,186,2
+"964","2020-07-17","Accomack","Virginia",51001,1048,14
+"965","2020-07-17","Essex","Virginia",51057,67,0
+"966","2020-07-17","King and Queen","Virginia",51097,31,1
+"967","2020-07-17","Lancaster","Virginia",51103,22,0
+"968","2020-07-17","Middlesex","Virginia",51119,18,0
+"969","2020-07-17","Northampton","Virginia",51131,277,28
+"970","2020-07-17","Northumberland","Virginia",51133,49,1
+"971","2020-07-17","Richmond","Virginia",51159,311,4
+"972","2020-07-17","Westmoreland","Virginia",51193,184,2
+"973","2020-07-18","Accomack","Virginia",51001,1051,15
+"974","2020-07-18","Essex","Virginia",51057,68,0
+"975","2020-07-18","King and Queen","Virginia",51097,32,1
+"976","2020-07-18","Lancaster","Virginia",51103,23,0
+"977","2020-07-18","Middlesex","Virginia",51119,18,0
+"978","2020-07-18","Northampton","Virginia",51131,278,28
+"979","2020-07-18","Northumberland","Virginia",51133,50,1
+"980","2020-07-18","Richmond","Virginia",51159,311,4
+"981","2020-07-18","Westmoreland","Virginia",51193,185,2
+"982","2020-07-19","Accomack","Virginia",51001,1052,15
+"983","2020-07-19","Essex","Virginia",51057,69,0
+"984","2020-07-19","King and Queen","Virginia",51097,32,1
+"985","2020-07-19","Lancaster","Virginia",51103,23,0
+"986","2020-07-19","Middlesex","Virginia",51119,18,0
+"987","2020-07-19","Northampton","Virginia",51131,278,28
+"988","2020-07-19","Northumberland","Virginia",51133,52,1
+"989","2020-07-19","Richmond","Virginia",51159,311,4
+"990","2020-07-19","Westmoreland","Virginia",51193,187,2
+"991","2020-07-20","Accomack","Virginia",51001,1053,15
+"992","2020-07-20","Essex","Virginia",51057,71,0
+"993","2020-07-20","King and Queen","Virginia",51097,32,1
+"994","2020-07-20","Lancaster","Virginia",51103,23,0
+"995","2020-07-20","Middlesex","Virginia",51119,20,1
+"996","2020-07-20","Northampton","Virginia",51131,279,28
+"997","2020-07-20","Northumberland","Virginia",51133,55,1
+"998","2020-07-20","Richmond","Virginia",51159,313,4
+"999","2020-07-20","Westmoreland","Virginia",51193,187,2
+"1000","2020-07-21","Accomack","Virginia",51001,1057,15
+"1001","2020-07-21","Essex","Virginia",51057,71,0
+"1002","2020-07-21","King and Queen","Virginia",51097,32,1
+"1003","2020-07-21","Lancaster","Virginia",51103,23,0
+"1004","2020-07-21","Middlesex","Virginia",51119,20,1
+"1005","2020-07-21","Northampton","Virginia",51131,281,28
+"1006","2020-07-21","Northumberland","Virginia",51133,55,1
+"1007","2020-07-21","Richmond","Virginia",51159,314,4
+"1008","2020-07-21","Westmoreland","Virginia",51193,187,2
+"1009","2020-07-22","Accomack","Virginia",51001,1057,15
+"1010","2020-07-22","Essex","Virginia",51057,72,0
+"1011","2020-07-22","King and Queen","Virginia",51097,32,1
+"1012","2020-07-22","Lancaster","Virginia",51103,23,0
+"1013","2020-07-22","Middlesex","Virginia",51119,21,1
+"1014","2020-07-22","Northampton","Virginia",51131,285,28
+"1015","2020-07-22","Northumberland","Virginia",51133,55,1
+"1016","2020-07-22","Richmond","Virginia",51159,319,4
+"1017","2020-07-22","Westmoreland","Virginia",51193,187,2
+"1018","2020-07-23","Accomack","Virginia",51001,1059,15
+"1019","2020-07-23","Essex","Virginia",51057,72,0
+"1020","2020-07-23","King and Queen","Virginia",51097,32,1
+"1021","2020-07-23","Lancaster","Virginia",51103,24,0
+"1022","2020-07-23","Middlesex","Virginia",51119,21,1
+"1023","2020-07-23","Northampton","Virginia",51131,289,28
+"1024","2020-07-23","Northumberland","Virginia",51133,55,1
+"1025","2020-07-23","Richmond","Virginia",51159,318,4
+"1026","2020-07-23","Westmoreland","Virginia",51193,187,2
+"1027","2020-07-24","Accomack","Virginia",51001,1059,15
+"1028","2020-07-24","Essex","Virginia",51057,73,0
+"1029","2020-07-24","King and Queen","Virginia",51097,33,1
+"1030","2020-07-24","Lancaster","Virginia",51103,24,0
+"1031","2020-07-24","Middlesex","Virginia",51119,20,1
+"1032","2020-07-24","Northampton","Virginia",51131,292,28
+"1033","2020-07-24","Northumberland","Virginia",51133,56,1
+"1034","2020-07-24","Richmond","Virginia",51159,318,4
+"1035","2020-07-24","Westmoreland","Virginia",51193,187,2
+"1036","2020-07-25","Accomack","Virginia",51001,1060,15
+"1037","2020-07-25","Essex","Virginia",51057,73,1
+"1038","2020-07-25","King and Queen","Virginia",51097,33,1
+"1039","2020-07-25","Lancaster","Virginia",51103,26,0
+"1040","2020-07-25","Middlesex","Virginia",51119,22,1
+"1041","2020-07-25","Northampton","Virginia",51131,293,28
+"1042","2020-07-25","Northumberland","Virginia",51133,56,1
+"1043","2020-07-25","Richmond","Virginia",51159,320,4
+"1044","2020-07-25","Westmoreland","Virginia",51193,188,2
+"1045","2020-07-26","Accomack","Virginia",51001,1063,15
+"1046","2020-07-26","Essex","Virginia",51057,73,1
+"1047","2020-07-26","King and Queen","Virginia",51097,34,1
+"1048","2020-07-26","Lancaster","Virginia",51103,26,0
+"1049","2020-07-26","Middlesex","Virginia",51119,22,1
+"1050","2020-07-26","Northampton","Virginia",51131,293,28
+"1051","2020-07-26","Northumberland","Virginia",51133,59,1
+"1052","2020-07-26","Richmond","Virginia",51159,322,4
+"1053","2020-07-26","Westmoreland","Virginia",51193,190,2
+"1054","2020-07-27","Accomack","Virginia",51001,1065,15
+"1055","2020-07-27","Essex","Virginia",51057,73,1
+"1056","2020-07-27","King and Queen","Virginia",51097,34,1
+"1057","2020-07-27","Lancaster","Virginia",51103,28,0
+"1058","2020-07-27","Middlesex","Virginia",51119,22,1
+"1059","2020-07-27","Northampton","Virginia",51131,297,28
+"1060","2020-07-27","Northumberland","Virginia",51133,59,1
+"1061","2020-07-27","Richmond","Virginia",51159,316,4
+"1062","2020-07-27","Westmoreland","Virginia",51193,191,2
+"1063","2020-07-28","Accomack","Virginia",51001,1069,15
+"1064","2020-07-28","Essex","Virginia",51057,74,1
+"1065","2020-07-28","King and Queen","Virginia",51097,35,1
+"1066","2020-07-28","Lancaster","Virginia",51103,29,0
+"1067","2020-07-28","Middlesex","Virginia",51119,25,1
+"1068","2020-07-28","Northampton","Virginia",51131,298,28
+"1069","2020-07-28","Northumberland","Virginia",51133,60,1
+"1070","2020-07-28","Richmond","Virginia",51159,316,4
+"1071","2020-07-28","Westmoreland","Virginia",51193,192,2
+"1072","2020-07-29","Accomack","Virginia",51001,1072,15
+"1073","2020-07-29","Essex","Virginia",51057,74,1
+"1074","2020-07-29","King and Queen","Virginia",51097,35,1
+"1075","2020-07-29","Lancaster","Virginia",51103,29,0
+"1076","2020-07-29","Middlesex","Virginia",51119,25,1
+"1077","2020-07-29","Northampton","Virginia",51131,297,28
+"1078","2020-07-29","Northumberland","Virginia",51133,60,2
+"1079","2020-07-29","Richmond","Virginia",51159,315,4
+"1080","2020-07-29","Westmoreland","Virginia",51193,192,2
+"1081","2020-07-30","Accomack","Virginia",51001,1074,15
+"1082","2020-07-30","Essex","Virginia",51057,74,1
+"1083","2020-07-30","King and Queen","Virginia",51097,35,1
+"1084","2020-07-30","Lancaster","Virginia",51103,29,0
+"1085","2020-07-30","Middlesex","Virginia",51119,26,1
+"1086","2020-07-30","Northampton","Virginia",51131,292,28
+"1087","2020-07-30","Northumberland","Virginia",51133,62,2
+"1088","2020-07-30","Richmond","Virginia",51159,317,4
+"1089","2020-07-30","Westmoreland","Virginia",51193,193,2
+"1090","2020-07-31","Accomack","Virginia",51001,1074,15
+"1091","2020-07-31","Essex","Virginia",51057,75,1
+"1092","2020-07-31","King and Queen","Virginia",51097,35,1
+"1093","2020-07-31","Lancaster","Virginia",51103,29,0
+"1094","2020-07-31","Middlesex","Virginia",51119,26,1
+"1095","2020-07-31","Northampton","Virginia",51131,292,28
+"1096","2020-07-31","Northumberland","Virginia",51133,63,2
+"1097","2020-07-31","Richmond","Virginia",51159,316,4
+"1098","2020-07-31","Westmoreland","Virginia",51193,193,2
+"1099","2020-08-01","Accomack","Virginia",51001,1077,15
+"1100","2020-08-01","Essex","Virginia",51057,76,1
+"1101","2020-08-01","King and Queen","Virginia",51097,35,1
+"1102","2020-08-01","Lancaster","Virginia",51103,31,0
+"1103","2020-08-01","Middlesex","Virginia",51119,27,1
+"1104","2020-08-01","Northampton","Virginia",51131,292,28
+"1105","2020-08-01","Northumberland","Virginia",51133,65,2
+"1106","2020-08-01","Richmond","Virginia",51159,318,4
+"1107","2020-08-01","Westmoreland","Virginia",51193,193,2
+"1108","2020-08-02","Accomack","Virginia",51001,1079,15
+"1109","2020-08-02","Essex","Virginia",51057,77,1
+"1110","2020-08-02","King and Queen","Virginia",51097,35,1
+"1111","2020-08-02","Lancaster","Virginia",51103,31,0
+"1112","2020-08-02","Middlesex","Virginia",51119,27,1
+"1113","2020-08-02","Northampton","Virginia",51131,292,28
+"1114","2020-08-02","Northumberland","Virginia",51133,66,2
+"1115","2020-08-02","Richmond","Virginia",51159,317,4
+"1116","2020-08-02","Westmoreland","Virginia",51193,193,2
+"1117","2020-08-03","Accomack","Virginia",51001,1080,15
+"1118","2020-08-03","Essex","Virginia",51057,83,1
+"1119","2020-08-03","King and Queen","Virginia",51097,36,1
+"1120","2020-08-03","Lancaster","Virginia",51103,31,0
+"1121","2020-08-03","Middlesex","Virginia",51119,28,1
+"1122","2020-08-03","Northampton","Virginia",51131,294,28
+"1123","2020-08-03","Northumberland","Virginia",51133,66,2
+"1124","2020-08-03","Richmond","Virginia",51159,317,4
+"1125","2020-08-03","Westmoreland","Virginia",51193,195,2
+"1126","2020-08-04","Accomack","Virginia",51001,1082,15
+"1127","2020-08-04","Essex","Virginia",51057,83,1
+"1128","2020-08-04","King and Queen","Virginia",51097,37,1
+"1129","2020-08-04","Lancaster","Virginia",51103,32,0
+"1130","2020-08-04","Middlesex","Virginia",51119,29,1
+"1131","2020-08-04","Northampton","Virginia",51131,295,29
+"1132","2020-08-04","Northumberland","Virginia",51133,69,2
+"1133","2020-08-04","Richmond","Virginia",51159,317,4
+"1134","2020-08-04","Westmoreland","Virginia",51193,195,2
+"1135","2020-08-05","Accomack","Virginia",51001,1085,15
+"1136","2020-08-05","Essex","Virginia",51057,84,1
+"1137","2020-08-05","King and Queen","Virginia",51097,37,1
+"1138","2020-08-05","Lancaster","Virginia",51103,32,0
+"1139","2020-08-05","Middlesex","Virginia",51119,32,1
+"1140","2020-08-05","Northampton","Virginia",51131,295,29
+"1141","2020-08-05","Northumberland","Virginia",51133,69,2
+"1142","2020-08-05","Richmond","Virginia",51159,317,4
+"1143","2020-08-05","Westmoreland","Virginia",51193,197,3
+"1144","2020-08-06","Accomack","Virginia",51001,1085,16
+"1145","2020-08-06","Essex","Virginia",51057,84,1
+"1146","2020-08-06","King and Queen","Virginia",51097,37,1
+"1147","2020-08-06","Lancaster","Virginia",51103,32,0
+"1148","2020-08-06","Middlesex","Virginia",51119,33,1
+"1149","2020-08-06","Northampton","Virginia",51131,295,29
+"1150","2020-08-06","Northumberland","Virginia",51133,69,2
+"1151","2020-08-06","Richmond","Virginia",51159,318,4
+"1152","2020-08-06","Westmoreland","Virginia",51193,197,3
+"1153","2020-08-07","Accomack","Virginia",51001,1087,16
+"1154","2020-08-07","Essex","Virginia",51057,94,1
+"1155","2020-08-07","King and Queen","Virginia",51097,39,1
+"1156","2020-08-07","Lancaster","Virginia",51103,35,0
+"1157","2020-08-07","Middlesex","Virginia",51119,34,1
+"1158","2020-08-07","Northampton","Virginia",51131,295,29
+"1159","2020-08-07","Northumberland","Virginia",51133,70,2
+"1160","2020-08-07","Richmond","Virginia",51159,318,4
+"1161","2020-08-07","Westmoreland","Virginia",51193,202,3
+"1162","2020-08-08","Accomack","Virginia",51001,1095,16
+"1163","2020-08-08","Essex","Virginia",51057,99,1
+"1164","2020-08-08","King and Queen","Virginia",51097,39,1
+"1165","2020-08-08","Lancaster","Virginia",51103,36,0
+"1166","2020-08-08","Middlesex","Virginia",51119,37,1
+"1167","2020-08-08","Northampton","Virginia",51131,296,29
+"1168","2020-08-08","Northumberland","Virginia",51133,71,2
+"1169","2020-08-08","Richmond","Virginia",51159,319,5
+"1170","2020-08-08","Westmoreland","Virginia",51193,209,3
+"1171","2020-08-09","Accomack","Virginia",51001,1100,16
+"1172","2020-08-09","Essex","Virginia",51057,102,1
+"1173","2020-08-09","King and Queen","Virginia",51097,42,1
+"1174","2020-08-09","Lancaster","Virginia",51103,37,0
+"1175","2020-08-09","Middlesex","Virginia",51119,41,1
+"1176","2020-08-09","Northampton","Virginia",51131,296,29
+"1177","2020-08-09","Northumberland","Virginia",51133,72,2
+"1178","2020-08-09","Richmond","Virginia",51159,317,4
+"1179","2020-08-09","Westmoreland","Virginia",51193,211,3
+"1180","2020-08-10","Accomack","Virginia",51001,1102,16
+"1181","2020-08-10","Essex","Virginia",51057,103,1
+"1182","2020-08-10","King and Queen","Virginia",51097,42,1
+"1183","2020-08-10","Lancaster","Virginia",51103,40,0
+"1184","2020-08-10","Middlesex","Virginia",51119,42,1
+"1185","2020-08-10","Northampton","Virginia",51131,296,29
+"1186","2020-08-10","Northumberland","Virginia",51133,74,2
+"1187","2020-08-10","Richmond","Virginia",51159,321,4
+"1188","2020-08-10","Westmoreland","Virginia",51193,211,3
+"1189","2020-08-11","Accomack","Virginia",51001,1106,16
+"1190","2020-08-11","Essex","Virginia",51057,104,1
+"1191","2020-08-11","King and Queen","Virginia",51097,42,1
+"1192","2020-08-11","Lancaster","Virginia",51103,40,0
+"1193","2020-08-11","Middlesex","Virginia",51119,46,1
+"1194","2020-08-11","Northampton","Virginia",51131,296,29
+"1195","2020-08-11","Northumberland","Virginia",51133,78,3
+"1196","2020-08-11","Richmond","Virginia",51159,322,4
+"1197","2020-08-11","Westmoreland","Virginia",51193,213,3
+"1198","2020-08-12","Accomack","Virginia",51001,1108,17
+"1199","2020-08-12","Essex","Virginia",51057,105,1
+"1200","2020-08-12","King and Queen","Virginia",51097,42,1
+"1201","2020-08-12","Lancaster","Virginia",51103,41,0
+"1202","2020-08-12","Middlesex","Virginia",51119,46,1
+"1203","2020-08-12","Northampton","Virginia",51131,296,29
+"1204","2020-08-12","Northumberland","Virginia",51133,78,3
+"1205","2020-08-12","Richmond","Virginia",51159,322,4
+"1206","2020-08-12","Westmoreland","Virginia",51193,214,3
+"1207","2020-08-13","Accomack","Virginia",51001,1111,17
+"1208","2020-08-13","Essex","Virginia",51057,107,1
+"1209","2020-08-13","King and Queen","Virginia",51097,42,1
+"1210","2020-08-13","Lancaster","Virginia",51103,45,0
+"1211","2020-08-13","Middlesex","Virginia",51119,49,1
+"1212","2020-08-13","Northampton","Virginia",51131,297,29
+"1213","2020-08-13","Northumberland","Virginia",51133,77,3
+"1214","2020-08-13","Richmond","Virginia",51159,321,4
+"1215","2020-08-13","Westmoreland","Virginia",51193,216,3
+"1216","2020-08-14","Accomack","Virginia",51001,1116,17
+"1217","2020-08-14","Essex","Virginia",51057,108,1
+"1218","2020-08-14","King and Queen","Virginia",51097,42,1
+"1219","2020-08-14","Lancaster","Virginia",51103,45,0
+"1220","2020-08-14","Middlesex","Virginia",51119,50,1
+"1221","2020-08-14","Northampton","Virginia",51131,298,29
+"1222","2020-08-14","Northumberland","Virginia",51133,79,3
+"1223","2020-08-14","Richmond","Virginia",51159,322,4
+"1224","2020-08-14","Westmoreland","Virginia",51193,215,3
+"1225","2020-08-15","Accomack","Virginia",51001,1120,17
+"1226","2020-08-15","Essex","Virginia",51057,108,1
+"1227","2020-08-15","King and Queen","Virginia",51097,42,1
+"1228","2020-08-15","Lancaster","Virginia",51103,49,0
+"1229","2020-08-15","Middlesex","Virginia",51119,51,1
+"1230","2020-08-15","Northampton","Virginia",51131,298,29
+"1231","2020-08-15","Northumberland","Virginia",51133,79,3
+"1232","2020-08-15","Richmond","Virginia",51159,323,4
+"1233","2020-08-15","Westmoreland","Virginia",51193,216,3
+"1234","2020-08-16","Accomack","Virginia",51001,1123,17
+"1235","2020-08-16","Essex","Virginia",51057,108,1
+"1236","2020-08-16","King and Queen","Virginia",51097,42,1
+"1237","2020-08-16","Lancaster","Virginia",51103,49,0
+"1238","2020-08-16","Middlesex","Virginia",51119,51,1
+"1239","2020-08-16","Northampton","Virginia",51131,299,29
+"1240","2020-08-16","Northumberland","Virginia",51133,79,3
+"1241","2020-08-16","Richmond","Virginia",51159,324,4
+"1242","2020-08-16","Westmoreland","Virginia",51193,216,3
+"1243","2020-08-17","Accomack","Virginia",51001,1127,17
+"1244","2020-08-17","Essex","Virginia",51057,109,1
+"1245","2020-08-17","King and Queen","Virginia",51097,42,1
+"1246","2020-08-17","Lancaster","Virginia",51103,49,0
+"1247","2020-08-17","Middlesex","Virginia",51119,52,1
+"1248","2020-08-17","Northampton","Virginia",51131,299,29
+"1249","2020-08-17","Northumberland","Virginia",51133,81,3
+"1250","2020-08-17","Richmond","Virginia",51159,327,4
+"1251","2020-08-17","Westmoreland","Virginia",51193,217,3
+"1252","2020-08-18","Accomack","Virginia",51001,1127,17
+"1253","2020-08-18","Essex","Virginia",51057,108,1
+"1254","2020-08-18","King and Queen","Virginia",51097,43,1
+"1255","2020-08-18","Lancaster","Virginia",51103,49,0
+"1256","2020-08-18","Middlesex","Virginia",51119,54,1
+"1257","2020-08-18","Northampton","Virginia",51131,300,29
+"1258","2020-08-18","Northumberland","Virginia",51133,81,3
+"1259","2020-08-18","Richmond","Virginia",51159,324,4
+"1260","2020-08-18","Westmoreland","Virginia",51193,219,3
+"1261","2020-08-19","Accomack","Virginia",51001,1129,18
+"1262","2020-08-19","Essex","Virginia",51057,109,2
+"1263","2020-08-19","King and Queen","Virginia",51097,44,1
+"1264","2020-08-19","Lancaster","Virginia",51103,49,0
+"1265","2020-08-19","Middlesex","Virginia",51119,54,1
+"1266","2020-08-19","Northampton","Virginia",51131,300,29
+"1267","2020-08-19","Northumberland","Virginia",51133,81,3
+"1268","2020-08-19","Richmond","Virginia",51159,323,4
+"1269","2020-08-19","Westmoreland","Virginia",51193,220,3
+"1270","2020-08-20","Accomack","Virginia",51001,1131,18
+"1271","2020-08-20","Essex","Virginia",51057,109,2
+"1272","2020-08-20","King and Queen","Virginia",51097,44,1
+"1273","2020-08-20","Lancaster","Virginia",51103,52,0
+"1274","2020-08-20","Middlesex","Virginia",51119,54,1
+"1275","2020-08-20","Northampton","Virginia",51131,301,29
+"1276","2020-08-20","Northumberland","Virginia",51133,81,3
+"1277","2020-08-20","Richmond","Virginia",51159,326,4
+"1278","2020-08-20","Westmoreland","Virginia",51193,219,3
+"1279","2020-08-21","Accomack","Virginia",51001,1133,18
+"1280","2020-08-21","Essex","Virginia",51057,110,2
+"1281","2020-08-21","King and Queen","Virginia",51097,45,1
+"1282","2020-08-21","Lancaster","Virginia",51103,54,0
+"1283","2020-08-21","Middlesex","Virginia",51119,54,1
+"1284","2020-08-21","Northampton","Virginia",51131,303,29
+"1285","2020-08-21","Northumberland","Virginia",51133,81,3
+"1286","2020-08-21","Richmond","Virginia",51159,326,4
+"1287","2020-08-21","Westmoreland","Virginia",51193,219,3
+"1288","2020-08-22","Accomack","Virginia",51001,1135,18
+"1289","2020-08-22","Essex","Virginia",51057,112,2
+"1290","2020-08-22","King and Queen","Virginia",51097,46,1
+"1291","2020-08-22","Lancaster","Virginia",51103,56,0
+"1292","2020-08-22","Middlesex","Virginia",51119,54,1
+"1293","2020-08-22","Northampton","Virginia",51131,303,29
+"1294","2020-08-22","Northumberland","Virginia",51133,82,3
+"1295","2020-08-22","Richmond","Virginia",51159,323,4
+"1296","2020-08-22","Westmoreland","Virginia",51193,219,3
+"1297","2020-08-23","Accomack","Virginia",51001,1135,18
+"1298","2020-08-23","Essex","Virginia",51057,112,2
+"1299","2020-08-23","King and Queen","Virginia",51097,46,1
+"1300","2020-08-23","Lancaster","Virginia",51103,57,0
+"1301","2020-08-23","Middlesex","Virginia",51119,54,1
+"1302","2020-08-23","Northampton","Virginia",51131,303,29
+"1303","2020-08-23","Northumberland","Virginia",51133,83,3
+"1304","2020-08-23","Richmond","Virginia",51159,323,4
+"1305","2020-08-23","Westmoreland","Virginia",51193,220,3
+"1306","2020-08-24","Accomack","Virginia",51001,1135,18
+"1307","2020-08-24","Essex","Virginia",51057,113,2
+"1308","2020-08-24","King and Queen","Virginia",51097,47,1
+"1309","2020-08-24","Lancaster","Virginia",51103,60,0
+"1310","2020-08-24","Middlesex","Virginia",51119,54,1
+"1311","2020-08-24","Northampton","Virginia",51131,303,29
+"1312","2020-08-24","Northumberland","Virginia",51133,85,3
+"1313","2020-08-24","Richmond","Virginia",51159,328,4
+"1314","2020-08-24","Westmoreland","Virginia",51193,220,3
+"1315","2020-08-25","Accomack","Virginia",51001,1135,18
+"1316","2020-08-25","Essex","Virginia",51057,113,2
+"1317","2020-08-25","King and Queen","Virginia",51097,47,1
+"1318","2020-08-25","Lancaster","Virginia",51103,61,0
+"1319","2020-08-25","Middlesex","Virginia",51119,54,1
+"1320","2020-08-25","Northampton","Virginia",51131,303,29
+"1321","2020-08-25","Northumberland","Virginia",51133,85,3
+"1322","2020-08-25","Richmond","Virginia",51159,325,4
+"1323","2020-08-25","Westmoreland","Virginia",51193,221,3
+"1324","2020-08-26","Accomack","Virginia",51001,1136,18
+"1325","2020-08-26","Essex","Virginia",51057,113,2
+"1326","2020-08-26","King and Queen","Virginia",51097,48,1
+"1327","2020-08-26","Lancaster","Virginia",51103,63,0
+"1328","2020-08-26","Middlesex","Virginia",51119,54,1
+"1329","2020-08-26","Northampton","Virginia",51131,303,29
+"1330","2020-08-26","Northumberland","Virginia",51133,86,3
+"1331","2020-08-26","Richmond","Virginia",51159,324,4
+"1332","2020-08-26","Westmoreland","Virginia",51193,221,3
+"1333","2020-08-27","Accomack","Virginia",51001,1139,18
+"1334","2020-08-27","Essex","Virginia",51057,114,2
+"1335","2020-08-27","King and Queen","Virginia",51097,49,1
+"1336","2020-08-27","Lancaster","Virginia",51103,64,0
+"1337","2020-08-27","Middlesex","Virginia",51119,55,1
+"1338","2020-08-27","Northampton","Virginia",51131,303,29
+"1339","2020-08-27","Northumberland","Virginia",51133,86,3
+"1340","2020-08-27","Richmond","Virginia",51159,328,5
+"1341","2020-08-27","Westmoreland","Virginia",51193,223,3
+"1342","2020-08-28","Accomack","Virginia",51001,1141,19
+"1343","2020-08-28","Essex","Virginia",51057,116,2
+"1344","2020-08-28","King and Queen","Virginia",51097,49,1
+"1345","2020-08-28","Lancaster","Virginia",51103,66,0
+"1346","2020-08-28","Middlesex","Virginia",51119,55,1
+"1347","2020-08-28","Northampton","Virginia",51131,303,29
+"1348","2020-08-28","Northumberland","Virginia",51133,86,4
+"1349","2020-08-28","Richmond","Virginia",51159,326,5
+"1350","2020-08-28","Westmoreland","Virginia",51193,223,3
+"1351","2020-08-29","Accomack","Virginia",51001,1143,19
+"1352","2020-08-29","Essex","Virginia",51057,121,2
+"1353","2020-08-29","King and Queen","Virginia",51097,49,1
+"1354","2020-08-29","Lancaster","Virginia",51103,68,0
+"1355","2020-08-29","Middlesex","Virginia",51119,55,1
+"1356","2020-08-29","Northampton","Virginia",51131,304,29
+"1357","2020-08-29","Northumberland","Virginia",51133,87,4
+"1358","2020-08-29","Richmond","Virginia",51159,328,5
+"1359","2020-08-29","Westmoreland","Virginia",51193,223,3
+"1360","2020-08-30","Accomack","Virginia",51001,1143,19
+"1361","2020-08-30","Essex","Virginia",51057,122,2
+"1362","2020-08-30","King and Queen","Virginia",51097,49,1
+"1363","2020-08-30","Lancaster","Virginia",51103,69,0
+"1364","2020-08-30","Middlesex","Virginia",51119,55,1
+"1365","2020-08-30","Northampton","Virginia",51131,304,29
+"1366","2020-08-30","Northumberland","Virginia",51133,88,4
+"1367","2020-08-30","Richmond","Virginia",51159,332,5
+"1368","2020-08-30","Westmoreland","Virginia",51193,223,3
+"1369","2020-08-31","Accomack","Virginia",51001,1145,19
+"1370","2020-08-31","Essex","Virginia",51057,128,2
+"1371","2020-08-31","King and Queen","Virginia",51097,49,1
+"1372","2020-08-31","Lancaster","Virginia",51103,71,0
+"1373","2020-08-31","Middlesex","Virginia",51119,55,1
+"1374","2020-08-31","Northampton","Virginia",51131,304,29
+"1375","2020-08-31","Northumberland","Virginia",51133,89,4
+"1376","2020-08-31","Richmond","Virginia",51159,333,5
+"1377","2020-08-31","Westmoreland","Virginia",51193,223,3
+"1378","2020-09-01","Accomack","Virginia",51001,1148,19
+"1379","2020-09-01","Essex","Virginia",51057,130,2
+"1380","2020-09-01","King and Queen","Virginia",51097,49,1
+"1381","2020-09-01","Lancaster","Virginia",51103,72,0
+"1382","2020-09-01","Middlesex","Virginia",51119,55,1
+"1383","2020-09-01","Northampton","Virginia",51131,304,29
+"1384","2020-09-01","Northumberland","Virginia",51133,90,5
+"1385","2020-09-01","Richmond","Virginia",51159,328,4
+"1386","2020-09-01","Westmoreland","Virginia",51193,224,3
+"1387","2020-09-02","Accomack","Virginia",51001,1148,19
+"1388","2020-09-02","Essex","Virginia",51057,131,2
+"1389","2020-09-02","King and Queen","Virginia",51097,49,1
+"1390","2020-09-02","Lancaster","Virginia",51103,73,0
+"1391","2020-09-02","Middlesex","Virginia",51119,55,1
+"1392","2020-09-02","Northampton","Virginia",51131,304,29
+"1393","2020-09-02","Northumberland","Virginia",51133,91,5
+"1394","2020-09-02","Richmond","Virginia",51159,327,4
+"1395","2020-09-02","Westmoreland","Virginia",51193,228,3
+"1396","2020-09-03","Accomack","Virginia",51001,1151,19
+"1397","2020-09-03","Essex","Virginia",51057,136,2
+"1398","2020-09-03","King and Queen","Virginia",51097,53,1
+"1399","2020-09-03","Lancaster","Virginia",51103,73,0
+"1400","2020-09-03","Middlesex","Virginia",51119,55,1
+"1401","2020-09-03","Northampton","Virginia",51131,304,29
+"1402","2020-09-03","Northumberland","Virginia",51133,94,5
+"1403","2020-09-03","Richmond","Virginia",51159,328,4
+"1404","2020-09-03","Westmoreland","Virginia",51193,231,3
+"1405","2020-09-04","Accomack","Virginia",51001,1151,19
+"1406","2020-09-04","Essex","Virginia",51057,140,2
+"1407","2020-09-04","King and Queen","Virginia",51097,53,1
+"1408","2020-09-04","Lancaster","Virginia",51103,76,0
+"1409","2020-09-04","Middlesex","Virginia",51119,61,1
+"1410","2020-09-04","Northampton","Virginia",51131,304,29
+"1411","2020-09-04","Northumberland","Virginia",51133,97,5
+"1412","2020-09-04","Richmond","Virginia",51159,327,4
+"1413","2020-09-04","Westmoreland","Virginia",51193,231,3
+"1414","2020-09-05","Accomack","Virginia",51001,1152,19
+"1415","2020-09-05","Essex","Virginia",51057,143,2
+"1416","2020-09-05","King and Queen","Virginia",51097,54,1
+"1417","2020-09-05","Lancaster","Virginia",51103,81,0
+"1418","2020-09-05","Middlesex","Virginia",51119,61,1
+"1419","2020-09-05","Northampton","Virginia",51131,304,29
+"1420","2020-09-05","Northumberland","Virginia",51133,97,5
+"1421","2020-09-05","Richmond","Virginia",51159,327,4
+"1422","2020-09-05","Westmoreland","Virginia",51193,231,3
+"1423","2020-09-06","Accomack","Virginia",51001,1153,19
+"1424","2020-09-06","Essex","Virginia",51057,146,2
+"1425","2020-09-06","King and Queen","Virginia",51097,57,1
+"1426","2020-09-06","Lancaster","Virginia",51103,81,0
+"1427","2020-09-06","Middlesex","Virginia",51119,61,1
+"1428","2020-09-06","Northampton","Virginia",51131,304,29
+"1429","2020-09-06","Northumberland","Virginia",51133,101,5
+"1430","2020-09-06","Richmond","Virginia",51159,331,4
+"1431","2020-09-06","Westmoreland","Virginia",51193,232,3
+"1432","2020-09-07","Accomack","Virginia",51001,1153,19
+"1433","2020-09-07","Essex","Virginia",51057,147,2
+"1434","2020-09-07","King and Queen","Virginia",51097,58,1
+"1435","2020-09-07","Lancaster","Virginia",51103,81,0
+"1436","2020-09-07","Middlesex","Virginia",51119,61,1
+"1437","2020-09-07","Northampton","Virginia",51131,304,29
+"1438","2020-09-07","Northumberland","Virginia",51133,101,5
+"1439","2020-09-07","Richmond","Virginia",51159,332,4
+"1440","2020-09-07","Westmoreland","Virginia",51193,232,3
+"1441","2020-09-08","Accomack","Virginia",51001,1154,19
+"1442","2020-09-08","Essex","Virginia",51057,147,2
+"1443","2020-09-08","King and Queen","Virginia",51097,59,1
+"1444","2020-09-08","Lancaster","Virginia",51103,83,0
+"1445","2020-09-08","Middlesex","Virginia",51119,62,1
+"1446","2020-09-08","Northampton","Virginia",51131,304,29
+"1447","2020-09-08","Northumberland","Virginia",51133,101,5
+"1448","2020-09-08","Richmond","Virginia",51159,333,4
+"1449","2020-09-08","Westmoreland","Virginia",51193,232,3
+"1450","2020-09-09","Accomack","Virginia",51001,1155,19
+"1451","2020-09-09","Essex","Virginia",51057,150,2
+"1452","2020-09-09","King and Queen","Virginia",51097,60,1
+"1453","2020-09-09","Lancaster","Virginia",51103,84,0
+"1454","2020-09-09","Middlesex","Virginia",51119,62,1
+"1455","2020-09-09","Northampton","Virginia",51131,304,29
+"1456","2020-09-09","Northumberland","Virginia",51133,102,5
+"1457","2020-09-09","Richmond","Virginia",51159,334,4
+"1458","2020-09-09","Westmoreland","Virginia",51193,232,3
+"1459","2020-09-10","Accomack","Virginia",51001,1156,19
+"1460","2020-09-10","Essex","Virginia",51057,155,2
+"1461","2020-09-10","King and Queen","Virginia",51097,60,1
+"1462","2020-09-10","Lancaster","Virginia",51103,87,0
+"1463","2020-09-10","Middlesex","Virginia",51119,62,1
+"1464","2020-09-10","Northampton","Virginia",51131,304,29
+"1465","2020-09-10","Northumberland","Virginia",51133,103,5
+"1466","2020-09-10","Richmond","Virginia",51159,334,4
+"1467","2020-09-10","Westmoreland","Virginia",51193,234,3
+"1468","2020-09-11","Accomack","Virginia",51001,1158,19
+"1469","2020-09-11","Essex","Virginia",51057,159,2
+"1470","2020-09-11","King and Queen","Virginia",51097,63,1
+"1471","2020-09-11","Lancaster","Virginia",51103,93,0
+"1472","2020-09-11","Middlesex","Virginia",51119,66,1
+"1473","2020-09-11","Northampton","Virginia",51131,304,29
+"1474","2020-09-11","Northumberland","Virginia",51133,111,5
+"1475","2020-09-11","Richmond","Virginia",51159,335,4
+"1476","2020-09-11","Westmoreland","Virginia",51193,236,3
+"1477","2020-09-12","Accomack","Virginia",51001,1158,19
+"1478","2020-09-12","Essex","Virginia",51057,160,2
+"1479","2020-09-12","King and Queen","Virginia",51097,64,1
+"1480","2020-09-12","Lancaster","Virginia",51103,96,0
+"1481","2020-09-12","Middlesex","Virginia",51119,77,3
+"1482","2020-09-12","Northampton","Virginia",51131,304,29
+"1483","2020-09-12","Northumberland","Virginia",51133,114,5
+"1484","2020-09-12","Richmond","Virginia",51159,336,4
+"1485","2020-09-12","Westmoreland","Virginia",51193,237,3
+"1486","2020-09-13","Accomack","Virginia",51001,1159,19
+"1487","2020-09-13","Essex","Virginia",51057,162,2
+"1488","2020-09-13","King and Queen","Virginia",51097,65,1
+"1489","2020-09-13","Lancaster","Virginia",51103,101,0
+"1490","2020-09-13","Middlesex","Virginia",51119,77,3
+"1491","2020-09-13","Northampton","Virginia",51131,304,29
+"1492","2020-09-13","Northumberland","Virginia",51133,114,5
+"1493","2020-09-13","Richmond","Virginia",51159,338,4
+"1494","2020-09-13","Westmoreland","Virginia",51193,238,3
+"1495","2020-09-14","Accomack","Virginia",51001,1161,19
+"1496","2020-09-14","Essex","Virginia",51057,162,2
+"1497","2020-09-14","King and Queen","Virginia",51097,65,1
+"1498","2020-09-14","Lancaster","Virginia",51103,110,0
+"1499","2020-09-14","Middlesex","Virginia",51119,78,4
+"1500","2020-09-14","Northampton","Virginia",51131,304,29
+"1501","2020-09-14","Northumberland","Virginia",51133,116,5
+"1502","2020-09-14","Richmond","Virginia",51159,337,4
+"1503","2020-09-14","Westmoreland","Virginia",51193,241,3
+"1504","2020-09-15","Accomack","Virginia",51001,1161,19
+"1505","2020-09-15","Essex","Virginia",51057,163,2
+"1506","2020-09-15","King and Queen","Virginia",51097,65,1
+"1507","2020-09-15","Lancaster","Virginia",51103,111,0
+"1508","2020-09-15","Middlesex","Virginia",51119,81,8
+"1509","2020-09-15","Northampton","Virginia",51131,304,29
+"1510","2020-09-15","Northumberland","Virginia",51133,123,5
+"1511","2020-09-15","Richmond","Virginia",51159,338,4
+"1512","2020-09-15","Westmoreland","Virginia",51193,242,3
+"1513","2020-09-16","Accomack","Virginia",51001,1161,19
+"1514","2020-09-16","Essex","Virginia",51057,163,2
+"1515","2020-09-16","King and Queen","Virginia",51097,66,1
+"1516","2020-09-16","Lancaster","Virginia",51103,115,0
+"1517","2020-09-16","Middlesex","Virginia",51119,83,8
+"1518","2020-09-16","Northampton","Virginia",51131,304,30
+"1519","2020-09-16","Northumberland","Virginia",51133,128,5
+"1520","2020-09-16","Richmond","Virginia",51159,342,4
+"1521","2020-09-16","Westmoreland","Virginia",51193,245,3
+"1522","2020-09-17","Accomack","Virginia",51001,1163,19
+"1523","2020-09-17","Essex","Virginia",51057,164,2
+"1524","2020-09-17","King and Queen","Virginia",51097,66,1
+"1525","2020-09-17","Lancaster","Virginia",51103,120,0
+"1526","2020-09-17","Middlesex","Virginia",51119,84,8
+"1527","2020-09-17","Northampton","Virginia",51131,304,30
+"1528","2020-09-17","Northumberland","Virginia",51133,133,5
+"1529","2020-09-17","Richmond","Virginia",51159,346,5
+"1530","2020-09-17","Westmoreland","Virginia",51193,252,3
+"1531","2020-09-18","Accomack","Virginia",51001,1167,19
+"1532","2020-09-18","Essex","Virginia",51057,169,2
+"1533","2020-09-18","King and Queen","Virginia",51097,66,1
+"1534","2020-09-18","Lancaster","Virginia",51103,127,0
+"1535","2020-09-18","Middlesex","Virginia",51119,84,8
+"1536","2020-09-18","Northampton","Virginia",51131,305,31
+"1537","2020-09-18","Northumberland","Virginia",51133,139,5
+"1538","2020-09-18","Richmond","Virginia",51159,347,6
+"1539","2020-09-18","Westmoreland","Virginia",51193,255,3
+"1540","2020-09-19","Accomack","Virginia",51001,1166,19
+"1541","2020-09-19","Essex","Virginia",51057,169,2
+"1542","2020-09-19","King and Queen","Virginia",51097,66,1
+"1543","2020-09-19","Lancaster","Virginia",51103,132,0
+"1544","2020-09-19","Middlesex","Virginia",51119,108,9
+"1545","2020-09-19","Northampton","Virginia",51131,305,31
+"1546","2020-09-19","Northumberland","Virginia",51133,141,5
+"1547","2020-09-19","Richmond","Virginia",51159,349,6
+"1548","2020-09-19","Westmoreland","Virginia",51193,255,3
+"1549","2020-09-20","Accomack","Virginia",51001,1166,19
+"1550","2020-09-20","Essex","Virginia",51057,170,2
+"1551","2020-09-20","King and Queen","Virginia",51097,70,1
+"1552","2020-09-20","Lancaster","Virginia",51103,135,0
+"1553","2020-09-20","Middlesex","Virginia",51119,110,9
+"1554","2020-09-20","Northampton","Virginia",51131,305,31
+"1555","2020-09-20","Northumberland","Virginia",51133,142,5
+"1556","2020-09-20","Richmond","Virginia",51159,353,7
+"1557","2020-09-20","Westmoreland","Virginia",51193,257,3
+"1558","2020-09-21","Accomack","Virginia",51001,1167,19
+"1559","2020-09-21","Essex","Virginia",51057,171,2
+"1560","2020-09-21","King and Queen","Virginia",51097,71,1
+"1561","2020-09-21","Lancaster","Virginia",51103,140,0
+"1562","2020-09-21","Middlesex","Virginia",51119,110,9
+"1563","2020-09-21","Northampton","Virginia",51131,305,31
+"1564","2020-09-21","Northumberland","Virginia",51133,145,5
+"1565","2020-09-21","Richmond","Virginia",51159,353,7
+"1566","2020-09-21","Westmoreland","Virginia",51193,259,3
+"1567","2020-09-22","Accomack","Virginia",51001,1167,19
+"1568","2020-09-22","Essex","Virginia",51057,172,2
+"1569","2020-09-22","King and Queen","Virginia",51097,71,1
+"1570","2020-09-22","Lancaster","Virginia",51103,140,0
+"1571","2020-09-22","Middlesex","Virginia",51119,110,9
+"1572","2020-09-22","Northampton","Virginia",51131,305,31
+"1573","2020-09-22","Northumberland","Virginia",51133,146,6
+"1574","2020-09-22","Richmond","Virginia",51159,339,4
+"1575","2020-09-22","Westmoreland","Virginia",51193,265,3
+"1576","2020-09-23","Accomack","Virginia",51001,1169,19
+"1577","2020-09-23","Essex","Virginia",51057,173,2
+"1578","2020-09-23","King and Queen","Virginia",51097,71,1
+"1579","2020-09-23","Lancaster","Virginia",51103,140,0
+"1580","2020-09-23","Middlesex","Virginia",51119,112,10
+"1581","2020-09-23","Northampton","Virginia",51131,305,31
+"1582","2020-09-23","Northumberland","Virginia",51133,147,6
+"1583","2020-09-23","Richmond","Virginia",51159,341,4
+"1584","2020-09-23","Westmoreland","Virginia",51193,266,3
+"1585","2020-09-24","Accomack","Virginia",51001,1169,19
+"1586","2020-09-24","Essex","Virginia",51057,176,2
+"1587","2020-09-24","King and Queen","Virginia",51097,72,1
+"1588","2020-09-24","Lancaster","Virginia",51103,141,0
+"1589","2020-09-24","Middlesex","Virginia",51119,112,10
+"1590","2020-09-24","Northampton","Virginia",51131,305,31
+"1591","2020-09-24","Northumberland","Virginia",51133,147,6
+"1592","2020-09-24","Richmond","Virginia",51159,343,4
+"1593","2020-09-24","Westmoreland","Virginia",51193,269,3
+"1594","2020-09-25","Accomack","Virginia",51001,1172,19
+"1595","2020-09-25","Essex","Virginia",51057,176,2
+"1596","2020-09-25","King and Queen","Virginia",51097,72,1
+"1597","2020-09-25","Lancaster","Virginia",51103,142,0
+"1598","2020-09-25","Middlesex","Virginia",51119,113,10
+"1599","2020-09-25","Northampton","Virginia",51131,305,31
+"1600","2020-09-25","Northumberland","Virginia",51133,152,6
+"1601","2020-09-25","Richmond","Virginia",51159,346,4
+"1602","2020-09-25","Westmoreland","Virginia",51193,273,3
+"1603","2020-09-26","Accomack","Virginia",51001,1175,19
+"1604","2020-09-26","Essex","Virginia",51057,178,2
+"1605","2020-09-26","King and Queen","Virginia",51097,72,1
+"1606","2020-09-26","Lancaster","Virginia",51103,144,0
+"1607","2020-09-26","Middlesex","Virginia",51119,115,10
+"1608","2020-09-26","Northampton","Virginia",51131,305,31
+"1609","2020-09-26","Northumberland","Virginia",51133,157,6
+"1610","2020-09-26","Richmond","Virginia",51159,348,4
+"1611","2020-09-26","Westmoreland","Virginia",51193,274,3
+"1612","2020-09-27","Accomack","Virginia",51001,1175,19
+"1613","2020-09-27","Essex","Virginia",51057,180,2
+"1614","2020-09-27","King and Queen","Virginia",51097,72,1
+"1615","2020-09-27","Lancaster","Virginia",51103,146,0
+"1616","2020-09-27","Middlesex","Virginia",51119,119,10
+"1617","2020-09-27","Northampton","Virginia",51131,305,31
+"1618","2020-09-27","Northumberland","Virginia",51133,160,6
+"1619","2020-09-27","Richmond","Virginia",51159,349,4
+"1620","2020-09-27","Westmoreland","Virginia",51193,275,3
+"1621","2020-09-28","Accomack","Virginia",51001,1175,19
+"1622","2020-09-28","Essex","Virginia",51057,180,2
+"1623","2020-09-28","King and Queen","Virginia",51097,72,1
+"1624","2020-09-28","Lancaster","Virginia",51103,149,0
+"1625","2020-09-28","Middlesex","Virginia",51119,119,10
+"1626","2020-09-28","Northampton","Virginia",51131,305,31
+"1627","2020-09-28","Northumberland","Virginia",51133,165,6
+"1628","2020-09-28","Richmond","Virginia",51159,352,4
+"1629","2020-09-28","Westmoreland","Virginia",51193,275,3
+"1630","2020-09-29","Accomack","Virginia",51001,1175,19
+"1631","2020-09-29","Essex","Virginia",51057,180,2
+"1632","2020-09-29","King and Queen","Virginia",51097,72,1
+"1633","2020-09-29","Lancaster","Virginia",51103,151,0
+"1634","2020-09-29","Middlesex","Virginia",51119,120,10
+"1635","2020-09-29","Northampton","Virginia",51131,305,31
+"1636","2020-09-29","Northumberland","Virginia",51133,173,6
+"1637","2020-09-29","Richmond","Virginia",51159,354,4
+"1638","2020-09-29","Westmoreland","Virginia",51193,276,3
+"1639","2020-09-30","Accomack","Virginia",51001,1182,19
+"1640","2020-09-30","Essex","Virginia",51057,180,2
+"1641","2020-09-30","King and Queen","Virginia",51097,73,1
+"1642","2020-09-30","Lancaster","Virginia",51103,151,0
+"1643","2020-09-30","Middlesex","Virginia",51119,121,10
+"1644","2020-09-30","Northampton","Virginia",51131,305,31
+"1645","2020-09-30","Northumberland","Virginia",51133,173,6
+"1646","2020-09-30","Richmond","Virginia",51159,354,4
+"1647","2020-09-30","Westmoreland","Virginia",51193,276,3
+"1648","2020-10-01","Accomack","Virginia",51001,1182,19
+"1649","2020-10-01","Essex","Virginia",51057,180,2
+"1650","2020-10-01","King and Queen","Virginia",51097,75,1
+"1651","2020-10-01","Lancaster","Virginia",51103,153,0
+"1652","2020-10-01","Middlesex","Virginia",51119,122,10
+"1653","2020-10-01","Northampton","Virginia",51131,306,31
+"1654","2020-10-01","Northumberland","Virginia",51133,173,6
+"1655","2020-10-01","Richmond","Virginia",51159,356,4
+"1656","2020-10-01","Westmoreland","Virginia",51193,275,3
+"1657","2020-10-02","Accomack","Virginia",51001,1183,19
+"1658","2020-10-02","Essex","Virginia",51057,180,2
+"1659","2020-10-02","King and Queen","Virginia",51097,76,1
+"1660","2020-10-02","Lancaster","Virginia",51103,160,0
+"1661","2020-10-02","Middlesex","Virginia",51119,122,10
+"1662","2020-10-02","Northampton","Virginia",51131,308,31
+"1663","2020-10-02","Northumberland","Virginia",51133,177,6
+"1664","2020-10-02","Richmond","Virginia",51159,359,4
+"1665","2020-10-02","Westmoreland","Virginia",51193,276,4
+"1666","2020-10-03","Accomack","Virginia",51001,1184,19
+"1667","2020-10-03","Essex","Virginia",51057,182,2
+"1668","2020-10-03","King and Queen","Virginia",51097,77,1
+"1669","2020-10-03","Lancaster","Virginia",51103,160,0
+"1670","2020-10-03","Middlesex","Virginia",51119,123,11
+"1671","2020-10-03","Northampton","Virginia",51131,308,31
+"1672","2020-10-03","Northumberland","Virginia",51133,179,6
+"1673","2020-10-03","Richmond","Virginia",51159,358,4
+"1674","2020-10-03","Westmoreland","Virginia",51193,276,4
+"1675","2020-10-04","Accomack","Virginia",51001,1185,19
+"1676","2020-10-04","Essex","Virginia",51057,183,2
+"1677","2020-10-04","King and Queen","Virginia",51097,78,1
+"1678","2020-10-04","Lancaster","Virginia",51103,161,0
+"1679","2020-10-04","Middlesex","Virginia",51119,125,11
+"1680","2020-10-04","Northampton","Virginia",51131,308,31
+"1681","2020-10-04","Northumberland","Virginia",51133,180,6
+"1682","2020-10-04","Richmond","Virginia",51159,359,4
+"1683","2020-10-04","Westmoreland","Virginia",51193,277,4
+"1684","2020-10-05","Accomack","Virginia",51001,1188,19
+"1685","2020-10-05","Essex","Virginia",51057,183,2
+"1686","2020-10-05","King and Queen","Virginia",51097,78,1
+"1687","2020-10-05","Lancaster","Virginia",51103,161,0
+"1688","2020-10-05","Middlesex","Virginia",51119,126,11
+"1689","2020-10-05","Northampton","Virginia",51131,309,31
+"1690","2020-10-05","Northumberland","Virginia",51133,182,6
+"1691","2020-10-05","Richmond","Virginia",51159,357,4
+"1692","2020-10-05","Westmoreland","Virginia",51193,278,4
+"1693","2020-10-06","Accomack","Virginia",51001,1188,19
+"1694","2020-10-06","Essex","Virginia",51057,183,2
+"1695","2020-10-06","King and Queen","Virginia",51097,78,1
+"1696","2020-10-06","Lancaster","Virginia",51103,161,0
+"1697","2020-10-06","Middlesex","Virginia",51119,127,11
+"1698","2020-10-06","Northampton","Virginia",51131,310,31
+"1699","2020-10-06","Northumberland","Virginia",51133,183,6
+"1700","2020-10-06","Richmond","Virginia",51159,353,4
+"1701","2020-10-06","Westmoreland","Virginia",51193,278,4
+"1702","2020-10-07","Accomack","Virginia",51001,1188,19
+"1703","2020-10-07","Essex","Virginia",51057,183,2
+"1704","2020-10-07","King and Queen","Virginia",51097,78,1
+"1705","2020-10-07","Lancaster","Virginia",51103,161,0
+"1706","2020-10-07","Middlesex","Virginia",51119,128,11
+"1707","2020-10-07","Northampton","Virginia",51131,310,31
+"1708","2020-10-07","Northumberland","Virginia",51133,183,6
+"1709","2020-10-07","Richmond","Virginia",51159,352,4
+"1710","2020-10-07","Westmoreland","Virginia",51193,279,4
+"1711","2020-10-08","Accomack","Virginia",51001,1188,19
+"1712","2020-10-08","Essex","Virginia",51057,183,2
+"1713","2020-10-08","King and Queen","Virginia",51097,78,1
+"1714","2020-10-08","Lancaster","Virginia",51103,164,0
+"1715","2020-10-08","Middlesex","Virginia",51119,131,11
+"1716","2020-10-08","Northampton","Virginia",51131,311,31
+"1717","2020-10-08","Northumberland","Virginia",51133,188,6
+"1718","2020-10-08","Richmond","Virginia",51159,355,4
+"1719","2020-10-08","Westmoreland","Virginia",51193,282,4
+"1720","2020-10-09","Accomack","Virginia",51001,1188,19
+"1721","2020-10-09","Essex","Virginia",51057,183,2
+"1722","2020-10-09","King and Queen","Virginia",51097,79,1
+"1723","2020-10-09","Lancaster","Virginia",51103,166,0
+"1724","2020-10-09","Middlesex","Virginia",51119,133,11
+"1725","2020-10-09","Northampton","Virginia",51131,311,31
+"1726","2020-10-09","Northumberland","Virginia",51133,190,6
+"1727","2020-10-09","Richmond","Virginia",51159,358,4
+"1728","2020-10-09","Westmoreland","Virginia",51193,282,4
+"1729","2020-10-10","Accomack","Virginia",51001,1188,19
+"1730","2020-10-10","Essex","Virginia",51057,184,2
+"1731","2020-10-10","King and Queen","Virginia",51097,80,1
+"1732","2020-10-10","Lancaster","Virginia",51103,167,0
+"1733","2020-10-10","Middlesex","Virginia",51119,133,11
+"1734","2020-10-10","Northampton","Virginia",51131,311,31
+"1735","2020-10-10","Northumberland","Virginia",51133,193,6
+"1736","2020-10-10","Richmond","Virginia",51159,359,4
+"1737","2020-10-10","Westmoreland","Virginia",51193,285,4
+"1738","2020-10-11","Accomack","Virginia",51001,1190,19
+"1739","2020-10-11","Essex","Virginia",51057,184,2
+"1740","2020-10-11","King and Queen","Virginia",51097,80,1
+"1741","2020-10-11","Lancaster","Virginia",51103,168,0
+"1742","2020-10-11","Middlesex","Virginia",51119,134,11
+"1743","2020-10-11","Northampton","Virginia",51131,311,31
+"1744","2020-10-11","Northumberland","Virginia",51133,196,6
+"1745","2020-10-11","Richmond","Virginia",51159,360,4
+"1746","2020-10-11","Westmoreland","Virginia",51193,288,4
+"1747","2020-10-12","Accomack","Virginia",51001,1193,19
+"1748","2020-10-12","Essex","Virginia",51057,185,2
+"1749","2020-10-12","King and Queen","Virginia",51097,80,1
+"1750","2020-10-12","Lancaster","Virginia",51103,168,0
+"1751","2020-10-12","Middlesex","Virginia",51119,134,11
+"1752","2020-10-12","Northampton","Virginia",51131,311,31
+"1753","2020-10-12","Northumberland","Virginia",51133,196,6
+"1754","2020-10-12","Richmond","Virginia",51159,363,4
+"1755","2020-10-12","Westmoreland","Virginia",51193,288,4
+"1756","2020-10-13","Accomack","Virginia",51001,1193,19
+"1757","2020-10-13","Essex","Virginia",51057,187,2
+"1758","2020-10-13","King and Queen","Virginia",51097,83,1
+"1759","2020-10-13","Lancaster","Virginia",51103,170,0
+"1760","2020-10-13","Middlesex","Virginia",51119,135,11
+"1761","2020-10-13","Northampton","Virginia",51131,311,31
+"1762","2020-10-13","Northumberland","Virginia",51133,204,6
+"1763","2020-10-13","Richmond","Virginia",51159,368,4
+"1764","2020-10-13","Westmoreland","Virginia",51193,306,4
+"1765","2020-10-14","Accomack","Virginia",51001,1195,19
+"1766","2020-10-14","Essex","Virginia",51057,187,2
+"1767","2020-10-14","King and Queen","Virginia",51097,83,1
+"1768","2020-10-14","Lancaster","Virginia",51103,170,0
+"1769","2020-10-14","Middlesex","Virginia",51119,135,11
+"1770","2020-10-14","Northampton","Virginia",51131,311,31
+"1771","2020-10-14","Northumberland","Virginia",51133,204,6
+"1772","2020-10-14","Richmond","Virginia",51159,371,4
+"1773","2020-10-14","Westmoreland","Virginia",51193,307,4
+"1774","2020-10-15","Accomack","Virginia",51001,1197,19
+"1775","2020-10-15","Essex","Virginia",51057,188,2
+"1776","2020-10-15","King and Queen","Virginia",51097,83,1
+"1777","2020-10-15","Lancaster","Virginia",51103,171,0
+"1778","2020-10-15","Middlesex","Virginia",51119,137,11
+"1779","2020-10-15","Northampton","Virginia",51131,311,31
+"1780","2020-10-15","Northumberland","Virginia",51133,206,6
+"1781","2020-10-15","Richmond","Virginia",51159,371,4
+"1782","2020-10-15","Westmoreland","Virginia",51193,328,4
+"1783","2020-10-16","Accomack","Virginia",51001,1198,19
+"1784","2020-10-16","Essex","Virginia",51057,188,2
+"1785","2020-10-16","King and Queen","Virginia",51097,83,1
+"1786","2020-10-16","Lancaster","Virginia",51103,171,0
+"1787","2020-10-16","Middlesex","Virginia",51119,138,11
+"1788","2020-10-16","Northampton","Virginia",51131,312,31
+"1789","2020-10-16","Northumberland","Virginia",51133,206,6
+"1790","2020-10-16","Richmond","Virginia",51159,372,4
+"1791","2020-10-16","Westmoreland","Virginia",51193,329,4
+"1792","2020-10-17","Accomack","Virginia",51001,1201,19
+"1793","2020-10-17","Essex","Virginia",51057,188,2
+"1794","2020-10-17","King and Queen","Virginia",51097,84,1
+"1795","2020-10-17","Lancaster","Virginia",51103,171,0
+"1796","2020-10-17","Middlesex","Virginia",51119,139,11
+"1797","2020-10-17","Northampton","Virginia",51131,312,31
+"1798","2020-10-17","Northumberland","Virginia",51133,208,7
+"1799","2020-10-17","Richmond","Virginia",51159,373,4
+"1800","2020-10-17","Westmoreland","Virginia",51193,332,5
+"1801","2020-10-18","Accomack","Virginia",51001,1200,19
+"1802","2020-10-18","Essex","Virginia",51057,188,2
+"1803","2020-10-18","King and Queen","Virginia",51097,86,1
+"1804","2020-10-18","Lancaster","Virginia",51103,171,0
+"1805","2020-10-18","Middlesex","Virginia",51119,139,11
+"1806","2020-10-18","Northampton","Virginia",51131,312,31
+"1807","2020-10-18","Northumberland","Virginia",51133,208,7
+"1808","2020-10-18","Richmond","Virginia",51159,375,4
+"1809","2020-10-18","Westmoreland","Virginia",51193,333,5
+"1810","2020-10-19","Accomack","Virginia",51001,1200,19
+"1811","2020-10-19","Essex","Virginia",51057,189,2
+"1812","2020-10-19","King and Queen","Virginia",51097,86,1
+"1813","2020-10-19","Lancaster","Virginia",51103,174,0
+"1814","2020-10-19","Middlesex","Virginia",51119,140,11
+"1815","2020-10-19","Northampton","Virginia",51131,314,31
+"1816","2020-10-19","Northumberland","Virginia",51133,208,7
+"1817","2020-10-19","Richmond","Virginia",51159,376,4
+"1818","2020-10-19","Westmoreland","Virginia",51193,333,5
+"1819","2020-10-20","Accomack","Virginia",51001,1202,19
+"1820","2020-10-20","Essex","Virginia",51057,188,2
+"1821","2020-10-20","King and Queen","Virginia",51097,86,1
+"1822","2020-10-20","Lancaster","Virginia",51103,175,1
+"1823","2020-10-20","Middlesex","Virginia",51119,140,11
+"1824","2020-10-20","Northampton","Virginia",51131,314,31
+"1825","2020-10-20","Northumberland","Virginia",51133,208,7
+"1826","2020-10-20","Richmond","Virginia",51159,364,4
+"1827","2020-10-20","Westmoreland","Virginia",51193,331,5
+"1828","2020-10-21","Accomack","Virginia",51001,1202,19
+"1829","2020-10-21","Essex","Virginia",51057,190,2
+"1830","2020-10-21","King and Queen","Virginia",51097,86,1
+"1831","2020-10-21","Lancaster","Virginia",51103,181,1
+"1832","2020-10-21","Middlesex","Virginia",51119,140,11
+"1833","2020-10-21","Northampton","Virginia",51131,315,31
+"1834","2020-10-21","Northumberland","Virginia",51133,212,7
+"1835","2020-10-21","Richmond","Virginia",51159,363,4
+"1836","2020-10-21","Westmoreland","Virginia",51193,334,5
+"1837","2020-10-22","Accomack","Virginia",51001,1204,19
+"1838","2020-10-22","Essex","Virginia",51057,191,2
+"1839","2020-10-22","King and Queen","Virginia",51097,86,2
+"1840","2020-10-22","Lancaster","Virginia",51103,188,1
+"1841","2020-10-22","Middlesex","Virginia",51119,143,11
+"1842","2020-10-22","Northampton","Virginia",51131,316,31
+"1843","2020-10-22","Northumberland","Virginia",51133,213,7
+"1844","2020-10-22","Richmond","Virginia",51159,365,4
+"1845","2020-10-22","Westmoreland","Virginia",51193,334,5
+"1846","2020-10-23","Accomack","Virginia",51001,1206,19
+"1847","2020-10-23","Essex","Virginia",51057,191,2
+"1848","2020-10-23","King and Queen","Virginia",51097,86,2
+"1849","2020-10-23","Lancaster","Virginia",51103,196,1
+"1850","2020-10-23","Middlesex","Virginia",51119,143,11
+"1851","2020-10-23","Northampton","Virginia",51131,316,31
+"1852","2020-10-23","Northumberland","Virginia",51133,213,7
+"1853","2020-10-23","Richmond","Virginia",51159,368,5
+"1854","2020-10-23","Westmoreland","Virginia",51193,336,5
+"1855","2020-10-24","Accomack","Virginia",51001,1206,19
+"1856","2020-10-24","Essex","Virginia",51057,193,2
+"1857","2020-10-24","King and Queen","Virginia",51097,85,2
+"1858","2020-10-24","Lancaster","Virginia",51103,197,1
+"1859","2020-10-24","Middlesex","Virginia",51119,144,11
+"1860","2020-10-24","Northampton","Virginia",51131,317,31
+"1861","2020-10-24","Northumberland","Virginia",51133,214,7
+"1862","2020-10-24","Richmond","Virginia",51159,374,5
+"1863","2020-10-24","Westmoreland","Virginia",51193,335,5
+"1864","2020-10-25","Accomack","Virginia",51001,1207,19
+"1865","2020-10-25","Essex","Virginia",51057,194,2
+"1866","2020-10-25","King and Queen","Virginia",51097,85,2
+"1867","2020-10-25","Lancaster","Virginia",51103,199,1
+"1868","2020-10-25","Middlesex","Virginia",51119,145,11
+"1869","2020-10-25","Northampton","Virginia",51131,319,31
+"1870","2020-10-25","Northumberland","Virginia",51133,215,7
+"1871","2020-10-25","Richmond","Virginia",51159,378,5
+"1872","2020-10-25","Westmoreland","Virginia",51193,335,5
+"1873","2020-10-26","Accomack","Virginia",51001,1210,19
+"1874","2020-10-26","Essex","Virginia",51057,195,2
+"1875","2020-10-26","King and Queen","Virginia",51097,85,2
+"1876","2020-10-26","Lancaster","Virginia",51103,199,1
+"1877","2020-10-26","Middlesex","Virginia",51119,145,11
+"1878","2020-10-26","Northampton","Virginia",51131,319,31
+"1879","2020-10-26","Northumberland","Virginia",51133,216,7
+"1880","2020-10-26","Richmond","Virginia",51159,379,5
+"1881","2020-10-26","Westmoreland","Virginia",51193,337,5
+"1882","2020-10-27","Accomack","Virginia",51001,1211,19
+"1883","2020-10-27","Essex","Virginia",51057,195,2
+"1884","2020-10-27","King and Queen","Virginia",51097,85,2
+"1885","2020-10-27","Lancaster","Virginia",51103,198,1
+"1886","2020-10-27","Middlesex","Virginia",51119,145,11
+"1887","2020-10-27","Northampton","Virginia",51131,319,31
+"1888","2020-10-27","Northumberland","Virginia",51133,218,7
+"1889","2020-10-27","Richmond","Virginia",51159,380,4
+"1890","2020-10-27","Westmoreland","Virginia",51193,337,5
+"1891","2020-10-28","Accomack","Virginia",51001,1214,19
+"1892","2020-10-28","Essex","Virginia",51057,197,2
+"1893","2020-10-28","King and Queen","Virginia",51097,85,2
+"1894","2020-10-28","Lancaster","Virginia",51103,200,1
+"1895","2020-10-28","Middlesex","Virginia",51119,146,11
+"1896","2020-10-28","Northampton","Virginia",51131,319,31
+"1897","2020-10-28","Northumberland","Virginia",51133,224,7
+"1898","2020-10-28","Richmond","Virginia",51159,366,4
+"1899","2020-10-28","Westmoreland","Virginia",51193,340,5
+"1900","2020-10-29","Accomack","Virginia",51001,1214,19
+"1901","2020-10-29","Essex","Virginia",51057,198,2
+"1902","2020-10-29","King and Queen","Virginia",51097,85,2
+"1903","2020-10-29","Lancaster","Virginia",51103,200,1
+"1904","2020-10-29","Middlesex","Virginia",51119,146,11
+"1905","2020-10-29","Northampton","Virginia",51131,320,31
+"1906","2020-10-29","Northumberland","Virginia",51133,224,7
+"1907","2020-10-29","Richmond","Virginia",51159,370,4
+"1908","2020-10-29","Westmoreland","Virginia",51193,343,5
+"1909","2020-10-30","Accomack","Virginia",51001,1219,19
+"1910","2020-10-30","Essex","Virginia",51057,200,2
+"1911","2020-10-30","King and Queen","Virginia",51097,85,2
+"1912","2020-10-30","Lancaster","Virginia",51103,202,1
+"1913","2020-10-30","Middlesex","Virginia",51119,147,11
+"1914","2020-10-30","Northampton","Virginia",51131,320,31
+"1915","2020-10-30","Northumberland","Virginia",51133,224,7
+"1916","2020-10-30","Richmond","Virginia",51159,373,4
+"1917","2020-10-30","Westmoreland","Virginia",51193,348,5
+"1918","2020-10-31","Accomack","Virginia",51001,1223,19
+"1919","2020-10-31","Essex","Virginia",51057,201,2
+"1920","2020-10-31","King and Queen","Virginia",51097,87,2
+"1921","2020-10-31","Lancaster","Virginia",51103,204,1
+"1922","2020-10-31","Middlesex","Virginia",51119,147,11
+"1923","2020-10-31","Northampton","Virginia",51131,320,31
+"1924","2020-10-31","Northumberland","Virginia",51133,226,7
+"1925","2020-10-31","Richmond","Virginia",51159,372,4
+"1926","2020-10-31","Westmoreland","Virginia",51193,351,5
+"1927","2020-11-01","Accomack","Virginia",51001,1227,19
+"1928","2020-11-01","Essex","Virginia",51057,201,2
+"1929","2020-11-01","King and Queen","Virginia",51097,87,2
+"1930","2020-11-01","Lancaster","Virginia",51103,204,1
+"1931","2020-11-01","Middlesex","Virginia",51119,148,11
+"1932","2020-11-01","Northampton","Virginia",51131,320,31
+"1933","2020-11-01","Northumberland","Virginia",51133,226,7
+"1934","2020-11-01","Richmond","Virginia",51159,371,4
+"1935","2020-11-01","Westmoreland","Virginia",51193,351,5
+"1936","2020-11-02","Accomack","Virginia",51001,1229,19
+"1937","2020-11-02","Essex","Virginia",51057,201,2
+"1938","2020-11-02","King and Queen","Virginia",51097,88,2
+"1939","2020-11-02","Lancaster","Virginia",51103,206,1
+"1940","2020-11-02","Middlesex","Virginia",51119,148,11
+"1941","2020-11-02","Northampton","Virginia",51131,320,31
+"1942","2020-11-02","Northumberland","Virginia",51133,226,7
+"1943","2020-11-02","Richmond","Virginia",51159,374,4
+"1944","2020-11-02","Westmoreland","Virginia",51193,353,5
+"1945","2020-11-03","Accomack","Virginia",51001,1229,19
+"1946","2020-11-03","Essex","Virginia",51057,201,2
+"1947","2020-11-03","King and Queen","Virginia",51097,88,2
+"1948","2020-11-03","Lancaster","Virginia",51103,206,1
+"1949","2020-11-03","Middlesex","Virginia",51119,148,11
+"1950","2020-11-03","Northampton","Virginia",51131,320,31
+"1951","2020-11-03","Northumberland","Virginia",51133,226,7
+"1952","2020-11-03","Richmond","Virginia",51159,373,4
+"1953","2020-11-03","Westmoreland","Virginia",51193,353,5
+"1954","2020-11-04","Accomack","Virginia",51001,1232,19
+"1955","2020-11-04","Essex","Virginia",51057,202,2
+"1956","2020-11-04","King and Queen","Virginia",51097,89,2
+"1957","2020-11-04","Lancaster","Virginia",51103,208,1
+"1958","2020-11-04","Middlesex","Virginia",51119,148,11
+"1959","2020-11-04","Northampton","Virginia",51131,321,31
+"1960","2020-11-04","Northumberland","Virginia",51133,228,7
+"1961","2020-11-04","Richmond","Virginia",51159,374,4
+"1962","2020-11-04","Westmoreland","Virginia",51193,355,5
+"1963","2020-11-05","Accomack","Virginia",51001,1236,19
+"1964","2020-11-05","Essex","Virginia",51057,203,2
+"1965","2020-11-05","King and Queen","Virginia",51097,90,2
+"1966","2020-11-05","Lancaster","Virginia",51103,208,1
+"1967","2020-11-05","Middlesex","Virginia",51119,148,11
+"1968","2020-11-05","Northampton","Virginia",51131,324,31
+"1969","2020-11-05","Northumberland","Virginia",51133,228,8
+"1970","2020-11-05","Richmond","Virginia",51159,363,4
+"1971","2020-11-05","Westmoreland","Virginia",51193,359,5
+"1972","2020-11-06","Accomack","Virginia",51001,1237,19
+"1973","2020-11-06","Essex","Virginia",51057,203,2
+"1974","2020-11-06","King and Queen","Virginia",51097,92,2
+"1975","2020-11-06","Lancaster","Virginia",51103,210,1
+"1976","2020-11-06","Middlesex","Virginia",51119,148,11
+"1977","2020-11-06","Northampton","Virginia",51131,325,31
+"1978","2020-11-06","Northumberland","Virginia",51133,228,8
+"1979","2020-11-06","Richmond","Virginia",51159,365,4
+"1980","2020-11-06","Westmoreland","Virginia",51193,365,5
+"1981","2020-11-07","Accomack","Virginia",51001,1239,19
+"1982","2020-11-07","Essex","Virginia",51057,203,2
+"1983","2020-11-07","King and Queen","Virginia",51097,93,2
+"1984","2020-11-07","Lancaster","Virginia",51103,210,1
+"1985","2020-11-07","Middlesex","Virginia",51119,148,11
+"1986","2020-11-07","Northampton","Virginia",51131,325,31
+"1987","2020-11-07","Northumberland","Virginia",51133,229,8
+"1988","2020-11-07","Richmond","Virginia",51159,367,4
+"1989","2020-11-07","Westmoreland","Virginia",51193,367,5
+"1990","2020-11-08","Accomack","Virginia",51001,1240,19
+"1991","2020-11-08","Essex","Virginia",51057,207,2
+"1992","2020-11-08","King and Queen","Virginia",51097,93,2
+"1993","2020-11-08","Lancaster","Virginia",51103,211,1
+"1994","2020-11-08","Middlesex","Virginia",51119,149,11
+"1995","2020-11-08","Northampton","Virginia",51131,326,31
+"1996","2020-11-08","Northumberland","Virginia",51133,230,8
+"1997","2020-11-08","Richmond","Virginia",51159,366,4
+"1998","2020-11-08","Westmoreland","Virginia",51193,367,5
+"1999","2020-11-09","Accomack","Virginia",51001,1241,19
+"2000","2020-11-09","Essex","Virginia",51057,207,2
+"2001","2020-11-09","King and Queen","Virginia",51097,93,2
+"2002","2020-11-09","Lancaster","Virginia",51103,211,1
+"2003","2020-11-09","Middlesex","Virginia",51119,149,11
+"2004","2020-11-09","Northampton","Virginia",51131,327,31
+"2005","2020-11-09","Northumberland","Virginia",51133,230,8
+"2006","2020-11-09","Richmond","Virginia",51159,366,4
+"2007","2020-11-09","Westmoreland","Virginia",51193,369,5
+"2008","2020-11-10","Accomack","Virginia",51001,1241,19
+"2009","2020-11-10","Essex","Virginia",51057,210,2
+"2010","2020-11-10","King and Queen","Virginia",51097,96,2
+"2011","2020-11-10","Lancaster","Virginia",51103,212,1
+"2012","2020-11-10","Middlesex","Virginia",51119,149,11
+"2013","2020-11-10","Northampton","Virginia",51131,327,31
+"2014","2020-11-10","Northumberland","Virginia",51133,232,8
+"2015","2020-11-10","Richmond","Virginia",51159,370,4
+"2016","2020-11-10","Westmoreland","Virginia",51193,369,5
+"2017","2020-11-11","Accomack","Virginia",51001,1242,21
+"2018","2020-11-11","Essex","Virginia",51057,210,2
+"2019","2020-11-11","King and Queen","Virginia",51097,96,2
+"2020","2020-11-11","Lancaster","Virginia",51103,212,1
+"2021","2020-11-11","Middlesex","Virginia",51119,149,11
+"2022","2020-11-11","Northampton","Virginia",51131,327,31
+"2023","2020-11-11","Northumberland","Virginia",51133,232,8
+"2024","2020-11-11","Richmond","Virginia",51159,368,4
+"2025","2020-11-11","Westmoreland","Virginia",51193,369,5
+"2026","2020-11-12","Accomack","Virginia",51001,1245,21
+"2027","2020-11-12","Essex","Virginia",51057,210,2
+"2028","2020-11-12","King and Queen","Virginia",51097,97,2
+"2029","2020-11-12","Lancaster","Virginia",51103,211,1
+"2030","2020-11-12","Middlesex","Virginia",51119,148,11
+"2031","2020-11-12","Northampton","Virginia",51131,328,31
+"2032","2020-11-12","Northumberland","Virginia",51133,232,8
+"2033","2020-11-12","Richmond","Virginia",51159,370,4
+"2034","2020-11-12","Westmoreland","Virginia",51193,375,5
+"2035","2020-11-13","Accomack","Virginia",51001,1248,21
+"2036","2020-11-13","Essex","Virginia",51057,212,2
+"2037","2020-11-13","King and Queen","Virginia",51097,97,2
+"2038","2020-11-13","Lancaster","Virginia",51103,212,1
+"2039","2020-11-13","Middlesex","Virginia",51119,149,11
+"2040","2020-11-13","Northampton","Virginia",51131,328,31
+"2041","2020-11-13","Northumberland","Virginia",51133,232,8
+"2042","2020-11-13","Richmond","Virginia",51159,374,4
+"2043","2020-11-13","Westmoreland","Virginia",51193,376,5
+"2044","2020-11-14","Accomack","Virginia",51001,1253,21
+"2045","2020-11-14","Essex","Virginia",51057,213,2
+"2046","2020-11-14","King and Queen","Virginia",51097,98,2
+"2047","2020-11-14","Lancaster","Virginia",51103,214,1
+"2048","2020-11-14","Middlesex","Virginia",51119,149,11
+"2049","2020-11-14","Northampton","Virginia",51131,329,31
+"2050","2020-11-14","Northumberland","Virginia",51133,235,8
+"2051","2020-11-14","Richmond","Virginia",51159,375,4
+"2052","2020-11-14","Westmoreland","Virginia",51193,379,5
+"2053","2020-11-15","Accomack","Virginia",51001,1255,21
+"2054","2020-11-15","Essex","Virginia",51057,215,2
+"2055","2020-11-15","King and Queen","Virginia",51097,98,2
+"2056","2020-11-15","Lancaster","Virginia",51103,214,1
+"2057","2020-11-15","Middlesex","Virginia",51119,150,11
+"2058","2020-11-15","Northampton","Virginia",51131,330,31
+"2059","2020-11-15","Northumberland","Virginia",51133,236,8
+"2060","2020-11-15","Richmond","Virginia",51159,377,4
+"2061","2020-11-15","Westmoreland","Virginia",51193,380,5
+"2062","2020-11-16","Accomack","Virginia",51001,1258,21
+"2063","2020-11-16","Essex","Virginia",51057,216,2
+"2064","2020-11-16","King and Queen","Virginia",51097,98,2
+"2065","2020-11-16","Lancaster","Virginia",51103,216,1
+"2066","2020-11-16","Middlesex","Virginia",51119,151,11
+"2067","2020-11-16","Northampton","Virginia",51131,332,31
+"2068","2020-11-16","Northumberland","Virginia",51133,244,8
+"2069","2020-11-16","Richmond","Virginia",51159,380,4
+"2070","2020-11-16","Westmoreland","Virginia",51193,380,5
+"2071","2020-11-17","Accomack","Virginia",51001,1266,21
+"2072","2020-11-17","Essex","Virginia",51057,217,2
+"2073","2020-11-17","King and Queen","Virginia",51097,98,2
+"2074","2020-11-17","Lancaster","Virginia",51103,223,1
+"2075","2020-11-17","Middlesex","Virginia",51119,151,11
+"2076","2020-11-17","Northampton","Virginia",51131,333,31
+"2077","2020-11-17","Northumberland","Virginia",51133,244,8
+"2078","2020-11-17","Richmond","Virginia",51159,374,4
+"2079","2020-11-17","Westmoreland","Virginia",51193,384,5
+"2080","2020-11-18","Accomack","Virginia",51001,1270,21
+"2081","2020-11-18","Essex","Virginia",51057,219,2
+"2082","2020-11-18","King and Queen","Virginia",51097,99,2
+"2083","2020-11-18","Lancaster","Virginia",51103,223,1
+"2084","2020-11-18","Middlesex","Virginia",51119,152,11
+"2085","2020-11-18","Northampton","Virginia",51131,334,31
+"2086","2020-11-18","Northumberland","Virginia",51133,245,8
+"2087","2020-11-18","Richmond","Virginia",51159,379,4
+"2088","2020-11-18","Westmoreland","Virginia",51193,386,5
+"2089","2020-11-19","Accomack","Virginia",51001,1279,21
+"2090","2020-11-19","Essex","Virginia",51057,221,2
+"2091","2020-11-19","King and Queen","Virginia",51097,99,2
+"2092","2020-11-19","Lancaster","Virginia",51103,223,1
+"2093","2020-11-19","Middlesex","Virginia",51119,152,11
+"2094","2020-11-19","Northampton","Virginia",51131,334,31
+"2095","2020-11-19","Northumberland","Virginia",51133,245,8
+"2096","2020-11-19","Richmond","Virginia",51159,380,4
+"2097","2020-11-19","Westmoreland","Virginia",51193,389,5
+"2098","2020-11-20","Accomack","Virginia",51001,1282,21
+"2099","2020-11-20","Essex","Virginia",51057,223,2
+"2100","2020-11-20","King and Queen","Virginia",51097,100,2
+"2101","2020-11-20","Lancaster","Virginia",51103,224,1
+"2102","2020-11-20","Middlesex","Virginia",51119,152,11
+"2103","2020-11-20","Northampton","Virginia",51131,335,31
+"2104","2020-11-20","Northumberland","Virginia",51133,246,8
+"2105","2020-11-20","Richmond","Virginia",51159,380,4
+"2106","2020-11-20","Westmoreland","Virginia",51193,393,5
+"2107","2020-11-21","Accomack","Virginia",51001,1288,21
+"2108","2020-11-21","Essex","Virginia",51057,224,2
+"2109","2020-11-21","King and Queen","Virginia",51097,101,2
+"2110","2020-11-21","Lancaster","Virginia",51103,224,1
+"2111","2020-11-21","Middlesex","Virginia",51119,152,11
+"2112","2020-11-21","Northampton","Virginia",51131,335,31
+"2113","2020-11-21","Northumberland","Virginia",51133,247,8
+"2114","2020-11-21","Richmond","Virginia",51159,382,5
+"2115","2020-11-21","Westmoreland","Virginia",51193,395,6
+"2116","2020-11-22","Accomack","Virginia",51001,1300,21
+"2117","2020-11-22","Essex","Virginia",51057,229,2
+"2118","2020-11-22","King and Queen","Virginia",51097,102,2
+"2119","2020-11-22","Lancaster","Virginia",51103,226,1
+"2120","2020-11-22","Middlesex","Virginia",51119,156,11
+"2121","2020-11-22","Northampton","Virginia",51131,337,31
+"2122","2020-11-22","Northumberland","Virginia",51133,251,8
+"2123","2020-11-22","Richmond","Virginia",51159,383,5
+"2124","2020-11-22","Westmoreland","Virginia",51193,399,6
+"2125","2020-11-23","Accomack","Virginia",51001,1308,21
+"2126","2020-11-23","Essex","Virginia",51057,232,2
+"2127","2020-11-23","King and Queen","Virginia",51097,102,2
+"2128","2020-11-23","Lancaster","Virginia",51103,232,1
+"2129","2020-11-23","Middlesex","Virginia",51119,161,11
+"2130","2020-11-23","Northampton","Virginia",51131,339,31
+"2131","2020-11-23","Northumberland","Virginia",51133,261,8
+"2132","2020-11-23","Richmond","Virginia",51159,392,5
+"2133","2020-11-23","Westmoreland","Virginia",51193,406,6
+"2134","2020-11-24","Accomack","Virginia",51001,1310,21
+"2135","2020-11-24","Essex","Virginia",51057,231,2
+"2136","2020-11-24","King and Queen","Virginia",51097,102,2
+"2137","2020-11-24","Lancaster","Virginia",51103,232,1
+"2138","2020-11-24","Middlesex","Virginia",51119,161,11
+"2139","2020-11-24","Northampton","Virginia",51131,340,31
+"2140","2020-11-24","Northumberland","Virginia",51133,262,8
+"2141","2020-11-24","Richmond","Virginia",51159,394,5
+"2142","2020-11-24","Westmoreland","Virginia",51193,406,6
+"2143","2020-11-25","Accomack","Virginia",51001,1315,21
+"2144","2020-11-25","Essex","Virginia",51057,234,2
+"2145","2020-11-25","King and Queen","Virginia",51097,102,2
+"2146","2020-11-25","Lancaster","Virginia",51103,234,1
+"2147","2020-11-25","Middlesex","Virginia",51119,162,11
+"2148","2020-11-25","Northampton","Virginia",51131,340,31
+"2149","2020-11-25","Northumberland","Virginia",51133,262,8
+"2150","2020-11-25","Richmond","Virginia",51159,401,5
+"2151","2020-11-25","Westmoreland","Virginia",51193,405,6
+"2152","2020-11-26","Accomack","Virginia",51001,1324,21
+"2153","2020-11-26","Essex","Virginia",51057,234,2
+"2154","2020-11-26","King and Queen","Virginia",51097,102,2
+"2155","2020-11-26","Lancaster","Virginia",51103,234,1
+"2156","2020-11-26","Middlesex","Virginia",51119,162,11
+"2157","2020-11-26","Northampton","Virginia",51131,340,31
+"2158","2020-11-26","Northumberland","Virginia",51133,264,8
+"2159","2020-11-26","Richmond","Virginia",51159,404,5
+"2160","2020-11-26","Westmoreland","Virginia",51193,406,7
+"2161","2020-11-27","Accomack","Virginia",51001,1330,21
+"2162","2020-11-27","Essex","Virginia",51057,236,2
+"2163","2020-11-27","King and Queen","Virginia",51097,104,2
+"2164","2020-11-27","Lancaster","Virginia",51103,235,1
+"2165","2020-11-27","Middlesex","Virginia",51119,164,11
+"2166","2020-11-27","Northampton","Virginia",51131,342,31
+"2167","2020-11-27","Northumberland","Virginia",51133,269,8
+"2168","2020-11-27","Richmond","Virginia",51159,408,5
+"2169","2020-11-27","Westmoreland","Virginia",51193,414,7
+"2170","2020-11-28","Accomack","Virginia",51001,1340,21
+"2171","2020-11-28","Essex","Virginia",51057,240,2
+"2172","2020-11-28","King and Queen","Virginia",51097,104,2
+"2173","2020-11-28","Lancaster","Virginia",51103,239,1
+"2174","2020-11-28","Middlesex","Virginia",51119,165,11
+"2175","2020-11-28","Northampton","Virginia",51131,349,31
+"2176","2020-11-28","Northumberland","Virginia",51133,271,8
+"2177","2020-11-28","Richmond","Virginia",51159,416,5
+"2178","2020-11-28","Westmoreland","Virginia",51193,419,7
+"2179","2020-11-29","Accomack","Virginia",51001,1345,21
+"2180","2020-11-29","Essex","Virginia",51057,242,2
+"2181","2020-11-29","King and Queen","Virginia",51097,104,2
+"2182","2020-11-29","Lancaster","Virginia",51103,240,1
+"2183","2020-11-29","Middlesex","Virginia",51119,167,11
+"2184","2020-11-29","Northampton","Virginia",51131,352,31
+"2185","2020-11-29","Northumberland","Virginia",51133,272,8
+"2186","2020-11-29","Richmond","Virginia",51159,424,5
+"2187","2020-11-29","Westmoreland","Virginia",51193,425,7
+"2188","2020-11-30","Accomack","Virginia",51001,1346,21
+"2189","2020-11-30","Essex","Virginia",51057,243,2
+"2190","2020-11-30","King and Queen","Virginia",51097,104,2
+"2191","2020-11-30","Lancaster","Virginia",51103,242,1
+"2192","2020-11-30","Middlesex","Virginia",51119,168,11
+"2193","2020-11-30","Northampton","Virginia",51131,352,31
+"2194","2020-11-30","Northumberland","Virginia",51133,274,8
+"2195","2020-11-30","Richmond","Virginia",51159,429,5
+"2196","2020-11-30","Westmoreland","Virginia",51193,427,7
+"2197","2020-12-01","Accomack","Virginia",51001,1357,21
+"2198","2020-12-01","Essex","Virginia",51057,255,2
+"2199","2020-12-01","King and Queen","Virginia",51097,105,2
+"2200","2020-12-01","Lancaster","Virginia",51103,244,1
+"2201","2020-12-01","Middlesex","Virginia",51119,172,11
+"2202","2020-12-01","Northampton","Virginia",51131,351,31
+"2203","2020-12-01","Northumberland","Virginia",51133,290,8
+"2204","2020-12-01","Richmond","Virginia",51159,445,6
+"2205","2020-12-01","Westmoreland","Virginia",51193,443,8
+"2206","2020-12-02","Accomack","Virginia",51001,1359,21
+"2207","2020-12-02","Essex","Virginia",51057,257,2
+"2208","2020-12-02","King and Queen","Virginia",51097,105,2
+"2209","2020-12-02","Lancaster","Virginia",51103,244,1
+"2210","2020-12-02","Middlesex","Virginia",51119,173,11
+"2211","2020-12-02","Northampton","Virginia",51131,351,31
+"2212","2020-12-02","Northumberland","Virginia",51133,294,8
+"2213","2020-12-02","Richmond","Virginia",51159,448,6
+"2214","2020-12-02","Westmoreland","Virginia",51193,445,8
+"2215","2020-12-03","Accomack","Virginia",51001,1363,21
+"2216","2020-12-03","Essex","Virginia",51057,258,2
+"2217","2020-12-03","King and Queen","Virginia",51097,105,2
+"2218","2020-12-03","Lancaster","Virginia",51103,244,1
+"2219","2020-12-03","Middlesex","Virginia",51119,177,11
+"2220","2020-12-03","Northampton","Virginia",51131,351,31
+"2221","2020-12-03","Northumberland","Virginia",51133,294,8
+"2222","2020-12-03","Richmond","Virginia",51159,465,6
+"2223","2020-12-03","Westmoreland","Virginia",51193,450,8
+"2224","2020-12-04","Accomack","Virginia",51001,1367,21
+"2225","2020-12-04","Essex","Virginia",51057,259,2
+"2226","2020-12-04","King and Queen","Virginia",51097,106,2
+"2227","2020-12-04","Lancaster","Virginia",51103,245,1
+"2228","2020-12-04","Middlesex","Virginia",51119,180,11
+"2229","2020-12-04","Northampton","Virginia",51131,350,31
+"2230","2020-12-04","Northumberland","Virginia",51133,294,8
+"2231","2020-12-04","Richmond","Virginia",51159,475,6
+"2232","2020-12-04","Westmoreland","Virginia",51193,455,8
+"2233","2020-12-05","Accomack","Virginia",51001,1374,21
+"2234","2020-12-05","Essex","Virginia",51057,258,2
+"2235","2020-12-05","King and Queen","Virginia",51097,106,2
+"2236","2020-12-05","Lancaster","Virginia",51103,246,1
+"2237","2020-12-05","Middlesex","Virginia",51119,180,11
+"2238","2020-12-05","Northampton","Virginia",51131,356,31
+"2239","2020-12-05","Northumberland","Virginia",51133,296,9
+"2240","2020-12-05","Richmond","Virginia",51159,483,6
+"2241","2020-12-05","Westmoreland","Virginia",51193,480,8
+"2242","2020-12-06","Accomack","Virginia",51001,1390,21
+"2243","2020-12-06","Essex","Virginia",51057,262,2
+"2244","2020-12-06","King and Queen","Virginia",51097,109,2
+"2245","2020-12-06","Lancaster","Virginia",51103,248,1
+"2246","2020-12-06","Middlesex","Virginia",51119,184,11
+"2247","2020-12-06","Northampton","Virginia",51131,357,31
+"2248","2020-12-06","Northumberland","Virginia",51133,296,9
+"2249","2020-12-06","Richmond","Virginia",51159,485,6
+"2250","2020-12-06","Westmoreland","Virginia",51193,488,8
+"2251","2020-12-07","Accomack","Virginia",51001,1408,21
+"2252","2020-12-07","Essex","Virginia",51057,263,2
+"2253","2020-12-07","King and Queen","Virginia",51097,109,2
+"2254","2020-12-07","Lancaster","Virginia",51103,248,1
+"2255","2020-12-07","Middlesex","Virginia",51119,185,11
+"2256","2020-12-07","Northampton","Virginia",51131,358,31
+"2257","2020-12-07","Northumberland","Virginia",51133,296,9
+"2258","2020-12-07","Richmond","Virginia",51159,485,6
+"2259","2020-12-07","Westmoreland","Virginia",51193,488,8
+"2260","2020-12-08","Accomack","Virginia",51001,1416,21
+"2261","2020-12-08","Essex","Virginia",51057,263,2
+"2262","2020-12-08","King and Queen","Virginia",51097,109,2
+"2263","2020-12-08","Lancaster","Virginia",51103,248,2
+"2264","2020-12-08","Middlesex","Virginia",51119,186,11
+"2265","2020-12-08","Northampton","Virginia",51131,360,31
+"2266","2020-12-08","Northumberland","Virginia",51133,297,9
+"2267","2020-12-08","Richmond","Virginia",51159,482,6
+"2268","2020-12-08","Westmoreland","Virginia",51193,498,8
+"2269","2020-12-09","Accomack","Virginia",51001,1438,21
+"2270","2020-12-09","Essex","Virginia",51057,263,2
+"2271","2020-12-09","King and Queen","Virginia",51097,110,2
+"2272","2020-12-09","Lancaster","Virginia",51103,248,2
+"2273","2020-12-09","Middlesex","Virginia",51119,186,11
+"2274","2020-12-09","Northampton","Virginia",51131,360,31
+"2275","2020-12-09","Northumberland","Virginia",51133,297,9
+"2276","2020-12-09","Richmond","Virginia",51159,473,5
+"2277","2020-12-09","Westmoreland","Virginia",51193,515,8
+"2278","2020-12-10","Accomack","Virginia",51001,1448,21
+"2279","2020-12-10","Essex","Virginia",51057,268,2
+"2280","2020-12-10","King and Queen","Virginia",51097,113,2
+"2281","2020-12-10","Lancaster","Virginia",51103,255,2
+"2282","2020-12-10","Middlesex","Virginia",51119,191,11
+"2283","2020-12-10","Northampton","Virginia",51131,362,31
+"2284","2020-12-10","Northumberland","Virginia",51133,300,9
+"2285","2020-12-10","Richmond","Virginia",51159,485,5
+"2286","2020-12-10","Westmoreland","Virginia",51193,530,8
+"2287","2020-12-11","Accomack","Virginia",51001,1466,21
+"2288","2020-12-11","Essex","Virginia",51057,268,2
+"2289","2020-12-11","King and Queen","Virginia",51097,113,2
+"2290","2020-12-11","Lancaster","Virginia",51103,255,2
+"2291","2020-12-11","Middlesex","Virginia",51119,191,11
+"2292","2020-12-11","Northampton","Virginia",51131,365,31
+"2293","2020-12-11","Northumberland","Virginia",51133,300,9
+"2294","2020-12-11","Richmond","Virginia",51159,533,5
+"2295","2020-12-11","Westmoreland","Virginia",51193,532,8
+"2296","2020-12-12","Accomack","Virginia",51001,1486,21
+"2297","2020-12-12","Essex","Virginia",51057,276,2
+"2298","2020-12-12","King and Queen","Virginia",51097,119,2
+"2299","2020-12-12","Lancaster","Virginia",51103,263,2
+"2300","2020-12-12","Middlesex","Virginia",51119,201,11
+"2301","2020-12-12","Northampton","Virginia",51131,370,31
+"2302","2020-12-12","Northumberland","Virginia",51133,317,9
+"2303","2020-12-12","Richmond","Virginia",51159,549,5
+"2304","2020-12-12","Westmoreland","Virginia",51193,549,8
+"2305","2020-12-13","Accomack","Virginia",51001,1494,21
+"2306","2020-12-13","Essex","Virginia",51057,279,2
+"2307","2020-12-13","King and Queen","Virginia",51097,121,2
+"2308","2020-12-13","Lancaster","Virginia",51103,267,2
+"2309","2020-12-13","Middlesex","Virginia",51119,205,11
+"2310","2020-12-13","Northampton","Virginia",51131,374,31
+"2311","2020-12-13","Northumberland","Virginia",51133,322,9
+"2312","2020-12-13","Richmond","Virginia",51159,552,5
+"2313","2020-12-13","Westmoreland","Virginia",51193,553,8
+"2314","2020-12-14","Accomack","Virginia",51001,1499,21
+"2315","2020-12-14","Essex","Virginia",51057,284,2
+"2316","2020-12-14","King and Queen","Virginia",51097,123,2
+"2317","2020-12-14","Lancaster","Virginia",51103,273,2
+"2318","2020-12-14","Middlesex","Virginia",51119,215,11
+"2319","2020-12-14","Northampton","Virginia",51131,376,31
+"2320","2020-12-14","Northumberland","Virginia",51133,329,9
+"2321","2020-12-14","Richmond","Virginia",51159,562,5
+"2322","2020-12-14","Westmoreland","Virginia",51193,579,9
+"2323","2020-12-15","Accomack","Virginia",51001,1524,21
+"2324","2020-12-15","Essex","Virginia",51057,285,2
+"2325","2020-12-15","King and Queen","Virginia",51097,123,2
+"2326","2020-12-15","Lancaster","Virginia",51103,274,2
+"2327","2020-12-15","Middlesex","Virginia",51119,217,11
+"2328","2020-12-15","Northampton","Virginia",51131,381,31
+"2329","2020-12-15","Northumberland","Virginia",51133,329,9
+"2330","2020-12-15","Richmond","Virginia",51159,551,5
+"2331","2020-12-15","Westmoreland","Virginia",51193,582,9
+"2332","2020-12-16","Accomack","Virginia",51001,1533,22
+"2333","2020-12-16","Essex","Virginia",51057,291,2
+"2334","2020-12-16","King and Queen","Virginia",51097,127,2
+"2335","2020-12-16","Lancaster","Virginia",51103,278,2
+"2336","2020-12-16","Middlesex","Virginia",51119,219,11
+"2337","2020-12-16","Northampton","Virginia",51131,381,31
+"2338","2020-12-16","Northumberland","Virginia",51133,334,9
+"2339","2020-12-16","Richmond","Virginia",51159,562,5
+"2340","2020-12-16","Westmoreland","Virginia",51193,589,9
+"2341","2020-12-17","Accomack","Virginia",51001,1545,23
+"2342","2020-12-17","Essex","Virginia",51057,295,2
+"2343","2020-12-17","King and Queen","Virginia",51097,137,2
+"2344","2020-12-17","Lancaster","Virginia",51103,279,2
+"2345","2020-12-17","Middlesex","Virginia",51119,220,11
+"2346","2020-12-17","Northampton","Virginia",51131,383,31
+"2347","2020-12-17","Northumberland","Virginia",51133,337,10
+"2348","2020-12-17","Richmond","Virginia",51159,573,5
+"2349","2020-12-17","Westmoreland","Virginia",51193,593,9
+"2350","2020-12-18","Accomack","Virginia",51001,1553,23
+"2351","2020-12-18","Essex","Virginia",51057,295,2
+"2352","2020-12-18","King and Queen","Virginia",51097,139,2
+"2353","2020-12-18","Lancaster","Virginia",51103,279,2
+"2354","2020-12-18","Middlesex","Virginia",51119,225,11
+"2355","2020-12-18","Northampton","Virginia",51131,384,31
+"2356","2020-12-18","Northumberland","Virginia",51133,344,10
+"2357","2020-12-18","Richmond","Virginia",51159,598,5
+"2358","2020-12-18","Westmoreland","Virginia",51193,599,9
+"2359","2020-12-19","Accomack","Virginia",51001,1564,25
+"2360","2020-12-19","Essex","Virginia",51057,296,2
+"2361","2020-12-19","King and Queen","Virginia",51097,140,2
+"2362","2020-12-19","Lancaster","Virginia",51103,279,2
+"2363","2020-12-19","Middlesex","Virginia",51119,230,11
+"2364","2020-12-19","Northampton","Virginia",51131,392,31
+"2365","2020-12-19","Northumberland","Virginia",51133,359,10
+"2366","2020-12-19","Richmond","Virginia",51159,609,5
+"2367","2020-12-19","Westmoreland","Virginia",51193,604,9
+"2368","2020-12-20","Accomack","Virginia",51001,1579,25
+"2369","2020-12-20","Essex","Virginia",51057,298,2
+"2370","2020-12-20","King and Queen","Virginia",51097,145,2
+"2371","2020-12-20","Lancaster","Virginia",51103,280,2
+"2372","2020-12-20","Middlesex","Virginia",51119,235,11
+"2373","2020-12-20","Northampton","Virginia",51131,398,31
+"2374","2020-12-20","Northumberland","Virginia",51133,367,10
+"2375","2020-12-20","Richmond","Virginia",51159,619,5
+"2376","2020-12-20","Westmoreland","Virginia",51193,612,9
+"2377","2020-12-21","Accomack","Virginia",51001,1585,25
+"2378","2020-12-21","Essex","Virginia",51057,301,2
+"2379","2020-12-21","King and Queen","Virginia",51097,149,2
+"2380","2020-12-21","Lancaster","Virginia",51103,281,2
+"2381","2020-12-21","Middlesex","Virginia",51119,238,11
+"2382","2020-12-21","Northampton","Virginia",51131,400,31
+"2383","2020-12-21","Northumberland","Virginia",51133,374,10
+"2384","2020-12-21","Richmond","Virginia",51159,624,5
+"2385","2020-12-21","Westmoreland","Virginia",51193,620,9
+"2386","2020-12-22","Accomack","Virginia",51001,1588,25
+"2387","2020-12-22","Essex","Virginia",51057,311,2
+"2388","2020-12-22","King and Queen","Virginia",51097,150,2
+"2389","2020-12-22","Lancaster","Virginia",51103,284,2
+"2390","2020-12-22","Middlesex","Virginia",51119,246,11
+"2391","2020-12-22","Northampton","Virginia",51131,405,31
+"2392","2020-12-22","Northumberland","Virginia",51133,383,10
+"2393","2020-12-22","Richmond","Virginia",51159,654,5
+"2394","2020-12-22","Westmoreland","Virginia",51193,630,9
+"2395","2020-12-23","Accomack","Virginia",51001,1604,25
+"2396","2020-12-23","Essex","Virginia",51057,316,2
+"2397","2020-12-23","King and Queen","Virginia",51097,161,2
+"2398","2020-12-23","Lancaster","Virginia",51103,287,2
+"2399","2020-12-23","Middlesex","Virginia",51119,252,11
+"2400","2020-12-23","Northampton","Virginia",51131,410,31
+"2401","2020-12-23","Northumberland","Virginia",51133,389,10
+"2402","2020-12-23","Richmond","Virginia",51159,718,5
+"2403","2020-12-23","Westmoreland","Virginia",51193,653,9
+"2404","2020-12-24","Accomack","Virginia",51001,1625,25
+"2405","2020-12-24","Essex","Virginia",51057,319,2
+"2406","2020-12-24","King and Queen","Virginia",51097,165,2
+"2407","2020-12-24","Lancaster","Virginia",51103,292,2
+"2408","2020-12-24","Middlesex","Virginia",51119,253,11
+"2409","2020-12-24","Northampton","Virginia",51131,418,31
+"2410","2020-12-24","Northumberland","Virginia",51133,396,10
+"2411","2020-12-24","Richmond","Virginia",51159,729,5
+"2412","2020-12-24","Westmoreland","Virginia",51193,661,9
+"2413","2020-12-25","Accomack","Virginia",51001,1633,25
+"2414","2020-12-25","Essex","Virginia",51057,320,2
+"2415","2020-12-25","King and Queen","Virginia",51097,169,2
+"2416","2020-12-25","Lancaster","Virginia",51103,302,2
+"2417","2020-12-25","Middlesex","Virginia",51119,255,11
+"2418","2020-12-25","Northampton","Virginia",51131,423,31
+"2419","2020-12-25","Northumberland","Virginia",51133,396,10
+"2420","2020-12-25","Richmond","Virginia",51159,754,5
+"2421","2020-12-25","Westmoreland","Virginia",51193,667,9
+"2422","2020-12-26","Accomack","Virginia",51001,1633,25
+"2423","2020-12-26","Essex","Virginia",51057,321,2
+"2424","2020-12-26","King and Queen","Virginia",51097,169,2
+"2425","2020-12-26","Lancaster","Virginia",51103,311,2
+"2426","2020-12-26","Middlesex","Virginia",51119,258,11
+"2427","2020-12-26","Northampton","Virginia",51131,423,31
+"2428","2020-12-26","Northumberland","Virginia",51133,401,10
+"2429","2020-12-26","Richmond","Virginia",51159,758,5
+"2430","2020-12-26","Westmoreland","Virginia",51193,669,9
+"2431","2020-12-27","Accomack","Virginia",51001,1657,25
+"2432","2020-12-27","Essex","Virginia",51057,322,2
+"2433","2020-12-27","King and Queen","Virginia",51097,169,2
+"2434","2020-12-27","Lancaster","Virginia",51103,317,2
+"2435","2020-12-27","Middlesex","Virginia",51119,259,11
+"2436","2020-12-27","Northampton","Virginia",51131,433,31
+"2437","2020-12-27","Northumberland","Virginia",51133,407,10
+"2438","2020-12-27","Richmond","Virginia",51159,762,5
+"2439","2020-12-27","Westmoreland","Virginia",51193,671,9
+"2440","2020-12-28","Accomack","Virginia",51001,1665,25
+"2441","2020-12-28","Essex","Virginia",51057,332,2
+"2442","2020-12-28","King and Queen","Virginia",51097,170,2
+"2443","2020-12-28","Lancaster","Virginia",51103,319,2
+"2444","2020-12-28","Middlesex","Virginia",51119,265,11
+"2445","2020-12-28","Northampton","Virginia",51131,437,31
+"2446","2020-12-28","Northumberland","Virginia",51133,409,10
+"2447","2020-12-28","Richmond","Virginia",51159,767,5
+"2448","2020-12-28","Westmoreland","Virginia",51193,674,9
+"2449","2020-12-29","Accomack","Virginia",51001,1672,25
+"2450","2020-12-29","Essex","Virginia",51057,338,2
+"2451","2020-12-29","King and Queen","Virginia",51097,171,2
+"2452","2020-12-29","Lancaster","Virginia",51103,330,2
+"2453","2020-12-29","Middlesex","Virginia",51119,268,11
+"2454","2020-12-29","Northampton","Virginia",51131,437,31
+"2455","2020-12-29","Northumberland","Virginia",51133,417,10
+"2456","2020-12-29","Richmond","Virginia",51159,776,5
+"2457","2020-12-29","Westmoreland","Virginia",51193,685,9
+"2458","2020-12-30","Accomack","Virginia",51001,1692,27
+"2459","2020-12-30","Essex","Virginia",51057,339,2
+"2460","2020-12-30","King and Queen","Virginia",51097,171,2
+"2461","2020-12-30","Lancaster","Virginia",51103,337,2
+"2462","2020-12-30","Middlesex","Virginia",51119,274,11
+"2463","2020-12-30","Northampton","Virginia",51131,440,31
+"2464","2020-12-30","Northumberland","Virginia",51133,424,10
+"2465","2020-12-30","Richmond","Virginia",51159,809,5
+"2466","2020-12-30","Westmoreland","Virginia",51193,692,9
+"2467","2020-12-31","Accomack","Virginia",51001,1698,27
+"2468","2020-12-31","Essex","Virginia",51057,341,2
+"2469","2020-12-31","King and Queen","Virginia",51097,171,2
+"2470","2020-12-31","Lancaster","Virginia",51103,344,2
+"2471","2020-12-31","Middlesex","Virginia",51119,275,11
+"2472","2020-12-31","Northampton","Virginia",51131,444,31
+"2473","2020-12-31","Northumberland","Virginia",51133,427,10
+"2474","2020-12-31","Richmond","Virginia",51159,811,5
+"2475","2020-12-31","Westmoreland","Virginia",51193,692,9
+"2476","2021-01-01","Accomack","Virginia",51001,1709,27
+"2477","2021-01-01","Essex","Virginia",51057,350,2
+"2478","2021-01-01","King and Queen","Virginia",51097,175,2
+"2479","2021-01-01","Lancaster","Virginia",51103,362,3
+"2480","2021-01-01","Middlesex","Virginia",51119,279,12
+"2481","2021-01-01","Northampton","Virginia",51131,452,31
+"2482","2021-01-01","Northumberland","Virginia",51133,433,10
+"2483","2021-01-01","Richmond","Virginia",51159,819,5
+"2484","2021-01-01","Westmoreland","Virginia",51193,699,9
+"2485","2021-01-02","Accomack","Virginia",51001,1730,27
+"2486","2021-01-02","Essex","Virginia",51057,355,2
+"2487","2021-01-02","King and Queen","Virginia",51097,175,2
+"2488","2021-01-02","Lancaster","Virginia",51103,367,3
+"2489","2021-01-02","Middlesex","Virginia",51119,283,12
+"2490","2021-01-02","Northampton","Virginia",51131,454,31
+"2491","2021-01-02","Northumberland","Virginia",51133,444,10
+"2492","2021-01-02","Richmond","Virginia",51159,831,5
+"2493","2021-01-02","Westmoreland","Virginia",51193,707,9
+"2494","2021-01-03","Accomack","Virginia",51001,1760,27
+"2495","2021-01-03","Essex","Virginia",51057,360,2
+"2496","2021-01-03","King and Queen","Virginia",51097,176,2
+"2497","2021-01-03","Lancaster","Virginia",51103,375,3
+"2498","2021-01-03","Middlesex","Virginia",51119,286,12
+"2499","2021-01-03","Northampton","Virginia",51131,456,31
+"2500","2021-01-03","Northumberland","Virginia",51133,449,10
+"2501","2021-01-03","Richmond","Virginia",51159,843,5
+"2502","2021-01-03","Westmoreland","Virginia",51193,711,9
+"2503","2021-01-04","Accomack","Virginia",51001,1789,27
+"2504","2021-01-04","Essex","Virginia",51057,368,2
+"2505","2021-01-04","King and Queen","Virginia",51097,176,2
+"2506","2021-01-04","Lancaster","Virginia",51103,382,3
+"2507","2021-01-04","Middlesex","Virginia",51119,286,12
+"2508","2021-01-04","Northampton","Virginia",51131,460,31
+"2509","2021-01-04","Northumberland","Virginia",51133,453,10
+"2510","2021-01-04","Richmond","Virginia",51159,849,5
+"2511","2021-01-04","Westmoreland","Virginia",51193,714,9
+"2512","2021-01-05","Accomack","Virginia",51001,1814,27
+"2513","2021-01-05","Essex","Virginia",51057,381,2
+"2514","2021-01-05","King and Queen","Virginia",51097,178,2
+"2515","2021-01-05","Lancaster","Virginia",51103,386,3
+"2516","2021-01-05","Middlesex","Virginia",51119,290,12
+"2517","2021-01-05","Northampton","Virginia",51131,463,31
+"2518","2021-01-05","Northumberland","Virginia",51133,459,10
+"2519","2021-01-05","Richmond","Virginia",51159,857,5
+"2520","2021-01-05","Westmoreland","Virginia",51193,724,10
+"2521","2021-01-06","Accomack","Virginia",51001,1824,29
+"2522","2021-01-06","Essex","Virginia",51057,385,2
+"2523","2021-01-06","King and Queen","Virginia",51097,183,2
+"2524","2021-01-06","Lancaster","Virginia",51103,389,3
+"2525","2021-01-06","Middlesex","Virginia",51119,293,12
+"2526","2021-01-06","Northampton","Virginia",51131,466,31
+"2527","2021-01-06","Northumberland","Virginia",51133,462,10
+"2528","2021-01-06","Richmond","Virginia",51159,866,6
+"2529","2021-01-06","Westmoreland","Virginia",51193,735,10
+"2530","2021-01-07","Accomack","Virginia",51001,1855,30
+"2531","2021-01-07","Essex","Virginia",51057,398,2
+"2532","2021-01-07","King and Queen","Virginia",51097,188,2
+"2533","2021-01-07","Lancaster","Virginia",51103,393,3
+"2534","2021-01-07","Middlesex","Virginia",51119,296,12
+"2535","2021-01-07","Northampton","Virginia",51131,484,31
+"2536","2021-01-07","Northumberland","Virginia",51133,467,10
+"2537","2021-01-07","Richmond","Virginia",51159,881,6
+"2538","2021-01-07","Westmoreland","Virginia",51193,762,11
+"2539","2021-01-08","Accomack","Virginia",51001,1890,30
+"2540","2021-01-08","Essex","Virginia",51057,405,2
+"2541","2021-01-08","King and Queen","Virginia",51097,188,2
+"2542","2021-01-08","Lancaster","Virginia",51103,402,3
+"2543","2021-01-08","Middlesex","Virginia",51119,297,12
+"2544","2021-01-08","Northampton","Virginia",51131,490,31
+"2545","2021-01-08","Northumberland","Virginia",51133,470,10
+"2546","2021-01-08","Richmond","Virginia",51159,950,6
+"2547","2021-01-08","Westmoreland","Virginia",51193,772,11
+"2548","2021-01-09","Accomack","Virginia",51001,1928,30
+"2549","2021-01-09","Essex","Virginia",51057,417,2
+"2550","2021-01-09","King and Queen","Virginia",51097,192,2
+"2551","2021-01-09","Lancaster","Virginia",51103,412,3
+"2552","2021-01-09","Middlesex","Virginia",51119,308,12
+"2553","2021-01-09","Northampton","Virginia",51131,500,31
+"2554","2021-01-09","Northumberland","Virginia",51133,476,10
+"2555","2021-01-09","Richmond","Virginia",51159,967,6
+"2556","2021-01-09","Westmoreland","Virginia",51193,780,11
+"2557","2021-01-10","Accomack","Virginia",51001,2005,30
+"2558","2021-01-10","Essex","Virginia",51057,422,2
+"2559","2021-01-10","King and Queen","Virginia",51097,194,2
+"2560","2021-01-10","Lancaster","Virginia",51103,418,3
+"2561","2021-01-10","Middlesex","Virginia",51119,310,12
+"2562","2021-01-10","Northampton","Virginia",51131,505,31
+"2563","2021-01-10","Northumberland","Virginia",51133,478,10
+"2564","2021-01-10","Richmond","Virginia",51159,975,6
+"2565","2021-01-10","Westmoreland","Virginia",51193,786,11
+"2566","2021-01-11","Accomack","Virginia",51001,2037,30
+"2567","2021-01-11","Essex","Virginia",51057,431,2
+"2568","2021-01-11","King and Queen","Virginia",51097,197,2
+"2569","2021-01-11","Lancaster","Virginia",51103,421,3
+"2570","2021-01-11","Middlesex","Virginia",51119,316,12
+"2571","2021-01-11","Northampton","Virginia",51131,516,31
+"2572","2021-01-11","Northumberland","Virginia",51133,483,10
+"2573","2021-01-11","Richmond","Virginia",51159,987,6
+"2574","2021-01-11","Westmoreland","Virginia",51193,796,11
+"2575","2021-01-12","Accomack","Virginia",51001,2056,30
+"2576","2021-01-12","Essex","Virginia",51057,447,3
+"2577","2021-01-12","King and Queen","Virginia",51097,201,2
+"2578","2021-01-12","Lancaster","Virginia",51103,431,3
+"2579","2021-01-12","Middlesex","Virginia",51119,317,12
+"2580","2021-01-12","Northampton","Virginia",51131,523,31
+"2581","2021-01-12","Northumberland","Virginia",51133,492,11
+"2582","2021-01-12","Richmond","Virginia",51159,999,6
+"2583","2021-01-12","Westmoreland","Virginia",51193,811,11
+"2584","2021-01-13","Accomack","Virginia",51001,2056,31
+"2585","2021-01-13","Essex","Virginia",51057,452,3
+"2586","2021-01-13","King and Queen","Virginia",51097,204,2
+"2587","2021-01-13","Lancaster","Virginia",51103,435,3
+"2588","2021-01-13","Middlesex","Virginia",51119,321,13
+"2589","2021-01-13","Northampton","Virginia",51131,525,31
+"2590","2021-01-13","Northumberland","Virginia",51133,500,11
+"2591","2021-01-13","Richmond","Virginia",51159,1025,6
+"2592","2021-01-13","Westmoreland","Virginia",51193,827,11
+"2593","2021-01-14","Accomack","Virginia",51001,2091,31
+"2594","2021-01-14","Essex","Virginia",51057,459,3
+"2595","2021-01-14","King and Queen","Virginia",51097,209,2
+"2596","2021-01-14","Lancaster","Virginia",51103,444,3
+"2597","2021-01-14","Middlesex","Virginia",51119,328,13
+"2598","2021-01-14","Northampton","Virginia",51131,532,31
+"2599","2021-01-14","Northumberland","Virginia",51133,511,11
+"2600","2021-01-14","Richmond","Virginia",51159,1031,6
+"2601","2021-01-14","Westmoreland","Virginia",51193,846,12
+"2602","2021-01-15","Accomack","Virginia",51001,2100,31
+"2603","2021-01-15","Essex","Virginia",51057,462,3
+"2604","2021-01-15","King and Queen","Virginia",51097,210,2
+"2605","2021-01-15","Lancaster","Virginia",51103,447,3
+"2606","2021-01-15","Middlesex","Virginia",51119,332,13
+"2607","2021-01-15","Northampton","Virginia",51131,534,31
+"2608","2021-01-15","Northumberland","Virginia",51133,513,11
+"2609","2021-01-15","Richmond","Virginia",51159,1040,6
+"2610","2021-01-15","Westmoreland","Virginia",51193,852,12
+"2611","2021-01-16","Accomack","Virginia",51001,2125,31
+"2612","2021-01-16","Essex","Virginia",51057,466,3
+"2613","2021-01-16","King and Queen","Virginia",51097,212,2
+"2614","2021-01-16","Lancaster","Virginia",51103,453,3
+"2615","2021-01-16","Middlesex","Virginia",51119,339,13
+"2616","2021-01-16","Northampton","Virginia",51131,539,31
+"2617","2021-01-16","Northumberland","Virginia",51133,515,11
+"2618","2021-01-16","Richmond","Virginia",51159,1079,6
+"2619","2021-01-16","Westmoreland","Virginia",51193,862,12
+"2620","2021-01-17","Accomack","Virginia",51001,2140,31
+"2621","2021-01-17","Essex","Virginia",51057,470,3
+"2622","2021-01-17","King and Queen","Virginia",51097,214,2
+"2623","2021-01-17","Lancaster","Virginia",51103,466,3
+"2624","2021-01-17","Middlesex","Virginia",51119,345,13
+"2625","2021-01-17","Northampton","Virginia",51131,557,32
+"2626","2021-01-17","Northumberland","Virginia",51133,517,11
+"2627","2021-01-17","Richmond","Virginia",51159,1123,6
+"2628","2021-01-17","Westmoreland","Virginia",51193,874,12
+"2629","2021-01-18","Accomack","Virginia",51001,2168,31
+"2630","2021-01-18","Essex","Virginia",51057,481,3
+"2631","2021-01-18","King and Queen","Virginia",51097,219,2
+"2632","2021-01-18","Lancaster","Virginia",51103,475,3
+"2633","2021-01-18","Middlesex","Virginia",51119,352,13
+"2634","2021-01-18","Northampton","Virginia",51131,572,32
+"2635","2021-01-18","Northumberland","Virginia",51133,524,11
+"2636","2021-01-18","Richmond","Virginia",51159,1137,6
+"2637","2021-01-18","Westmoreland","Virginia",51193,885,12
+"2638","2021-01-19","Accomack","Virginia",51001,2176,31
+"2639","2021-01-19","Essex","Virginia",51057,482,3
+"2640","2021-01-19","King and Queen","Virginia",51097,225,2
+"2641","2021-01-19","Lancaster","Virginia",51103,476,3
+"2642","2021-01-19","Middlesex","Virginia",51119,356,14
+"2643","2021-01-19","Northampton","Virginia",51131,573,32
+"2644","2021-01-19","Northumberland","Virginia",51133,529,11
+"2645","2021-01-19","Richmond","Virginia",51159,1164,6
+"2646","2021-01-19","Westmoreland","Virginia",51193,892,12
+"2647","2021-01-20","Accomack","Virginia",51001,2187,31
+"2648","2021-01-20","Essex","Virginia",51057,485,3
+"2649","2021-01-20","King and Queen","Virginia",51097,226,2
+"2650","2021-01-20","Lancaster","Virginia",51103,482,3
+"2651","2021-01-20","Middlesex","Virginia",51119,360,15
+"2652","2021-01-20","Northampton","Virginia",51131,575,32
+"2653","2021-01-20","Northumberland","Virginia",51133,537,12
+"2654","2021-01-20","Richmond","Virginia",51159,1167,6
+"2655","2021-01-20","Westmoreland","Virginia",51193,899,13
+"2656","2021-01-21","Accomack","Virginia",51001,2198,31
+"2657","2021-01-21","Essex","Virginia",51057,494,3
+"2658","2021-01-21","King and Queen","Virginia",51097,228,3
+"2659","2021-01-21","Lancaster","Virginia",51103,492,3
+"2660","2021-01-21","Middlesex","Virginia",51119,369,15
+"2661","2021-01-21","Northampton","Virginia",51131,580,32
+"2662","2021-01-21","Northumberland","Virginia",51133,535,12
+"2663","2021-01-21","Richmond","Virginia",51159,1186,6
+"2664","2021-01-21","Westmoreland","Virginia",51193,913,14
+"2665","2021-01-22","Accomack","Virginia",51001,2206,31
+"2666","2021-01-22","Essex","Virginia",51057,496,3
+"2667","2021-01-22","King and Queen","Virginia",51097,234,3
+"2668","2021-01-22","Lancaster","Virginia",51103,496,3
+"2669","2021-01-22","Middlesex","Virginia",51119,370,15
+"2670","2021-01-22","Northampton","Virginia",51131,582,32
+"2671","2021-01-22","Northumberland","Virginia",51133,536,12
+"2672","2021-01-22","Richmond","Virginia",51159,1194,6
+"2673","2021-01-22","Westmoreland","Virginia",51193,920,14
+"2674","2021-01-23","Accomack","Virginia",51001,2228,31
+"2675","2021-01-23","Essex","Virginia",51057,498,3
+"2676","2021-01-23","King and Queen","Virginia",51097,237,3
+"2677","2021-01-23","Lancaster","Virginia",51103,497,3
+"2678","2021-01-23","Middlesex","Virginia",51119,374,15
+"2679","2021-01-23","Northampton","Virginia",51131,586,33
+"2680","2021-01-23","Northumberland","Virginia",51133,538,13
+"2681","2021-01-23","Richmond","Virginia",51159,1198,6
+"2682","2021-01-23","Westmoreland","Virginia",51193,931,14
+"2683","2021-01-24","Accomack","Virginia",51001,2249,31
+"2684","2021-01-24","Essex","Virginia",51057,502,3
+"2685","2021-01-24","King and Queen","Virginia",51097,238,3
+"2686","2021-01-24","Lancaster","Virginia",51103,510,3
+"2687","2021-01-24","Middlesex","Virginia",51119,381,15
+"2688","2021-01-24","Northampton","Virginia",51131,595,33
+"2689","2021-01-24","Northumberland","Virginia",51133,548,13
+"2690","2021-01-24","Richmond","Virginia",51159,1201,6
+"2691","2021-01-24","Westmoreland","Virginia",51193,944,14
+"2692","2021-01-25","Accomack","Virginia",51001,2272,31
+"2693","2021-01-25","Essex","Virginia",51057,510,3
+"2694","2021-01-25","King and Queen","Virginia",51097,242,3
+"2695","2021-01-25","Lancaster","Virginia",51103,519,3
+"2696","2021-01-25","Middlesex","Virginia",51119,389,15
+"2697","2021-01-25","Northampton","Virginia",51131,603,33
+"2698","2021-01-25","Northumberland","Virginia",51133,553,13
+"2699","2021-01-25","Richmond","Virginia",51159,1211,6
+"2700","2021-01-25","Westmoreland","Virginia",51193,960,14
+"2701","2021-01-26","Accomack","Virginia",51001,2290,31
+"2702","2021-01-26","Essex","Virginia",51057,512,3
+"2703","2021-01-26","King and Queen","Virginia",51097,244,3
+"2704","2021-01-26","Lancaster","Virginia",51103,528,3
+"2705","2021-01-26","Middlesex","Virginia",51119,394,15
+"2706","2021-01-26","Northampton","Virginia",51131,609,33
+"2707","2021-01-26","Northumberland","Virginia",51133,556,13
+"2708","2021-01-26","Richmond","Virginia",51159,1223,6
+"2709","2021-01-26","Westmoreland","Virginia",51193,966,16
+"2710","2021-01-27","Accomack","Virginia",51001,2295,31
+"2711","2021-01-27","Essex","Virginia",51057,511,3
+"2712","2021-01-27","King and Queen","Virginia",51097,247,3
+"2713","2021-01-27","Lancaster","Virginia",51103,535,3
+"2714","2021-01-27","Middlesex","Virginia",51119,397,15
+"2715","2021-01-27","Northampton","Virginia",51131,611,33
+"2716","2021-01-27","Northumberland","Virginia",51133,562,13
+"2717","2021-01-27","Richmond","Virginia",51159,1222,6
+"2718","2021-01-27","Westmoreland","Virginia",51193,971,16
+"2719","2021-01-28","Accomack","Virginia",51001,2301,31
+"2720","2021-01-28","Essex","Virginia",51057,516,3
+"2721","2021-01-28","King and Queen","Virginia",51097,249,3
+"2722","2021-01-28","Lancaster","Virginia",51103,547,3
+"2723","2021-01-28","Middlesex","Virginia",51119,400,15
+"2724","2021-01-28","Northampton","Virginia",51131,615,33
+"2725","2021-01-28","Northumberland","Virginia",51133,571,13
+"2726","2021-01-28","Richmond","Virginia",51159,1215,6
+"2727","2021-01-28","Westmoreland","Virginia",51193,984,16
+"2728","2021-01-29","Accomack","Virginia",51001,2324,31
+"2729","2021-01-29","Essex","Virginia",51057,520,3
+"2730","2021-01-29","King and Queen","Virginia",51097,249,3
+"2731","2021-01-29","Lancaster","Virginia",51103,556,3
+"2732","2021-01-29","Middlesex","Virginia",51119,406,16
+"2733","2021-01-29","Northampton","Virginia",51131,624,33
+"2734","2021-01-29","Northumberland","Virginia",51133,574,13
+"2735","2021-01-29","Richmond","Virginia",51159,1214,6
+"2736","2021-01-29","Westmoreland","Virginia",51193,1002,16
+"2737","2021-01-30","Accomack","Virginia",51001,2333,31
+"2738","2021-01-30","Essex","Virginia",51057,528,4
+"2739","2021-01-30","King and Queen","Virginia",51097,250,3
+"2740","2021-01-30","Lancaster","Virginia",51103,560,3
+"2741","2021-01-30","Middlesex","Virginia",51119,408,16
+"2742","2021-01-30","Northampton","Virginia",51131,627,33
+"2743","2021-01-30","Northumberland","Virginia",51133,575,13
+"2744","2021-01-30","Richmond","Virginia",51159,1216,7
+"2745","2021-01-30","Westmoreland","Virginia",51193,1014,16
+"2746","2021-01-31","Accomack","Virginia",51001,2342,31
+"2747","2021-01-31","Essex","Virginia",51057,533,4
+"2748","2021-01-31","King and Queen","Virginia",51097,251,3
+"2749","2021-01-31","Lancaster","Virginia",51103,563,3
+"2750","2021-01-31","Middlesex","Virginia",51119,410,16
+"2751","2021-01-31","Northampton","Virginia",51131,632,33
+"2752","2021-01-31","Northumberland","Virginia",51133,582,13
+"2753","2021-01-31","Richmond","Virginia",51159,1220,7
+"2754","2021-01-31","Westmoreland","Virginia",51193,1018,16
+"2755","2021-02-01","Accomack","Virginia",51001,2365,31
+"2756","2021-02-01","Essex","Virginia",51057,538,4
+"2757","2021-02-01","King and Queen","Virginia",51097,255,3
+"2758","2021-02-01","Lancaster","Virginia",51103,568,4
+"2759","2021-02-01","Middlesex","Virginia",51119,411,16
+"2760","2021-02-01","Northampton","Virginia",51131,637,33
+"2761","2021-02-01","Northumberland","Virginia",51133,588,13
+"2762","2021-02-01","Richmond","Virginia",51159,1232,7
+"2763","2021-02-01","Westmoreland","Virginia",51193,1019,16
+"2764","2021-02-02","Accomack","Virginia",51001,2388,32
+"2765","2021-02-02","Essex","Virginia",51057,544,4
+"2766","2021-02-02","King and Queen","Virginia",51097,255,3
+"2767","2021-02-02","Lancaster","Virginia",51103,570,4
+"2768","2021-02-02","Middlesex","Virginia",51119,416,16
+"2769","2021-02-02","Northampton","Virginia",51131,642,33
+"2770","2021-02-02","Northumberland","Virginia",51133,592,13
+"2771","2021-02-02","Richmond","Virginia",51159,1248,7
+"2772","2021-02-02","Westmoreland","Virginia",51193,1024,16
+"2773","2021-02-03","Accomack","Virginia",51001,2391,32
+"2774","2021-02-03","Essex","Virginia",51057,544,4
+"2775","2021-02-03","King and Queen","Virginia",51097,257,3
+"2776","2021-02-03","Lancaster","Virginia",51103,578,4
+"2777","2021-02-03","Middlesex","Virginia",51119,420,16
+"2778","2021-02-03","Northampton","Virginia",51131,644,33
+"2779","2021-02-03","Northumberland","Virginia",51133,593,13
+"2780","2021-02-03","Richmond","Virginia",51159,1250,7
+"2781","2021-02-03","Westmoreland","Virginia",51193,1029,16
+"2782","2021-02-04","Accomack","Virginia",51001,2403,32
+"2783","2021-02-04","Essex","Virginia",51057,548,4
+"2784","2021-02-04","King and Queen","Virginia",51097,259,3
+"2785","2021-02-04","Lancaster","Virginia",51103,583,4
+"2786","2021-02-04","Middlesex","Virginia",51119,422,16
+"2787","2021-02-04","Northampton","Virginia",51131,645,33
+"2788","2021-02-04","Northumberland","Virginia",51133,596,13
+"2789","2021-02-04","Richmond","Virginia",51159,1269,7
+"2790","2021-02-04","Westmoreland","Virginia",51193,1030,16
+"2791","2021-02-05","Accomack","Virginia",51001,2428,32
+"2792","2021-02-05","Essex","Virginia",51057,563,4
+"2793","2021-02-05","King and Queen","Virginia",51097,270,3
+"2794","2021-02-05","Lancaster","Virginia",51103,587,4
+"2795","2021-02-05","Middlesex","Virginia",51119,424,16
+"2796","2021-02-05","Northampton","Virginia",51131,655,33
+"2797","2021-02-05","Northumberland","Virginia",51133,602,13
+"2798","2021-02-05","Richmond","Virginia",51159,1284,7
+"2799","2021-02-05","Westmoreland","Virginia",51193,1040,16
+"2800","2021-02-06","Accomack","Virginia",51001,2448,33
+"2801","2021-02-06","Essex","Virginia",51057,576,4
+"2802","2021-02-06","King and Queen","Virginia",51097,272,3
+"2803","2021-02-06","Lancaster","Virginia",51103,605,4
+"2804","2021-02-06","Middlesex","Virginia",51119,429,16
+"2805","2021-02-06","Northampton","Virginia",51131,653,33
+"2806","2021-02-06","Northumberland","Virginia",51133,606,13
+"2807","2021-02-06","Richmond","Virginia",51159,1292,7
+"2808","2021-02-06","Westmoreland","Virginia",51193,1047,16
+"2809","2021-02-07","Accomack","Virginia",51001,2457,33
+"2810","2021-02-07","Essex","Virginia",51057,580,4
+"2811","2021-02-07","King and Queen","Virginia",51097,274,3
+"2812","2021-02-07","Lancaster","Virginia",51103,606,4
+"2813","2021-02-07","Middlesex","Virginia",51119,433,16
+"2814","2021-02-07","Northampton","Virginia",51131,655,33
+"2815","2021-02-07","Northumberland","Virginia",51133,608,13
+"2816","2021-02-07","Richmond","Virginia",51159,1310,7
+"2817","2021-02-07","Westmoreland","Virginia",51193,1051,16
+"2818","2021-02-08","Accomack","Virginia",51001,2461,33
+"2819","2021-02-08","Essex","Virginia",51057,583,4
+"2820","2021-02-08","King and Queen","Virginia",51097,276,3
+"2821","2021-02-08","Lancaster","Virginia",51103,607,4
+"2822","2021-02-08","Middlesex","Virginia",51119,435,16
+"2823","2021-02-08","Northampton","Virginia",51131,661,33
+"2824","2021-02-08","Northumberland","Virginia",51133,609,13
+"2825","2021-02-08","Richmond","Virginia",51159,1314,7
+"2826","2021-02-08","Westmoreland","Virginia",51193,1052,16
+"2827","2021-02-09","Accomack","Virginia",51001,2467,33
+"2828","2021-02-09","Essex","Virginia",51057,590,4
+"2829","2021-02-09","King and Queen","Virginia",51097,281,4
+"2830","2021-02-09","Lancaster","Virginia",51103,609,4
+"2831","2021-02-09","Middlesex","Virginia",51119,440,16
+"2832","2021-02-09","Northampton","Virginia",51131,664,33
+"2833","2021-02-09","Northumberland","Virginia",51133,612,13
+"2834","2021-02-09","Richmond","Virginia",51159,1313,7
+"2835","2021-02-09","Westmoreland","Virginia",51193,1055,16
+"2836","2021-02-10","Accomack","Virginia",51001,2473,33
+"2837","2021-02-10","Essex","Virginia",51057,593,4
+"2838","2021-02-10","King and Queen","Virginia",51097,281,4
+"2839","2021-02-10","Lancaster","Virginia",51103,616,4
+"2840","2021-02-10","Middlesex","Virginia",51119,442,16
+"2841","2021-02-10","Northampton","Virginia",51131,667,33
+"2842","2021-02-10","Northumberland","Virginia",51133,614,13
+"2843","2021-02-10","Richmond","Virginia",51159,1323,8
+"2844","2021-02-10","Westmoreland","Virginia",51193,1056,16
+"2845","2021-02-11","Accomack","Virginia",51001,2485,33
+"2846","2021-02-11","Essex","Virginia",51057,599,4
+"2847","2021-02-11","King and Queen","Virginia",51097,287,4
+"2848","2021-02-11","Lancaster","Virginia",51103,618,4
+"2849","2021-02-11","Middlesex","Virginia",51119,448,16
+"2850","2021-02-11","Northampton","Virginia",51131,671,33
+"2851","2021-02-11","Northumberland","Virginia",51133,621,13
+"2852","2021-02-11","Richmond","Virginia",51159,1328,8
+"2853","2021-02-11","Westmoreland","Virginia",51193,1067,16
+"2854","2021-02-12","Accomack","Virginia",51001,2506,33
+"2855","2021-02-12","Essex","Virginia",51057,602,4
+"2856","2021-02-12","King and Queen","Virginia",51097,291,4
+"2857","2021-02-12","Lancaster","Virginia",51103,621,4
+"2858","2021-02-12","Middlesex","Virginia",51119,455,16
+"2859","2021-02-12","Northampton","Virginia",51131,676,33
+"2860","2021-02-12","Northumberland","Virginia",51133,622,13
+"2861","2021-02-12","Richmond","Virginia",51159,1336,8
+"2862","2021-02-12","Westmoreland","Virginia",51193,1069,16
+"2863","2021-02-13","Accomack","Virginia",51001,2516,33
+"2864","2021-02-13","Essex","Virginia",51057,602,4
+"2865","2021-02-13","King and Queen","Virginia",51097,292,4
+"2866","2021-02-13","Lancaster","Virginia",51103,625,4
+"2867","2021-02-13","Middlesex","Virginia",51119,464,16
+"2868","2021-02-13","Northampton","Virginia",51131,678,33
+"2869","2021-02-13","Northumberland","Virginia",51133,625,13
+"2870","2021-02-13","Richmond","Virginia",51159,1345,8
+"2871","2021-02-13","Westmoreland","Virginia",51193,1086,16
+"2872","2021-02-14","Accomack","Virginia",51001,2519,33
+"2873","2021-02-14","Essex","Virginia",51057,605,4
+"2874","2021-02-14","King and Queen","Virginia",51097,292,4
+"2875","2021-02-14","Lancaster","Virginia",51103,627,4
+"2876","2021-02-14","Middlesex","Virginia",51119,464,16
+"2877","2021-02-14","Northampton","Virginia",51131,678,33
+"2878","2021-02-14","Northumberland","Virginia",51133,630,13
+"2879","2021-02-14","Richmond","Virginia",51159,1359,7
+"2880","2021-02-14","Westmoreland","Virginia",51193,1086,16
+"2881","2021-02-15","Accomack","Virginia",51001,2523,33
+"2882","2021-02-15","Essex","Virginia",51057,607,4
+"2883","2021-02-15","King and Queen","Virginia",51097,292,4
+"2884","2021-02-15","Lancaster","Virginia",51103,627,4
+"2885","2021-02-15","Middlesex","Virginia",51119,466,16
+"2886","2021-02-15","Northampton","Virginia",51131,679,32
+"2887","2021-02-15","Northumberland","Virginia",51133,633,13
+"2888","2021-02-15","Richmond","Virginia",51159,1365,7
+"2889","2021-02-15","Westmoreland","Virginia",51193,1086,16
+"2890","2021-02-16","Accomack","Virginia",51001,2527,34
+"2891","2021-02-16","Essex","Virginia",51057,609,4
+"2892","2021-02-16","King and Queen","Virginia",51097,291,4
+"2893","2021-02-16","Lancaster","Virginia",51103,630,4
+"2894","2021-02-16","Middlesex","Virginia",51119,468,16
+"2895","2021-02-16","Northampton","Virginia",51131,680,32
+"2896","2021-02-16","Northumberland","Virginia",51133,635,13
+"2897","2021-02-16","Richmond","Virginia",51159,1366,7
+"2898","2021-02-16","Westmoreland","Virginia",51193,1089,16
+"2899","2021-02-17","Accomack","Virginia",51001,2529,34
+"2900","2021-02-17","Essex","Virginia",51057,613,4
+"2901","2021-02-17","King and Queen","Virginia",51097,293,4
+"2902","2021-02-17","Lancaster","Virginia",51103,630,4
+"2903","2021-02-17","Middlesex","Virginia",51119,473,16
+"2904","2021-02-17","Northampton","Virginia",51131,681,32
+"2905","2021-02-17","Northumberland","Virginia",51133,636,13
+"2906","2021-02-17","Richmond","Virginia",51159,1368,7
+"2907","2021-02-17","Westmoreland","Virginia",51193,1090,16
+"2908","2021-02-18","Accomack","Virginia",51001,2538,35
+"2909","2021-02-18","Essex","Virginia",51057,615,4
+"2910","2021-02-18","King and Queen","Virginia",51097,296,4
+"2911","2021-02-18","Lancaster","Virginia",51103,634,4
+"2912","2021-02-18","Middlesex","Virginia",51119,479,16
+"2913","2021-02-18","Northampton","Virginia",51131,689,32
+"2914","2021-02-18","Northumberland","Virginia",51133,637,13
+"2915","2021-02-18","Richmond","Virginia",51159,1359,7
+"2916","2021-02-18","Westmoreland","Virginia",51193,1094,16
+"2917","2021-02-19","Accomack","Virginia",51001,2545,35
+"2918","2021-02-19","Essex","Virginia",51057,619,4
+"2919","2021-02-19","King and Queen","Virginia",51097,297,4
+"2920","2021-02-19","Lancaster","Virginia",51103,638,4
+"2921","2021-02-19","Middlesex","Virginia",51119,483,16
+"2922","2021-02-19","Northampton","Virginia",51131,692,32
+"2923","2021-02-19","Northumberland","Virginia",51133,644,13
+"2924","2021-02-19","Richmond","Virginia",51159,1367,7
+"2925","2021-02-19","Westmoreland","Virginia",51193,1097,16
+"2926","2021-02-20","Accomack","Virginia",51001,2552,35
+"2927","2021-02-20","Essex","Virginia",51057,621,4
+"2928","2021-02-20","King and Queen","Virginia",51097,297,5
+"2929","2021-02-20","Lancaster","Virginia",51103,641,4
+"2930","2021-02-20","Middlesex","Virginia",51119,489,16
+"2931","2021-02-20","Northampton","Virginia",51131,698,32
+"2932","2021-02-20","Northumberland","Virginia",51133,647,13
+"2933","2021-02-20","Richmond","Virginia",51159,1371,7
+"2934","2021-02-20","Westmoreland","Virginia",51193,1096,16
+"2935","2021-02-21","Accomack","Virginia",51001,2559,35
+"2936","2021-02-21","Essex","Virginia",51057,621,5
+"2937","2021-02-21","King and Queen","Virginia",51097,298,6
+"2938","2021-02-21","Lancaster","Virginia",51103,642,6
+"2939","2021-02-21","Middlesex","Virginia",51119,493,16
+"2940","2021-02-21","Northampton","Virginia",51131,701,32
+"2941","2021-02-21","Northumberland","Virginia",51133,650,13
+"2942","2021-02-21","Richmond","Virginia",51159,1388,7
+"2943","2021-02-21","Westmoreland","Virginia",51193,1098,16
+"2944","2021-02-22","Accomack","Virginia",51001,2565,35
+"2945","2021-02-22","Essex","Virginia",51057,621,5
+"2946","2021-02-22","King and Queen","Virginia",51097,298,6
+"2947","2021-02-22","Lancaster","Virginia",51103,643,6
+"2948","2021-02-22","Middlesex","Virginia",51119,494,16
+"2949","2021-02-22","Northampton","Virginia",51131,704,32
+"2950","2021-02-22","Northumberland","Virginia",51133,654,13
+"2951","2021-02-22","Richmond","Virginia",51159,1389,7
+"2952","2021-02-22","Westmoreland","Virginia",51193,1098,16
+"2953","2021-02-23","Accomack","Virginia",51001,2572,35
+"2954","2021-02-23","Essex","Virginia",51057,625,5
+"2955","2021-02-23","King and Queen","Virginia",51097,299,6
+"2956","2021-02-23","Lancaster","Virginia",51103,646,8
+"2957","2021-02-23","Middlesex","Virginia",51119,502,16
+"2958","2021-02-23","Northampton","Virginia",51131,704,32
+"2959","2021-02-23","Northumberland","Virginia",51133,655,14
+"2960","2021-02-23","Richmond","Virginia",51159,1378,7
+"2961","2021-02-23","Westmoreland","Virginia",51193,1099,16
+"2962","2021-02-24","Accomack","Virginia",51001,2575,35
+"2963","2021-02-24","Essex","Virginia",51057,625,6
+"2964","2021-02-24","King and Queen","Virginia",51097,300,6
+"2965","2021-02-24","Lancaster","Virginia",51103,648,8
+"2966","2021-02-24","Middlesex","Virginia",51119,504,16
+"2967","2021-02-24","Northampton","Virginia",51131,707,32
+"2968","2021-02-24","Northumberland","Virginia",51133,657,14
+"2969","2021-02-24","Richmond","Virginia",51159,1367,7
+"2970","2021-02-24","Westmoreland","Virginia",51193,1104,17
+"2971","2021-02-25","Accomack","Virginia",51001,2580,35
+"2972","2021-02-25","Essex","Virginia",51057,626,6
+"2973","2021-02-25","King and Queen","Virginia",51097,301,6
+"2974","2021-02-25","Lancaster","Virginia",51103,651,9
+"2975","2021-02-25","Middlesex","Virginia",51119,506,16
+"2976","2021-02-25","Northampton","Virginia",51131,709,32
+"2977","2021-02-25","Northumberland","Virginia",51133,659,14
+"2978","2021-02-25","Richmond","Virginia",51159,1359,8
+"2979","2021-02-25","Westmoreland","Virginia",51193,1105,17
+"2980","2021-02-26","Accomack","Virginia",51001,2588,35
+"2981","2021-02-26","Essex","Virginia",51057,629,6
+"2982","2021-02-26","King and Queen","Virginia",51097,303,6
+"2983","2021-02-26","Lancaster","Virginia",51103,653,10
+"2984","2021-02-26","Middlesex","Virginia",51119,507,16
+"2985","2021-02-26","Northampton","Virginia",51131,710,32
+"2986","2021-02-26","Northumberland","Virginia",51133,659,15
+"2987","2021-02-26","Richmond","Virginia",51159,1365,8
+"2988","2021-02-26","Westmoreland","Virginia",51193,1106,17
+"2989","2021-02-27","Accomack","Virginia",51001,2596,35
+"2990","2021-02-27","Essex","Virginia",51057,631,6
+"2991","2021-02-27","King and Queen","Virginia",51097,305,6
+"2992","2021-02-27","Lancaster","Virginia",51103,655,10
+"2993","2021-02-27","Middlesex","Virginia",51119,516,16
+"2994","2021-02-27","Northampton","Virginia",51131,713,32
+"2995","2021-02-27","Northumberland","Virginia",51133,663,15
+"2996","2021-02-27","Richmond","Virginia",51159,1370,8
+"2997","2021-02-27","Westmoreland","Virginia",51193,1107,17
+"2998","2021-02-28","Accomack","Virginia",51001,2602,35
+"2999","2021-02-28","Essex","Virginia",51057,635,6
+"3000","2021-02-28","King and Queen","Virginia",51097,304,6
+"3001","2021-02-28","Lancaster","Virginia",51103,661,11
+"3002","2021-02-28","Middlesex","Virginia",51119,517,16
+"3003","2021-02-28","Northampton","Virginia",51131,714,33
+"3004","2021-02-28","Northumberland","Virginia",51133,666,16
+"3005","2021-02-28","Richmond","Virginia",51159,1376,8
+"3006","2021-02-28","Westmoreland","Virginia",51193,1110,17
+"3007","2021-03-01","Accomack","Virginia",51001,2601,35
+"3008","2021-03-01","Essex","Virginia",51057,638,6
+"3009","2021-03-01","King and Queen","Virginia",51097,309,6
+"3010","2021-03-01","Lancaster","Virginia",51103,664,12
+"3011","2021-03-01","Middlesex","Virginia",51119,518,17
+"3012","2021-03-01","Northampton","Virginia",51131,719,33
+"3013","2021-03-01","Northumberland","Virginia",51133,668,17
+"3014","2021-03-01","Richmond","Virginia",51159,1376,8
+"3015","2021-03-01","Westmoreland","Virginia",51193,1114,20
+"3016","2021-03-02","Accomack","Virginia",51001,2604,35
+"3017","2021-03-02","Essex","Virginia",51057,639,6
+"3018","2021-03-02","King and Queen","Virginia",51097,312,6
+"3019","2021-03-02","Lancaster","Virginia",51103,664,13
+"3020","2021-03-02","Middlesex","Virginia",51119,518,17
+"3021","2021-03-02","Northampton","Virginia",51131,720,33
+"3022","2021-03-02","Northumberland","Virginia",51133,669,18
+"3023","2021-03-02","Richmond","Virginia",51159,1370,8
+"3024","2021-03-02","Westmoreland","Virginia",51193,1115,21
+"3025","2021-03-03","Accomack","Virginia",51001,2607,35
+"3026","2021-03-03","Essex","Virginia",51057,640,7
+"3027","2021-03-03","King and Queen","Virginia",51097,315,6
+"3028","2021-03-03","Lancaster","Virginia",51103,667,13
+"3029","2021-03-03","Middlesex","Virginia",51119,524,18
+"3030","2021-03-03","Northampton","Virginia",51131,721,34
+"3031","2021-03-03","Northumberland","Virginia",51133,668,19
+"3032","2021-03-03","Richmond","Virginia",51159,1372,8
+"3033","2021-03-03","Westmoreland","Virginia",51193,1117,21
+"3034","2021-03-04","Accomack","Virginia",51001,2609,35
+"3035","2021-03-04","Essex","Virginia",51057,644,7
+"3036","2021-03-04","King and Queen","Virginia",51097,316,6
+"3037","2021-03-04","Lancaster","Virginia",51103,670,13
+"3038","2021-03-04","Middlesex","Virginia",51119,526,18
+"3039","2021-03-04","Northampton","Virginia",51131,724,34
+"3040","2021-03-04","Northumberland","Virginia",51133,669,19
+"3041","2021-03-04","Richmond","Virginia",51159,1374,9
+"3042","2021-03-04","Westmoreland","Virginia",51193,1120,21
+"3043","2021-03-05","Accomack","Virginia",51001,2619,35
+"3044","2021-03-05","Essex","Virginia",51057,644,7
+"3045","2021-03-05","King and Queen","Virginia",51097,318,6
+"3046","2021-03-05","Lancaster","Virginia",51103,670,13
+"3047","2021-03-05","Middlesex","Virginia",51119,528,18
+"3048","2021-03-05","Northampton","Virginia",51131,726,34
+"3049","2021-03-05","Northumberland","Virginia",51133,671,20
+"3050","2021-03-05","Richmond","Virginia",51159,1379,9
+"3051","2021-03-05","Westmoreland","Virginia",51193,1122,21
+"3052","2021-03-06","Accomack","Virginia",51001,2621,35
+"3053","2021-03-06","Essex","Virginia",51057,645,7
+"3054","2021-03-06","King and Queen","Virginia",51097,319,6
+"3055","2021-03-06","Lancaster","Virginia",51103,671,13
+"3056","2021-03-06","Middlesex","Virginia",51119,528,18
+"3057","2021-03-06","Northampton","Virginia",51131,726,34
+"3058","2021-03-06","Northumberland","Virginia",51133,674,20
+"3059","2021-03-06","Richmond","Virginia",51159,1380,10
+"3060","2021-03-06","Westmoreland","Virginia",51193,1124,21
+"3061","2021-03-07","Accomack","Virginia",51001,2625,35
+"3062","2021-03-07","Essex","Virginia",51057,645,7
+"3063","2021-03-07","King and Queen","Virginia",51097,320,6
+"3064","2021-03-07","Lancaster","Virginia",51103,671,13
+"3065","2021-03-07","Middlesex","Virginia",51119,528,18
+"3066","2021-03-07","Northampton","Virginia",51131,727,34
+"3067","2021-03-07","Northumberland","Virginia",51133,680,20
+"3068","2021-03-07","Richmond","Virginia",51159,1382,10
+"3069","2021-03-07","Westmoreland","Virginia",51193,1124,21
+"3070","2021-03-08","Accomack","Virginia",51001,2625,35
+"3071","2021-03-08","Essex","Virginia",51057,645,7
+"3072","2021-03-08","King and Queen","Virginia",51097,321,6
+"3073","2021-03-08","Lancaster","Virginia",51103,674,13
+"3074","2021-03-08","Middlesex","Virginia",51119,530,18
+"3075","2021-03-08","Northampton","Virginia",51131,727,34
+"3076","2021-03-08","Northumberland","Virginia",51133,680,20
+"3077","2021-03-08","Richmond","Virginia",51159,1383,10
+"3078","2021-03-08","Westmoreland","Virginia",51193,1125,21
+"3079","2021-03-09","Accomack","Virginia",51001,2628,35
+"3080","2021-03-09","Essex","Virginia",51057,650,7
+"3081","2021-03-09","King and Queen","Virginia",51097,324,6
+"3082","2021-03-09","Lancaster","Virginia",51103,676,16
+"3083","2021-03-09","Middlesex","Virginia",51119,531,18
+"3084","2021-03-09","Northampton","Virginia",51131,727,35
+"3085","2021-03-09","Northumberland","Virginia",51133,681,21
+"3086","2021-03-09","Richmond","Virginia",51159,1386,10
+"3087","2021-03-09","Westmoreland","Virginia",51193,1127,21
+"3088","2021-03-10","Accomack","Virginia",51001,2630,35
+"3089","2021-03-10","Essex","Virginia",51057,652,7
+"3090","2021-03-10","King and Queen","Virginia",51097,325,6
+"3091","2021-03-10","Lancaster","Virginia",51103,675,16
+"3092","2021-03-10","Middlesex","Virginia",51119,532,18
+"3093","2021-03-10","Northampton","Virginia",51131,727,35
+"3094","2021-03-10","Northumberland","Virginia",51133,681,21
+"3095","2021-03-10","Richmond","Virginia",51159,1394,10
+"3096","2021-03-10","Westmoreland","Virginia",51193,1128,21
+"3097","2021-03-11","Accomack","Virginia",51001,2636,35
+"3098","2021-03-11","Essex","Virginia",51057,652,7
+"3099","2021-03-11","King and Queen","Virginia",51097,327,6
+"3100","2021-03-11","Lancaster","Virginia",51103,675,16
+"3101","2021-03-11","Middlesex","Virginia",51119,534,18
+"3102","2021-03-11","Northampton","Virginia",51131,728,35
+"3103","2021-03-11","Northumberland","Virginia",51133,683,21
+"3104","2021-03-11","Richmond","Virginia",51159,1399,10
+"3105","2021-03-11","Westmoreland","Virginia",51193,1129,22
+"3106","2021-03-12","Accomack","Virginia",51001,2638,35
+"3107","2021-03-12","Essex","Virginia",51057,654,7
+"3108","2021-03-12","King and Queen","Virginia",51097,328,7
+"3109","2021-03-12","Lancaster","Virginia",51103,675,16
+"3110","2021-03-12","Middlesex","Virginia",51119,535,18
+"3111","2021-03-12","Northampton","Virginia",51131,729,35
+"3112","2021-03-12","Northumberland","Virginia",51133,682,21
+"3113","2021-03-12","Richmond","Virginia",51159,1413,11
+"3114","2021-03-12","Westmoreland","Virginia",51193,1134,22
+"3115","2021-03-13","Accomack","Virginia",51001,2646,35
+"3116","2021-03-13","Essex","Virginia",51057,655,7
+"3117","2021-03-13","King and Queen","Virginia",51097,331,7
+"3118","2021-03-13","Lancaster","Virginia",51103,675,16
+"3119","2021-03-13","Middlesex","Virginia",51119,536,18
+"3120","2021-03-13","Northampton","Virginia",51131,729,35
+"3121","2021-03-13","Northumberland","Virginia",51133,682,21
+"3122","2021-03-13","Richmond","Virginia",51159,1413,11
+"3123","2021-03-13","Westmoreland","Virginia",51193,1135,22
+"3124","2021-03-14","Accomack","Virginia",51001,2649,35
+"3125","2021-03-14","Essex","Virginia",51057,657,8
+"3126","2021-03-14","King and Queen","Virginia",51097,331,7
+"3127","2021-03-14","Lancaster","Virginia",51103,675,16
+"3128","2021-03-14","Middlesex","Virginia",51119,536,18
+"3129","2021-03-14","Northampton","Virginia",51131,729,35
+"3130","2021-03-14","Northumberland","Virginia",51133,682,21
+"3131","2021-03-14","Richmond","Virginia",51159,1415,11
+"3132","2021-03-14","Westmoreland","Virginia",51193,1139,22
+"3133","2021-03-15","Accomack","Virginia",51001,2655,35
+"3134","2021-03-15","Essex","Virginia",51057,659,8
+"3135","2021-03-15","King and Queen","Virginia",51097,331,7
+"3136","2021-03-15","Lancaster","Virginia",51103,675,16
+"3137","2021-03-15","Middlesex","Virginia",51119,539,18
+"3138","2021-03-15","Northampton","Virginia",51131,729,35
+"3139","2021-03-15","Northumberland","Virginia",51133,684,21
+"3140","2021-03-15","Richmond","Virginia",51159,1416,11
+"3141","2021-03-15","Westmoreland","Virginia",51193,1144,22
+"3142","2021-03-16","Accomack","Virginia",51001,2657,37
+"3143","2021-03-16","Essex","Virginia",51057,660,8
+"3144","2021-03-16","King and Queen","Virginia",51097,332,7
+"3145","2021-03-16","Lancaster","Virginia",51103,676,16
+"3146","2021-03-16","Middlesex","Virginia",51119,539,18
+"3147","2021-03-16","Northampton","Virginia",51131,730,34
+"3148","2021-03-16","Northumberland","Virginia",51133,687,21
+"3149","2021-03-16","Richmond","Virginia",51159,1411,11
+"3150","2021-03-16","Westmoreland","Virginia",51193,1146,22
+"3151","2021-03-17","Accomack","Virginia",51001,2659,37
+"3152","2021-03-17","Essex","Virginia",51057,664,8
+"3153","2021-03-17","King and Queen","Virginia",51097,334,7
+"3154","2021-03-17","Lancaster","Virginia",51103,676,16
+"3155","2021-03-17","Middlesex","Virginia",51119,539,18
+"3156","2021-03-17","Northampton","Virginia",51131,729,34
+"3157","2021-03-17","Northumberland","Virginia",51133,687,21
+"3158","2021-03-17","Richmond","Virginia",51159,1412,11
+"3159","2021-03-17","Westmoreland","Virginia",51193,1151,22
+"3160","2021-03-18","Accomack","Virginia",51001,2663,37
+"3161","2021-03-18","Essex","Virginia",51057,667,8
+"3162","2021-03-18","King and Queen","Virginia",51097,336,8
+"3163","2021-03-18","Lancaster","Virginia",51103,679,16
+"3164","2021-03-18","Middlesex","Virginia",51119,541,18
+"3165","2021-03-18","Northampton","Virginia",51131,729,34
+"3166","2021-03-18","Northumberland","Virginia",51133,690,21
+"3167","2021-03-18","Richmond","Virginia",51159,1421,12
+"3168","2021-03-18","Westmoreland","Virginia",51193,1153,22
+"3169","2021-03-19","Accomack","Virginia",51001,2677,37
+"3170","2021-03-19","Essex","Virginia",51057,672,8
+"3171","2021-03-19","King and Queen","Virginia",51097,336,8
+"3172","2021-03-19","Lancaster","Virginia",51103,679,15
+"3173","2021-03-19","Middlesex","Virginia",51119,542,18
+"3174","2021-03-19","Northampton","Virginia",51131,731,34
+"3175","2021-03-19","Northumberland","Virginia",51133,691,19
+"3176","2021-03-19","Richmond","Virginia",51159,1426,11
+"3177","2021-03-19","Westmoreland","Virginia",51193,1156,22
+"3178","2021-03-20","Accomack","Virginia",51001,2682,37
+"3179","2021-03-20","Essex","Virginia",51057,673,8
+"3180","2021-03-20","King and Queen","Virginia",51097,337,8
+"3181","2021-03-20","Lancaster","Virginia",51103,679,15
+"3182","2021-03-20","Middlesex","Virginia",51119,542,18
+"3183","2021-03-20","Northampton","Virginia",51131,731,34
+"3184","2021-03-20","Northumberland","Virginia",51133,691,19
+"3185","2021-03-20","Richmond","Virginia",51159,1431,11
+"3186","2021-03-20","Westmoreland","Virginia",51193,1157,22
+"3187","2021-03-21","Accomack","Virginia",51001,2686,37
+"3188","2021-03-21","Essex","Virginia",51057,678,8
+"3189","2021-03-21","King and Queen","Virginia",51097,337,8
+"3190","2021-03-21","Lancaster","Virginia",51103,679,15
+"3191","2021-03-21","Middlesex","Virginia",51119,543,18
+"3192","2021-03-21","Northampton","Virginia",51131,731,34
+"3193","2021-03-21","Northumberland","Virginia",51133,691,19
+"3194","2021-03-21","Richmond","Virginia",51159,1435,11
+"3195","2021-03-21","Westmoreland","Virginia",51193,1159,22
+"3196","2021-03-22","Accomack","Virginia",51001,2685,37
+"3197","2021-03-22","Essex","Virginia",51057,679,8
+"3198","2021-03-22","King and Queen","Virginia",51097,337,8
+"3199","2021-03-22","Lancaster","Virginia",51103,679,15
+"3200","2021-03-22","Middlesex","Virginia",51119,545,18
+"3201","2021-03-22","Northampton","Virginia",51131,734,34
+"3202","2021-03-22","Northumberland","Virginia",51133,694,19
+"3203","2021-03-22","Richmond","Virginia",51159,1441,11
+"3204","2021-03-22","Westmoreland","Virginia",51193,1161,22
+"3205","2021-03-23","Accomack","Virginia",51001,2688,37
+"3206","2021-03-23","Essex","Virginia",51057,681,8
+"3207","2021-03-23","King and Queen","Virginia",51097,338,8
+"3208","2021-03-23","Lancaster","Virginia",51103,679,15
+"3209","2021-03-23","Middlesex","Virginia",51119,546,18
+"3210","2021-03-23","Northampton","Virginia",51131,734,34
+"3211","2021-03-23","Northumberland","Virginia",51133,694,19
+"3212","2021-03-23","Richmond","Virginia",51159,1438,12
+"3213","2021-03-23","Westmoreland","Virginia",51193,1162,22
+"3214","2021-03-24","Accomack","Virginia",51001,2686,37
+"3215","2021-03-24","Essex","Virginia",51057,688,8
+"3216","2021-03-24","King and Queen","Virginia",51097,339,8
+"3217","2021-03-24","Lancaster","Virginia",51103,681,15
+"3218","2021-03-24","Middlesex","Virginia",51119,547,18
+"3219","2021-03-24","Northampton","Virginia",51131,735,34
+"3220","2021-03-24","Northumberland","Virginia",51133,696,19
+"3221","2021-03-24","Richmond","Virginia",51159,1428,12
+"3222","2021-03-24","Westmoreland","Virginia",51193,1164,22
+"3223","2021-03-25","Accomack","Virginia",51001,2686,37
+"3224","2021-03-25","Essex","Virginia",51057,691,8
+"3225","2021-03-25","King and Queen","Virginia",51097,344,8
+"3226","2021-03-25","Lancaster","Virginia",51103,681,15
+"3227","2021-03-25","Middlesex","Virginia",51119,548,18
+"3228","2021-03-25","Northampton","Virginia",51131,737,34
+"3229","2021-03-25","Northumberland","Virginia",51133,701,19
+"3230","2021-03-25","Richmond","Virginia",51159,1429,12
+"3231","2021-03-25","Westmoreland","Virginia",51193,1168,22
+"3232","2021-03-26","Accomack","Virginia",51001,2691,37
+"3233","2021-03-26","Essex","Virginia",51057,693,8
+"3234","2021-03-26","King and Queen","Virginia",51097,346,8
+"3235","2021-03-26","Lancaster","Virginia",51103,681,15
+"3236","2021-03-26","Middlesex","Virginia",51119,549,18
+"3237","2021-03-26","Northampton","Virginia",51131,740,34
+"3238","2021-03-26","Northumberland","Virginia",51133,702,19
+"3239","2021-03-26","Richmond","Virginia",51159,1412,12
+"3240","2021-03-26","Westmoreland","Virginia",51193,1172,22
+"3241","2021-03-27","Accomack","Virginia",51001,2695,37
+"3242","2021-03-27","Essex","Virginia",51057,696,8
+"3243","2021-03-27","King and Queen","Virginia",51097,348,8
+"3244","2021-03-27","Lancaster","Virginia",51103,682,15
+"3245","2021-03-27","Middlesex","Virginia",51119,551,18
+"3246","2021-03-27","Northampton","Virginia",51131,745,34
+"3247","2021-03-27","Northumberland","Virginia",51133,704,19
+"3248","2021-03-27","Richmond","Virginia",51159,1420,12
+"3249","2021-03-27","Westmoreland","Virginia",51193,1180,22
+"3250","2021-03-28","Accomack","Virginia",51001,2703,37
+"3251","2021-03-28","Essex","Virginia",51057,698,8
+"3252","2021-03-28","King and Queen","Virginia",51097,352,8
+"3253","2021-03-28","Lancaster","Virginia",51103,683,15
+"3254","2021-03-28","Middlesex","Virginia",51119,552,18
+"3255","2021-03-28","Northampton","Virginia",51131,749,34
+"3256","2021-03-28","Northumberland","Virginia",51133,707,19
+"3257","2021-03-28","Richmond","Virginia",51159,1427,12
+"3258","2021-03-28","Westmoreland","Virginia",51193,1184,22
+"3259","2021-03-29","Accomack","Virginia",51001,2704,37
+"3260","2021-03-29","Essex","Virginia",51057,701,8
+"3261","2021-03-29","King and Queen","Virginia",51097,352,8
+"3262","2021-03-29","Lancaster","Virginia",51103,683,15
+"3263","2021-03-29","Middlesex","Virginia",51119,553,18
+"3264","2021-03-29","Northampton","Virginia",51131,750,34
+"3265","2021-03-29","Northumberland","Virginia",51133,709,19
+"3266","2021-03-29","Richmond","Virginia",51159,1428,12
+"3267","2021-03-29","Westmoreland","Virginia",51193,1188,22
+"3268","2021-03-30","Accomack","Virginia",51001,2709,39
+"3269","2021-03-30","Essex","Virginia",51057,703,8
+"3270","2021-03-30","King and Queen","Virginia",51097,355,8
+"3271","2021-03-30","Lancaster","Virginia",51103,683,15
+"3272","2021-03-30","Middlesex","Virginia",51119,553,18
+"3273","2021-03-30","Northampton","Virginia",51131,756,34
+"3274","2021-03-30","Northumberland","Virginia",51133,711,19
+"3275","2021-03-30","Richmond","Virginia",51159,1426,12
+"3276","2021-03-30","Westmoreland","Virginia",51193,1190,22
+"3277","2021-03-31","Accomack","Virginia",51001,2709,39
+"3278","2021-03-31","Essex","Virginia",51057,705,8
+"3279","2021-03-31","King and Queen","Virginia",51097,356,8
+"3280","2021-03-31","Lancaster","Virginia",51103,683,15
+"3281","2021-03-31","Middlesex","Virginia",51119,554,18
+"3282","2021-03-31","Northampton","Virginia",51131,757,34
+"3283","2021-03-31","Northumberland","Virginia",51133,711,19
+"3284","2021-03-31","Richmond","Virginia",51159,1406,12
+"3285","2021-03-31","Westmoreland","Virginia",51193,1194,22
+"3286","2021-04-01","Accomack","Virginia",51001,2710,39
+"3287","2021-04-01","Essex","Virginia",51057,705,8
+"3288","2021-04-01","King and Queen","Virginia",51097,359,8
+"3289","2021-04-01","Lancaster","Virginia",51103,687,15
+"3290","2021-04-01","Middlesex","Virginia",51119,554,19
+"3291","2021-04-01","Northampton","Virginia",51131,758,34
+"3292","2021-04-01","Northumberland","Virginia",51133,711,19
+"3293","2021-04-01","Richmond","Virginia",51159,1395,12
+"3294","2021-04-01","Westmoreland","Virginia",51193,1196,22
+"3295","2021-04-02","Accomack","Virginia",51001,2716,39
+"3296","2021-04-02","Essex","Virginia",51057,706,8
+"3297","2021-04-02","King and Queen","Virginia",51097,361,8
+"3298","2021-04-02","Lancaster","Virginia",51103,688,15
+"3299","2021-04-02","Middlesex","Virginia",51119,555,19
+"3300","2021-04-02","Northampton","Virginia",51131,764,34
+"3301","2021-04-02","Northumberland","Virginia",51133,711,19
+"3302","2021-04-02","Richmond","Virginia",51159,1397,12
+"3303","2021-04-02","Westmoreland","Virginia",51193,1195,22
+"3304","2021-04-03","Accomack","Virginia",51001,2717,39
+"3305","2021-04-03","Essex","Virginia",51057,708,8
+"3306","2021-04-03","King and Queen","Virginia",51097,361,8
+"3307","2021-04-03","Lancaster","Virginia",51103,690,15
+"3308","2021-04-03","Middlesex","Virginia",51119,555,19
+"3309","2021-04-03","Northampton","Virginia",51131,765,34
+"3310","2021-04-03","Northumberland","Virginia",51133,711,19
+"3311","2021-04-03","Richmond","Virginia",51159,1403,12
+"3312","2021-04-03","Westmoreland","Virginia",51193,1200,22
+"3313","2021-04-04","Accomack","Virginia",51001,2719,39
+"3314","2021-04-04","Essex","Virginia",51057,712,8
+"3315","2021-04-04","King and Queen","Virginia",51097,363,8
+"3316","2021-04-04","Lancaster","Virginia",51103,692,15
+"3317","2021-04-04","Middlesex","Virginia",51119,556,19
+"3318","2021-04-04","Northampton","Virginia",51131,769,35
+"3319","2021-04-04","Northumberland","Virginia",51133,713,19
+"3320","2021-04-04","Richmond","Virginia",51159,1407,12
+"3321","2021-04-04","Westmoreland","Virginia",51193,1201,22
+"3322","2021-04-05","Accomack","Virginia",51001,2724,39
+"3323","2021-04-05","Essex","Virginia",51057,713,8
+"3324","2021-04-05","King and Queen","Virginia",51097,366,8
+"3325","2021-04-05","Lancaster","Virginia",51103,695,15
+"3326","2021-04-05","Middlesex","Virginia",51119,556,19
+"3327","2021-04-05","Northampton","Virginia",51131,770,35
+"3328","2021-04-05","Northumberland","Virginia",51133,713,20
+"3329","2021-04-05","Richmond","Virginia",51159,1408,13
+"3330","2021-04-05","Westmoreland","Virginia",51193,1203,24
+"3331","2021-04-06","Accomack","Virginia",51001,2727,39
+"3332","2021-04-06","Essex","Virginia",51057,714,8
+"3333","2021-04-06","King and Queen","Virginia",51097,369,8
+"3334","2021-04-06","Lancaster","Virginia",51103,695,15
+"3335","2021-04-06","Middlesex","Virginia",51119,556,19
+"3336","2021-04-06","Northampton","Virginia",51131,771,35
+"3337","2021-04-06","Northumberland","Virginia",51133,713,20
+"3338","2021-04-06","Richmond","Virginia",51159,1414,13
+"3339","2021-04-06","Westmoreland","Virginia",51193,1204,24
+"3340","2021-04-07","Accomack","Virginia",51001,2730,39
+"3341","2021-04-07","Essex","Virginia",51057,720,8
+"3342","2021-04-07","King and Queen","Virginia",51097,372,8
+"3343","2021-04-07","Lancaster","Virginia",51103,696,15
+"3344","2021-04-07","Middlesex","Virginia",51119,557,19
+"3345","2021-04-07","Northampton","Virginia",51131,771,35
+"3346","2021-04-07","Northumberland","Virginia",51133,713,20
+"3347","2021-04-07","Richmond","Virginia",51159,1419,13
+"3348","2021-04-07","Westmoreland","Virginia",51193,1207,24
+"3349","2021-04-08","Accomack","Virginia",51001,2735,39
+"3350","2021-04-08","Essex","Virginia",51057,722,8
+"3351","2021-04-08","King and Queen","Virginia",51097,373,8
+"3352","2021-04-08","Lancaster","Virginia",51103,696,15
+"3353","2021-04-08","Middlesex","Virginia",51119,559,19
+"3354","2021-04-08","Northampton","Virginia",51131,776,35
+"3355","2021-04-08","Northumberland","Virginia",51133,714,20
+"3356","2021-04-08","Richmond","Virginia",51159,1427,13
+"3357","2021-04-08","Westmoreland","Virginia",51193,1210,24
+"3358","2021-04-09","Accomack","Virginia",51001,2739,40
+"3359","2021-04-09","Essex","Virginia",51057,727,8
+"3360","2021-04-09","King and Queen","Virginia",51097,374,8
+"3361","2021-04-09","Lancaster","Virginia",51103,698,15
+"3362","2021-04-09","Middlesex","Virginia",51119,559,19
+"3363","2021-04-09","Northampton","Virginia",51131,775,35
+"3364","2021-04-09","Northumberland","Virginia",51133,715,20
+"3365","2021-04-09","Richmond","Virginia",51159,1435,13
+"3366","2021-04-09","Westmoreland","Virginia",51193,1211,24
+"3367","2021-04-10","Accomack","Virginia",51001,2742,40
+"3368","2021-04-10","Essex","Virginia",51057,728,8
+"3369","2021-04-10","King and Queen","Virginia",51097,375,8
+"3370","2021-04-10","Lancaster","Virginia",51103,699,15
+"3371","2021-04-10","Middlesex","Virginia",51119,561,19
+"3372","2021-04-10","Northampton","Virginia",51131,776,35
+"3373","2021-04-10","Northumberland","Virginia",51133,715,20
+"3374","2021-04-10","Richmond","Virginia",51159,1445,13
+"3375","2021-04-10","Westmoreland","Virginia",51193,1212,24
+"3376","2021-04-11","Accomack","Virginia",51001,2744,40
+"3377","2021-04-11","Essex","Virginia",51057,730,8
+"3378","2021-04-11","King and Queen","Virginia",51097,375,8
+"3379","2021-04-11","Lancaster","Virginia",51103,700,15
+"3380","2021-04-11","Middlesex","Virginia",51119,561,19
+"3381","2021-04-11","Northampton","Virginia",51131,777,35
+"3382","2021-04-11","Northumberland","Virginia",51133,718,20
+"3383","2021-04-11","Richmond","Virginia",51159,1451,13
+"3384","2021-04-11","Westmoreland","Virginia",51193,1216,24
+"3385","2021-04-12","Accomack","Virginia",51001,2747,40
+"3386","2021-04-12","Essex","Virginia",51057,730,8
+"3387","2021-04-12","King and Queen","Virginia",51097,376,8
+"3388","2021-04-12","Lancaster","Virginia",51103,701,15
+"3389","2021-04-12","Middlesex","Virginia",51119,561,19
+"3390","2021-04-12","Northampton","Virginia",51131,777,35
+"3391","2021-04-12","Northumberland","Virginia",51133,719,20
+"3392","2021-04-12","Richmond","Virginia",51159,1456,13
+"3393","2021-04-12","Westmoreland","Virginia",51193,1219,24
+"3394","2021-04-13","Accomack","Virginia",51001,2750,40
+"3395","2021-04-13","Essex","Virginia",51057,733,8
+"3396","2021-04-13","King and Queen","Virginia",51097,380,8
+"3397","2021-04-13","Lancaster","Virginia",51103,702,15
+"3398","2021-04-13","Middlesex","Virginia",51119,561,19
+"3399","2021-04-13","Northampton","Virginia",51131,778,35
+"3400","2021-04-13","Northumberland","Virginia",51133,721,20
+"3401","2021-04-13","Richmond","Virginia",51159,1458,13
+"3402","2021-04-13","Westmoreland","Virginia",51193,1220,24
+"3403","2021-04-14","Accomack","Virginia",51001,2756,40
+"3404","2021-04-14","Essex","Virginia",51057,733,8
+"3405","2021-04-14","King and Queen","Virginia",51097,381,8
+"3406","2021-04-14","Lancaster","Virginia",51103,702,15
+"3407","2021-04-14","Middlesex","Virginia",51119,562,19
+"3408","2021-04-14","Northampton","Virginia",51131,781,35
+"3409","2021-04-14","Northumberland","Virginia",51133,727,20
+"3410","2021-04-14","Richmond","Virginia",51159,1459,13
+"3411","2021-04-14","Westmoreland","Virginia",51193,1225,24
+"3412","2021-04-15","Accomack","Virginia",51001,2762,40
+"3413","2021-04-15","Essex","Virginia",51057,736,8
+"3414","2021-04-15","King and Queen","Virginia",51097,383,8
+"3415","2021-04-15","Lancaster","Virginia",51103,703,15
+"3416","2021-04-15","Middlesex","Virginia",51119,563,20
+"3417","2021-04-15","Northampton","Virginia",51131,781,35
+"3418","2021-04-15","Northumberland","Virginia",51133,728,20
+"3419","2021-04-15","Richmond","Virginia",51159,1453,13
+"3420","2021-04-15","Westmoreland","Virginia",51193,1233,24
+"3421","2021-04-16","Accomack","Virginia",51001,2763,40
+"3422","2021-04-16","Essex","Virginia",51057,738,8
+"3423","2021-04-16","King and Queen","Virginia",51097,383,8
+"3424","2021-04-16","Lancaster","Virginia",51103,705,15
+"3425","2021-04-16","Middlesex","Virginia",51119,563,20
+"3426","2021-04-16","Northampton","Virginia",51131,782,35
+"3427","2021-04-16","Northumberland","Virginia",51133,730,20
+"3428","2021-04-16","Richmond","Virginia",51159,1458,13
+"3429","2021-04-16","Westmoreland","Virginia",51193,1236,24

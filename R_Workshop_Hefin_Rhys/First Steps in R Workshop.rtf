@@ -1,0 +1,1025 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # 1. ---- FIRST STEPS IN R----\
+\
+  # assign object ----\
+    a <- 10*60\
+    a\
+  \
+    A <- 23\
+    A  \
+  # remove objects ----\
+    rm(A)\
+  \
+  # data classes ----\
+    # numeric\
+       165\
+    # character\
+        "Male"\
+    # logical\
+        T\
+        F\
+  \
+  # data structures ----\
+    # vectors   --> single row of data, all the same class, either num, char, log, simply a series of values\
+    # lists     --> single row of data, different data types\
+    # matrix    --> 2D version of a vector, rows/columns of the same type\
+    # data frame --> many vectors, pasted together as columns, diff. variables in columns, diff. data types per column\
+        \
+    # vectors ----\
+        c(1, 2 , 3 ,4 )\
+        c(1:200)\
+      #assign object to a vector\
+        myVector <- c(1:100)\
+        myVector\
+      #manipulate objects\
+        myVector * 2\
+        myVector + 3\
+        myVector + myVector      \
+    \
+    #lists ----\
+        list(1, 2, 3, 4)\
+        list(1, 2, "hello", T)  # everything is printed out in console\
+                                #especially useful, when lists inside lists\
+              \
+    \
+        \
+        \
+        \
+    # subsetting vectors ----\
+        #for assigned objects:\
+          days <- c("Mon", "Tue", "Wed", "Thurs", "Fri")\
+          days[1]   # just Monday\
+          days[2:5] # Tue - Friday\
+          days[-5]  # all but Friday\
+          days[10]  # not available\
+    \
+    # useful functions ----\
+          myValues <- 1:100\
+          ?help\
+          \
+          mean(myValues)    # mean --> 50.5\
+          median(myValues)  # median --> 50.5\
+          min(myValues)     # lowest value --> 1\
+          max(myValues)     # highest value --> 100\
+          sum(myValues)     # sum of all values --> 5050\
+          sd(myValues)      # standard deviation (StabW) --> 29.01149\
+          class(myValues)   # gives the data class --> "integer"\
+          length(myValues)  # tells you the number of elements in the vector\
+          log(myValues)     # gives natural log\
+          log10(myValues)   # gives 10log\
+          \
+          mySqrt <- sqrt(myValues) #Squareroot must be assigned, otherwise just for digits\
+          mySqrt\
+          \
+          ?hist\
+          ?rnorm\
+          hist(rnorm(myValues)) # uses rnorm function to generate random numbers and creates a histogram with hist() fct\
+          hist(rnorm(100, 5)) # n = 100, mean = 5, if not specified it uses mean = 0, sd = 1\
+          \
+          # We now use the repeat fct. rep():\
+          c(rep("Vehicle", 100), rep("Drug", 100))\
+          \
+          #further useful stuff (can be used with the data frame example myData)\
+          head(myData)      # shows first 6 rows by default\
+          head(myData, 10)  # shows first 10 rows\
+          tail(myData)      # shows last 6 rows by dedfault\
+          tail(myData, 2)   # shows last 2 rows\
+          dim(myData)       # shows dimensions of a data frame = #rows and #columns\
+          str(myData)       # shows structure of a data frame = \
+                              # variables (names of the columns)\
+                              # data classes (int, factor, numeric)\
+          summary(myData)   # dumps a load of data on you:\
+                              # for numerical values:       Min, 1st Qu, Median, Mean, 3rd Qu, Max \
+                              # for categorical variables:  length, class, mode\
+          as.numeric(c("1", "2", '3', '4'))\
+          as.character(1:10)\
+          \
+          \
+    # data frames ----\
+          id <- 1:200\
+          group <- c(rep("Vehicle", 100), rep("Drug", 100))                \
+          response <- c(rnorm(n = 100, mean = 25, sd = 5))        \
+          \
+          myData <- data.frame(Patient = id,\
+                               Treatment = group,\
+                               Response = response   )   \
+          myData\
+          \
+    # subsetting data frames ----\
+          myData[1, 2]    # what's on 1st row, 2nd column\
+          myData[1:20, ]  # row 1-20, all columns\
+          myData[ ,1]     # all rows, 1st column\
+          myData[ , "Response"] # all rows, the named column --> " " important!\
+         \
+          #more convenient way for the last function: the $-Function\
+            myData$Response # look at the data and select the Response column\
+          \
+          # now we want the function to give: only rows with a Response vector > 26\
+          # and we are looking at all columns\
+            myData[myData$Response > 26, ]\
+          \
+          \
+          # now we want to assign a new column that shows T/F for the Response Data\
+            myData$Positive <- myData$Response > 26\
+            myData$Positive\
+            \
+            \
+          # what if we want to subset on more than 1 criteria? --> use commands\
+            # & AND\
+            # | OR (Pipe operator)\
+            # == EQUAL TO\
+            # != NOT EQUAL TO\
+            \
+            myData[myData$Treatment == "Vehicle" & myData$Response <23, ]\
+            myData[myData$Treatment == "Vehicle" | myData$Response <23, ]\
+            myData[myData$Treatment != "Vehicle" & myData$Response <23, ]\
+            myData[myData$Treatment != "Vehicle" | myData$Response <23, ]\
+\
+\
+          \
+          \
+          \
+          \
+          \
+          \
+          \
+          \
+-------------------------------------------------------------------------------------------------------------                   \
+   \
+          \
+# 2. ---- SECOND STEPS IN R ----\
+  library(ggplot2)\
+  library(dplyr)\
+  library(mosaic)\
+  library(car)\
+  library(phia)\
+              \
+            \
+  # reading in data ----\
+            pokemon <- read.csv("pokemon.csv")\
+            pokemon\
+            dim(pokemon)  \
+            head(pokemon)\
+            tail(pokemon)\
+            str(pokemon)  \
+            summary(pokemon)\
+            \
+  # plotting ----\
+            # under name of variable --> Variable on X-axis\
+            # next to name of variable --> Variable on Y-Axis\
+            plot(pokemon)  \
+            plot(pokemon[ ,3:10])\
+            pokemon$Type.I <- as.factor(pokemon$Type.I) #because R changed stuff and now it would stop at zeros...\
+            plot(pokemon[ ,"Type.I"], pokemon[, "Atk"])\
+            \
+            \
+  # t test ----  \
+            ?t.test\
+            \
+            psychic <-  pokemon[pokemon$Type.I == "Psychic", "Atk"]\
+            psychic  \
+            rock <-     pokemon[pokemon$Type.I == "Rock", "Atk"]\
+            rock    \
+            \
+            t.test(psychic, rock) #R doesn't assume that you have variables that are equal per default (FALSE)\
+            t.test(psychic, rock, var.equal = T)  # if you want to specifically request equal variables --> set this TRUE\
+            # leads to slightly different p-values\
+            # one-tailed t test\
+            t.test(psychic, rock, alternative = "less") # by default alternative is two-sided, but you can turn it one-tailed,\
+            # just use the side you want with "less than" or "greater than" other group, dep on order you put them\
+            # gives exactly half of previous p-value (--> one sided)\
+            # paired t test\
+            t.test(psychic[1:13], rock, paired = T) # must skip last two of psychic, since there is nothing to compare to in rock group (simply less)\
+            length(psychic)\
+            length(rock)  \
+            \
+            # for non-normal data --> Mann-Whitney u-test (in R weirdly called Wilcox-Test)\
+            wilcox.test(psychic, rock) #data size here too small for EXACT p-value\
+            \
+            # Wilcox non-ranked test (non-parametric equivalent of a paired t-test)\
+            wilcox.test(psychic[1:13], rock, paired = T) # data size here too small for EXACT p-value\
+            \
+  # linear regression ----\
+            plot(pokemon$Atk, pokemon$Def)\
+            regModel <- lm(Def ~ Atk, data = pokemon)   # that's how you plot a linear regression model, has to be supplied with a formula, allows to predict defense \
+            regModel                                  # says: we want a linear model lm()\
+            # where Def "depends on" (~) Attack\
+            # and the data is pokemon\
+            # so the Coefficients tell us:\
+            # intercept: means that when the pokemon's attack = 0, it still has a Defense of 33\
+            # and for every 1 unit increase in attack --> Defense increases by 0.498\
+            # this is how you can draw the regression line:\
+            abline(regModel$coef[1], regModel$coef[2], col = "red", lwd = 3)\
+            # coef[1] extracts the intercept\
+            # coef[2] extracts the slope\
+            # "col" defines color and "lwd" defines line-weight\
+            \
+            summary(regModel)     # this is how you get a p-value for the slope\
+            # tells you coefficients and the p-values for the coefficients\
+            # 1st pr (probability) value tests whether the intercept is = 0\
+            # 2nd pr value tests whether the slope = 0 (since it's here very very small it indicates a strong connection b/w ATK/DEF)\
+            # multiple R-squared: tells you that 19.8% of the data is accounted for by Atk variable\
+            # adjusted R-squared: penalizes you, the more predictors you put into it (the better you try to fit the data in, b/c that would always lead to higher and higher "natural" R-values)\
+            # p-Value: tells you whether the model is over all better at predicting Def than the grand "mean"\
+            hist(regModel$res)  # makes histogram of our regression Model and extracts the "residuals" (res)\
+            qqnorm(regModel$res)# another way to check normality of your residuals\
+            # plots every data point from our data along the sample quantiles and the theoretical quantiles it should follow, IF it was a normal distribution --> should follow a diagonal line\
+            \
+            qqline(regModel$res)# make this line visible, use the line function: plots you a line (here red), to show the trend\
+            # IF your data was normally distributed, it would follow the created line\
+            \
+            # log model might improve Model fit of Defense\
+            # we will not regress Def depends on Atk, but instead log10Def depends on Atk\
+            \
+            regModelLog <- lm(log10(Def) ~ Atk, data = pokemon)  \
+            regModelLog      \
+            plot(pokemon$Atk, log10(pokemon$Def))\
+            abline(regModelLog$coef[1], regModelLog$coef[2], col = "red", lwd = 3) \
+            # intercept ~ 1.5 and per Unit Atk, there is a 0.004208 incr. in Def\
+            summary(regModelLog)\
+            hist(regModelLog$res, breaks = 40)\
+            qqnorm(regModelLog$res)\
+            qqline(regModelLog$res)    \
+            \
+            \
+  # ANOVA AND KRUSKAL-WALLIS ----\
+            \
+            # we are looking for differences in different types (ghost, grass, ground, and ice)\
+            # to do that, we are using a subset of the pokemon data\
+            # makes subset equal to Type Ghost, or Type Grass, or Type Ground, or Type Ice\
+            pokeSubset        <- pokemon[ pokemon$Type.I == "Ghost" | \
+                                            pokemon$Type.I == "Grass" |\
+                                            pokemon$Type.I == "Ground"| \
+                                            pokemon$Type.I == "Ice", ]\
+            # looks at the data frame and \
+            # returns every row of these 4 given types\
+            \
+            pokeSubset$Type.I <- factor(pokeSubset$Type.I)                      \
+            plot(pokeSubset[, "Type.I"], pokeSubset[, "Atk"], ylab = "Attack")  \
+            # to make stuff fit with R (would stop at zeros without this factor fct. --> I guess..)\
+            # shows the 4 Types + compares Atk, the y-Axis is explicitly called "attack"\
+            \
+            # give me more cum        \
+            \
+            \
+            # ANOVA oneway Model = linear model to predict Atk based on Type (instead of a continuous predictor, we provide a factor)\
+            # and the data is pokeSubset\
+            \
+            oneWay <- lm(Atk ~ Type.I, data = pokeSubset)   \
+            oneWay\
+            # summary(oneWay)\
+            # can be ignored\
+            # tests each individual regression, whether ground is diff. from ghost etc.\
+            # gives multiple/adjusted R-squared\
+            anova(oneWay)\
+            \
+            # ANOVA ~ a special case of regression\
+            # main point is the p-value (although it also gives you slopes & intercepts & stuff)\
+            # name of factor: Type I\
+            # Df, Sum Sq, Mean Sq, F value, Pr <-- P-Value\
+            \
+            # --> let's evaluate the model fit, to find out, where the differences to the previous model were!\
+            \
+            hist(oneWay$res)\
+            # looks okay\
+            qqnorm(oneWay$res)\
+            qqline(oneWay$res)        \
+            # pretty good fit\
+            # assumption: variance between our models is equal --> can be tested with:\
+            \
+            # bartlett test\
+            bartlett.test(pokeSubset$Atk, pokeSubset$Type.I)\
+            # we supply the outcome variable --> Atk\
+            # we supply the grouping variable --> Type\
+            \
+            # One-Way Wallis ANOVA\
+            oneway.test(Atk ~ Type.I, data = pokeSubset)\
+            # assumes variance to be unequal: var.equal = FALSE\
+            oneway.test(Atk ~ Type.I, data = pokeSubset, var.equal = TRUE)\
+            # assumes var.equal = TRUE --> so we get the same P-value as when we did the lm() fct., followed by the anova fct.\
+            \
+            \
+            # Kruskal-Wallis- Rank Sum Test\
+            # if the data is non-normally distributed, we can use the following test:\
+            \
+            kruskal.test(pokeSubset$Atk, pokeSubset$Type.I)\
+            # gives you the KW-Rank-Sum Test\
+            # and a P-Value\
+            \
+            \
+  # post-hoc tests ----\
+            TukeyHSD(oneWay)\
+            # HSD = honestly significant difference\
+            # compares every group to every other group\
+            # here: nothing is actually significant..\
+            # makes sense, since overall p-Value was insignificant as well\
+            \
+            # MUCH BETTER: use select pairs of comparisons!\
+            # first argument:   dependent variable (here Atk)\
+            # second argument:  predicted variable (here Type I)\
+            pairwise.t.test(pokeSubset$Atk, pokeSubset$Type.I)     \
+            # but it's smart to put the p-adjustment method to NONE\
+            # perorms t-tests between every pairwise comparison and has NOT adjusted the p-values\
+            pairwise.t.test(pokeSubset$Atk, pokeSubset$Type.I, p.adjust.method = "none")\
+            # if you're only interested in a specific comparison e.g. grass vs. ghost\
+            # and ice vs. ground\
+            p.adjust(c(0.316, 0.069), method = "holm")\
+            # simply takes the comparisons you're interested in\
+            # adjusts the p-values for those two comparisons (vs. 6 before)\
+            \
+            \
+  # Two-Way anova ----\
+            pokeSubset2        <- pokemon[ pokemon$Type.I == "Bug" | \
+                                             pokemon$Type.I == "Electric" |\
+                                             pokemon$Type.I == "Fire"| \
+                                             pokemon$Type.I == "Poison", ]\
+            \
+            pokeSubset2$Type.I <- factor(pokeSubset2$Type.I)\
+            boxplot(Atk ~ Captive * Type.I, data = pokeSubset2, col = c("red", 'blue'))\
+            \
+            twoway <- lm(Atk ~ Type.I * Captive, data = pokeSubset2)\
+            # we want to predict, whether our dep.variable Atk is dependent on the Type AND (*) Captive\
+            # looks at main effect of type, and captive\
+            # looks at INTERACTION of type AND captive\
+            twoway\
+            summary(twoway)    \
+            anova(twoway)\
+            \
+            # now we look if anything changes, if we reverse the order!\
+            twowayRev <- lm(Atk ~ Captive * Type.I, data = pokeSubset2)\
+            twowayRev      \
+            summary(twowayRev)  \
+            anova(twowayRev)      \
+            # so the p-values are now different!!!\
+            # because they are dependent on factors\
+            # unlike type III ss ( = sums of squares) --> completely independent, whatever order you enter\
+            \
+            \
+  # type III ss (sums of squares) --> completely independent ----\
+            \
+            twoWay <-     lm(Atk ~ Type.I * Captive, data = pokeSubset2,\
+                             contrasts = list(Type.I = contr.Sum, Captive = contr.Sum))\
+            twoWayRev <-  lm(Atk ~ Captive * Type.I, data = pokeSubset2,\
+                             contrasts = list(Type.I = contr.Sum, Captive = contr.Sum))\
+            \
+            Anova(twoWay, type = 3)  \
+            Anova(twoWayRev, type = 3)\
+            # same p-values in both orders!\
+            # shows complete independence of type III ss\
+            \
+            \
+  # post-hoc tests for factorial anova ----\
+            # stands for post-hoc interaction analysis\
+            # if you have an interaction, you wanna know if there is a difference for captive and wild for each level of pokemonn type\
+            \
+            testInteractions(twoWay, pairwise = "Captive", fixed = "Type.I")\
+          \
+          \
+          \
+  \
+          \
+          \
+          \
+          \
+          \
+          \
+-------------------------------------------------------------------------------------------------------------                   \
+              \
+          \
+          \
+# 3. ---- GGPLOT ----\
+          \
+                  \
+    # R has three main plotting systems:\
+      #   1. main plotting embedded in R\
+      #   2. lattice plotting system\
+      #   3. ggplot <- good for plotting data!\
+          \
+          \
+  # IRIS data set <- load available sets with data() ----\
+            \
+            data()\
+            data("iris")\
+            head(iris)\
+            summary(iris)\
+            \
+  # PLOT IRIS ----\
+            \
+            plot(iris)\
+            # interesting relationship b/w petal length & sepal width\
+            \
+            plot(iris$Petal.Length, iris$Sepal.Width)\
+            \
+  # GGPLOT explanation ----\
+            \
+            # gg stands for "grammar of graphics" = any graphical representation of data/plot/graph\
+            # can be produced from a series of layers\
+            # layer   grid lines --> plotting area\
+            # layer   axis ticks\
+            # layer   values for the axis\
+            # layer   labels for the axis\
+            # layer   plot title\
+            # layer   geoms --> geometric objects (can be dots, triangles, text, etc)\
+            # layer   additional plots (boxplots, regression lines, confidence intervals, text, ..)\
+            # ...\
+            # ggplot fct. needs:\
+            # 1. data frame --> here iris\
+            # 2. aes fct. --> aesthetic mappings = relationship b/w variable and some aspect of the plot\
+            # e.g. values of x-axis, so we can map petal.length values to x-axis\
+            # e.g. sepal.width to the y-axis\
+            # you can choose color, size, transparency, ...\
+            \
+            \
+  # GGPLOT IRIS ----\
+            ggplot(iris, aes(x=Petal.Length, y = Sepal.Width)) +  # <-- base plot, now add on with +\
+              geom_point() # now we get all single dots of data \
+            ?geom_point() # look at the Aesthetics options --> this can be data input\
+            # are there relationships among those 3 species?\
+            \
+            \
+            # add color \
+            # +++ good for continuous variables\
+            \
+            ggplot(iris, aes(x=Petal.Length, \
+                             y = Sepal.Width, \
+                             col = Species)) +\
+              geom_point()    \
+            \
+            # add representation of petal.width --> add size\
+            \
+            ggplot(iris, aes(x=Petal.Length, \
+                             y = Sepal.Width, \
+                             col = Species, \
+                             size = Petal.Width)) +\
+              geom_point() \
+            \
+            # add shape\
+            # +++ categorical values\
+            # --- continuous values don't work\
+            \
+            ggplot(iris, aes(x=Petal.Length, \
+                             y = Sepal.Width, \
+                             col = Species, \
+                             size = Petal.Width,\
+                             shape = Species)) +\
+              geom_point() \
+            \
+            # don't overdo it.. --> 1 variable per aesthetic\
+            \
+            # transparency = alpha \
+            # --- continuous variables\
+            # --- changes hard to see\
+            # +++ use color for continuous variables\
+            \
+            ggplot(iris, aes(x=Petal.Length, \
+                             y = Sepal.Width, \
+                             col = Species, \
+                             size = Petal.Width,\
+                             shape = Species,\
+                             alpha = Sepal.Length)) +\
+              geom_point() \
+            \
+  # BAR AND BOXPLOT ----\
+            \
+            # x-axis = species \
+            # y-axis = sepal.length\
+            # bar at group means\
+            \
+            ggplot(iris, aes(Species)) +\
+              geom_bar()  # gives error, when y is already added for a bar plot, leave out for now\
+            # not very useful --> simply a histogram\
+            # scrap that, instead we will look at Sepal.Length\
+            \
+            ggplot(iris, aes(Sepal.Length)) +\
+              geom_bar()  # we will now change the stats of geom_bar\
+            # default stat = "count"\
+            # stat = "summary"\
+            # specify WHICH summary stat you want to plot --> fun = "mean" (mean function of y)\
+            \
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_bar(stat = "summary", fun = "mean")\
+            \
+            # col refers to the border of the geom\
+            ggplot(iris, aes(Species, Sepal.Length, col = Species)) +\
+              geom_bar(stat = "summary", fun = "mean")\
+            \
+            # col of inside = fill\
+            ggplot(iris, aes(Species, Sepal.Length, fill = Species)) +\
+              geom_bar(stat = "summary", fun = "mean")\
+            \
+            # all bars blue\
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_bar(stat = "summary", fun = "mean", fill = "blue")\
+            \
+            # specific color control with color codes\
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_bar(stat = "summary", fun = "mean", fill = "#ff0076")\
+            \
+            # add border to your bars\
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_bar(stat = "summary", fun = "mean", fill = "#ff0076", col = "black")\
+            \
+            # add dots for each individual data value on top of bars\
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_bar(stat = "summary", fun = "mean", fill = "#ff0076", col = "black") +\
+              geom_point()\
+            \
+            # quite small, hard to differentiate --> position points\
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_bar(stat = "summary", fun = "mean", fill = "#ff0076", col = "black") +\
+              geom_point(position = position_jitter())\
+            \
+            # add width to points, shapes have numbers --> \
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_bar(stat = "summary", fun = "mean", fill = "#ff0076", col = "black") +\
+              geom_point(position = position_jitter(0.2), size = 3, shape = 5)\
+            \
+            # put everything into an object\
+            myPlot <- ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_bar(stat = "summary", fun = "mean", fill = "#ff0076", col = "black") +\
+              geom_point(position = position_jitter(0.2), size = 3, shape = 5)\
+            myPlot\
+            \
+            # change stuff further --> theme options\
+            ?theme\
+            \
+            myPlot + theme( panel.grid = element_blank(), # removes all grid (we could also remove just x/y axis)\
+                            panel.background = element_rect(fill = "white"), # removes gray box\
+                            # axis.line.y = element_line(color = "black", size = 0.2), --> can add y-axis line\
+                            # axis.line.x = element_line(color = "black", size = 0.2), --> can add x-axis line\
+                            panel.border = element_rect(color = "black", fill = NA, size = 0.2) # marks x/y axis and gives borders all around\
+            )\
+            \
+            \
+            myPlot  # Starting point and add to it         \
+            myPlot + theme_bw()                \
+            myPlot + theme_classic()                  \
+            myPlot + theme_dark()                  \
+            myPlot + theme_get()                  \
+            myPlot + theme_gray()  \
+            myPlot + theme_light()\
+            myPlot + theme_map()  \
+            myPlot + theme_minimal()  \
+            myPlot + theme_void()\
+            myPlot + theme_linedraw() + theme(panel.background = element_rect(fill = "blue")) # you can add anything you want\
+  \
+            theme_hefin <- theme(axis.line.y = element_line(colour = "black", size = 0.1),\
+                                 axis.line.x = element_line(colour = "black", size = 0.1),\
+                                 panel.grid.minor = element_blank(),\
+                                 panel.background = element_rect(fill = "grey95"),\
+                                 panel.border = element_rect(colour = "black", fill = NA),\
+                                 axis.title.x = element_text(size = 20, margin = margin(5,0,0,0)),\
+                                 axis.title.y = element_text(size = 20, margin = margin(0,10,0,0)),\
+                                 axis.text = element_text(size = 16, colour = "black"),\
+                                 axis.text.x = element_text(margin = margin( t = 5)),\
+                                 plot.title = element_text(size = 32, hjust = 0),\
+                                 legend.position = c(0,9,0.85),\
+                                 legend.key.size = unit(1, "cm"),\
+                                 legend.text = element_text(size = 20),\
+                                 legend.text.align = 0,\
+                                 legend.title = element_blank(),\
+                                 legend.background = element_blank(),\
+                                 legend.key = element_rect(fill = NA, colour = NA),\
+                                 strip.text = element_text(size = 14, face = "bold"),\
+                                 strip.background = element_rect(colour = "black"),\
+                                 panel.spacing = unit(0, "lines"),\
+            )\
+            \
+            theme_hefin\
+            myPlot + theme_hefin # object --> no () needed\
+            \
+            \
+            \
+            # now with boxplots\
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_boxplot(fill = "#ff0080", col = "black", notch = TRUE) + #notch default = FALSE, Median clearer\
+              geom_point()\
+            # order matters --> eg.:\
+            ggplot(iris, aes(Species, Sepal.Length)) +\
+              geom_point() +\
+              geom_boxplot(fill = "#ff0080", col = "black", notch = TRUE) #notch default = FALSE, Median clearer\
+            \
+            \
+  # FINISHING TOUCHES ----\
+            myPlot + \
+              theme_hefin +\
+              labs(x = "", y = "Sepal length (mm)") +  # changes axis labels --> more info, looks better\
+              ggtitle("Sepal Length by iris species") +\
+              theme(plot.title = element_text(hjust = 0.5)) # title in the middle, default = left\
+            \
+            \
+  # SAVING OUR PLOT ----\
+            # use ggsave function\
+            # saves last produced plot with specifications\
+            \
+            \
+            setwd("~/Documents") # set your working directory\
+            # save to desktop = "~/"\
+            # save to documents = "~/Documents"\
+            \
+            ggsave("plotting.pdf", width = 8, height = 5) \
+            # specify type with \
+            # .pdf \
+            # .png \
+            # .jpg \
+            # .svg (install package "svg.lite" for this)\
+            # higher png resolution for windows with --> ggsave("x", type = "cairo-png")\
+            # specify unit --> default = inches\
+            \
+            \
+  # FACTORIAL DATA ----\
+            data(ToothGrowth) # --> this is a factorial design experiment\
+            head(ToothGrowth)    \
+            summary(ToothGrowth)    \
+            # R sees "dose" as a continuous variable, but it's actually a categorical/ordinal variable (can be only 0.5, 1, or 2)\
+            \
+            ggplot(ToothGrowth, aes(supp, len, fill = dose)) +\
+              geom_bar(stat = "summary", fun = "median", col = "black") # summary, not count\
+            \
+            # tell R that dose = factor\
+            # tell R that position =  "stack" (stacks each mean on top of each other)\
+            #                         "fill" (takes 100% of each group and plots bar width as proportion of each dose)\
+            #                         "dodge" (easier comparisons with separate bars)\
+            ggplot(ToothGrowth, aes(supp, len, fill = as.factor(dose))) +\
+              geom_bar(stat = "summary", fun = "median", col = "black", position = "dodge") + # default "dodge" = bars are immediately each other\
+              geom_point(position = position_dodge(0.9)) # must specify the dot positions\
+            \
+            ggplot(ToothGrowth, aes(as.factor(dose), len, group = supp, col = supp)) +\
+              geom_line(stat = "summary", fun = "mean") + # specify that we want summary statistics\
+              geom_smooth(method = "lm") # draw regression lines on your plots\
+            \
+\
+          \
+          \
+          \
+          \
+          \
+          \
+-------------------------------------------------------------------------------------------------------------                  \
+          \
+          \
+          \
+# 4. ---- CONDITIONAL STATEMENTS AND LOOPS ----\
+          \
+  # IFELSE CONDITIONAL STATEMENT ----\
+            \
+            ifelse(4 > 5, "Yes!", "No!")        # supply 3 arguments \
+            #   1. logical statement, here: 5 > 4\
+            #   2. answer, if 1. is TRUE\
+            #   3. answer, if 2. is FALSE\
+            ifelse(5 >= 4, "Yes!", "No!")\
+            \
+  # IF STATEMENTS ----\
+            \
+            a <- 6\
+            b <- 5\
+            \
+            if(a < b ) \{   # (conditional statement)\
+              b / a         # \{ if TRUE, do this \}\
+            \}               # if FALSE, does nothing\
+            \
+  # ELSE STATEMENTS --> for strictly binary outcome ----\
+            \
+            if(a < b)\{\
+              paste("b / a = ", b/a) # if TRUE --> reads \{\} and pasts content in order, separated by comma\
+            \} else\{\
+              paste("a / b =", a/b)\
+            \}   # FALSE --> reads else... MUST be on the same line as \}, otherwise won't work\
+            \
+  # ELSEIF STATEMENTS --> for 3+ different outcomes ----\
+            \
+            if(a < b)\{\
+              paste("b / a = ", b/a) # if TRUE --> reads \{\} and pasts content in order, separated by comma\
+            \} else if(a == b) \{\
+              "a and b are equal"\
+            \} else\{\
+              paste("a / b =", a/b)\
+            \}   \
+            # FALSE --> reads else... MUST be on the same line as \}, otherwise won't work\
+            \
+            \
+            \
+  # WHILE STATEMENTS ----\
+            \
+            while (1 == 1) \{\
+              print("This is true")\
+            \}\
+            \
+            x <- 1\
+            y <- 10\
+            \
+            while (x < y) \{\
+              print("This is true")\
+              x <- x + 1\
+            \}\
+            \
+            \
+  # FOR-LOOPS ----\
+            \
+            result <- c()           # fill the empty vector with numbers \
+            for (i in 1:5) \{      # instead of i (= index), you can also use words e.g. subject, mouse, ...\
+              result[i] <- i ^ 2  # for every number 1:5, apply this function\
+            \}\
+            result\
+            \
+  # COMBINING IN AND FOR ----\
+            \
+            for (i in 1:5) \{        # every element gets passed through this structure\
+              if(i %% 2 == 0)\{      # %% 2 --> modulus operator = divide this by this and return the remainder\
+                print("Even")       # it's either = 0 (if it's even)\
+              \} else\{               # it's not = 0 (if it's odd)\
+                print("Odd")\
+              \}\
+            \}\
+            \
+  # APPLY FUNCTIONS ADVANTAGES <-don't bother with for-loops, use the apply functions instead ----\
+            \
+            # +++ sometimes apply functions are faster (with many elements)\
+            # +++ more concise, easier to code\
+            # +++ safer, for-loops can change a variable, apply functions don't do this!\
+            #     avoid making mistakes with this..\
+            \
+            \
+            \
+  # LAPPLY -> GIVES OUT A LIST ----\
+            myList <- list()\
+            for (i in 1:1000) \{\
+              norm <- list(rnorm(10, 0, 1)) # creates a list of 10 random normal numbers, mean = 0, sd = 1\
+              myList <- c(myList, norm)\
+            \}\
+            head(myList, 3)\
+            \
+            listMeans <- list() # we want to extract the mean value of every single list element\
+            for (sample in 1:length(myList))\{\
+              listMeans[sample] <- mean(myList[[sample]])\
+              \
+            \}\
+            head(listMeans, 3)\
+            \
+            listMeans2 <- lapply(myList, mean) # you supply the object you want to iterate over, and you supply the function you want to apply to each element of this list (mean)\
+            listMeans2\
+            head(listMeans2)  # gives the identical results as before!\
+            \
+            \
+            \
+  # SAPPLY -> "SIMPLIFIED" DATA --> gives out vector, instead of a list ----\
+            # !!! depending on the data structure, it might not always be able to simplify that data\
+            #     doesn't give error\
+            #     instead: "the best it can do"\
+            #     always validate the answers you get\
+            listMeans3 <- sapply(myList, mean)\
+            listMeans3\
+            head(listMeans3)  \
+            \
+            \
+  # APPLY --> applies a function over every column/row of the data ----\
+            # for arrays\
+            # for matrices\
+            # for data frames\
+            \
+            data(iris)\
+            apply(iris[, 1:4],2, mean)  # 1st object == data --> iris\
+            # 2nd object == margin you want to iterate over --> 1 == all rows\
+            # 3rd object == function you want to apply      --> 2 == all columns\
+            \
+            apply(iris[, 1:4], 1, mean) # iterates over all the rows\
+            \
+          \
+\
+          \
+          \
+          \
+          \
+          \
+          \
+          \
+          \
+-------------------------------------------------------------------------------------------------------------         \
+\
+# 5. ---- WRITING FUNCTIONS ----\
+          \
+  # BASIC BUILT-IN FUNCTIONS ----\
+            normalDist <- rnorm(1000, 0, 1) # normal Distribution\
+            normalDist\
+            mean(normalDist)\
+            hist(normalDist)\
+            hist(normalDist, breaks = 50) # 50 interval breaks\
+            \
+            # WRITING HELLO FUNCTION ----\
+            sayHello <- function()\{\
+              "Hello!"\
+            \}\
+            \
+            sayHello()\
+            \
+            sayHello <- function(name)\{\
+              paste("Hello", name)\
+            \}\
+            \
+            greet <- sayHello("Finn")\
+            greet\
+            \
+  # FUNCTION WITH OPTIONAL ARGUMENTS ----\
+            \
+            expo <- function(x, power = 2)\{\
+              hist(x ^ power)\
+            \} \
+            \
+            expo(normalDist, 2)\
+            expo(normalDist, 3) # short version: expo(normalDist, 3)\
+            \
+            \
+  # UNNAMED ARGUMENTS -> Use of ... ---- \
+            expo <- function(x, power = 2, ... )\{ # ... = any additional argument \
+              hist(x ^ power, ...)  # any additional arguments supplied to expo will be given to the internal hist ftc.\
+            \}                       \
+            \
+            expo(normalDist, power = 1, breaks = 50)  # 1st argument =  x   = normalDist\
+            # 2nd argument =        power \
+            # 3rd argument = ...  = breaks\
+            \
+  # LOGICAL ARGUMENTS - T or F, function will do one thing, OR the other ----\
+            \
+            expo <- function(x, exp = 2, hist = F, ...)\{\
+              if(hist == T)\{\
+                hist(x ^ exp, ...)  # if hist is TRUE, histogram plotted and the values given\
+                x ^ exp\
+              \} else\{\
+                x ^ exp             # if hist is FALSE, just the values are given\
+              \}\
+            \}\
+            \
+            expo(normalDist)  \
+            expo(normalDist, hist = TRUE)  \
+            \
+            \
+  # POPULATION DOUBLING COUNTER ----\
+            # Start = 10.000 cells --> now 20.000 cells == 1 population double\
+            # Start = 10.000 cells --> now 40.000 cells == 2 pop. doubles\
+            \
+            popDouble <- function(start, end)\{  # start/end are both MANDATORY arguments =/= optional arguments\
+              doubling <- -1                  # e.g. Start = 10000, End = 20000\
+              while (end > start) \{           # we initialize the object doubling (starts at -1)\
+                doubling  <-  doubling + 1    # while: 10000 > 20000 (TRUE) --> we start doubling by 1\
+                start     <-  start * 2       # start is now 20000 --> back to the top --> end = 20000 isn't ">" 20000 anymore..\
+              \}                               # end > start ==> FALSE!\
+              doubling + (end / start)        # doubling = 0, + (end/start) = 1 ==> 0 + 1\
+            \}                                 # = 0 + 1\
+            # = 1\
+            \
+            popDouble(10000, 20000)   # feed the function with different values to make sure it gives exoected values\
+            popDouble(10000, 30000)  \
+            popDouble(10000, 100000)\
+            \
+\
+\
+          \
+          \
+\
+          \
+          \
+          \
+ -------------------------------------------------------------------------------------------------------------         \
+          \
+          \
+          \
+# 6. ---- DPLYR, FILTER, PIPING ----\
+          \
+  # DPLYR ADVANTAGES ----\
+            # +++ Subsetting\
+            # +++ Transforming\
+            # +++ getting Summary statistics for your data >>> baseR commands\
+            # +++ likes to turn data frames --> tibbles (similar)\
+            \
+            # LOAD DPLYR\
+            library(dplyr)\
+            data(mtcars)\
+            \
+  # MOST USEFUL DPLYR FUNCTIONS ("Verbs") ----\
+            # 1. Select\
+            # 2. Filter\
+            # 3. Arrange\
+            # 4. Mutate\
+            # 5. Summarise\
+            # 6. group_by\
+            \
+            \
+  ## SELECT (and subset columns) ----\
+            # uses data frame as input and selects every column you want to return\
+            \
+            head(mtcars)\
+            select(mtcars, hp)            # we want to look at (subset) the horse power column only\
+            select(mtcars, hp, mpg, gear) # 2+ columns --> separate w/ comma\
+            select(mtcars, 1:7)           # column index\
+            # baseR: mtcars[, 1:7]  \
+            \
+  ## FILTER (for ROWS that satisfy specific conditions) ----\
+            \
+            filter(mtcars, wt > 3.5)      # we want only rows with a weight variable (wt) > 3.5\
+            filter(mtcars, wt > 3.5, carb == 4)\
+            \
+  ## ARRANGE (to put data frame into an order) ----\
+            \
+            # arrange all rows ordered by gear (low --> high)\
+            arrange(mtcars, gear)\
+            \
+            # reversed order  (low --> high)\
+            arrange(mtcars, -gear)  \
+            \
+            # range by 2+ \
+            arrange(mtcars, -gear, -carb, wt)   # data frame is first ordered by 1st variable, then internally \
+            # within gear, individually ordered by carb\
+            # tie --> wt used too!\
+            \
+  ## MUTATE (to create new columns from existing ones) ----\
+            \
+            # create new columns\
+            mutate(mtcars, wt_cyl = wt / cyl) # 1st argument = data frame\
+            # 2nd argument = new variable\
+            # = relationship of existing variables\
+            \
+            # create 2+ new columns at the same time\
+            mutate(mtcars,  wt_cyl = wt / cyl,       # as before\
+                   inv_wt_cyl = 1 / wt/cyl) # inverted --> use 1/x\
+            \
+            ## IMPORTANT  --> new variables are not saved to existing data frame\
+            ##          --> Must be saved in NEW data frame (e.g. create mtcars2 <- ...)\
+            \
+            mtcars\
+            mtcars2 <- mutate(mtcars,  wt_cyl = wt / cyl,       # as before\
+                              inv_wt_cyl = 1 / wt/cyl) # inverted --> use 1/x\
+            mtcars2\
+            \
+            \
+  ## SUMMARISE (for summary statistics, can be defined as you wish) ----\
+            \
+            # data frame ,  name of new statistic = how to calculate\
+            # good for single variable infos\
+            summarise(mtcars, min_hp = min(hp), \
+                      avg_hp = mean(hp),\
+                      max_hp = max(hp),\
+                      med_hp = median(hp),\
+                      IQR_hp = IQR(hp)\
+            )\
+            # vs. summary fct. --> for entire data frame, ignores group membership, stats based on individual groups...\
+            summary(mtcars)\
+            \
+            \
+  ## GROUP BY (partitions data frame into rows with membership to particular groups of the grouping variable) ----\
+            grouped <- group_by(mtcars, gear)\
+            \
+            # summarise + group_by can be combined --> summary stats for groups of data\
+            # gives summary stats stratified for cars with 3/4/5 gears\
+            summarise(grouped, min_hp = min(hp), \
+                      avg_hp = mean(hp),\
+                      max_hp = max(hp),\
+                      med_hp = median(hp),\
+                      IQR_hp = IQR(hp)\
+            ) \
+            \
+            \
+            \
+            # 2+ variables used --> +++ summary stats for combinations of grouping variables\
+            grouped2 <- group_by(mtcars, gear, cyl)\
+            summarise(grouped2, min_hp = min(hp),\
+                      avg_hp = mean(hp),\
+                      max_hp = max(hp),\
+                      med_hp = median(hp),\
+                      IQR_hp = IQR(hp)\
+            )\
+            \
+            \
+            \
+  # PIPE OPERATOR %>% ("and then") ----\
+            # "Take the object on the left and PASS it onto the function on the right (as the first argument)"  \
+            \
+            mtcars %>% group_by(gear)   # == group_by(mtcars, gear)\
+            # piping is +++ for stringing multiple operations together!\
+            \
+            # take the data frame %<% \
+            # group it by gear %<%\
+            # summarise it by weight-median \
+            mtcars %>% group_by(gear) %>% summarise(median_wt = median(wt)) # == summarise(group_by(mtcars, gear), median_wt = median(wt))\
+            \
+            # easier to read by line separation:\
+            subsetCars <- mtcars %>%\
+              select(2:11) %>%\
+              filter(wt >= 2)\
+            subsetCars        \
+            \
+            # order Cars to see meaningful relationships in the data\
+            arrangedCars <- subsetCars %>%\
+              group_by(gear, cyl) %>%\
+              mutate(wt_cyl = wt / cyl) %>%\
+              arrange(wt_cyl)\
+            arrangedCars\
+            \
+            arrangedCars %>%\
+              summarise(sd(wt_cyl)) # we get the standard deviation for the weight-cylinder variable at each grouping-level\
+          }

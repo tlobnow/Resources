@@ -136,11 +136,84 @@ pbmc3k.final
                         y.title = 20) +
       NoLegend()
     
-    ## Interactive Plotting Features
+    
+    
+## INTERACTIVE PLOTTING FEATURES
 
+    ## Seurat utilizes R’s plotly graphing library to create interactive plots. 
+    ## This interactive plotting feature works with any ggplot2-based scatter plots 
+    ## (requires a geom_point layer). To use, simply make a ggplot2-based scatter plot 
+    ## (such as DimPlot() or FeaturePlot()) and pass the resulting plot to HoverLocator()
+    
+        # Include additional data to display alongside cell names by passing in a data frame of
+        # information Works well when using FetchData
+    plot <- FeaturePlot(pbmc3k.final, features = "MS4A1")
+    HoverLocator(plot = plot, 
+                     information = FetchData(pbmc3k.final,
+                                             vars = c("ident",
+                                                      "PC_1",
+                                                      "nFeature_RNA")))
+    
+    ## Another interactive feature provided by Seurat is being able to manually select cells
+    ## for further investigation. We have found this particularly useful for small clusters 
+    ## that do not always separate using unbiased clustering, but which look tantalizingly distinct. 
+    ## You can now select these cells by creating a ggplot2-based scatter plot (such as with DimPlot() 
+    ## or FeaturePlot(), and passing the returned plot to CellSelector(). 
+    ## CellSelector() will return a vector with the names of the points selected, 
+    ## so that you can then set them to a new identity class and perform differential expression.
+    
+    ## For example, lets pretend that DCs had merged with monocytes in the clustering, 
+    ## but we wanted to see what was unique about them based on their position in the tSNE plot.
+    
+    
+    pbmc3k.final <- RenameIdents(pbmc3k.final, 
+                                 DC = "CD14+ Mono")
+    plot <- DimPlot(pbmc3k.final, 
+                    reduction = "umap")
+    select.cells <- CellSelector(plot = plot)
+    
+    ## We can change the identity of these cells to turn them into their own mini-cluster.
+    ## select a mini-cluster on the map
+    head(select.cells)
+    Idents(pbmc3k.final, cells = select.cells) <- "NewCells"
+    
+    ## Now we can find markers that are specific to the new cells, and find clear DC markers
+    newcells.markers <- FindMarkers(pbmc3k.final, 
+                                    ident.1 = "NewCells",
+                                    ident.2 = "CD14+ Mono",
+                                    min.diff.pct = 0.3,
+                                    only.pos = T)
+    head(newcells.markers)
+    
+## PLOTTING ACCESSORIES
+    ## Along with new functions add interactive functionality to plots, 
+    ## Seurat provides new accessory functions for manipulating and combining plots.
 
-
-
-
-
-
+    ## LabelClusters and LabelPoints will label the clusters (a coloring variable)
+    ## on a ggplot2-based scatter plot
+    plot <- DimPlot(pbmc3k.final, 
+                    reduction = "pca") + NoLegend()
+    LabelClusters(plot = plot, 
+                  id = "ident")
+    
+    ## both functions support 'repel', which will intelligently stagger labels
+    ## and draw connection lines from the labels to the points or clusters
+    LabelPoints(plot = plot,
+                points = TopCells(object = pbmc3k.final[["pca"]]),
+                repel = T)
+    
+    ## Plotting multiple plots was previously achieved with the CombinePlot() function. 
+    ## We are deprecating this functionality in favor of the patchwork system. 
+    ## Below is a brief demonstration but please see the patchwork package website 
+    ## for more details and examples.
+    
+    plot1 <- DimPlot(pbmc3k.final)
+    plot2 <- FeatureScatter(pbmc3k.final, 
+                            feature1 = "LYZ",
+                            feature2 = "CCL5")
+    plot1 + plot2    
+    
+    ## you can remove the legend from all plots
+    (plot1 + plot2) & NoLegend()
+    
+  

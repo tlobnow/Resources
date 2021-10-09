@@ -1,0 +1,228 @@
+---
+title: "Introduction to BioConductor"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exploring a fastq file
+Fastq files usually contain thousands or millions of reads, and can become very large in size! For this exercise, you will use a small fastq sub sample of 500 reads, which fits easily into memory and can be read entirely using the function readFastq().
+
+The original sequence file comes from Arabidopsis thaliana, provided by the UC Davis Genome Center. The accession number is SRR1971253 and was downloaded from the Sequence Read Archive (SRA). It contains DNA from leaf tissues, pooled and sequenced on Illumina HiSeq 2000. These sequences are single-read sequences with 50 base pairs (bp) length.
+
+fqsample is a ShortReadQ object and contains information about reads, quality scores, and ids. It's your turn to explore it!
+
+```{r #1}
+# Load ShortRead
+library(ShortRead)
+
+# Print fqsample
+fqsample
+
+# Check class of fqsample
+class(fqsample)
+
+# Check class sread fqsample
+class(sread(fqsample))
+
+# Check ids of fqsample
+id(fqsample)
+```
+
+## Extract a sample from a fastq file
+
+It is your turn to draw a sample piece from a sequence of many reads.
+
+You will use the same file you've read in the previous exercise. This file has 500 reads, each of 50 bp. The file path is stored in an object called f.
+
+Using FastqSampler(con = file_path, n = length), set.seed(), and yield() you can subset 100 reads from your sequence file.
+
+Load ShortRead.
+Use set.seed() with value 1234.
+Use FastqSampler() with the small fastq file located in f and select 100 reads.
+Use yield() to generate the sub sequence.
+
+```{r #2}
+# Load ShortRead
+library(ShortRead)
+
+# Set a seed for sampling
+set.seed(1234)
+
+# Use FastqSampler with f and select 100 reads
+fs <- FastqSampler(con = f, n = 100)
+
+# Generate new sample yield
+my_sample <- fs
+
+# Print my_sample
+my_sample
+```
+
+## Exploring sequence quality
+It is your turn to perform a quality control check on the fqsample. This is an important step before starting further analyses to quickly identify data problems.
+
+To check the encoding values for each letter in quality(), use encoding():
+
+encoding(quality(fqsample))
+For a quality assessment (QA) summary use qa():
+
+qaSummary <- qa(fqsample, type = "fastq", lane = 1)
+This qaSummary has already been created for you. QA elements can be accessed with qaSummary[["nameElement"]], where nameElement is the name of the element you wish to inspect.
+
+Check the "baseQuality" element of the qaSummary.
+
+```{r #3}
+# load ShortRead
+library(ShortRead)
+
+# Check quality
+quality(fqsample)
+
+# Check encoding of quality
+encoding(quality(fqsample))
+
+# Check baseQuality
+qaSummary[["baseQuality"]]
+```
+
+## Try your own nucleotide frequency plot
+Now it's time to take a closer look at the frequency of nucleotides per cycle. The best way to do this is by making a visualization. Usually, the first cycles are a bit random, and then the frequency of nucleotides should stabilize with the coming cycles.
+
+This exercise uses the complete fastq file SRR1971253 with some pre-processing done for you:
+
+```{r #4}
+library(ShortRead)
+fqsample <- readFastq(dirPath = "data", 
+                      pattern = "SRR1971253.fastq")
+# extract reads                      
+abc <- alphabetByCycle(sread(fqsample))
+
+# Transpose nucleotides A, C, G, T per column
+nucByCycle <- t(abc[1:4,]) 
+
+# Tidy dataset
+nucByCycle <- nucByCycle %>% 
+  as.tibble() %>% # convert to tibble
+  mutate(cycle = 1:50) # add cycle numbers
+Your task is to make a Nucleotide Frequency by Cycle plot using tidyverse functions!
+```
+glimpse() the object nucByCycle to get a view of the data.
+gather() the nucleotide letters in alphabet and get a new count column.
+Make a line plot of cycle on the x-axis vs count on the y-axis, colored by alphabet.
+```{r #5}
+# Glimpse nucByCycle
+glimpse(nucByCycle)
+
+# Create a line plot of cycle vs. count
+nucByCycle %>% 
+  # Gather the nucleotide letters in alphabet and get a new count column
+  gather(key = alphabet, value = count , -cycle) %>% 
+  ggplot(aes(x = cycle, y =  count, color = alphabet)) +
+  geom_line(size = 0.5 ) +
+  labs(y = "Frequency") +
+  theme_bw() +
+  theme(panel.grid.major.x = element_blank())
+```
+
+## Filtering reads on the go!
+What if, from all of the reads in a file, you are only interested in some of those reads? You can use a filter!
+
+Let's say that you are interested only in those reads that start with the pattern "ATGCA". A tiny filtering function can do the job, making use of the srFilter() function:
+
+myStartFilter <- srFilter(function(x) substr(sread(x), 1, 5) == "ATGCA")
+This function, which has been created for you, takes a ShortRead derived object as an input and outputs the reads starting with the pattern "ATGCA". Let's put this function to use!
+
+Check the class of fqsample.
+Use the filter myStartFilter() on fqsample and save the result in selectedReads.
+Check the class of selectedReads.
+```{r #6}
+# Load package ShortRead
+library(ShortRead)
+
+# Check class of fqsample
+class(fqsample)
+
+# Filter reads into selectedReads using myStartFilter
+selectedReads <- fqsample[myStartFilter(fqsample)]
+
+# Check class of selectedReads
+class(selectedReads)
+
+# Check detail of selectedReads
+detail(selectedReads)
+```
+
+## Removing duplicates
+It is always a good practice to check that your sequence reads don't contain too many duplicates.
+How would you go about removing duplicated reads in a file? Pay attention to what the condition should be in this filter:
+
+```{r #7}
+# Sample with duplicates of class: ShortReadQ
+dfqsample
+
+# Get the reads from dfqsample
+mydReads <- sread(dfqsample)
+
+# Counting duplicates
+table(srduplicated(mydReads))
+
+# Eliminating duplicates
+mydReads[srduplicated(mydReads) == FALSE]
+```
+
+## More filtering!
+Awesome! Now that you've had some practice with filtering reads, let's use the function polynFilter(). This function selects reads that contain less than a given number of duplicate nucleotides. For example, polynFilter(threshold = 20, nuc = c("A")) will select all reads that contain less than 20 A's. The parameter nuc is a character vector containing IUPAC symbols for nucleotides or the value "other" for all non-nucleotide symbols.
+The fqsample object is available in your workspace.
+
+Extract the sequences from the ShortRead object fqsample using the appropriate function.
+Create a filter called myFil using polynFilter with the following parameters:
+A threshold of 3 nucleotides.
+A character vector nuc equal to "A".
+Check the newly created filter by printing it to the console.
+```{r #8}
+# Check reads of fqsample
+sread(fqsample)
+
+# Create myFil using polynFilter
+myFil  <- polynFilter(threshold = 3,
+nuc = c("A"))
+
+# Check myFil
+myFil
+```
+
+Mark reads from fqsample to be filtered using myFil() and store the results in filterCondition.
+Filter fqsample using the filterCondition and store the result in filteredSequences.
+Check the reads of filteredSequences
+
+```{r #9}
+
+# Apply your filter to fqsample
+filterCondition <- myFil(fqsample)
+
+# Use myFil with fqsample
+filteredSequences <- fqsample[filterCondition]
+
+
+# Check reads of filteredSequences
+sread(filteredSequences)
+```
+Exactly! Three reads is what we have left after applying the polynFilter() and filtering using the filterCondition on fqsample. Once you are comfortable using conditions directly as subsets, you can create the object filteredSequences in one line of code, like this: objectToFilter[customFilter(objectToFilter)].
+
+
+## Plotting cycle average quality
+Here you are! To challenge yourself, are you ready to test what you have learned by making three quick plots? You will see that now it all pays off!
+
+It is your turn to use the new package Rqc and check multiple files at once.
+
+Call rqcCycleAverageQualityPlot() on qa and add theme_minimal() to change background to white.
+```{r #10}
+# Load package Rqc
+library(Rqc)
+
+# Read quality plot with white background
+rqcReadQualityPlot(qa) + theme_minimal()
+```

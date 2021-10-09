@@ -1,0 +1,443 @@
+---
+title: "Cluster_Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## INTRO
+2. What is clustering?
+No matter whether you are working with medical data,
+
+3. What is clustering?
+retail data,
+
+4. What is clustering?
+or sports data, as a data scientist you are often presented with a bunch of data that you need to make sense of.
+
+5. What is clustering?
+To understand what clustering is, let's put aside the details of our data and instead focus on the toy example
+
+6. What is clustering?
+where the data is represented as a matrix containing entries of card suits.
+
+7. What is clustering?
+To look at it another way, this matrix is composed of rows containing our observations and columns that tell us something that we measured across these observations. We will refer to these columns as the features of our observations. In cluster analysis we are interested in grouping our observations such that all members of a group are similar to one another and at the same time they are distinctly different from all members outside of this group. Imagine in this example we performed cluster analysis to find which observations are similar to one another based on what suit appears in each column.
+
+8. What is clustering?
+In this case we identified three groups and colored the observations accordingly. To better see these pattens, lets re-organize our observation into their respective colored clusters.
+
+9. What is clustering?
+Here we can start to see clear patterns that emerge. Fundamentally, this is how cluster analysis works.
+
+10. What is clustering?
+Or to put it another way, cluster analysis is a form of exploratory data analysis where observations are divided into meaningful groups that share common characteristics amongst each other. So what are the steps involved in performing cluster analysis?
+
+11. The flow of cluster analysis
+Well, first, you must make sure that your data is ready for clustering, meaning that your data does not have any missing values and that your features are on similar scales.
+
+12. The flow of cluster analysis
+Next, you must decide on what metric is appropriate to capture the similarity between your observations using the features that you have.
+
+13. The flow of cluster analysis
+Once you have calculated this you can use a clustering method to group your observations based on how similar they are to each other into clusters.
+
+14. The flow of cluster analysis
+But, most importantly you will need to analyze the output of these clusters to determine whether they provide any meaningful insight into your data. This often requires a deep understanding of the problem and the data that you are working with.
+
+15. The flow of cluster analysis
+As you can see in this flow chart, the analysis you perform on these clusters may require you to iterate on the clustering steps until you converge on a meaningful grouping of your data.
+
+16. Structure of this course
+The first three chapters of this course will help you unpack this process. In this chapter you will gain a deeper understanding of what it means for two observation to be similar - or more specifically ,dissimilar. You will also learn why the features of your data need to be comparable to one another.
+
+17. Structure of this course
+In chapters two and three you will learn how to use two commonly used clustering methods: hierarchical clustering and k-means clustering. At the end of these chapters and in chapter four you will work through two case studies where clustering analysis provides a unique perspective into the underlying data.
+
+
+## DISTANCE BETWEEN 2 OBSERVATIONS
+
+1. Distance between two observations
+Let's begin by focusing on the question that is fundamental to all clustering analyses: How similar are two observations?
+
+    Distance = 1 - Similarity
+
+2. Distance vs Similarity
+Or from another perspective, how dissimilar are they?
+
+3. Distance vs Similarity
+You see, most clustering methods measure similarity between observations using a dissmilarity metric, often referred to as the distance. These two concepts are just two sides of the same coin. If two observations have a large distance then they are less similar to one another. Likewise, if their distance value is small, then they are more similar. Naturally, we should first develop a keen intuition by what is meant by distance.
+
+4. Distance between two players
+So, let's work with the scenario of players on a soccer field.
+
+5. Distance between two players
+In this image you see the positions of two players. How far apart are they? To answer this question we first need their coordinates.
+
+6. Distance between two players
+Here the blue player is positioned in the center of the field, which we will refer to as 0, 0. While the red player has a position of 12 and 9 - or twelve feet to the right of center and 9 feet up.
+
+7. Distance between two players
+The players in this case are our observations and their X and Y coordinates are the features of these observations. We can use these features to calculate the distance between these two players. In this case we will use a distance measurement you're likely familiar with.
+
+8. Distance between two players
+Euclidean distance.
+
+9. Distance between two players
+Which is simply the hypotenuse of the triangle that is formed by the differences in the x and y coordinates of these players.
+
+10. Distance between two players
+The familiar formula to calculate this is shown here.
+
+11. Distance between two players
+Which if we plug in our values of x and y for both players we arrive at the euclidean distance between them.
+
+12. Distance between two players
+Which in this case is 15. This is the fundamental idea for calculating a measure of dissimilarity between the blue and red players.
+
+13. dist() function
+To do this in R, we use the dist function to calculate the euclidean distance between our observations. The function simply requires a dataframe or matrix containing your observations and features. In this case, we are working with the dataframe two players. The method by which the distance is calculated is provided by the method parameter. In this case we are using euclidean distance and specify it accordingly. As in our manual calculation we see that the distance between the red and blue players is 15.
+
+14. More than 2 observations
+This function becomes indespensable if we have more than 2 observations. In this case if we wanted to know the distance between 3 players we would measure the distance between the players two at a time. Running this through the dist function we see that the distance between players red and blue is 15 as before, but we also have measurements between green and blue as well as green and red. In this case, green and red have the smallest distance and hence are closest to one another. The dist function would work just as well if we have more features to use for calculating the distance.
+
+```{r 1}
+# Plot the positions of the players
+ggplot(two_players, aes(x = x, y = y)) + 
+  geom_point() +
+  # Assuming a 40x60 field
+  lims(x = c(-30,30), y = c(-20, 20))
+
+# Split the players data frame into two observations
+player1 <- two_players[ 1, ]
+player2 <- two_players[ 2, ]
+
+# Calculate and print their distance using the Euclidean Distance formula
+player_distance <- sqrt( (player1$x - player2$x)^2 + (player1$y - player2$y)^2 )
+player_distance
+```
+
+```{r 2}
+# Calculate the Distance Between two_players
+dist_two_players <- dist(two_players)
+dist_two_players
+
+# Calculate the Distance Between three_players
+dist_three_players <- dist(three_players)
+dist_three_players
+```
+
+## THE IMPORTANCE OF SCALE
+
+
+1. The importance of scale
+When calculating the distance between two players on a soccer field, you used two features, x and y. Both of these features are the coordinates of the players and both are measured in the same manner. Because of this, they are comparable to one another and can be used together to calculate the euclidean distance between the players. But, what happens when the features aren't measured in the same manner or to put it another way, when the values of these features aren't comparable to one another? To answer this question let's walk through an example.
+
+2. Distance between individuals
+Imagine you are provided with a dataset that contains the heights and weights for a large number of men in the United States. The height feature is measured in feet and the weight feature in pounds. You are interested in calculating the distance between these individuals. Let us start by comparing observations one and two.
+
+3. Distance between individuals
+Both men are the same height, six feet. But they differ slightly in weight. In this case the difference is two pounds.
+
+4. Distance between individuals
+If we calculated the euclidean distance between them we would get a value of two. Now let's look at observations one and three.
+
+5. Distance between individuals
+In this comparison, the weights are the same, but the height is different by two feet. If we calculate the distance once more...
+
+6. Distance between individuals
+...you guessed it. It's also two.
+
+7. Distance between individuals
+The distances between both pairs are identical. If we saw these three men standing side by side, would you really believe that observation one is just as similar to three as it is to two. Of course not. Then why are their distances the same? This happens because these features are on different scales. Meaning they have different averages and different expected variability. While in these comparisons these features only vary by a magnitude of two, we intuitively know that a change in two pounds is very different than a change of two feet. So how can we adjust these features to calculate a distance that better aligns with our expectations?
+
+8. Scaling our features
+To do this we need to convert our features to be on a similar scale with one another. There are various methods for doing this, but for this course we will use the method called standardization. This entails updating each measurement for a feature by subtracting the average value of that feature and then dividing by its standard deviation. Doing this across our features places them on a similar scale where each feature has a mean of zero and a standard deviation of one.
+
+9. Distance between individuals
+Going back to the previous scenario, we can use the mean and standard deviation of the height and weight features to standardize the values for our three observations. Now, if we calculate the euclidean distances between them...
+
+10. Distance between individuals
+Voila, the values make sense! They agree with our intuition. One and three are much less similar to one another than one and two.
+
+11. scale() function
+In R we can use the scale function to standardize height and weight to the same scale. If height_weight is our matrix of observations, similar to what we've just seen. Using the scale function with the default parameters will normalize each feature column to a mean of 0 and a variance of 1.
+
+
+```{r 3}
+# Calculate distance for three_trees 
+dist_trees <- dist(three_trees)
+
+# Scale three trees & calculate the distance  
+scaled_three_trees <- scale(three_trees)
+dist_scaled_trees <- dist(scaled_three_trees)
+
+# Output the results of both Matrices
+print('Without Scaling')
+dist_trees
+
+print('With Scaling')
+dist_scaled_trees
+```
+
+## MEASURING DISTANCE FOR CATGEORICAL DATA
+
+
+1. Measuring distance for categorical data
+So far you have exclusively worked with one type distance metric, the euclidean distance. This is a commonly used metric and is a great starting point when working with data that is continuous. But what happens if the data you have isn't continuous but is categorical?
+
+2. Binary data
+Let's start with the most basic case of categorical features, those that are binary, meaning that the values can only be one of two possiblities. Here you are presented with survey data, let's call it survey a. The participants of this survey were asked whether they enjoy drinking various types of alcoholic beverages. Since they can only answer yes or no we can code this binary response as TRUE or FALSE. We would be interested to learn which participants are similar to one another based on their responses. To calculate this we will use the similarity score called the Jaccard Index.
+
+3. Jaccard index
+This measure of similarity captures the ratio between the intersection of A and B to the union of A and B. Or more intuitively the ratio between the number of times the features of both observations are TRUE to the number of times they are ever TRUE. So going back to the previous example.
+
+4. Calculating Jaccard distance
+Let us calculate the Jaccard similarity for two observations one and two. They only agree in one category, beer, so for the intersection we get the value of one. While the number of categories these observations are ever true, or the union, is four. Dividing the intersection by the union we get the Jaccard similarity value of 0-point-25. But what about the distance. Well remember that distance is 1 - similarity, so in this case the distance is just 0-point-75.
+
+5. Calculating Jaccard distance in R
+To learn how to do this in R lets start with a subset of our data containing three observations, called survey a. In order to calculate the Jaccard distance between all three observations you just need to specify that the distance method to use in the dist() function is binary. You can see that just like our manual calculation earlier, observations 1 and 2 have a distance of 0-point-75. Now let's expand this idea to a broader case of categorical data where we have features represented by more than two categories.
+
+6. More than two categories
+For survey b, we have gathered the favorite color and sport for our participants. For color their choices were red blue and green and for sport the decision was between soccer and hockey. To calculate the distance between these observations we need to represent the presence or absence of each category in a process known as dummification. Essentially we consider each feature-value pair and encode its presence or absence as a 1 or 0, which is equivalent to a TRUE or FALSE. Take a look at observation one whose favorite color was red and favorite sport is soccer. After we dummify our data, shown in the table on the right, this observation now has a value of zero for every dummified feature except for the color red and the sport soccer where the value is one. Once our data is dummified, its just a matter or calculating the Jaccard distance between the observations.
+
+7. Dummification in R
+To perform this preliminary step in R, we would use the dummy-dot-data-dot-frame function from the dummy library. So long as your categorical values are encoded as factors this function will convert them into binary feature value representations.
+
+8. Generalizing categorical distance in R
+We can leverage this to calculate the distance for our data. In this case we can see that observations 2 and 3, 1 and 4 and 3 and 4 all have a comparable distance, to one another. Which makes sense if you look back at the original data.
+
+9. Let's practice!
+Now you have the tools to handle both continuous and categorical data types. Let's practice what you've learned.
+
+
+```{r 4}
+# In this exercise you will explore how to calculate binary (Jaccard) distances. In order to calculate distances we will first have to dummify our categories using the dummy.data.frame() from the library dummies
+
+# You will use a small collection of survey observations stored in the data frame job_survey with the following columns:
+
+# job_satisfaction Possible options: "Hi", "Mid", "Low"
+# is_happy Possible options: "Yes", "No"
+
+
+#Create a dummified data frame dummy_survey
+#Generate a Jaccard distance matrix for the dummified survey data dist_survey using the dist() function using the parameter method = 'binary'
+#Print the original data and the distance matrix
+#Note the observations with a distance of 0 in the original data (1, 2, and 4)
+
+# Dummify the Survey Data
+dummy_survey <- dummy.data.frame(job_survey)
+
+# Calculate the Distance
+dist_survey <- dist(dummy_survey, method = "binary")
+
+# Print the Original Data
+job_survey
+
+# Print the Distance Matrix
+dist_survey
+```
+
+## COMPARING MORE THAN 2 OBSERVATIONS
+
+1. Comparing more than two observations
+At the end of chapter 1 you were asked to review a question that you may not have known how to answer. Let's start by revisiting this question.
+
+2. The closest observation to a pair
+You were presented with a distance matrix that contained the euclidean distances between four soccer players. You know that the closest two players are 1 and 4 with a distance value of 10. In order to cluster more than two observations together you need to determine which of these statements are true. Is observation 2 closest to the newly formed group 1, 4? Or is it observation 3?
+
+3. Linkage criteria: complete
+To answer this question you must decide on how to measure the distance from group 1-4 to these observations. One approach we can take is to measure the maximum distance of each observation to the two members of the group. To calculate this aggregated distance between observation two and group 1-4 we would get take the larger of the two distances from 2 to 1 and 2 to 4. The distance from 2 to 1 is 11-point-7 and the distance from 2 to 4 is 20-point-6. The larger of the two values is of course 20-point-6 and hence is our maximum distance. We can apply the same logic when comparing observation 3. Resulting in a maximum distance of 16-point-8. Using this approach we can say that based on the maximum distance, observation three is closer to group 1-4.
+
+4. Hierarchical clustering
+Hierarchical clustering is just a continuation of this approach. This clustering method iteratively groups the observations based on their pairwise distances until every observation is linked into one large group. The decision of how to select the closest observation to an existing group is called the linkage criteria. In the previous example we decided that observation three was the closest based on the maximum distance between it and group 1-4. The approach we used is formally called the complete linkage criteria.
+
+5. Grouping with linkage & distance
+Let's see the hierarchical clustering method in action using a visual representation.
+
+6. Grouping with linkage & distance
+The distances between the four players have already been calculated and are shown.
+
+7. Grouping with linkage & distance
+We know that players 1 and 4 have the shortest distance and will be grouped first.
+
+8. Grouping with linkage & distance
+We are now presented with three options: add player 2 to group 1-4, add player 3 to group 1-4 or start a new group for players 2 and 3. The decision will be made based on which option results in the smallest distance.
+
+9. Grouping with linkage & distance
+As before, 2 and 3 have a distance of 18.
+
+10. Grouping with linkage & distance
+To calculate the distance between players 2 and group 1-4 we will use the complete linkage method, which is the maximum of the distances between observation two and each member of group 1-4. The resulting linkage-based distance is 20-point-6.
+
+11. Grouping with linkage & distance
+Applying the same for player 3 we get a linkage distance of 16-point-8.
+
+12. Grouping with linkage & distance
+Of these three options, the grouping of player 3 with 1 and 4 is selected because it has the smallest distance value.
+
+13. Grouping with linkage & distance
+The next round of grouping doesn't require any decision making, we simply aggregate observation two with group 1-3-4.
+
+14. Grouping with linkage & distance
+Now you have an iterative binary grouping of your four observations. The order in which these observations are grouped generates a hierarchy based on distance, and hence is called hierarchical clustering.
+
+15. Linkage criteria
+There are many different linkage methods that have been developed but for this course you will focus on the three most commonly used ones. 
+--> Complete linkage is the maximum distance between two sets
+
+--> Single linkage is the minimum distance
+
+--> Average linkage is the average distance between two sets
+
+As you progress through this chapter you will have a chance to see the impact this decision can make in the final clustering.
+
+```{r 5}
+# Extract the pair distances
+distance_1_2 <- dist_players[1]
+distance_1_3 <- dist_players[2]
+distance_2_3 <- dist_players[3]
+
+# Calculate the complete distance between group 1-2 and 3
+complete <- max(c(distance_1_2, distance_2_3))
+complete
+
+# Calculate the single distance between group 1-2 and 3
+single <- min(c(distance_1_3, distance_2_3))
+single
+
+# Calculate the average distance between group 1-2 and 3
+average <- mean(c(distance_1_3, distance_2_3))
+average
+```
+
+
+## CAPTURING K CLUSTERS
+
+
+1. Capturing K clusters
+In the last few exercises you explored the ways in which it is possible to group multiple observations together using linkage analysis. Now you are ready to leverage this technique to group your observations into a predefined number of clusters. So let's revisit the soccer example with a few more players.
+
+2. Grouping soccer players
+In this case you have the positions of six players at the start of a game and you would like to infer which players belong to which team using hierarchical clustering.
+
+3. Grouping soccer players
+A euclidean distance matrix was calculated for each pair of players and is now used to group players using a complete linkage criteria. This algorithm iteratively proceeds to group the players until they are all under a single group like so...
+
+4. Grouping soccer players
+5. Grouping soccer players
+6. Grouping soccer players
+7. Grouping soccer players
+Once this is completed we can work backwards to capture a desired number of clusters. At this moment, there is just one cluster.
+
+8. Extracting 2 clusters
+If we remove the last grouping like so.
+
+9. Grouping soccer players
+We have two distinct clusters.
+
+10. Grouping soccer players
+The red cluster contains players five and six while the blue cluster contains players one through four. Just like peeling an onion we can further split this into more parts by removing the previous linkage grouping.
+
+11. Grouping soccer players
+In this case it was group 1, 2 and 4 linked to player 3.
+
+12. Grouping soccer players
+And now we have three distinct clusters (red, blue, and green). So, the process of identifying a pre-defined number of clusters, which we will refer to as k is as simple as undoing the last k-1 steps of the linkage grouping. Now let's learn how to do this in R.
+
+13. Hierarchical clustering in R
+The positions of the players are available in the data frame called players. As before, to get the euclidean distance between each pair of players we use the dist function. To perform the linkage steps we will use the hclust function which accepts a distance matrix, in our case dist_players and a linkage method. The default linkage method is the complete method. This results in a hclust object containing the linkage steps and can now be used to extract clusters.
+
+    dist_players <- dist(players, method = 'euclidean')
+   
+    hc_players <- hclust(dist_players, method = 'complete')
+
+14. Extracting K clusters
+In order to determine which observations belong to which cluster, we use the cutree function. In this case we want to have two clusters because we know that there are two teams. So we provide the function with an hclust object and specify that we want a k of two. The output of cutree is a vector which represents which cluster each observation belongs to. We can append this back to our original data frame to do further analysis with the now clustered observations.
+
+    cluster_assignments <- cutree(hc_players, k = 2)
+    print(cluster_assignments)
+    
+    players_clustered <- mutate(players, cluster = cluster_assignments)
+    print(players_clustered)
+
+15. Visualizing K Clusters
+One way we can analyze the clustering result is to plot the positions of these players and color the points based on their cluster assignment. Here we do this using ggplot. Remember that this clustering incorporated several decisions, the distance metric used was euclidean, the linkage metric used was complete and the k was 2. Changing any of these may, and likely will, impact the resulting clusters. This is why it is crucial to analyze the results to see if they actually make sense. For example in this case, the cluster analysis was aimed at identifying the teams to which the players belong to based on their positions at the start of the game. Since soccer games have the same number of players on each team, we know that the results of this clustering are incorrect and would need to consider a different distance or linkage criteria. Incorporating an understanding of your data and your problem into clustering analysis is the key to successfully leveraging this tool.
+
+    ggplot(players_clustered, aes(x,y, color = factor(cluster))) +
+    geom_point()
+
+
+```{r 6}
+# Calculate the Distance
+dist_players <- dist(lineup, method = 'euclidean')
+
+# Perform the hierarchical clustering using the complete linkage
+hc_players <- hclust(dist_players, method = 'complete')
+
+# Calculate the assignment vector with a k of 2
+clusters_k2 <- cutree(hc_players, k = 2)
+
+# Create a new data frame storing these results
+lineup_k2_complete <- mutate(lineup, cluster = clusters_k2)
+```
+
+```{r 7}
+# Count the cluster assignments
+count(lineup_k2_complete, cluster)
+
+# Plot the positions of the players and color them using their cluster
+ggplot(lineup_k2_complete, aes(x = x, y = y, color = factor(cluster))) +
+  geom_point()
+```
+
+
+## VISUALIZING THE DENDROGRAM
+
+1. 
+As you recently learned, the process of hierarchical clustering involves iteratively grouping observations via pairwise comparisons until all observations are gathered into a single group. We can represent this grouping visually using a plot called the dendrogram, also knowns as a tree diagram.
+
+2. Building the dendrogram
+To build a dendrogram, let's start with the same 6 player soccer lineup from our last video. On the left we have the positions of the players and on the right we will assemble a dendgroram as we iteratively group these observations.
+
+3. Building the dendrogram
+As before we can start the process of hierarchical clustering by taking the two closest observations and grouping them.
+
+4. Building the dendrogram
+Correspondingly we can represent this grouping in the tree diagram.
+
+5. Building the dendrogram
+The dendrogram encodes a very important attribute of our grouping, the distance between the observations that were grouped. This is captured by the height axis. In this case the distance between the two observations is 4 point 1 and correspondingly their shared branch is at that height.
+
+6. Building the dendrogram
+As before we would form the next closest group, by comparing the pairwise distances and linkage criteria-based distances among the observations and existing groups.
+
+7. Building the dendrogram
+The first group with more than two observations now forms for one two and four and is accordingly represented in the dendrogram.
+
+8. Building the dendrogram
+The common branch between these three observations again encodes distance, more specifically it is a function of linkage criteria-based distance among all three observations. This is a very important feature of the dendrogram. It allows us to say something very concrete about our grouped observations at any given height. Remember that for distance we chose euclidean distance and the linkage criteria used was the complete method, which is the maximum distance between the group members. So in this case we can look at this dendrogram and say that the members that are a part of this branch, observations one two and four, have a euclidean distance between each other of 12 or less. We will leverage this attribute of the tree in our next video, but in the mean time let's continue to build the dendrogram.
+
+9. Building the dendrogram
+Iteratively joining the observations and groups.
+
+10. Building the dendrogram
+Until all are joined into a single group.
+
+11. Plotting the dendrogram
+Of course, we don't actually do this manually in R. To visualize a dendrogram, all we need to do is plot the corresponding hclust object. In this case we will reuse the hc_players object we created in the previous video to plot our dendrogram.
+
+
+```{r 8}
+
+```
+
+```{r 9}
+
+```
+
+```{r 10}
+
+```

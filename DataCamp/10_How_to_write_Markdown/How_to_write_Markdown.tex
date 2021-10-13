@@ -1,0 +1,243 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Investment Report},
+  pdfauthor={Finn},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage[normalem]{ulem}
+% Avoid problems with \sout in headers with hyperref
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Investment Report}
+\author{Finn}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{header-1-bigger}{%
+\section{Header 1 (bigger)}\label{header-1-bigger}}
+
+\hypertarget{header-2-smaller}{%
+\subsection{Header 2 (smaller)}\label{header-2-smaller}}
+
+\hypertarget{header-3-smallest}{%
+\subsubsection{Header 3 (smallest)}\label{header-3-smallest}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# code comment}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{text-formatting}{%
+\subsection{Text formatting}\label{text-formatting}}
+
+\textbf{bold} or \textbf{bold} \emph{italics} or \emph{italics}
+\sout{strikethrough}
+
+\hypertarget{inline-code}{%
+\subsection{Inline Code}\label{inline-code}}
+
+The \texttt{df} dataset\ldots{}
+
+\hypertarget{including-links-and-images}{%
+\subsection{Including Links and
+Images}\label{including-links-and-images}}
+
+The link you want to include entails the \href{the/actual/link}{name the
+link should be displayed on} bla bla bla\ldots{}
+
+The picture you want to display is placed with
+\includegraphics{the/actual/link} and this can be either LOCAL files or
+images from the WEB
+
+\hypertarget{excercise-for-all-above}{%
+\subsection{Excercise for all above}\label{excercise-for-all-above}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Add a header called Datasets to line 14 of the report, using two
+  hashes.
+\item
+  Add headers to lines 16 and 23 of the report to specify each of the
+  dataset names, Investment Annual Summary and Investment Services
+  Projects, using three hashes.
+\item
+  Add the dataset names to the sentences in lines 18 and 25 of the
+  report and format them as inline code.
+\end{enumerate}
+
+\hypertarget{datasets}{%
+\subsection{Datasets}\label{datasets}}
+
+\hypertarget{investment-annual-summary}{%
+\subsubsection{Investment Annual
+Summary}\label{investment-annual-summary}}
+
+The \texttt{investment\_annual\_summary} dataset provides a summary of
+the dollars in millions provided to each region for each fiscal year,
+from 2012 to 2018.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{investment\_annual\_summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 42 x 3
+##    fiscal_year region                          dollars_in_millions
+##          <dbl> <chr>                                         <dbl>
+##  1        2012 East Asia and the Pacific                      2548
+##  2        2012 Europe and Central Asia                        2915
+##  3        2012 Latin America and the Caribbean                3680
+##  4        2012 Middle East and North Africa                   2210
+##  5        2012 South Asia                                     1312
+##  6        2012 Sub-Saharan Africa                             2733
+##  7        2013 East Asia and the Pacific                      2873
+##  8        2013 Europe and Central Asia                        3261
+##  9        2013 Latin America and the Caribbean                4822
+## 10        2013 Middle East and North Africa                   2038
+## # ... with 32 more rows
+\end{verbatim}
+
+\hypertarget{investment-services-projects}{%
+\subsubsection{Investment Services
+Projects}\label{investment-services-projects}}
+
+The \texttt{investment\_services\_projects} dataset provides information
+about each investment project from the 2012 to 2018 fiscal years.
+Information listed includes the project name, company name, sector,
+project status, and investment amounts.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{investment\_services\_projects }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1,815 x 13
+##    date_disclosed      country   ifc_country_code sector        project_name    
+##    <dttm>              <chr>     <chr>            <chr>         <chr>           
+##  1 2018-12-26 00:00:00 Morocco   MYC              Health and E~ UPM Maroc       
+##  2 2018-12-20 00:00:00 Burkina ~ BUR              Agribusiness~ GWFP SOFITEX 5  
+##  3 2018-12-18 00:00:00 Mexico    MXC              Agribusiness~ Biopappel       
+##  4 2018-12-14 00:00:00 China     CHA              Financial In~ JFLC Green Fina~
+##  5 2018-12-14 00:00:00 Brazil    BRA              Funds         Vinci Capital P~
+##  6 2018-12-10 00:00:00 Ethiopia  ETH              Agribusiness~ Habesha         
+##  7 2018-12-07 00:00:00 Argentina ARG              Telecommunic~ Telecom Argenti~
+##  8 2018-12-04 00:00:00 Serbia    SRB              Infrastructu~ Belgrade WtE    
+##  9 2018-12-04 00:00:00 China     CHA              Health and E~ Zhangmen Educat~
+## 10 2018-12-04 00:00:00 World Re~ WLD              Funds         RA Energy II    
+## # ... with 1,805 more rows, and 8 more variables: project_number <dbl>,
+## #   company_name <chr>, status <chr>,
+## #   ifc_investment_for_risk_management_million_usd <dbl>,
+## #   ifc_investment_for_guarantee_million_usd <dbl>,
+## #   ifc_investment_for_loan_million_usd <dbl>,
+## #   ifc_investment_for_equity_million_usd <dbl>,
+## #   total_ifc_investment_as_approved_by_board_million_usd <dbl>
+\end{verbatim}
+
+\end{document}

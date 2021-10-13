@@ -1,0 +1,629 @@
+---
+title: "How to write Markdown"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+################################################################################
+################################################################################
+#   Header 1 (bigger)
+##  Header 2 (smaller)
+### Header 3 (smallest)
+
+``` {r}
+# code comment
+```
+
+################################################################################
+## Text formatting 
+
+**bold** or __bold__
+*italics* or _italics_
+~~strikethrough~~
+
+################################################################################
+## Inline Code
+
+The `df` dataset...
+
+
+
+## Including Links and Images
+
+The link you want to include entails the [name the link should be displayed on](the/actual/link) bla bla bla...
+
+The picture you want to display is placed with ![](the/actual/link) and this can be either LOCAL files or images from the WEB
+
+################################################################################
+## Excercise for all above
+
+1. Add a header called Datasets to line 14 of the report, using two hashes.
+2. Add headers to lines 16 and 23 of the report to specify each of the dataset names, Investment Annual Summary and Investment Services Projects, using three hashes.
+3. Add the dataset names to the sentences in lines 18 and 25 of the report and format them as inline code.
+
+---
+title: "Investment Report"
+output: html_document
+---
+
+```{r data, include = FALSE}
+library(readr)
+
+investment_annual_summary <- read_csv("https://assets.datacamp.com/production/repositories/5756/datasets/d0251f26117bbcf0ea96ac276555b9003f4f7372/investment_annual_summary.csv")
+investment_services_projects <- read_csv("https://assets.datacamp.com/production/repositories/5756/datasets/78b002735b6f620df7f2767e63b76aaca317bf8d/investment_services_projects.csv")
+```
+
+
+## Datasets
+
+### Investment Annual Summary
+
+The `investment_annual_summary` dataset provides a summary of the dollars in millions provided to each region for each fiscal year, from 2012 to 2018.
+```{r}
+investment_annual_summary
+```
+
+### Investment Services Projects
+
+The `investment_services_projects` dataset provides information about each investment project from the 2012 to 2018 fiscal years. Information listed includes the project name, company name, sector, project status, and investment amounts.
+```{r}
+investment_services_projects 
+```
+
+################################################################################
+## The YAML header
+
+---
+title: "How to write Markdown"
+output: html_document --> or pdf_document
+---
+
+# add Author
+author: "Finn"
+
+# YAML Date Options
+date: "8 April 2021"                        --> manually
+date: "`r Sys.Date()`"                      --> automatic
+date: "`r format(Sys.Date(), '%d %B %Y')`"  --> automatic, modified
+date: "`r format(Sys.Date(), '%d %B, %Y')`" --> automatic, modified with comma added
+date: "`Last edited r.format(Sys.Date(), '%d %B, %Y')`" --> automatic, modified
+date: "`r format(Sys.time(), '%d %B %Y')`"  --> specifically added for time??
+
+  # Date as Text
+  %A or %a  --> Weekday
+  %B or %b  --> Month
+
+  # Date as Numeric
+  %d        --> Decimal Date
+  %m        --> Decimal Month
+  %Y or %y  --> Year
+  
+################################################################################
+## ANALYZING THE DATA
+  1. load the necessary data packages in the first code chunk of your md project
+  2. give your code chunks specific names to make debugging in case of errors easier
+  3. you can `r knit code chunks` into your text so that the content changes whenever you change something in the data.
+```{r indonesia_investment_projects_2012}
+indonesia_investment_projects_2012 <- investment_services_projects %>%
+  filter(country == "Indonesia",
+         date_disclosed >= "2011-07-01",
+         date_disclosed <= "2012-06-30")
+
+indonesia_investment_projects_2012_total <- indonesia_investment_projects_2012 %>%
+  summarize(sum_total_investment = sum(total_investment, na.rm = T))
+```
+
+The total investment amount of all projects in Indonesia in the 2012 fiscal year was `r indonesia_investment_projects_2012_total` million dollars.
+
+
+################################################################################
+## ADDING PLOTS - EXAMPLE
+---
+title: "Investment Report"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_document
+---
+
+```{r data, include = FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+investment_annual_summary <- read_csv("https://assets.datacamp.com/production/repositories/5756/datasets/d0251f26117bbcf0ea96ac276555b9003f4f7372/investment_annual_summary.csv")
+investment_services_projects <- read_csv("https://assets.datacamp.com/production/repositories/5756/datasets/bcb2e39ecbe521f4b414a21e35f7b8b5c50aec64/investment_services_projects.csv")
+```
+
+## Datasets 
+
+### Investment Annual Summary
+The `investment_annual_summary` dataset provides a summary of the dollars in millions provided to each region for each fiscal year, from 2012 to 2018.
+```{r investment-annual-summary}
+ggplot(investment_annual_summary, aes(x = fiscal_year, y = dollars_in_millions, color = region)) +
+  geom_line() +
+  labs(
+    title = "Investment Annual Summary",
+    x = "Fiscal Year",
+    y = "Dollars in Millions"
+  )
+```
+
+### Investment Projects in Brazil
+The `investment_services_projects` dataset provides information about each investment project from 2012 to 2018. Information listed includes the project name, company name, sector, project status, and investment amounts.
+```{r brazil-investment-projects}
+brazil_investment_projects <- investment_services_projects %>%
+  filter(country == "Brazil") 
+
+ggplot(brazil_investment_projects, aes(x = date_disclosed, y = total_investment, color = status)) +
+  geom_point() +
+  labs(
+    title = "Investment Services Projects in Brazil",
+    x = "Date Disclosed",
+    y = "Total IFC Investment in Dollars in Millions"
+  )
+```
+
+### Investment Projects in Brazil in 2018
+```{r brazil-investment-projects-2018}
+brazil_investment_projects_2018 <- investment_services_projects %>%
+  filter(country == "Brazil",
+         date_disclosed >= "2017-07-01",
+         date_disclosed <= "2018-06-30") 
+
+ggplot(brazil_investment_projects_2018, aes(x = date_disclosed, y = total_investment, color = status)) +
+  geom_point() +
+  labs(
+    title = "Investment Services Projects in Brazil in 2018",
+    x = "Date Disclosed",
+    y = "Total IFC Investment in Dollars in Millions"
+  ) 
+```
+
+################################################################################
+##  PLOT OPTIONS
+
+# Global Options
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(fig.align = 'left', echo = TRUE)
+```
+
+
+# Individual Settings:
+  # Figure Dimensions in [inches]:
+    - fig.width
+    - fig.height
+    ```{r df, fig.width = 5, fig.height = 3}
+    ```
+            or
+    ```{r df, fig.dim = c(5,3)}
+    ```    
+  
+  # Output Dimensions [%]
+    - out.width
+    - out.height
+    ```{r df, out.width = '50%'}
+    ```
+    
+  # Figure Alignment 
+    - fig.align
+        - 'left'
+        - 'right'
+        - 'center'
+    ```{r df, fig.align = 'center'}
+    ```
+
+# Adding Captions
+  - fig.cap
+    ```{r df, fig.cap = "Figure 1.1. ..."}
+    ```
+  
+
+################################################################################
+## ORGANIZING THE REPORT
+
+  # Bullet Lists
+    - Point
+      - Sub-Point
+      - Sub-Point
+      - Sub-Point
+  
+  # Numbered Lists
+      1. X
+      2. Y
+      3. Z
+  
+  # Tables
+      - use kable() function (this is not for data wrangling, just for displaying already put together data)
+      - col.names
+      - align (default == right 'numeric', 
+               default == left  'everything else')
+               --> single letter for modification: 
+                        l ... left
+                        r ... right
+                        c ... center
+    ```{r}
+      kable(df,
+          col.names = c("Name A", "Name B", "Name C"),
+          align     = "ccc",
+          caption   = "Table 1.1. ...")
+    ```
+  
+
+################################################################################
+## CODE CHUNK OPTIONS
+                Code is run   Code appears in rep   Results appear in rep
+  include = F     YES               NO                    NO
+  echo = F        YES               NO                    YES
+  eval = F         NO               YES                   NO
+
+  # include (default = TRUE)
+    - TRUE  (will be shown in the report)
+    - FALSE (will not show up)
+  
+  # Echo Option (default = TRUE)
+    - TRUE  (will display figure   AND all code for generating it)
+    - FALSE (will display figure, BUT NOT code for generating it)
+
+  # Eval Option (default = TRUE)
+    - TRUE  (evaluates the code in this chunk --> chunk included in the report)
+    - FALSE (code is not run, excludes chunk from report, BUT code will still appear in the report, if still echo = T)
+  
+  # Collapse Option (default = FALSE)
+    - TRUE  (Code and text output are merged into a single block in the report)
+    - FALSE (Code from Code chunk and text output resulting from the code will be separated in the report)
+    
+
+################################################################################
+## WARNINGS, MESSAGES, AND ERRORS
+  # warning (default = TRUE)
+          - comes up, when we show visualizations --> sometimes we have NAs and they are excluded from the visualization, this produces a warning in the report
+    - TRUE  (will show warnings)
+    - FALSE (will not show warnings)
+  
+  # message (default = TRUE)        != include
+    - TRUE  (messages appear in the report)
+    - FALSE (code appears, but resulting messages DO NOT appear in the report)
+  
+  # Errors (default = FALSE)
+          - how errors are handled in the report
+          - rather use global settings 
+    - TRUE (report will knit, even if the code contains errors, report will include these errors)
+    - FALSE (knitting stops at the error)
+    
+    
+################################################################################
+## ADDING A TABLE OF CONTENTS
+  # toc: true
+    - indentation is important!
+    
+  # toc_depth: (default 3 for html, 
+                default 2 for pdf)
+    - number of hashes for headers that will appear in the table of contents
+    - e.g. toc_depth: 2 means, that all headers with # or ## will appear
+    
+  # number_sections: true
+    - adds section numbering
+    - largest headers should use # for numbering to start at 1.
+    - otherwise (## is the largest) will start numbering at 0.
+    
+  # toc_float: true (for html documents ONLY)
+    - will create a table of contents on the left side of the document and will remain visible throughout
+    
+  # toc_float: (NO TRUE HERE, nested specification!)
+      # collapsed: false (default true)
+                  - TRUE  (determines whether toc only displays largest headers, toc expands only while reading through numbered sections)
+                  - FALSE (full toc remains visible)
+      # smooth_scroll: false (default true)
+                  - TRUE  (animates page scrolls when reader clicks on an item to navigate to another report section)
+                  - FALSE (will navigate to section without animation)
+    
+    
+```{r toc} 
+---
+title: "Investment Report"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+```
+
+```{r toc} 
+---
+title: "Investment Report"
+output: 
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    number_sections: true
+    
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+```
+
+################################################################################
+## CREATING A REPORT WITH A PARAMETER
+    - create reports for different key values/inputs
+    - listed in the YAML header
+  
+# Adding a Parameter:
+  # params:
+      country: Indonesia (no quotation marks needed)
+      
+# Review the code:
+
+  1. rename any code chunks and objects that contain specific parameter parts 
+     (e.g.    indonesia-investment-projects --> country-investment projects)
+     (e.g.    country == "Indonesia"        --> params$country)
+     
+  2. review the labels/titles and REMOVE references
+     (e.g.    "Investment Services Projects in Indonesia" --> "Investment Services Projects")
+     
+  3. review and adjust text references
+     (e.g.    ### Investment Projects in `r params$country`
+              The `investment_services_projects` dataset provides information about each investment project in `r params$country` from ..)
+              
+  4. review YAML header title
+     (e.g.    
+```{r} 
+---
+title: "Investment Report for Projects in `r params$country`"
+output: 
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    number_sections: true
+    
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+```
+      )
+      
+##### EXAMPLE FOR COUNTRY: BRAZIL
+---
+title: "Investment Report"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+params:
+  country: Brazil
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(fig.align = 'center', echo = TRUE)
+```
+
+```{r data, include = FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+investment_annual_summary <- read_csv("https://assets.datacamp.com/production/repositories/5756/datasets/d0251f26117bbcf0ea96ac276555b9003f4f7372/investment_annual_summary.csv")
+investment_services_projects <- read_csv("https://assets.datacamp.com/production/repositories/5756/datasets/bcb2e39ecbe521f4b414a21e35f7b8b5c50aec64/investment_services_projects.csv")
+```
+
+## Datasets 
+
+### Investment Annual Summary
+The `investment_annual_summary` dataset provides a summary of the dollars in millions provided to each region for each fiscal year, from 2012 to 2018.
+```{r investment-annual-summary}
+ggplot(investment_annual_summary, aes(x = fiscal_year, y = dollars_in_millions, color = region)) +
+  geom_line() +
+  labs(
+    title = "Investment Annual Summary",
+    x = "Fiscal Year",
+    y = "Dollars in Millions"
+  )
+```
+
+### Investment Projects
+The `investment_services_projects` dataset provides information about each investment project from 2012 to 2018. Information listed includes the project name, company name, sector, project status, and investment amounts. Projects that do not have an associated investment amount are excluded from the plot.
+
+```{r country-investment-projects}
+country_investment_projects <- investment_services_projects %>%
+  filter(country == params$country) 
+
+ggplot(country_investment_projects, aes(x = date_disclosed, y = total_investment, color = status)) +
+  geom_point() +
+  labs(
+    title = "Investment Services Projects",
+    x = "Date Disclosed",
+    y = "Total IFC Investment in Dollars in Millions"
+  )
+```
+
+### Investment Projects in 2018
+The `investment_services_projects` dataset was filtered below to focus on information about each investment project from the 2018 fiscal year, and is referred to as `country_investment_projects_2018`. Projects that do not have an associated investment amount are excluded from the plot.
+
+```{r country-investment-projects-2018}
+country_investment_projects_2018 <- investment_services_projects %>%
+  filter(country == params$country,
+         date_disclosed >= "2017-07-01",
+         date_disclosed <= "2018-06-30") 
+
+ggplot(country_investment_projects_2018, aes(x = date_disclosed, y = total_investment, color = status)) +
+  geom_point() +
+  labs(
+    title = "Investment Services Projects in 2018",
+    x = "Date Disclosed",
+    y = "Total IFC Investment in Dollars in Millions"
+  ) 
+```
+
+################################################################################
+## MULTIPLE PARAMETERS
+    - just add onto params:
+    - e.g. 
+        year_start: 2011-07-01 
+        year_end: 2012-06-30
+        fy ... fiscal year
+        
+  1. Review date filters
+     (e.g.    date_disclosed >= "2011-07-01" --> date_disclosed >= params$year_start,
+              date_disclosed <= "2012-06-30" --> date_disclosed >= params$year_end)
+  
+  2. Rename date references in code chunks/titles/headers by replacing with ANNUAL
+     (e.g.    country-investment-projects-2012 --> country-annual-investment-projects)
+     (e.g.     ### Investment Projects in `r params$country` in 2012 --> ### Investment Projects in `r params$country` in `r params$fy`)
+
+  3. Review YAML header
+``` {r}
+---
+title: "Investment Report"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+params:
+  country: Brazil
+  year_start: 2011-07-01 
+  year_end: 2012-06-30
+  fy: 2012
+---
+```
+
+
+
+################################################################################
+## CUSTOMIZING THE REPORT (put this for example underneath the YAML header)
+  
+  # Specifying element style
+    <style>
+      ...
+    </style>
+    
+  # properties for changing:
+    - color (for the text)
+    - background-color
+    - font-family
+    - font-size
+
+################################################################################
+### Document Style can be specified with body {}
+  <style>
+  body {
+    color: red;
+  }
+  </style>
+  
+  <style>
+  body {
+    color: #708090;
+    font-family: Calibri;
+    background-color: #F5F5F5;
+  }
+  </style>
+
+
+################################################################################
+### Code Chunks can be specified with pre {}
+  <style>
+  body {
+    color: #708090;
+    font-family: Calibri;
+    background-color: #F5F5F5;
+  }
+  pre {
+    color: #708090;
+    background-color: #F8F8FF;
+  }
+  </style>
+  
+  
+################################################################################
+### TOC can be specified with #TOC {}
+  <style>
+  #TOC {
+  color: #708090;
+    font-family: Calibri;
+    font-size: 16px;
+    border-color: #F5F5F5;
+  }
+  body {
+    color: #708090;
+    font-family: Calibri;
+    background-color: #F5F5F5;
+  }
+  pre {
+    color: #708090;
+    background-color: #F8F8FF;
+  }
+  </style>
+
+
+################################################################################
+### Header can be specified with #header {}
+  <style>
+  #header {
+    color: #800000;
+    background-color: #F5F5F5;
+    opacity: 0.6;
+    font-family: Calibri;
+    font-size: 20px;
+    }
+  </style>
+
+
+################################################################################
+### Individual configuration of title, author, and date
+  <style>
+  h1.title {
+    color: #800000;
+    background-color: #F5F5F5;
+    opacity: 0.6;
+    font-family: Calibri;
+    font-size: 40px;
+  }
+  h4.author {
+    color: #708090;
+    font-family: Calibri;
+  }
+    h4.date {
+    color: #708090;
+    font-family: Calibri;
+  }
+  </style>
+
+
+################################################################################
+## REFERENCING A CSS FILE (contains info on specific styles we want to use)
+
+``` {r}
+---
+title: "Investment Report for Projects in `r params$country`"
+output: 
+  html_document:
+    css: styles.css
+    toc: true
+    toc_float: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+params:
+  country: Brazil
+  year_start: 2011-07-01 
+  year_end: 2012-06-30
+  fy: 2012
+---
+```
+
+  --> you can use any text editor to create a css file
+  --> remove <style> </style> boundaries
+  --> add .css to save the file
+  --> reference file in the YAML
+
+
+

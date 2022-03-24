@@ -70,3 +70,436 @@ mdl_price_vs_age_no_intercept <- lm(
 mdl_price_vs_age_no_intercept
 
 ```
+
+
+# MAKING PREDICTIONS
+
+``` {r}
+# Code Work flow
+explanatory_data <- tibble(
+  explanatory_var = some_values
+)
+explanatory_data %>%
+  mutate(
+    response_var = predict(model, explanatory_data)
+  )
+
+
+# Create a tibble with n_convenience column from zero to ten
+explanatory_data <- tibble(
+  n_convenience = 0:10
+)
+
+# Edit this, so predictions are stored in prediction_data
+prediction_data <- explanatory_data %>%
+mutate(price_twd_msq = predict(mdl_price_vs_conv, explanatory_data))
+
+
+# See the result
+prediction_data
+
+```
+
+# ADD PREDICTION DATA TO A PLOT (EXTRA COLOR)
+``` {r}
+# Add to the plot
+ggplot(taiwan_real_estate, aes(n_convenience, price_twd_msq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  # Add a point layer of prediction data, colored yellow
+  geom_point(data = prediction_data, color = 'yellow')
+
+```
+
+
+# WORKING WITH MODEL OBJECTS
+
+## Coefficients() --> gives intercept and variables
+
+## fitted() --> gives fitted values = predictions on the original data set
+``` {r}
+# fitted() is equivalent to:
+explanatory_data <- bream %>%
+  select(length_cm)
+
+predict(mdl_mass_vs_length, explanatory_data)
+```
+
+## residuals() --> actual response values MINUS predicted response values
+``` {r}
+residuals(mdl_mass_vs_length)
+
+# equivalent to
+
+bream$mass_g - fitted(mdl_mass_vs_length)
+```
+
+## summary():
+  Call      --> code used to create the model
+  
+  Residuals --> good fitting model should follow a normal distribution:
+    # Median should be close to 0
+    # 1st and 3rd quarter should have ~ same value (1Q = -35 and 3Q = 35)
+  
+  Coefficients:
+    # first column = numbers returned by coefficients() fct
+    # last column  = p-values
+    
+  Model metrics on performance of the model
+    # residual standard error
+    # multiple R-squared
+    # adjusted R-squared
+    # F-Statistics
+
+## broom package --> transform statistics data into tidy tibbles
+
+  tidy()    --> returns the coefficients details in a data frame
+      # Get the coefficient-level elements of the model
+        tidy((mdl_price_vs_conv))
+  
+  augment() --> returns observation level results (one row for each row of the df used to create the model)
+      # first two columns contain variables used to create the model
+      # .fitted --> contains fitted values
+      # .resid  --> contains residuals
+      # Get the observation-level elements of the model
+        augment(mdl_price_vs_conv)
+      
+  glance() --> returns model level results == Performance metrics
+      # Get the model-level elements of the model
+        glance(mdl_price_vs_conv)
+  
+``` {r}
+# Get the coefficients of mdl_price_vs_conv
+coeffs <- coefficients(mdl_price_vs_conv)
+
+# Get the intercept
+intercept <- coeffs[1]
+
+# Get the slope
+slope <- coeffs[2]
+
+explanatory_data %>% 
+  mutate(
+    # Manually calculate the predictions
+    price_twd_msq = intercept + slope* n_convenience
+  )
+
+# Compare to the results from predict()
+predict(mdl_price_vs_conv, explanatory_data)
+```
+  
+  
+# REGRESSION TO THE MEAN
+
+Response Value =        fitted value        +     residual
+                "The stuff you explained"   + "the stuff you couldn't explain"
+Residuals exist b/c of:
+- problems in the model
+- AND fundamental randomness (extreme cases often due to randomness)
+==> Regression to the mean means EXTREME CASES DON'T PERSIST OVER TIME!
+  
+# Example: Father & Son heights
+- 1078 father/son pairs
+- Do tall fathers have tall sons?
+
+``` {r}
+
+plt_son_vs_father <- 
+  ggplot(father_son, aes(father_height_cm, son_height_cm)) +
+  geom_point() +
+  geom_abline(color = 'green', size = 1) + # father & son are same height
+  coord_fixed() +
+  geom_smooth(method = 'lm', se = F) # add a regression line
+  
+```
+
+
+# Homerun
+``` {r}
+# Run a linear regression on return_2019 vs. return_2018 using sp500_yearly_returns
+mdl_returns <- lm(
+  return_2019 ~ return_2018, 
+  data = sp500_yearly_returns
+)
+
+# Create a data frame with return_2018 at -1, 0, and 1 
+explanatory_data <- tibble(return_2018 = -1:1)
+
+
+
+# Use mdl_returns to predict with explanatory_data
+predict(mdl_returns, explanatory_data)
+```
+
+
+# TRANSFORMING VARIABLES
+
+``` {r}
+# Run the code to see the plot
+# Edit so x-axis is square root of dist_to_mrt_m
+ggplot(taiwan_real_estate, aes(
+  sqrt(dist_to_mrt_m), price_twd_msq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+
+# Run a linear regression of price_twd_msq vs. square root of dist_to_mrt_m using taiwan_real_estate
+mdl_price_vs_dist <- lm(price_twd_msq ~ sqrt(dist_to_mrt_m), data = taiwan_real_estate)
+
+# Run a linear regression of price_twd_msq vs. square root of dist_to_mrt_m using taiwan_real_estate
+mdl_price_vs_dist <- lm(
+  price_twd_msq ~ sqrt(dist_to_mrt_m), 
+  data = taiwan_real_estate
+)
+explanatory_data <- tibble(
+  dist_to_mrt_m = seq(0, 80, 10) ^ 2
+)
+prediction_data <- explanatory_data %>% 
+  mutate(
+    price_twd_msq = predict(mdl_price_vs_dist, explanatory_data)
+  )
+
+ggplot(taiwan_real_estate, aes(sqrt(dist_to_mrt_m), price_twd_msq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  # Add points from prediction_data, colored green, size 5
+  geom_point(data = prediction_data, color = 'green', size = 5)
+
+# Run the code to see the plot
+# Edit to raise x, y aesthetics to power 0.25
+ggplot(ad_conversion, aes(n_impressions^0.25, n_clicks^0.25)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+
+# Run a linear regression of n_clicks to the power 0.25 vs. n_impressions to the power 0.25 using ad_conversion
+mdl_click_vs_impression <- lm(
+  I(n_clicks ^ 0.25) ~
+  I(n_impressions ^ 0.25),
+  data = ad_conversion
+)
+
+explanatory_data <- tibble(
+  n_impressions = seq(0, 3e6, 5e5)
+)
+
+prediction_data <- explanatory_data %>% 
+  mutate(
+    # Use mdl_click_vs_impression to predict n_clicks ^ 0.25
+    n_clicks_025 = predict(mdl_click_vs_impression, explanatory_data),
+    # Back transform to get n_clicks
+    n_clicks = n_clicks_025^4
+  )
+
+
+ggplot(ad_conversion, aes(n_impressions ^ 0.25, n_clicks ^ 0.25)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  # Add points from prediction_data, colored green
+  geom_point(data = prediction_data, color = 'green')
+
+```
+
+
+# QUANTIFYING MODEL FIT - how good is your model?
+
+## Coefficient of Determination --> R-squared
+  - r-squared = 1 explanatory variable = simple linear regression
+  - R-squared = 2+ explanatory variables
+  = proportion of the variance in the response variable that is predictable from the explanatory variable
+
+  ==> r2 = 1 means a perfect fit
+  ==> r2 = 0 means the worst possible fit (purely random)
+  
+in the case of simple linear regression, the determination of the coefficient of determination is straight forward, as the CORRELATION between the explanatory & response variables SQUARED
+
+``` {r}
+library(broom)
+library(tidyverse)
+
+df %>%
+  glance() %>%
+  pull(r.squared)
+
+bream %>%
+  summarize(
+    coeff_determination = cor(length_cm, mass_g) ^ 2
+  )
+```
+
+## Residual Standard Error (RSE)
+  - 'typical' difference between a prediction and an observed response
+    = typical size of the residuals
+  - same unit as the response variable
+  
+``` {r}
+library(broom)
+library(tidyverse)
+
+df %>%
+  glance() %>%
+  pull(sigma)
+
+bream %>%
+  mutate(
+    residuals_sq = residuals(mdl_bream) ^ 2
+  ) %>%
+  summarize(
+    resid_sum_of_sq = sum(residuals_sq),
+    deg_freedom = n() - 2 # equals the number of observations minus the number of model coefficients
+    rse = sqrt(resid_sum_of_sq / deg_freedom)
+  )
+```
+
+## Root-mean-square error (RMSE) <- exists, but not commonly used!
+``` {r}
+library(broom)
+library(tidyverse)
+
+df %>%
+  glance() %>%
+  pull(sigma)
+
+bream %>%
+  mutate(
+    residuals_sq = residuals(mdl_bream) ^ 2
+  ) %>%
+  summarize(
+    resid_sum_of_sq = sum(residuals_sq),
+    n_obs = n() # NO SUBTRACTION, just number of observations
+    rmse = sqrt(resid_sum_of_sq / n_obs)
+  )
+```
+
+# VISUALIZING MODEL FIT
+
+## 1. Residuals vs fitted values plot
+  - not useful for making predictions
+  + useful for visualizing trends
+  - shows whether residuals are positive or negative
+  
+## 2. Q-Q plot
+  - do the residuals follow a normal distribution?
+  - x-axis: points are quantiles from a normal distribution (theoretical qunatiles)
+  - y-axis: standardized residuals (residuals / StDev)
+  
+  ==> if the points track along a straight line, they are NORMALLY distributed 
+  (ifelse = not normal distribution)
+  
+## 3. Scale-location plot
+  - shows the square-root of the standardized residuals vs. fitted values
+  - shows whether the size of residuals gets bigger or smaller
+
+
+``` {r}
+library(ggplot2)
+library(ggfortify)
+
+autoplot(model_object, 
+         which = 1:3, # all three plots
+         nrow  = 3,   # 3 rows
+         ncol  = 1)   # 1 col
+
+# 1 = residuals vs. fitted values
+# 2 = Q-Q plot
+# 3 = scale location plot
+```
+
+# OUTLIERS, LEVERAGE, AND INFLUENCE
+## Outliers
+``` {r}
+# define outliers, e.g. fish data set
+roach %>%
+  mutate(
+    has_extreme_length = length_cm < 15 | length_cm > 26,
+    has_extreme_mass = mass_g < 1
+  ) %>%
+  ggplot(aes(length_cm, mass_g)) +
+  geom_point(aes(color = has_extreme_length,
+                 shape = has extreme_mass)) +
+  geom_smooth(method = 'lm', se = F)
+
+```
+
+## Leverage
+= measure of how extreme the explanatory variable values are
+
+``` {r}
+mdl_roach <- lm(mass_g ~ length_cm, data = roach)
+hatvalues(mdl_roach)
+
+# equal to
+library(broom)
+library(dplyr)
+augment(mdl_roach) %>% pull(.hat)
+
+# find values with high leverage:
+mdl_roach %>%
+  augment() %>%
+  select(mass_g, length_cm, leverage = .hat) %>%
+  arrange(desc(leverage)) %>%
+  head()
+```
+
+## Influence
+= measures how much the model would change if you left the observation out of the data set when modeling
+
+- Cook's distance = most common measure of influence
+``` {r}
+cooks.distance(mdl_roach) # returns values as a vector
+
+mdl_roach %>%
+  augment() %>%
+  select(mass_g, length_cm, cooks_dist = .cooksd) %>%
+  arrange(desc(cooks_dist)) %>%
+  head()
+
+# remove the most influential roach
+roach_not_short <- roach %>%
+  filter(length != 12.9)
+
+ggplot(roach, aes(length_cm, mass_g)) +
+  geom_point() +
+  geom_smooth(method = 'lm', se = F) +
+  geom_smooth(
+    method = 'lm', se = F,
+    data = roach_not_short, color = 'red'
+  )
+
+# also try autoplot() for leverage + influence with which = 4:6
+autoplot(
+  mdl_roach,
+  which = 4:6,
+  nrow  = 3,
+  ncol  = 1
+)
+
+mdl_price_vs_dist %>% 
+  # Augment the model
+  augment() %>% 
+  # Arrange rows by descending leverage
+  arrange(desc(.hat)) %>% 
+  # Get the head of the dataset
+  head()
+
+mdl_price_vs_dist %>% 
+  # Augment the model
+  augment() %>% 
+  # Arrange rows by descending Cook's distance
+  arrange(desc(.cooksd)) %>% 
+  # Get the head of the dataset
+  head()
+
+# Plot the three outlier diagnostics for mdl_price_vs_conv
+autoplot(mdl_price_vs_dist,
+which = 4:6,
+nrow = 3,
+ncol = 1)
+```
+
+
+
+
+
+
+
+
+

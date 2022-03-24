@@ -1,6 +1,181 @@
 ---
 title: "11_Writing_Functions"
-author: "Tessa Lobnow"
+author: "Finn Lobnow"
 date: "10/21/2021"
 output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
+
+# Numerical Defaults
+
+
+
+``` {r}
+# Set the default for n to 5
+cut_by_quantile <- function(x, n = 5, na.rm, labels, interval_type) {
+probs <- seq(0, 1, length.out = n + 1) 
+qtiles <- quantile(x, probs, na.rm = na.rm, names = FALSE) 
+right <- switch(interval_type, "(lo,hi]" = TRUE, "[lo, hi)" = FALSE) cut(x, qtiles, labels = labels, right
+= right, include.lowest = TRUE) }]" )
+```
+
+# Logical Defaults
+``` {r}
+# Set the default for na.rm to FALSE
+
+cut_by_quantile <- function(x, n = 5, na.rm = FALSE, labels,
+interval_type) { probs <- seq(0, 1, length.out = n + 1) 
+qtiles <- quantile(x, probs, na.rm = na.rm, names = FALSE) 
+right  <- switch(interval_type, "(lo, hi\]" = TRUE, "\[lo, hi)" = FALSE) 
+cut(x, qtiles, labels = labels, right = right, include.lowest = TRUE) }]" )
+```
+
+
+# NULL Defaults
+``` {r}
+# Set the default for labels to NULL
+cut_by_quantile <- function(x, n = 5, na.rm = FALSE, labels = NULL,
+interval_type) { probs \<- seq(0, 1, length.out = n + 1) 
+qtiles <- quantile(x, probs, na.rm = na.rm, names = FALSE) 
+right <- switch(interval_type, "(lo, hi\]" = TRUE, "\[lo, hi)" = FALSE) cut(x,
+qtiles, labels = labels, right = right, include.lowest = TRUE) }]" )
+```
+
+# Categorical Defaults
+``` {r}
+# Set the categories for interval_type to "(lo, hi]" and "[lo, hi)"
+cut_by_quantile <- function(x, n = 5, na.rm = FALSE, labels = NULL, 
+                            interval_type = c("(lo, hi]", "[lo, hi)")) {
+  # Match the interval_type argument
+  interval_type <- match.arg(interval_type)
+  probs <- seq(0, 1, length.out = n + 1)
+  qtiles <- quantile(x, probs, na.rm = na.rm, names = FALSE)
+  right <- switch(interval_type, "(lo, hi]" = TRUE, "[lo, hi)" = FALSE)
+  cut(x, qtiles, labels = labels, right = right, include.lowest = TRUE)
+}
+
+# Remove the interval_type argument from the call
+cut_by_quantile(n_visits, interval_type = "(lo, hi]")
+```
+
+# DEALING WITH MISSING VALUES
+``` {r}
+# From previous step
+
+calc_harmonic_mean <- function(x, na.rm = FALSE) { x %>%
+get_reciprocal() %>% mean(na.rm = na.rm) %>% get_reciprocal() }
+
+std_and_poor500 %>% 
+  # Group by sector group_by(sector) %>% \#
+  Summarize, calculating harmonic mean of P/E ratio
+  summarize(hmean_pe_ratio = calc_harmonic_mean(pe_ratio, na.rm = T))
+```
+
+# PASSING ARGUMENTS WITH '...'
+``` {r}
+calc_harmonic_mean <- function(x, ...) {
+      x %>%
+        get_reciprocal() %>%
+        mean(...) %>%
+        get_reciprocal()
+    }
+    std_and_poor500 %>% 
+      # Group by sector
+      group_by(sector) %>% 
+      # Summarize, calculating harmonic mean of P/E ratio
+      summarize(hmean_pe_ratio = calc_harmonic_mean(pe_ratio, na.rm = T))
+```
+
+# ASSERTIONS TO CHECK FOR ERRORS
+``` {r}
+library(assertive)
+
+calc_harmonic_mean <- function(x, na.rm = FALSE) {
+  # Assert that x is numeric
+  assert_is_numeric(x)
+  x %>%
+    get_reciprocal() %>%
+    mean(na.rm = na.rm) %>%
+    get_reciprocal()
+}
+
+calc_harmonic_mean <- function(x, na.rm = FALSE) {
+  assert_is_numeric(x)
+  # Check if any values of x are non-positive
+  if(any(is_non_positive(x), na.rm = TRUE)) {
+    # Throw an error
+    stop("x contains non-positive values, so the harmonic mean makes no sense.")
+  }
+  x %>%
+    get_reciprocal() %>%
+    mean(na.rm = na.rm) %>%
+    get_reciprocal()
+}
+```
+
+
+# FIX NAs AND COERCE THEM TO A DIFFERENT CLASS
+``` {r}
+# Update the function definition to fix the na.rm argument
+calc_harmonic_mean <- function(x, na.rm = FALSE) {
+  assert_is_numeric(x)
+  if(any(is_non_positive(x), na.rm = TRUE)) {
+    stop("x contains non-positive values, so the harmonic mean makes no sense.")
+  }
+  # Use the first value of na.rm, and coerce to logical
+  na.rm <- coerce_to(use_first(na.rm), target_class = "logical")
+  x %>%
+    get_reciprocal() %>%
+    mean(na.rm = na.rm) %>%
+    get_reciprocal()
+}
+
+# See what happens when you pass it malformed na.rm
+calc_harmonic_mean(std_and_poor500$pe_ratio, na.rm = 1:5)
+```
+
+
+# RETURNING EARLY (assumptions were met before reaching the end of a code)
+``` {r}
+is_leap_year <- function(year) {
+  # If year is div. by 400 return TRUE
+  if(year %% 400 == 0) {
+    return(TRUE)
+  }
+  # If year is div. by 100 return FALSE
+  if(year %% 100 == 0) {
+    return(FALSE)
+  }  
+  # If year is div. by 4 return TRUE
+  if(year %% 4 == 0) {
+    return(TRUE)
+  }
+  
+  # Otherwise return FALSE
+  return(FALSE)
+}
+```
+
+# RETURNING SILENTLY
+
+``` {r}
+# Using cars, draw a scatter plot of dist vs. speed
+plt_dist_vs_speed <- plot(dist ~ speed, data = cars)
+
+# Define a pipeable plot fn with data and formula args
+pipeable_plot <- function(data, formula) {
+  # Call plot() with the formula interface
+  plot(formula, data)
+  # Invisibly return the input dataset
+  invisible(data)
+}
+
+# Draw the scatter plot of dist vs. speed again
+plt_dist_vs_speed <- cars %>% 
+  pipeable_plot()
+
+# Now the plot object has a value
+```
+

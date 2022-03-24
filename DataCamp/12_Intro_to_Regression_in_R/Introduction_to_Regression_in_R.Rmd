@@ -1,0 +1,72 @@
+---
+title: "Intro to Regression in R"
+output: html_document
+---
+
+``` {r}
+library(tidyverse)
+```
+
+
+# PLOTTING REGRESSION ON NUMERICAL VARIABLES
+```{r}
+# Add a linear trend line without a confidence ribbon
+ggplot(taiwan_real_estate, aes(n_convenience, price_twd_msq)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = 'lm', se = F)
+
+# Run a linear regression of price_twd_msq vs. n_convenience
+lm(price_twd_msq ~ n_convenience, data = taiwan_real_estate)
+
+# The model had an (Intercept) coefficient of 8.2242. What does this mean?
+    # On average, a house with zero convenience stores nearby had a price of 8.2242 TWD per square meter.
+
+# The model had an n_convenience coefficient of 0.7981. What does this mean?
+    # If you increase the number of nearby convenience stores by one, 
+    # then the expected increase in house price is 0.7981 TWD per square meter.
+```
+
+# PLOTTING CATEGORICAL DATA
+
+``` {r}
+# Using taiwan_real_estate, plot price_twd_msq
+ggplot(taiwan_real_estate, aes(price_twd_msq)) +
+  # Make it a histogram with 10 bins
+  geom_histogram(bins = 10) +
+  # Facet the plot so each house age group gets its own panel
+  facet_wrap(~house_age_years)
+```
+
+
+# CALCULATE MEANS BY CATEGORY
+``` {r}
+summary_stats <- taiwan_real_estate %>% 
+  # Group by house age
+  group_by(house_age_years) %>% 
+  # Summarize to calculate the mean house price/area
+  summarize(mean_by_group = mean(price_twd_msq))
+
+# See the result
+summary_stats
+```
+
+
+``` {r}
+# Run a linear regression of price_twd_msq vs. house_age_years
+mdl_price_vs_age <- lm(
+  price_twd_msq ~ house_age_years, 
+  data = taiwan_real_estate)
+
+# See the result
+mdl_price_vs_age
+
+# Update the model formula to remove the intercept
+mdl_price_vs_age_no_intercept <- lm(
+  price_twd_msq ~ house_age_years + 0, 
+  data = taiwan_real_estate
+)
+
+# See the result
+mdl_price_vs_age_no_intercept
+
+```

@@ -496,10 +496,233 @@ ncol = 1)
 ```
 
 
+# NEED FOR LOGISTIC REGRESSION
+= logistic regression models are a type of generalized linear model,
+used when the response variable is LOGICAL
+    - linear models result in predictions that follow a straight line,
+    - logistic models result in predictions that follow a logistic curve (sigmoid)
+==> use glm()
+
+``` {r}
+glm(has_churned ~ time_since_last_purchase, data = churn, family = gaussian)
+# family specifies family of distributions used for the residuals
+# gaussian
+# binomial --> residuals from the binomial distribution
+```
+
+## Visualizing the logistic model
+``` {r}
+ggplot(
+  churn,
+  aes(time_since_last_purchase, has_churned)) +
+  geom_point() +
+  geom_abline(intercept = intercept, slope = slope) +
+  geom_smooth(
+    method = 'glm',
+    se = F,
+    method.args = list(family = binomial))
+
+# Using churn, plot time_since_last_purchase
+ggplot(churn, aes(time_since_last_purchase)) +
+  # as a histogram with binwidth 0.25
+  geom_histogram(binwidth = 0.25) +
+  # faceted in a grid with has_churned on each row
+  facet_grid(rows = vars(has_churned))
+# Redraw the plot with time_since_first_purchase
+ggplot(churn, aes(time_since_first_purchase)) +
+  # as a histogram with binwidth 0.25
+  geom_histogram(binwidth = 0.25) +
+  # faceted in a grid with has_churned on each row
+  facet_grid(rows = vars(has_churned))
+
+
+ggplot(churn, aes(time_since_first_purchase, has_churned)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  # Add a glm trend line, no std error ribbon, binomial family
+  geom_point() +
+  geom_smooth(method = "glm", se = FALSE, method.args = list(family = binomial))
+
+
+# Fit a logistic regression of churn vs. length of relationship using the churn dataset
+mdl_churn_vs_relationship <- glm(has_churned ~ time_since_first_purchase, data = churn, family = binomial)
+```
+
+
+# PREDICTIONS AND ODDS RATIOS (USING LOGISTIC MODELS)
+
+## Making predictions
+``` {r}
+mdl_recency <- glm(
+  has_churned ~ time_since_last_purchase, 
+  data = churn, 
+  family = 'binomial'
+)
+
+explanatory_data <- tibble(
+  time_since_last_purchase = seq(-1, 6, 0.25)
+)
+
+prediction_data <- explanatory_data %>%
+  mutate(
+    has_churned = predict(mdl_recency, 
+                          explanatory_data, 
+                          type = 'response')
+  )
+# adding point predictions
+plt.churn_vs_recency_base +
+  geom_point(
+    data = prediction_data,
+    color = 'blue'
+  )
+
+# Predicting the most likely outcome 
+prediction_data <- explanatory_data %>%
+  mutate(
+    has_churned = predict(mdl_recency, 
+                          explanatory_data, 
+                          type = 'response'),
+    most_likely_outcome = round(has_churned) 
+    # prob < 0.5 they most likely WON'T churn
+    # prob > 0.5 they most likely WILL churn
+  )
+
+# Visualizing the most likely outcome
+plt.churn_vs_recency_base +
+  geom_point(
+    aes(y = most_likely_outcome),
+    data = prediction_data,
+    color = 'green'
+  )
+```
+
+## Odds ratios
+= probability of something happening divided by the probability that it doesn't
+
+  odds_ratio = probability / (1-probability)
+
+``` {r}
+# Calculating odds ratio
+prediction_data <- explanatory_data %>%
+  mutate(
+    has_churned = predict(mdl_recency, 
+                          explanatory_data, 
+                          type = 'response'),
+    most_likely_outcome = round(has_churned),
+    odds_ratio = has_churned / (1 - has_churned)
+  )
+# Visualizing odds ratio
+ggplot(
+  prediction_data,
+  aes(time_since_last_purchase, odds_ratio)
+) + 
+  geom_line() +
+  geom_hline(yintercept = 1,
+             linetype = 'dotted')
+
+# Visualizing log odds ratio
+ggplot(
+  prediction_data,
+  aes(time_since_last_purchase, odds_ratio)
+) + 
+  geom_line() +
+  geom_hline(yintercept = 1,
+             linetype = 'dotted') +
+  scale_y_log10()
+
+# Calculating log odds_ratio
+prediction_data <- explanatory_data %>%
+  mutate(
+    has_churned = predict(mdl_recency, 
+                          explanatory_data, 
+                          type = 'response'),
+    most_likely_outcome = round(has_churned),
+    odds_ratio = has_churned / (1 - has_churned),
+    # two different ways of calculating log odds ratio:
+    log_odds_ratio  = log(odds_ratio),
+    log_odds_ratio2 = prediction(mdl_recency, explanatory_data)
+  )
+```
+
+## Comparing different scales
+
+SCALE               |  Are values easy to interpret |   Are changes easy to interpret | precise?
+________________________________________________________________________________________________________
+Probability         |             Yes               |           No                    |   Yes
+Most likely outcome |             Yessss!           |           Yes                   |   No
+Odds ratio          |             Yes               |           No                    |   Yes
+Log odds ratio      |             No                |           Yes                   |   Yes
 
 
 
+# QUANTIFYING LOGISTIC REGRESSION FIT
+  
+## Counts of outcome --> CONFUSION MATRIX
+
+                 | actual false | actual true
+_________________|______________|_______________
+predicted false  |   correct    |  false neg.
+predicted true   |  false pos.  | correct
+
+``` {r}
+library(ggplot2)
+library(yardstick)
+
+mdl_recency <- glm(has_churned ~ time_since_last_purchase, 
+                   data = churn, 
+                   family = binomial)
+
+actual_response    <- churn$has_churned
+predicted_response <- round(fitted(mdl_recency)) 
+      # fitted gives probabilities, rounding turns probabilities to either  
+      # 0 or 1 and provides definitive answers on the model fit
+
+outcomes <- table(predicted_response, actual_response) # confusion matrix
+
+library(yardstick)
+confusion <- conf_mat(outcomes)
+autoplot(confusion) # draws mosaic plot of confusion matrix!
+```
 
 
 
+## Performance Metrics
 
+since we used 0 and 1 for response values instead of a factor, the second column contains the positive respones, so we set event_level to 'second'
+
+``` {r}
+summary(confusion, event_level = 'second') 
+```
+
+
+
+### Model Accuracy
+
+= proportion of correct predictions (high accuracy is better!):
+  True_neg + True_pos / (True_neg + False_neg + False_pos + True_pos)
+  
+``` {r}
+summary(confusion) %>% slice(1)
+```
+
+
+
+### Sensitivity
+
+= proportion of true positives (higher sensitivity is better!):
+  True_pos / (False_neg + True_pos)
+  
+``` {r}
+summary(confusion) %>% slice(3)
+```
+
+
+
+### Specificity
+
+= proportion of true negatives (higher specificity is better, but beware of trade offs with the other metrics!):
+  True_neg / (True_neg + False_pos)
+
+``` {r}
+summary(confusion) %>% slice(4)
+```

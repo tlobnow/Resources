@@ -1,0 +1,109 @@
+---
+title:  "Correlation & Regression"
+author: 'Finn Lobnow'
+output: html_document
+---
+
+# Characterization of bivariate relationships
+We look at four things:
+
+1. Form       = linear, quadratic, non-linear
+2. Direction  = positive, negative
+3. Strength   = how much scatter/noise
+4. Outliers   
+
+
+
+# Correlation
+
+- -1 < Correlation coefficient < +1
+- Sign indicates direction
+- Magnitude indicates strength
+
+- beware of other than linear correlations! simple mathematical interpretation is not sufficient
+- add visual analysis to ensure you don't miss non-linear relationships!
+
+--> Pearson product-moment correlation 
+(dep. on context there are other means of correlation measurements)
+
+``` {r}
+# Compute correlation
+ncbirths %>%
+  summarize(N = n(), r = cor(mage, weight))
+
+# Compute correlation for all non-missing pairs
+ncbirths %>%
+  summarize(N = n(), r = cor(weeks, weight, use = "pairwise.complete.obs"))
+```
+
+
+
+# Anscombe Data Set
+- great way to see the importance of visual interpretation!
+- synthetic data sets with all same correlation coefficients, means, Standard Deviations BUT DIFFERENT REGRESSIONS
+
+
+1. plot the data
+2. calculate the correlation coefficient
+3. (log transform to see potential incr. correlation)
+
+``` {r}
+# Run this and look at the plot
+ggplot(data = mammals, aes(x = BodyWt, y = BrainWt)) +
+  geom_point() + 
+  scale_x_log10() + 
+  scale_y_log10()
+
+# Correlation among mammals, with and without log
+mammals %>%
+  summarize(N = n(), 
+            r = cor(BodyWt, BrainWt), 
+            r_log = cor(log(BodyWt), log(BrainWt)))
+```
+
+
+==> CORRELATION DOES NOT IMPLY CAUSATION!
+
+``` {r}
+
+# Create faceted scatterplot
+# noise data set = random x,y in z sets
+noise %>% ggplot(aes(
+  x,y
+)) +
+geom_point() +
+facet_wrap(~z)
+
+# Compute correlations for each dataset
+noise_summary <- noise %>%
+  group_by(z) %>%
+  summarize(N = n(), spurious_cor = cor(x, y))
+
+# Isolate sets with correlations above 0.2 in absolute strength
+noise_summary %>%
+  filter(abs(spurious_cor) > 0.2)
+
+```
+
+
+# VISUALIZATION OF LINEAR MODELS
+``` {r}
+# Scatterplot with regression line
+ggplot(data = bdims, aes(x = hgt, y = wgt)) + 
+  geom_point() + 
+  geom_smooth(method = 'lm', se = FALSE)
+```
+
+# UNDERSTANDING LINEAR MODELS
+Generic statistical model: 
+
+    Response = f(explanatory) + noise
+    
+
+  
+``` {r}
+
+```
+
+
+

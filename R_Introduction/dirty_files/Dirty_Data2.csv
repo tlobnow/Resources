@@ -1,0 +1,11 @@
+Student,Surname,Fav_ANIMAL,Fav_Meal,Fav_City,Longitude,Latitude,Grade_English,Grade_Math,Grade_Biology
+Student_001,Bubblegum,,Spaghetti,Berlin,13.8339,52.2694,1,1,1
+Student_002,Burpland,Dog,Salad,Frankfurt,13.679507,51.676761,3,3,2
+Student_003,Applecake,,Mac and Cheese,Berlin,14.0828,52.7,2,1,2
+Student_004,Frumpleton,Dog,Spaghetti,Munich,13.4408,53.0497,4,2,1
+Student_005,Crumbler,,Nuggets,New York,13.7325,52.9789,3,4,3
+Student_006,Bananabread,Cat,Pizza,Amsterdam,14.0672,52.4019,1,2,3
+Student_007,Phelangy,,Nuggets,Berlin,13.7336,52.9783,1,3,2
+Student_008,Malone,Meerkat,Salad,Sacramento,13.679507,51.676761,2,2,1
+Student_009,Star,Cat,Pizza,Rome,13.5353,52.8969,2,1,2
+Student_010,Squarepants,,Spaghetti,Berlin,14.0817,52.7667,1,1,3

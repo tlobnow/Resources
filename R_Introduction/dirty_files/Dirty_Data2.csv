@@ -1,4 +1,4 @@
-Student,Surname,Fav_ANIMAL,Fav_Meal,Fav_City,Longitude,Latitude,Grade_English,Grade_Math,Grade_Biology
+Student_ID,Surname,Fav_ANIMAL,Fav_Meal,Fav_City,Longitude,Latitude,Grade_English,Grade_Math,Grade_Biology
 Student_001,Bubblegum,,Spaghetti,Berlin,13.8339,52.2694,1,1,1
 Student_002,Burpland,Dog,Salad,Frankfurt,13.679507,51.676761,3,3,2
 Student_003,Applecake,,Mac and Cheese,Berlin,14.0828,52.7,2,1,2

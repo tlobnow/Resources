@@ -618,21 +618,44 @@ All sets have 11 observations, the same mean of x (9) and y (7.5), the same fitt
 
 If you want to learn more about Correlation and Regression, there is a great website with different datasets and problem sets based on different regressions [here](https://data.princeton.edu/wws509/datasets).
 
+If you are interested in the Datacamp course on Correlation and Regression, there is a free course available  [here](https://stat-ata-asu.github.io/CorrelationRegression/)
 
 
-
+### Look at the different sets
 
 ``` {r}
-# Let's subset the iris data by Species
-setosa     <- iris %>% filter(Species == 'setosa')
-versicolor <- iris %>% filter(Species == 'versicolor')
-virginica  <- iris %>% filter(Species == 'virginica')
+data <- datasets::anscombe # already a base R data set!
 
-# Determine the correlation
-cor(iris$Sepal.Length, iris$Sepal.Width)
-cor(setosa$Sepal.Length, setosa$Sepal.Width)
-cor(versicolor$Sepal.Length, versicolor$Sepal.Width)
-cor(virginica$Sepal.Length, virginica$Sepal.Width)
+# we have to prepare this data set a tiny bit to separate the data into sets
+Anscombe <- data.frame(
+  set = rep(1:4, each = 11),
+  x = unlist(data[ ,c(1:4)]),
+  y = unlist(data[ ,c(5:8)])
+)
+rownames(Anscombe) <- NULL
+head(Anscombe)
+
+Anscombe %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point() +
+  facet_wrap(~set) +
+  theme_gray() # you can adjust themes as well
+```
+
+### Calculate the number of observations, means of x/y, Standard deviations of x/y
+
+``` {r}
+Anscombe %>%
+  group_by(set) %>%
+  summarize(N = n(),
+            mean_x = mean(x),
+            sd_x = sd(x),
+            mean_y = mean(y),
+            sd_y = sd(y),
+            cor_between_x_and_y = cor(x,y))
+
+# Same same but different!
+# SO: always remember that visual analysis is important!
 ```
 
 
@@ -713,20 +736,43 @@ Crypto_Detection %>% arrange(desc(Oocyst_Predict_Crypto.1)) %>% select(Mouse_ID,
 
 # DATA VISUALIZATION WITH LEAFLET - MAPS
 
+## COLOR PALETTES
+
+There are great color palettes already available in R, [here](https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf) is a summary of the most useful ones.
+
+I tend to use the RColorBrewer package a lot, as it offers different kinds of palettes:
+
+- Sequential (e.g. 'YlOrRd', 'Oranges', 'Greens', 'Blues', ...)
+- Qualitative (e.g. 'Set2', 'Paired', 'Dark2', 'Accent', ...)
+- Diverging (e.g. 'Spectral', 'RdYlBl', ...)
+
+To check out the different options of the package, type display.brewer.all() after loading library(RColorBrewer)
+
+To use a palette, you have to add the brewer palette to your graphic (e.g. in a ggplot), as follows:
 
 ``` {r}
-library(tidyverse)
-library(data.table)
-library(leaflet)
 library(RColorBrewer) #display.brewer.all()
-library(colorRamps)
-#library(uwot)
-library(leaflet.extras)
-library(sp)
-library(htmltools)
-#library(stringr)
-#library(patchwork)
 
+iris %>%
+  ggplot(aes(Sepal.Length, Sepal.Width, col = Species)) +
+  geom_point() +
+  scale_color_brewer(palette = 'Dark2',
+                     direction = 1) # direction = -1 would be inverted color order
+```
+
+
+Just for the sake of showing it to you:
+
+You can also set up your own palettes 
+
+I did this to get the HI gradient we have used for quite some time in publications.
+
+1. You can find the RGB code for each color on different sites, e.g. [here](https://rgbcolorcode.com/)
+2. Separate each color into the according vector r,g and b (as many colors as you wish, but 3-8 should usually do the trick)
+3. follow the setup code
+4. Btw, you can use HEX codes (e.g. #3399FF = 'dodger blue') instead of color names for almost everything! So you're not stuck with 'red', 'green', 'yellow', ..
+
+``` {r}
 # Load Palette ####
 r <- c(0, 64, 128, 179, 217, 255)
 g <- c(0, 12, 25, 25, 12,  0)
@@ -751,6 +797,29 @@ myPal <- function (n, name = c("myPal.colors"))
     palette
 }
 
+```
+
+
+## HYBRID INDEX MAP
+
+Let's look at mapping with leaflet now.
+
+This is a fantastic tool to get a geographic overview of your data and include specific information using color codes and legends.
+
+Leaflet maps are interactive and you can load the SOTA coordinates of our mice quite easily.
+
+We need a couple of packages to make this work, but again - just an overview of possibilities for you!
+
+To check out other maps from third-party providers, type 'addProviderTiles(providers$)' and push tab after the dollar sign.
+
+You can add different markers, I used *circle markers* that allow popup information, but you may want to use other ones.
+
+
+
+``` {r}
+library(RColorBrewer) #display.brewer.all()
+library(leaflet)
+library(htmltools)
 
 SOTA <- read.csv("https://raw.githubusercontent.com/derele/Mouse_Eimeria_Field/master/data_products/SOTA_Data_Product.csv")  %>% filter(!is.na(Latitude), !is.na(Longitude), !is.na(HI), !Mouse_ID %in% c("SK_2697", "SK_3173", "SK_905"))
 
@@ -782,41 +851,33 @@ SOTA <- SOTA %>%
                                                                         ifelse(eimeriaSpecies == "Negative", "Negative",
                                                                                ifelse(NA))))))))),
          Eimeria_Positive = case_when(Eim_Species != "Negative" | Ct.Eimeria > 0 | OPG > 0 ~ T,
-                               Eim_Species == "Negative" | Ct.Eimeria == 0 | OPG == 0 ~ F))
+                                      Eim_Species == "Negative" | Ct.Eimeria == 0 | OPG == 0 ~ F))
 
+# We want to look at Eim_infected samples in our map, so we extract a dataframe with samples that fulfill this condition
 EIM_INFECTED <- SOTA %>% filter(Eimeria_Positive == T)
 
-# Cutting
+# Cutting the data into slices helps to make nice legends!
 SOTA$HI <- as.numeric(SOTA$HI)
-
-SOTA$HI_Level <-  cut(SOTA$HI, c(0, 0.001, 0.250, 0.500, 0.750, 0.999, 1), 
-                      include.lowest = T , 
+SOTA$HI_Level <-  cut(SOTA$HI, c(0, 0.001, 0.250, 0.500, 0.750, 0.999, 1), include.lowest = T , 
                       labels = c('HI = 0', 'HI < 0.25', 'HI < 0.5', 'HI < 0.75', 'HI < 1', 'HI = 1'))
 
-Crypto_Detection_21$Ct_Level <- cut(Crypto_Detection_21$ILWE_Crypto_Ct, c(1, 28, 30, 32, 34, 36, 40), 
-                                    include.lowest = F , 
-                                    labels = c(' < 28  ', '28 - 30', '30 - 32', '32 - 34', '34 - 36', ' > 36'))
+# We also want to look at samples that sent into sequencing (was interesting for my Bachelor thesis)
+Sequenced <- Crypto_Detection %>%
+  mutate(seq = Mouse_ID %in% c("AA_0144", "AA_0325", "AA_0689", "AA_0209", "AA_0282", "AA_0793", "AA_0667", "AA_0805", "AA_0900",
+                               "AA_0523", "AA_0534", "AA_0537", "AA_0545", "AA_0553", "AA_0554", "AA_0578", "AA_0580", "AA_0585",
+                               "AA_0546", "AA_0589", "AA_0571", "AA_0667")) %>%
+  filter(seq == T) # only retain samples that fulfill this condition
 
 
-SeqSamples <- Crypto_Detection %>%
-  mutate(Sequenced = Mouse_ID %in% c("AA_0144", "AA_0325", "AA_0689", "AA_0209", "AA_0282", "AA_0793", "AA_0667", "AA_0805", 
-                                     "AA_0900", "AA_0523", "AA_0534", "AA_0537", "AA_0545", "AA_0553",
-                                     "AA_0554", "AA_0578", "AA_0580", "AA_0585", "AA_0546", "AA_0589", "AA_0571", "AA_0667"))
+data_col_HI       = colorFactor(myPal(6), SOTA$HI) # for our samples, uncut
+data_col_HI_Level = colorFactor(myPal(6), SOTA$HI_Level) # for our legend palette, cut
 
-
-Ct_bl_30   <- Crypto_Detection_21 %>% filter(ILWE_Crypto_Ct <= 30 & ILWE_Crypto_Ct > 0)
-Ct_bl_34   <- Crypto_Detection_21 %>% filter(ILWE_Crypto_Ct <= 34 & ILWE_Crypto_Ct > 30)
-Ct_bl_36   <- Crypto_Detection_21 %>% filter(ILWE_Crypto_Ct <= 36 & ILWE_Crypto_Ct > 34)
-Ct_over_36 <- Crypto_Detection_21 %>% filter(ILWE_Crypto_Ct  > 36)
-Sequenced  <- SeqSamples %>% filter(Sequenced == T)
-Not_Sequenced <- SeqSamples %>% filter(Sequenced == F)
-
-data_col_HI       = colorFactor(myPal(6), SOTA$HI)
-data_col_HI_Level = colorFactor(myPal(6), SOTA$HI_Level)
-
+# We must provide a map to which we anchor the data.
+# Check out other third party tile providers using: addProviderTiles(providers$)
+# CartoDB worked best for the colors I used
 map <- Crypto_Detection_21 %>%
   leaflet() %>%
-  addProviderTiles("CartoDB") %>%
+  addProviderTiles("CartoDB") %>%  
   setView(lat = 52.520007, lng =13.404954, zoom = 7)
 
 map %>%
@@ -829,6 +890,7 @@ map %>%
                    col = "#72cac3",
                    label = ~htmlEscape(Mouse_ID),
                    popup = ~paste("<b>Mouse_ID:<b>",as.character(Mouse_ID), "<br>",
+                                  "<b>Location:<b>", as.character(Latitude), "<b>,<b>", as.character(Longitude), "<br>",
                                   "<b>HI:<b>",      as.character(round(HI, digits = 2)), "<br>",
                                   "<b>Year:<b>",    as.character(Year),"<br>",
                                   "<b>Ct Mean:<b>",      as.character(round(ILWE_Crypto_Ct, digits = 2)),"<br>",
@@ -884,6 +946,7 @@ map %>%
                    col = ~data_col_HI(HI),
                    label = ~htmlEscape(Mouse_ID),
                    popup = ~paste("<b>Mouse_ID:<b>",as.character(Mouse_ID), "<br>",
+                                  "<b>Location:<b>", as.character(Latitude), "<b>,<b>", as.character(Longitude), "<br>",
                                   "<b>HI:<b>",      as.character(round(HI, digits = 2)), "<br>",
                                   "<b>Year:<b>",    as.character(Year),"<br>",
                                   "<b>Ct Mean:<b>",      as.character(round(ILWE_Crypto_Ct, digits = 2)),"<br>",
@@ -897,6 +960,7 @@ map %>%
                    color = ~data_col_HI(HI),
                    label = ~htmlEscape(Mouse_ID),
                    popup = ~paste("<b>Mouse_ID:<b>",as.character(Mouse_ID), "<br>",
+                                  "<b>Location:<b>", as.character(Latitude), "<b>,<b>", as.character(Longitude), "<br>",
                                   "<b>HI:<b>",      as.character(round(HI, digits = 2)), "<br>",
                                   "<b>Year:<b>",    as.character(Year),"<br>",
                                   "<b>Ct Mean:<b>",      as.character(round(ILWE_Crypto_Ct, digits = 2)),"<br>",
@@ -919,7 +983,53 @@ map %>%
 
 # SAVING PICTURES AND WRITING FILES WITH R
 
-``` {r}
+Let's say we want to:
 
+1. write a csv file with all the high infection samples
+2. save the picture of the Standard Curve Plot
+
+There are different functions for saving different types - as usual, I would recommend saving data frames as csv files
+
+For saving pictures, there are probably even more possibilities:
+
+- My personal favorite for high resolution pictures: 
+  - Load library(cowplot), assign your plot to an object, e.g. my_Plot <- ...
+  - follow the saving path: 
+  
+  
+    save_plot(my_Plot, filename = 'my_Plot.jpg', base_height = 5, base_width = 7.5)
+  
+  - change the base_height and _width according to your needs (plots with facet_wrap() tend to get quite unreadable if exported too small), I would go up to base_height 20 and base_weight 30 if you want really high resolution
+  - beware, that the font size WILL SHRINK dramatically with increasing base_height/weight conditions!
+
+- export the picture through the *viewer* window (export let's you either export as Image, PDF or copy to clipboard)
+- save the picture with the jpeg() function (or similar), which allows you to set the quality of the image as a percentage (I think this works best/better in normal R scripts, not in Markdown files :/ )
+
+    # JPEG device
+    jpeg('Crypto_SC.jpeg', quality = 75)
+    plot(Crypto_SC)
+    dev.off()
+    
+``` {r}
+library(cowplot)
+
+write.csv(High_Infection_Samples, 'High_Infection_Samples.csv') # don't forget to add the type of file, in this case '.csv' at the end (otherwise it will be a binary, non-readable file for R)
+
+Crypto_SC <- Standard_Curve %>%
+  ggplot(aes(ILWE_Crypto_Ct, log2(Amount_Oocysts))) +
+  geom_smooth(method = 'lm') +
+  geom_point() +
+  xlab('Ct') +
+  ylab('Amount Oocysts') +
+  ggtitle('Cryptosporidium Standard Curve')
+Crypto_SC
+
+save_plot(Crypto_SC, filename = 'Crypto_SC.jpg', base_height = 5, base_width = 7.5) 
 
 ```
+
+# PICTURES IN MARKDOWN
+
+To display a picture in markdown, you should follow this pattern:
+
+    ![Caption]()

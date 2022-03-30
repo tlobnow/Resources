@@ -1,25 +1,25 @@
-Please talk to the teacher for more exercises,,,,,,,
-,,,Age (years),favorite,FAVORITE,,
-Student,Name,gender,AGE,fruit,sport,Do_you_like_Math,Fav_Animal
-Student_001,Jimmy,male,10,apple,football,yes,Bunny
-Student_002,Mathilde,FEMALE,11,coconut,soccer,no,
-Student_003,laura,,10,dragon fruit,ballet,yes,Horse
-Student_004,selma,m,9,lemon,swimming,yes and no,
-Student_005,ELISA,fem,10,apple,ballet,no,Horse
-Student_006,Andreas,tennis,1000,banana,MALE,no not really,
-Student_007,Tom,m,9,pear,swimming,no,Tiger
-Student_00eight,Lily,f,ten,orange,ballet,yes (don't tell mom),
-Student_009,max,mal,11,cherry,karate,yes,
-Student_0010,Priscilla,m,12,soccer,strawberry,yes,Dog
-,Thomas,m,13,soccer,melon,no,
-Student_021,Liam,m,10,apple,soccer,yes sometimes,Cat
-Student_022,Leanna,f,11,banana,basketball,no not really,Cat
-Student_023,Jodi,f,12,orange,tennis,yes,Dog
-Student_024,Tammi,f,10,banana,hockey,no,Lion
-Student_025,Elliot,male,1100,cherry,soccer,no,Tiger
-Student_026,Lilian,f,1200,pear,table tennis,no,Bobcat
-Student_027,Noah,mal,10,apple,tennis,yes,Whale
-Student_028,Jeanie,f,11,strawberry,ballet,yes,Unicorn
-Student_029,Louis,m,12,orange,swimming,no,Wolf
-Student_030,Therese,FEMALE,13,blood orange,karate,yes,Turtle
-,Elias,,10,,basketball,,
+Please talk to the teacher for more exercises,,,,,,,,
+,,,Age (years),favorite,FAVORITE,,,
+Student,Name,gender,AGE,fruit,sport,Do_you_like_Math,Fav_Animal,Last_Number_ZIP
+Student_001,Jimmy,male,10,apple,football,yes,Bunny,1
+Student_002,Mathilde,FEMALE,11,coconut,soccer,no,,2
+Student_003,laura,,10,dragon fruit,ballet,yes,Horse,3
+Student_004,selma,m,9,lemon,swimming,yes and no,,4
+Student_005,ELISA,fem,10,apple,ballet,no,Horse,1
+Student_006,Andreas,tennis,1000,banana,MALE,no not really,,2
+Student_007,Tom,m,9,pear,swimming,no,Tiger,2
+Student_00eight,Lily,f,ten,orange,ballet,yes (don't tell mom),,4
+Student_009,max,mal,11,cherry,karate,yes,,6
+Student_0010,Priscilla,m,12,soccer,strawberry,yes,Dog,8
+,Thomas,m,13,soccer,melon,no,,8
+Student_021,Liam,m,10,apple,soccer,yes sometimes,Cat,6
+Student_022,Leanna,f,11,banana,basketball,no not really,Cat,7
+Student_023,Jodi,f,12,orange,tennis,yes,Dog,6
+Student_024,Tammi,f,10,banana,hockey,no,Lion,3
+Student_025,Elliot,male,1100,cherry,soccer,no,Tiger,2
+Student_026,Lilian,f,1200,pear,table tennis,no,Bobcat,2
+Student_027,Noah,mal,10,apple,tennis,yes,Whale,1
+Student_028,Jeanie,f,11,strawberry,ballet,yes,Unicorn,6
+Student_029,Louis,m,12,orange,swimming,no,Wolf,4
+Student_030,Therese,FEMALE,13,blood orange,karate,yes,Turtle,5
+,Elias,,10,,basketball,,,1

@@ -889,11 +889,11 @@ library(cowplot)
 write.csv(High_Infection_Samples, 'High_Infection_Samples.csv') # don't forget to add the type of file, in this case '.csv' at the end (otherwise it will be a binary, non-readable file for R)
                                                                                                                         
 Crypto_SC <- Standard_Curve %>%
-  ggplot(aes(ILWE_Crypto_Ct, log2(Amount_Oocysts))) +
+  ggplot(aes(log2(Amount_Oocysts), ILWE_Crypto_Ct)) +
   geom_smooth(method = 'lm') +
   geom_point() +
-  xlab('Ct') +
-  ylab('Amount Oocysts') +
+  xlab('Amount Oocysts (log2)') +
+  ylab('Ct') +
   ggtitle('Cryptosporidium Standard Curve')
 Crypto_SC
 
@@ -905,7 +905,7 @@ save_plot(Crypto_SC, filename = 'Crypto_SC.jpg', base_height = 5, base_width = 7
 
 #To display a picture in markdown, you should follow this pattern:
 
-![Caption](https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/Crypto_SC.jpg)
+#![Caption](https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/Crypto_SC.jpg)
 
                                                                                                                         
 

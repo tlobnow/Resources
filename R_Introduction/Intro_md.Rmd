@@ -331,7 +331,8 @@ kable(dirty_csv, align = 'ccccccccccccccccc')
 
 - wrong input (soccer)
 ``` {r}
-dirty_csv$Fav_Fruit[dirty_csv$Fav_Fruit %in% "soccer"] <- "strawberry" # don't forget to change in the Fav_Sport column
+dirty_csv$Fav_Fruit[dirty_csv$Name %in% "Thomas"]    <- 'melon'
+dirty_csv$Fav_Fruit[dirty_csv$Name %in% "Priscilla"] <- 'strawberry'
 
 kable(dirty_csv, align = 'ccccccccccccccccc')
 
@@ -341,7 +342,7 @@ kable(dirty_csv, align = 'ccccccccccccccccc')
 
 - wrong input (MALE, strawberry)
 ``` {r}
-dirty_csv$Fav_Sport[dirty_csv$Fav_Sport %in% c("MALE", "strawberry")] <- c("tennis", "soccer")
+dirty_csv$Fav_Sport[dirty_csv$Fav_Sport %in% c("MALE", "strawberry", 'melon')] <- c("tennis", "soccer", "soccer")
 
 kable(dirty_csv, align = 'ccccccccccccccccc')
 
@@ -614,6 +615,68 @@ iris %>%
 
 # hist(iris$Sepal.Width) # base functions are always an alternative!
 ```
+## COLOR PALETTES
+
+There are great color palettes already available in R, [here](https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf) is a summary of the most useful ones.
+
+I tend to use the RColorBrewer package a lot, as it offers different kinds of palettes:
+
+- Sequential (e.g. 'YlOrRd', 'Oranges', 'Greens', 'Blues', ...)
+- Qualitative (e.g. 'Set2', 'Paired', 'Dark2', 'Accent', ...)
+- Diverging (e.g. 'Spectral', 'RdYlBl', ...)
+
+To check out the different options of the package, type display.brewer.all() after loading library(RColorBrewer)
+
+To use a palette, you have to add the brewer palette to your graphic (e.g. in a ggplot), as follows:
+
+``` {r}
+library(RColorBrewer) #display.brewer.all()
+
+iris %>%
+  ggplot(aes(Sepal.Length, Sepal.Width, col = Species)) +
+  geom_point() +
+  scale_color_brewer(palette = 'Dark2',
+                     direction = 1) # direction = -1 would be inverted color order
+```
+
+
+Just for the sake of showing it to you:
+
+You can also set up your own palettes 
+
+I did this to get the HI gradient we have used for quite some time in publications.
+
+1. You can find the RGB code for each color on different sites, e.g. [here](https://rgbcolorcode.com/)
+2. Separate each color into the according vector r,g and b (as many colors as you wish, but 3-8 should usually do the trick)
+3. follow the setup code
+4. Btw, you can use HEX codes (e.g. #3399FF = 'dodger blue') instead of color names for almost everything! So you're not stuck with 'red', 'green', 'yellow', ..
+
+``` {r}
+# Load Palette ####
+r <- c(0, 64, 128, 179, 217, 255)
+g <- c(0, 12, 25, 25, 12,  0)
+b <- c(255, 249, 243, 191,  95,   0)
+  
+myPal <- function (n, name = c("myPal.colors")) 
+  {
+    myPal.colors = rgb(r,g,b,maxColorValue = 255)
+    name = match.arg(name)
+    orig = eval(parse(text = name))
+    rgb = t(col2rgb(orig))
+    temp = matrix(NA, ncol = 3, nrow = n)
+    x = seq(0, 1, , length(orig))
+    xg = seq(0, 1, , n)
+    for (k in 1:3) {
+      hold = spline(x, rgb[, k], n = n)$y
+      hold[hold < 0] = 0
+      hold[hold > 255] = 255
+      temp[, k] = round(hold)
+    }
+    palette = rgb(temp[, 1], temp[, 2], temp[, 3], maxColorValue = 255)
+    palette
+}
+
+```
 
 
 ## ANSCOMBE AND CORRELATION
@@ -743,70 +806,6 @@ Crypto_Detection %>% arrange(desc(Oocyst_Predict_Crypto.1)) %>% select(Mouse_ID,
 
 
 # DATA VISUALIZATION WITH LEAFLET - MAPS
-
-## COLOR PALETTES
-
-There are great color palettes already available in R, [here](https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf) is a summary of the most useful ones.
-
-I tend to use the RColorBrewer package a lot, as it offers different kinds of palettes:
-
-- Sequential (e.g. 'YlOrRd', 'Oranges', 'Greens', 'Blues', ...)
-- Qualitative (e.g. 'Set2', 'Paired', 'Dark2', 'Accent', ...)
-- Diverging (e.g. 'Spectral', 'RdYlBl', ...)
-
-To check out the different options of the package, type display.brewer.all() after loading library(RColorBrewer)
-
-To use a palette, you have to add the brewer palette to your graphic (e.g. in a ggplot), as follows:
-
-``` {r}
-library(RColorBrewer) #display.brewer.all()
-
-iris %>%
-  ggplot(aes(Sepal.Length, Sepal.Width, col = Species)) +
-  geom_point() +
-  scale_color_brewer(palette = 'Dark2',
-                     direction = 1) # direction = -1 would be inverted color order
-```
-
-
-Just for the sake of showing it to you:
-
-You can also set up your own palettes 
-
-I did this to get the HI gradient we have used for quite some time in publications.
-
-1. You can find the RGB code for each color on different sites, e.g. [here](https://rgbcolorcode.com/)
-2. Separate each color into the according vector r,g and b (as many colors as you wish, but 3-8 should usually do the trick)
-3. follow the setup code
-4. Btw, you can use HEX codes (e.g. #3399FF = 'dodger blue') instead of color names for almost everything! So you're not stuck with 'red', 'green', 'yellow', ..
-
-``` {r}
-# Load Palette ####
-r <- c(0, 64, 128, 179, 217, 255)
-g <- c(0, 12, 25, 25, 12,  0)
-b <- c(255, 249, 243, 191,  95,   0)
-  
-myPal <- function (n, name = c("myPal.colors")) 
-  {
-    myPal.colors = rgb(r,g,b,maxColorValue = 255)
-    name = match.arg(name)
-    orig = eval(parse(text = name))
-    rgb = t(col2rgb(orig))
-    temp = matrix(NA, ncol = 3, nrow = n)
-    x = seq(0, 1, , length(orig))
-    xg = seq(0, 1, , n)
-    for (k in 1:3) {
-      hold = spline(x, rgb[, k], n = n)$y
-      hold[hold < 0] = 0
-      hold[hold > 255] = 255
-      temp[, k] = round(hold)
-    }
-    palette = rgb(temp[, 1], temp[, 2], temp[, 3], maxColorValue = 255)
-    palette
-}
-
-```
-
 
 ## HYBRID INDEX MAP
 

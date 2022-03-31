@@ -909,6 +909,10 @@ save_plot(Crypto_SC, filename = 'Crypto_SC.jpg', base_height = 5, base_width = 7
 
                                                                                                                         
 
+# MEETING REMARKS FR/ ANNI:
 
+# save objects as .rds to save time and effort loading, prevent system crash for long scripts
+# merge() function
+# sjPlot package for publication-ready tables
 
 

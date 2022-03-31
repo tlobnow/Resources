@@ -1,0 +1,748 @@
+---
+title: "Computational Biology Course Summary SoSe21"
+author: Finn Lo
+output:
+  html_document:
+    toc: yes
+    number_section: yes
+    fig_caption: true
+  pdf_document:
+    toc: yes
+  always_allow_html: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+
+``` {r, setwd and Packages, echo = F}
+setwd("/Users/finnLo/Documents/Github/R_Introduction/CompBio_Data/")
+R.version
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(BiocManager)
+library(bookdown)
+# INTRO
+library(BiocStyle)
+library(Biostrings)
+library(tidyverse)
+library(janitor)
+library(GEOquery)
+library(biomaRt)
+library(cgdsr)
+library(ggdendro)
+library(scatterplot3d)
+
+# SCHULZ
+library(grid)
+library(org.Mm.eg.db)
+library(pheatmap)
+library(mogene10sttranscriptcluster.db)
+library(biomaRt)
+# RIEMER
+library(tidyverse)
+library(pheatmap)
+library(DESeq2)
+library(goseq)
+library(geneLenDataBase)
+library(GO.db)
+library(org.Mm.eg.db)
+# BENETELE
+pack.bentele <- c('BSgenome.Ecoli.NCBI.20080805')
+BiocManager::install(pack.bentele, update = F)
+library(BSgenome.Ecoli.NCBI.20080805)
+# BRANDT
+library(tidyverse)
+library(cowplot)
+library(viridis)
+library(scales)
+library(sp)
+library(dplyr)
+library(hexbin)
+```
+
+``` {r, include = F}
+# loading everything ###########################################################
+
+install.packages(c("BiocManager", "bookdown"))
+
+pack.intro <- c('BiocStyle','Biostrings', 'tidyverse', 'janitor' ,'GEOquery', 'biomaRt', 'cgdsr', 'ggdendro', 'scatterplot3d')
+BiocManager::install(pack.intro, update = F)
+
+pack.schulz <- c('grid', 'org.Mm.eg.db', 'mogene10sttranscriptcluster.db', 'pheatmap', 'biomaRt')
+BiocManager::install(pack.schulz, update = F)
+
+pack.riemer <- c('tidyverse', 'pheatmap','DESeq2', 'goseq', 'geneLenDataBase', 'GO.db', 'org.Mm.eg.db')
+BiocManager::install(pack.riemer, update = F)
+
+pack.bentele <- c('BSgenome.Ecoli.NCBI.20080805')
+BiocManager::install(pack.bentele, update = F)
+
+pack.brandt <- c("tidyverse", "cowplot", "viridis", "scales", "sp")
+BiocManager::install(pack.brandt, update = F)
+
+
+library(BiocManager)
+library(bookdown)
+library(Biostrings)
+install.packages('BiocStyle')
+
+install.packages(c("BiocManager", "bookdown"))
+
+BiocManager::install("BiocStyle")
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+library(BiocStyle)
+```
+
+# CHAPTER 1 - Data Analysis in R
+Pipe shortcut mac Shift + Command + M
+
+1. Data loading
+2. Data formatting (tidying or harmonization)
+3. Data transformation
+4. Data modeling
+5. Data visualization
+6. Reporting
+
+
+## 1. Data loading 
+
+``` {r}
+library(tidyverse)
+library(stringr)
+#### nested functions:
+x1 <- 1:5
+sqrt(
+  sum(
+    scale(
+      x1, center = T, scale = F
+    )^2
+  )
+)
+
+
+#### chain of functions:
+x1 %>%
+  scale(center = T, scale = F) %>% 
+  '^'(2) %>%
+  sum() %>%
+  sqrt()
+
+# Ex 1.1. Chains of Functions
+x = "a, b, c;d:e-1"
+x %>%
+  str_replace_all(";", ":") %>%
+  str_replace_all(":", ",") %>%
+  str_remove("-1") %>%
+  str_split(",", simplify = T)
+
+# Ex 1.2. Data Wrangling: loading and formatting
+library(readr)
+cdata <- read_tsv("clinical_data.tsv")
+cdata
+
+#### # A tibble: 12,430 x 9
+####    STUDY_ID CASE_ID OS_MONTHS OS_STATUS DFS_STATUS DFS_MONTHS   AGE SEX   GENDER
+####    <chr>    <chr>       <dbl> <chr>     <chr>           <dbl> <dbl> <chr> <chr> 
+####  1 laml_tc~ TCGA-A~      30.6 DECEASED  Recurred/~       16.1    46 Male  <NA>  
+####  2 laml_tc~ TCGA-A~       0   DECEASED  DiseaseFr~        0      61 Fema~ <NA>  
+####  3 laml_tc~ TCGA-A~      19   DECEASED  Recurred/~        7.7    23 Male  <NA>  
+####  4 laml_tc~ TCGA-A~      11.8 DECEASED  Recurred/~       11.4    59 Fema~ <NA>  
+####  5 laml_tc~ TCGA-A~      11.1 DECEASED  Recurred/~        8      51 Fema~ <NA>  
+####  6 laml_tc~ TCGA-A~       7.2 DECEASED  Recurred/~        6.7    18 Male  <NA>  
+####  7 laml_tc~ TCGA-A~      10.2 DECEASED  Recurred/~        8      40 Male  <NA>  
+####  8 laml_tc~ TCGA-A~      73   LIVING    DiseaseFr~       73      75 Male  <NA>  
+####  9 laml_tc~ TCGA-A~      18.5 DECEASED  Recurred/~       11.6    77 Male  <NA>  
+#### 10 laml_tc~ TCGA-A~       6.3 DECEASED  Recurred/~        4.9    70 Male  <NA>  
+#### # ... with 12,420 more rows
+
+# Sex and gender columns are not harmonised
+
+unique(cdata$SEX)
+unique(cdata$GENDER)
+
+# reformat columns
+cdata <- cdata %>% 
+  replace_na(list(SEX = "", GENDER = "")) %>% # replace all NA values by an empty string
+  unite("SEX", SEX, GENDER, sep = "") %>%     # unite the SEX and GENDER column into a new SEX column
+  mutate(SEX = toupper(SEX)) %>%              # convert all letters to uppercase
+  mutate(SEX = ifelse(SEX == "FEMALE" | SEX == "MALE", SEX, "UNKNOWN")) 
+
+ifelse(10 > 1, "stimmt", "falsch")
+ifelse(10 < 1, "stimmt", "falsch")
+ifelse(10 == 10 & 1 == 2, "stimmt", "falsch")
+ifelse(10 == 10 | 1 == 2, "stimmt", "falsch")
+
+
+# 1.3 Merging two data tables
+#### left_join()
+#### inner_join()
+#### right_join()
+#### bind_cols()
+#### bind_rows()
+
+aa <- tibble(aa = 1:3, bb = c("a", "b", "c"))
+bb <- tibble(aa = 3:5, cc = c("d", "e", "f"))
+
+aa %>% left_join(bb)
+aa %>% right_join(bb)
+aa %>% inner_join(bb)
+aa %>% full_join(bb)
+aa %>% bind_cols(bb)
+aa %>% bind_rows(bb)
+
+
+# 1.4 Data transformation: Selecting, filtering, and manipulating
+#### select()
+#### filter()
+cdata
+cdata %>% select(STUDY_ID, CASE_ID)
+cdata %>% select(1:5)
+cdata %>% select(-STUDY_ID, -CASE_ID)
+cdata %>% select(-(1:5))
+cdata %>% select(contains("OS"))
+
+cdata %>% filter(OS_STATUS == "DECEASED")
+cdata %>% filter(SEX != "MALE")
+cdata %>% filter(AGE > 50)
+cdata %>% filter(AGE > 50, SEX == "FEMALE")
+cdata %>% filter(OS_STATUS != "DECEASED", OS_STATUS != "LIVING")
+#### OS_STATUS columns isn't all caps, some data is wrong
+
+cdata <- cdata %>%
+  mutate(OS_STATUS = toupper(OS_STATUS))
+cdata %>% filter(OS_STATUS != "DECEASED", OS_STATUS != "LIVING")
+
+cdata %>% 
+  group_by(OS_STATUS, SEX) %>%
+  tally()
+
+cdata %>%
+  group_by(STUDY_ID, SEX) %>%
+  summarise(mean_age = mean(AGE, na.rm = T),
+            sd_age = sd(AGE, na.rm = T)) %>%
+  arrange(mean_age)
+
+#### a) write statement with group_by() and summarise() that reproduced tally() data
+#### b) write statement with group_by() and summarise() that calculates 
+#### median overall survival grouped by sex and study
+#### c) bonus: in what study do you find the lowest median value for patients of unknown sex
+
+?n()
+
+# a) 
+cdata %>%
+  group_by(OS_STATUS, SEX) %>%
+  summarise(n())
+
+# b) , c)
+cdata %>%
+  group_by(SEX, STUDY_ID) %>%
+  summarise(median_overall_survival = median(AGE, na.rm = T)) %>%
+  filter(SEX != "FEMALE", SEX != "MALE") %>%
+  arrange(desc(median_overall_survival))
+
+glimpse(cdata)
+
+# 1.5 Data Visualization Examples
+#### number of patients per study:
+cdata %>% 
+  group_by(STUDY_ID, SEX) %>% 
+  tally %>% 
+  ggplot(aes(STUDY_ID, n)) +
+  geom_bar(stat = "identity") +
+  coord_flip()
+
+#### Histogram of overall Survival:
+ggplot(cdata, aes(OS_MONTHS)) +
+  geom_histogram()
+
+#### Histogram of age in a subset of studies, colored by sex:
+filter(cdata, str_detect(STUDY_ID, "brca|gbm|coadread")) %>% 
+  ggplot(aes(AGE, fill = SEX)) +
+  geom_histogram(position = "dodge") +
+  facet_wrap(~STUDY_ID)
+
+#### Density plot of overall survival, grouped by disease free survival status:
+filter(cdata, OS_STATUS == "LIVING") %>% 
+  ggplot(aes(OS_MONTHS, color = DFS_STATUS)) +
+  geom_density()
+
+#### Scatter Plot pf age and overall survival values
+ggplot(cdata, aes(y = OS_MONTHS, x = AGE, color = SEX)) +
+  geom_point()
+
+# 1.6. Analysis of SARS-Cov2 vaccination data
+#### analyse the time series data on vaccination against SARS-Cov2
+#### download at Impfdashboard
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+setwd("/Users/FinnLo/Documents/Programming/R/BioInf")
+vac_deliveries  <- read_tsv("germany_deliveries_timeseries_v2.tsv")
+vac_by_state    <- read_tsv("germany_vaccinations_by_state.tsv")
+vac_timeseries  <- read_tsv("germany_vaccinations_timeseries_v2.tsv")
+
+glimpse(vac_deliveries)
+glimpse(vac_by_state)
+glimpse(vac_timeseries)
+
+#### Deliveries over time
+vac_deliveries %>%
+  #filter(region == "DE-BB") %>%
+  ggplot(aes(date, dosen, col = region)) + 
+  geom_point()
+
+#### better to look at cumulative delivery over time:
+#### define cum_dose
+
+glimpse(vac_deliveries$region)
+vac_deliveries %>%
+  #filter(region == c("DE-BY", "DE-BB", "DE-BW")) %>%
+  arrange(date) %>%
+  group_by(region) %>%
+  mutate(cum_doses = cumsum(dosen)) %>%
+  ggplot(aes(date, cum_doses, col = region)) +
+  geom_line()
+
+#### change code so that you plot types of vaccine delivered:
+vac_deliveries %>%
+  arrange(date) %>%
+  group_by(impfstoff) %>%
+  mutate(cum_doses = cumsum(dosen)) %>%
+  ggplot(aes(date, cum_doses, col = impfstoff)) +
+  geom_line()
+
+#### analyse delivered vaccine per state
+#### first calculate delivery until today:
+
+cumulative_deliveries_per_state <- vac_deliveries %>%
+  group_by(region) %>%
+  summarise(n = sum(dosen))
+
+#### now merge with vac per state --> define vac_rate
+vac_rate <- cumulative_deliveries_per_state %>%
+  left_join(vac_by_state, by = c("region"="code")) %>%
+  mutate(rate = vaccinationsTotal/n)
+
+#### plot as bar graph:
+vac_rate %>%
+  ggplot(aes(region, rate)) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90))
+
+#### plot number of vacs per time:
+
+vac_timeseries %>%
+  ggplot(aes(date, dosen_differenz_zum_vortag)) +
+  geom_point() +
+  geom_line()
+
+#### weekdays have differing rates
+#### mark weekdays with color --> with wday() of lubridate
+
+library(lubridate)
+library(tidyverse)
+library(ggplot2)
+
+vac_timeseries %>%
+  mutate(day_of_week = date %>% wday() %>% as_factor()) %>%
+  ggplot(aes(date, dosen_differenz_zum_vortag, col = day_of_week)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~day_of_week)
+```
+
+
+# CHAPTER 2 - EXERCISES
+## 2.1 Setup
+
+``` {r, echo = F}
+library(tidyverse)
+library(dplyr)
+```
+
+# 2.2 Plotting data sampled from a normal distribution
+
+``` {r, 2.2. Plotting}
+#### generate random data
+nd <- rnorm(1000, mean = 100, sd = 15)
+
+#### plot using base-R
+
+hist(nd)
+plot.ecdf(nd)
+
+#### convert data into tibble and use ggplot()
+dat <- tibble(iq = nd)
+
+#### plot histogram of data with ggplot
+??geom_vline # add reference lines, e.g. here on x-axis, but also horizontal or vertical
+ggplot(dat, aes(iq)) +
+  geom_histogram(fill = "blue") +
+  geom_vline(aes(xintercept = 100))
+
+#### plot cumulative distribution of the data
+ggplot(dat, aes(iq)) + 
+  stat_ecdf() +
+  geom_hline(yintercept = c(0,1), linetype = 4) +
+  labs(x = "Value", y = "Cumulative Distribution") +
+  theme_bw()
+```
+
+# 2.3 Summarising a dataset
+
+``` {r, 2.3. Summarizing}
+#### given is the age of patients in a study
+#### 31, 39, 21, 45, 26, 78, 40, 23, 61, 40, 36, 59, 43
+
+#### Our dataset
+data <- tibble(age = c(31, 39, 21, 45, 26, 78, 40, 23, 61, 40, 36, 59, 43))
+
+#### a) calculate median, lower + upper quartile, 10% quantile
+data %>%
+  summarise(median = median(age),
+            lower  = quantile(age, 0.25),
+            upper  = quantile(age, 0.75),
+            '10%'  = quantile(age, 0.1)
+            )
+
+
+#### b) calculate mean, SD, variance, coefficient of variation
+
+data %>%
+  summarise(mean = mean(age),
+            sd   = sd(age),
+            var  = sd^2,
+            cv   = sd / mean
+            )
+
+#### c) draw boxplot + histogram
+
+data %>%
+  ggplot(aes(y = age)) +
+  geom_boxplot() +
+  theme_classic()
+
+data %>%
+  ggplot(aes(x = age)) +
+  geom_histogram() +
+  theme_classic()
+```
+
+# 2.4 Estimating mean and SD
+
+``` {r, 2.4 Estimating}
+i_max <- 100
+n <- 3
+random_numbers <- tibble( x=rnorm(n*i_max),
+                          i=rep(1:i_max,n) ) # give index 1 to 100
+random_numbers
+random_numbers %>% 
+  group_by( i ) %>% 
+  summarise( m=mean(x) ) %>% 
+  mutate( sd_mean=sd(m) ) %>%# summarise or mutate is fine here
+  ggplot(aes(m)) +
+  geom_histogram()
+
+std_mean <- function(i_max,n)  { # how to create function in R
+  random_numbers <- tibble( x=rnorm(n*i_max),
+                            i=rep(1:i_max,n) )
+  ret_value <- random_numbers %>% # return value 
+    group_by( i ) %>% # group by index
+    summarise( m = mean(x) ) %>% 
+    summarise( sd_mean=sd(m) ) %>% pull(sd_mean) # to only take the sd_mean, "." or "$" also works
+  return( ret_value )
+}
+
+#### Try out the function
+std_mean( 100, 3 )
+std_mean(100, 100)
+std_mean(100, 1000)
+
+results<- tibble(n=1:100,sd_mean=NA) 
+for (n in 2:100) {
+  results$sd_mean[n]=std_mean(100,n)
+}
+results
+
+results <- results %>%
+  mutate(theo_sd_mean = 1 / sqrt(n))
+results
+results %>%
+  ggplot(aes(n, sd_mean)) +
+  geom_point() +
+  geom_line(aes(y = theo_sd_mean), color = "red")
+
+#### Estimating Variance 
+results %>%
+  ggplot(aes(n, sd_mean^2)) +
+  geom_point() +
+  geom_line(aes(y = theo_sd_mean^2), color = "red")
+
+#### another option
+meanvals <- NA
+results <- matrix(NA, nrow = 1000, ncol = 3) %>%
+  as.data.frame()
+colnames(results) <- c("n_samples", "sd_mean", "variance_mean")
+
+for (n in 1:1000) {
+  for(i in 1:100){
+    meanvals[i] <- rnorm(n, mean = 0, sd = 1) %>%
+      mean()
+  }
+  results$n_samples[n]      <- n
+  results$sd_mean[n]        <- sd(meanvals)
+  results$variance_mean[n]  <- var(meanvals)
+}
+```
+# 2.5 Multiple Testing 
+``` {r}
+#### load finger data
+finger1 <- read.csv("~/Documents/Programming/R/BioInf/finger1.csv", skip = 2)
+finger1
+  
+#### OFFICIAL CLEANING
+finger_clean <- finger1 %>%
+  mutate(PLZ = ifelse(PLZ > 100, PLZ-100, PLZ)) %>% # sorts wrongly input PLZ (eg. 105 --> 5)
+  mutate(include = !is.na(PLZ)) %>%
+  dplyr::filter(include) %>%
+  mutate(id = 1:n()) %>% # counts all entries
+  dplyr::select(!include) %>% # includes all entries that have a PLZ
+  mutate(id =1:n()) %>% # counts all entries w/ PLZ now
+  pivot_longer(values_to = "length",
+               names_to = "finger",
+               cols = !c(PLZ, id)) %>% # all cols are taken over except PLZ + id
+  mutate(length = ifelse(length > 10, # if finger length is longer than 10 cm ( = unlikely)
+                         length / 10, # simply divides those numbers by 10 to get a realistic number
+                         length)) %>%
+  pivot_wider(values_from = "length", # the purpose of the pivot_longer was
+              names_from = "finger" ) # to clean all the data and then put it back into the old cols
+finger_clean %>%
+  ggplot(aes(L1))+
+  geom_point(aes(y = L2), col = "red") +
+  geom_smooth(aes(y = L2), col = "red", se = F) +
+  geom_point(aes(y = L3), col = "blue") +
+  geom_smooth(aes(y = L3), col = "blue", se = F) +
+  geom_point(aes(y = L4), col = "green") +
+  geom_smooth(aes(y = L4), col = "green", se = F) +
+  geom_point(aes(y = L5), col = "yellow") +
+  geom_smooth(aes(y = L5), col = "yellow", se = F)
+
+finger_clean %>%
+  pivot_longer(values_to = "value",
+               names_to = "col",
+               !id) %>%
+  ggplot(aes(value)) +
+  geom_histogram() +
+  facet_wrap(~col)
+
+finger_ratios <- finger_clean %>%
+  mutate(L1_L2 = L1/L2, L1_L3 = L1/L3, L1_L4 = L1/L4, L1_L5 = L1/L5,
+         L2_L3 = L2/L3, L2_L4 = L2/L4, L2_L5 = L2/L5,
+         L3_L5 = L3/L5,
+         L4_L5 = L4/L5) %>%
+  mutate(R1_R2 = R1/R2, R1_R3 = R1/R3, R1_R4 = R1/R4, R1_R5 = R1/R5,
+         R2_R3 = R2/R3, R2_R4 = R2/R4, R2_R5 = R2/R5,
+         R3_R5 = R3/R5,
+         R4_R5 = R4/R5)
+finger_ratios
+
+
+finger_ratios %>%
+  dplyr::select(PLZ, contains("_")) %>%
+  pivot_longer(values_to = "value",
+               names_to = "ratios",
+               !PLZ) %>%
+  mutate(PLZclass = ifelse(PLZ < 5, TRUE, FALSE)) %>%
+  ggplot(aes(PLZclass, value, col = PLZclass)) + 
+  geom_boxplot() +
+  facet_grid(~ratios) +
+  theme(axis.text.x = element_text(angle = 90))
+  
+p_values <- finger_ratios %>%
+  summarise(across(matches("_"), ~t.test(.[PLZ>=5], .[PLZ < 5],var.equal = T) $p.value))
+
+p.adjust(p_values, method = 'bonferroni')
+p.adjust(p_values, method = 'BH')
+```
+
+# 2.6 Normalization of gene expression
+``` {r}
+data_norm <- read.csv("normalisation.csv")
+data_norm
+
+plot(data_norm)
+
+data_norm %>%
+  ggplot(aes(set1, set2, label = Gen, col = Gen)) +
+  geom_point() +
+  geom_label()
+
+#### find gene with max change in expression
+maxgene <- data_norm %>%
+  mutate(change = abs(set1 - set2)) %>%
+  filter(change == max(change))
+  #%>% slice(1) in case of a tie
+maxgene
+
+# perform Z-Normalization (mean = 0, sd = 1)
+
+my_Scale = function(x) {
+  (x - mean(x)) / sd(x)
+}
+# Scale() does exactly the same, we don't have to define new function for this..
+
+z_norm_data <- data_norm %>%
+  mutate(across(c(set1, set2), my_Scale))
+z_norm_data
+
+library(tidyverse)
+library(dplyr)
+#### alternative to Z-normalization ==> do a quantile normalization
+quantile_norm_data <- data_norm %>%
+  pivot_longer(set1:set2, 
+               names_to = "set", 
+               values_to = "value") %>%
+  group_by(set) %>%
+  mutate(rank = rank(value)) %>%
+  ungroup() %>%
+  group_by(rank) %>%
+  mutate(value = mean(value)) %>%
+  ungroup() %>%
+  dplyr::select(-rank) %>%
+  pivot_wider(names_from = set,
+              values_from = value)
+
+quantile_norm_data
+
+#### find the gene with max change in expression after quant_norm
+new_maxgene <- quantile_norm_data %>%
+  mutate(change = abs(set1 - set2)) %>%
+  filter(change == max(change))
+  #%>% slice(1) in case of tie
+new_maxgene
+
+data_norm %>%
+  mutate(type = "original") %>%
+  rbind(z_norm_data %>%
+          mutate(type = "zscore")) %>%
+  rbind(quantile_norm_data %>%
+          mutate(type = "quantile")) %>%
+  ggplot(aes(set1, set2, col = Gen)) +
+  geom_point() +
+  facet_wrap(~ type, scale = "free")
+
+#### make Scatterplots with 
+#### raw data
+#### Z norm data
+#### quant norm data
+
+#### raw data
+data_norm %>%
+  ggplot(aes(set1, set2, col = Gen)) +
+  geom_point() +
+  theme_bw()
+
+#### Z norm data
+z_norm_data %>%
+  ggplot(aes(set1, set2, col = Gen)) +
+  geom_point() +
+  theme_bw()
+
+#### quant norm data
+quantile_norm_data %>%
+  ggplot(aes(set1, set2, col = Gen)) +
+  geom_point() +
+  theme_bw()
+```
+
+
+
+# 2.7 Correlation
+``` {r}
+data_norm <- read.csv("normalisation.csv")
+data_norm
+
+#### calculate Pearson-Correlation between all raw and diff. normalized samples
+data_norm %>%
+  left_join(z_norm_data, by = "Gen", suffix = c("", "z")) %>%
+  left_join(quantile_norm_data, by = "Gen", suffix  = c("", "q")) %>%
+  select_if(is.numeric) %>%
+  cor(method = "pearson")
+#### calculate Rank-Correlation between all raw and diff. normalized samples
+data_norm %>%
+  left_join(z_norm_data, by = "Gen", suffix = c("", "z")) %>%
+  left_join(quantile_norm_data, by = "Gen", suffix  = c("", "q")) %>%
+  select_if(is.numeric) %>%
+  cor(method = "kendall")
+```
+
+# 2.8 Linear Regression
+``` {r}
+Water <- tibble(Gewaesser   = c("Fluss", "Teich", "Hafen", "See", "Bach"),
+                Schadstoffe = c(8,7,10,4,3),
+                Algen       = c(1500, 2100, 250, 3500, 3400))
+Water
+#Water <- data.frame(Water)
+
+#### Visualize + linReg
+Water %>%
+  ggplot(aes(Schadstoffe, Algen)) +
+  geom_point() +
+  geom_smooth(method = "lm") + # gray area == Standard Error, can be ignored with: , se = F
+  ggtitle("Schadstoffe vs. Algen")
+  theme_bw()
+
+#### Calculate mean, SD of algae conc. and pollution conc.
+summary(Water)
+sd(Water$Schadstoffe)
+sd(Water$Algen)
+mean(Water$Schadstoffe)
+mean(Water$Algen)
+cov(Water$Schadstoffe, Water$Algen) # Covariance of x and y
+cor(Water$Schadstoffe, Water$Algen) # Correlation of x and y
+
+#### calc linReg
+lm(Algen ~ Schadstoffe, Water)
+# y = m * x + b
+# intercept ... y-value at x = 0
+# slope is negative here
+```
+
+# 2.9 Clustering
+``` {r}
+Cl_Data <- tibble(sample1 = c(1,2,3),
+                  sample2 = c(2,4,3),
+                  sample3 = c(4,8,12))
+Cl_Data
+
+library(tibble)
+library(scatterplot3d)
+
+scatterplot3d(x = Cl_Data[1,], 
+              y = Cl_Data[2,], 
+              z = Cl_Data[3,])
+
+#### Calculate distance matrix w/ Manhattan distance + Pearson Correlation as metric
+#### functions --> dist() and as.dist()
+distM <- Cl_Data %>%
+          t() %>%
+          dist(method = "manhattan")
+distM
+distP <- as.dist(1-cor(Cl_Data))
+distP
+
+#### cluster data with hierarchical clustering with one of the two dist. matrices
+hM <- distM %>% hclust(method = "average")
+hP <- distP %>% hclust(method = "average")
+
+#### draw dendrogram (pot new package needed)
+library(ggdendro)
+
+ggdendrogram(hM) + ggtitle("Manhattan")
+ggdendrogram(hP) + ggtitle("Pearson Col.")
+``` 

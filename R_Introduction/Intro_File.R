@@ -464,6 +464,10 @@ Student_Data <- Student_Data %>% mutate(
 #More info on violin plots you can find [here](https://blog.bioturing.com/2018/05/16/5-reasons-you-should-use-a-violin-graph/)
 #A more in-depth introduction to data visualization with ggplot is [here](https://r4ds.had.co.nz/data-visualisation.html)
 
+# Another one [here](https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+
+# Time Series Analysis [here](https://r-statistics.co/Time-Series-Analysis-With-R.html)
+
 
 ## IRIS DATA -------------------------------------------------------------------
 
@@ -484,7 +488,7 @@ glimpse(iris)
 iris %>%
   ggplot(aes(Sepal.Length, Sepal.Width, col = Species)) +
   geom_point() +
-  geom_smooth(method = 'lm', se = F)
+  geom_smooth(se = T)
 
 plot(iris$Sepal.Length, iris$Sepal.Width) # base functions are always an alternative!
 

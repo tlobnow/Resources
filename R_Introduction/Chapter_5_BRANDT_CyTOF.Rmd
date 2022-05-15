@@ -1,0 +1,688 @@
+---
+title: "Computational Biology Course Summary SoSe21"
+author: Finn Lo
+output:
+  html_document:
+    toc: yes
+    number_section: no
+    fig_caption: true
+  pdf_document:
+    toc: yes
+  always_allow_html: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+
+# CHAPTER 5 - BRANDT ET AL. 2019 - Cy_TOF NORMAL
+
+## 5.1 Loading libraries and data
+
+we will analyse Cy-TOF data from mouse intestinal organoids
+``` {r}
+library(tidyverse)
+library(viridis)
+
+data      <- read_csv("~/Documents/Programming/R/BioInf/Dateien für Kurs-20210609/limos_180907_R_course.csv")
+name.key  <- read_csv("~/Documents/Programming/R/BioInf/Dateien für Kurs-20210609/name_key.csv")
+```
+
+``` {r}
+#### what are the columns? Type, range, values?
+arrange(data)
+data %>%
+  dplyr::select(Ce140Di:Pt195Di) %>%
+  summary()
+arrange(name.key)
+#### which perturbations are contained in the data?
+#### names of cell lines?
+```
+
+``` {r}
+#### Option 1, renaming:
+col_table <- tibble(colnames = colnames(data)) %>%
+  left_join(name.key, by = c("colnames" = "channel")) %>%
+  mutate(new_colnames = ifelse(is.na(name), colnames, name))
+colnames(data) <- col_table %>%
+  pull(new_colnames)
+
+#### Option 2:
+col_rename <- tibble(channel = colnames(data)) %>%
+  left_join(name.key) %>%
+  mutate(new_colnames = ifelse(is.na(name), channel, name)) %>%
+  pull(new_colnames)
+new_columns <- name.key$channel
+names(new_columns) <- name.key$name
+data <- data %>%
+  dplyr::rename(new_columns)
+
+```
+
+## 5.2 Quality Checks
+``` {r}
+#### plot scatter plots of one channel vs. time --> to spot irregularities
+#### alpha < 1 makes density more visible
+#### adding density info (--> geom_density_2d) helps interpretation
+
+data %>%
+  ggplot(aes(Time, DNA_191Ir)) + #col = line
+  geom_point(alpha = 0.2) +
+  geom_density_2d() +
+  geom_smooth()
+
+```
+
+``` {r}
+library(hexbin)
+data %>%
+  ggplot(aes(Time, DNA_191Ir)) +
+  geom_hex(bins = 128,
+           show.legend = F, aes(col = ..count..)) +
+  scale_fill_viridis(option = "inferno") +
+  scale_color_viridis(option = "inferno") +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()
+  )
+```
+
+``` {r}
+# plot 4 markers in facet_wrap
+data_piv <- data %>%
+  dplyr::slice(1:10000) %>%
+  pivot_longer(values_to = "value",
+               names_to = "marker",
+               cols = c(Axin2, cCasp3, Ce140Di, CD24)) %>%
+  dplyr::select(Time, value, marker)
+
+  
+data_piv %>%
+  ggplot(aes(Time, value)) +
+  geom_point(alpha = 0.3, size = 0.5) +
+  geom_density_2d() +
+  geom_smooth() +
+  facet_wrap(~ marker, scales = "free_y")
+  
+```
+
+## 5.3 Filter and Scale the data
+``` {r}
+#### produce scatterplot
+data %>%
+  ggplot(aes(Ce140Di, DNA_191Ir)) +
+  geom_point(size = 0.1)
+```
+
+``` {r}
+#### set cutoff at ~ 750, blue is nice
+data %>%
+  ggplot(aes(Ce140Di, DNA_191Ir)) +
+  geom_point(size = 0.1) +
+  geom_vline(xintercept = 750, col = "blue")
+
+```
+
+``` {r}
+#### create new column --> beads_out: T or F
+# Normalization beads were measured alongside our cells. These beads are 
+# labelled with a well defined mixture of isotopes across the entire mass range 
+# and were used to account for day to day sensitivity changes in the machine’s detector. 
+# We need to filter out the bead events, so they don’t end up in our analysis. 
+# Because only beads are labelled with Cerium 140 (Ce140Di) we can use that channel 
+# to set an easy 1D cut-off.
+data <- data %>%
+  mutate(beads_out = ifelse(Ce140Di > 750, F,T))
+
+data %>%
+  dplyr::count(., beads_out) %>%
+  mutate(perc = n / sum(n) * 100)
+```
+
+``` {r}
+#### look at values of the markers
+#### visualize distributions with box-/violin plots
+#### beads should be filtered out
+data %>%
+  pivot_longer(pChk2:Dead_cells_195Pt,
+               names_to = "marker",
+               values_to = "value") %>%
+  ggplot(aes(marker, log2(value), col = marker)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+``` {r}
+data %>%
+  pivot_longer(pChk2:Dead_cells_195Pt,
+               names_to = "marker",
+               values_to = "value") #%>%
+  ggplot(aes(marker, log2(value), col = marker)) +
+  geom_violin() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+``` {r}
+#### use pseudo-count to include "0" values
+data <- data %>%
+  mutate_at(vars(pChk2:Dead_cells_195Pt), function(x) log2(x+1))
+```
+
+``` {r}
+#### Challenges in mass cytometry:
+#### lack of scatter info =!= flow cytometry
+#### therefore DNA-Intercalator & Event length used --> ggplot
+data %>%
+  filter(beads_out) %>%
+  ggplot(aes(DNA_191Ir, Event_length)) +
+  geom_point(alpha = 0.1, size = 0.3) +
+  geom_density_2d() +
+  geom_vline(xintercept = 7.25, col = "blue") +
+  geom_vline(xintercept = 9.25, col = "blue") +
+  geom_hline(yintercept = 12, col = "blue") +
+  geom_hline(yintercept = 16, col = "blue")
+```
+
+``` {r}
+#### visualize a new 2D filter that would filter out doublets and debris
+data <- data %>%
+  mutate(singlets = ifelse(  Event_length <= 16 &
+                             Event_length >= 12 &
+                             DNA_191Ir >= 7.25 &
+                             DNA_191Ir <= 9.25, T, F))
+  
+#### detect apoptotic cells & cell debris
+#### use the CISPLATIN stained samples (compound binds covalently to proteins,
+#### but cannot easily penetrate the cell membrane)
+#### ==> only cells with a comprimised cell membrane should have a high signal in the PLATIN channel!
+
+#### make scatter plot of DNA vs. dead cells (no beads, singlets only)
+#### new filter against high platin content (apop + debris)
+data %>%
+  filter(beads_out) %>%
+  filter(singlets) %>%
+  ggplot(aes(DNA_191Ir, Dead_cells_195Pt)) +
+  geom_point(alpha = 0.3) +
+  geom_density_2d() +
+  geom_hline(yintercept = 11.25, col = "blue")
+```
+
+``` {r}
+#### create new col called "low_platin" 
+#### --> singlets get label "T"
+#### --> doublets + debris get "F"
+data <- data %>%
+  mutate(low_platin = ifelse(Dead_cells_195Pt < 11.25, T,F))
+```
+
+``` {r}
+#### scatter plot DNA vs. dead cells, color-coded by low_platin
+#### no beads, singlets only
+
+data %>%
+  filter(beads_out) %>%
+  filter(singlets) %>%
+  ggplot(aes(DNA_191Ir, Dead_cells_195Pt, col = low_platin)) +
+  geom_point(alpha = 0.3) +
+  geom_density2d()
+```
+
+``` {r}
+data %>%
+  filter(beads_out) %>%
+  filter(singlets) %>%
+  filter(low_platin == T) %>%
+  ggplot(aes(DNA_191Ir, Dead_cells_195Pt, col = low_platin)) +
+  geom_point(alpha = 0.3) +
+  geom_density2d()
+#### Percentage of data with no beads + singlets + low_platin
+#### 95483/114932 = 0.8307782 ??
+```
+
+## 5.4 Principal Component Analysis
+``` {r}
+pca.plot.data <- data %>%
+  filter(  beads_out &
+           singlets &
+           low_platin)
+#### my Alternative
+#low_pt <- data %>%
+#  filter(beads_out) %>%
+#  filter(singlets) %>%
+#  filter(low_platin == T)
+
+#### optional to get plot like in paper: filter untreated cells too
+#### filter(treatment == "untreated" & line == "KRAS")
+
+pca <- data %>%
+  filter(beads_out, singlets, low_platin) %>%
+  dplyr::select(c(CD24, CD44, EphB2, Krt20, cCasp3)) %>%
+  scale() %>%
+  prcomp()
+
+pca.plot.data <- pca$x %>%
+  as_tibble() %>%
+  bind_cols(pca.plot.data, .)
+
+#### normal plot
+pca.plot.data %>%
+  ggplot(aes(PC1, PC2)) +
+  #scale_x_reverse() +
+  geom_point(size = 0.1)
+```
+
+``` {r}
+#### colored by CD44
+pca.plot.data %>%
+  ggplot(aes(PC1, PC2)) +
+  geom_point(size = 0.1) +
+  scale_color_viridis(option = "inferno")
+```
+
+``` {r}
+#### color the dots in your PCA using the values of different signalling markers
+pca_col_data <- pca.plot.data %>%
+  pivot_longer(values_to = "value",
+               names_to = "marker",
+               cols = c(cCasp3, CD24, CD44, EphB2, Krt20)) %>%
+  dplyr::select(PC1, PC2, value, marker)
+
+pca_col_data %>%
+  ggplot(aes(PC1, PC2, col = value)) +
+  geom_point(size = 0.1) +
+  scale_color_viridis(option = "inferno") +
+  facet_wrap(~ marker)
+
+#### diff. color options
+# inferno
+# magma
+# plasma
+# inferno
+# cividis
+```
+
+## 5.5 Clustering
+``` {r}
+#### k Means
+#### cluster into 6 clustersm color code the pca plot by cluster
+#### cluster cells multiple times, what happens?
+
+fitk <- pca.plot.data %>%
+  dplyr::select(c(CD24, CD44, EphB2, Krt20, cCasp3)) %>%
+  scale() %>%
+  kmeans(centers = 6)
+
+pca.plot.data <- pca.plot.data %>%
+  mutate(cluster = as.factor(fitk$cluster))
+
+#library(RColorBrewer)
+#display.brewer.all()
+pca.plot.data %>%
+  ggplot(aes(PC1, PC2, col = cluster)) +
+  geom_point(size = 0.1) +
+  scale_color_brewer(palette = "Dark2",
+                     direction = -1)
+```
+
+## 5.6 Heatmap representation of perturbation data
+``` {r}
+#### visualize changes in signalling by cluster, treatment, cell line w/ HEATMAP
+#### group by cluster, treatment, cell line
+#### calculate mean signal values within groups for markers of choice
+#### plot w/ geom_tile & facet_grid
+
+heatmap_data <- pca.plot.data %>%
+  pivot_longer(c("p4e-BP1",
+                 "Axin2",
+                 "pERK", 
+                 "IkBa", 
+                 "pMEK",
+                 "p-p38",
+                 "pS6"),
+               names_to = "marker",
+               values_to = "value") %>%
+  group_by(cluster, treatment, line, marker) %>%
+  summarise(value = mean(value))
+
+heatmap_data %>%
+  ggplot(aes(marker,treatment, fill = value)) +
+  geom_tile() +
+  facet_grid(cluster ~ line) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_viridis(option = "inferno")
+#### there are some clusters with higher overall signalling activity
+#### how are these clusters characterized? 
+#### (how is the expression of the cell-type markers in these clusters???)
+```
+
+``` {r}
+#### Better assess the effects of treatments:
+#### calculate signal changes compared to the untreated control
+#### plot results in similar heatmap
+background <- pca.plot.data %>%
+  pivot_longer(c("p4e-BP1",
+                 "Axin2",
+                 "pERK", 
+                 "IkBa", 
+                 "pMEK",
+                 "p-p38",
+                 "pS6"),
+               names_to = "marker",
+               values_to = "value") %>%
+  #### (1) compute mean signal values for the control condition of FLUC untreated
+  filter(treatment == "untreated" & line == "FLUC") %>%
+  group_by(marker) %>%
+  summarise(background_value = mean(value))
+
+heatmap_data %>%
+  left_join(background, by = "marker") %>%
+  #### (2) substact these background values from all other conditions (log2)
+  mutate(log2_fold_change = value - background_value) %>%
+  #### (3) plot w/ geom_tile  +  facet_grid
+  ggplot(aes(marker,treatment, fill = log2_fold_change)) +
+  geom_tile() +
+  facet_grid(cluster ~ line) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_gradient2(low = "blue",
+                       high = "red",
+                       midpoint = 0)
+```
+
+
+
+
+
+
+# CHAPTER 6 - Cy-TOF ADVANCED #################################################
+
+## 6.1. Loading libraries and content
+``` {r}
+library(tidyverse)
+library(cowplot)
+library(viridis)
+library(scales)
+library(sp)
+#install.packages("hexbin")
+library(hexbin)
+theme_set(theme_cowplot())
+
+data      <- read_csv("~/Documents/Programming/R/BioInf/Dateien für Kurs-20210609/limos_180907_R_course.csv")
+name.key  <- read_csv("~/Documents/Programming/R/BioInf/Dateien für Kurs-20210609/name_key.csv")# %>% deframe()
+#data_named <- data %>% rename(all_of(name.key))
+
+arrange(data)
+arrange(name.key)
+col_table <- tibble(colnames = colnames(data)) %>%
+  left_join(name.key, by = c("colnames" = "channel")) %>%
+  mutate(new_colnames = ifelse(is.na(name), colnames, name))
+colnames(data) <- col_table %>%
+  pull(new_colnames)
+```
+
+## 6.2 First Quality Checks (advanced), improved graphics
+``` {r}
+data %>%
+  ggplot(aes(Time, DNA_191Ir)) +
+  geom_hex(bins = 128,
+           show.legend = F, aes(col = ..count..)) +
+  scale_fill_viridis(option = "inferno") +
+  scale_color_viridis(option = "inferno") +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()
+        )
+```
+
+``` {r}
+data %>%
+  ggplot(aes(Ce140Di, DNA_191Ir)) +
+  geom_point(size = 0.1) +
+  geom_vline(xintercept = 750, col = "blue")
+```
+
+``` {r}
+data <- data %>%
+  mutate(beads_out = between(Ce140Di, -Inf, 750))
+# normal: data <- data %>%
+#  mutate(beads_out = ifelse(Ce140Di > 750, F,T))
+
+plot <- data %>%
+  pivot_longer(pChk2:Dead_cells_195Pt,
+               names_to = "marker",
+               values_to = "values") %>%
+  ggplot(aes(marker, values, col = marker)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+``` {r}
+plot + geom_boxplot()
+```
+
+``` {r}
+plot + geom_violin()
+```
+
+``` {r}
+plot + geom_violin() + scale_y_log10()
+```
+
+``` {r}
+# change to log2 scale
+plot +
+  geom_violin() +
+  scale_y_continuous(trans = "log1p")
+```
+
+``` {r}
+# advanced solution: create a custom "asinh" transformer
+## asinh gives obvious hyperbolic functions, respectively compute 
+## hyperbolic cosine, sine, tangent, + inverses
+asinh_trans <- function(x) {
+  trans_new(
+    name = "asinh",
+    transform = "asinh",
+    inverse = "sinh",
+    format = trans_format("log10", math_format(10^.x))
+  )
+}
+
+plot + geom_violin() + scale_y_continuous(trans = "asinh", breaks = c(10^(1:4)))
+```
+
+``` {r}
+# plot as density plots instead, use facet_wrap to splot up multiple plots by marker
+data %>%
+  pivot_longer(pChk2:Dead_cells_195Pt,
+               names_to = "marker",
+               values_to = "value") %>%
+  ggplot(aes(value, col = marker)) +
+  geom_line(stat = "density") +
+  facet_wrap(~ marker, scales = "free_y", ncol = 4) +
+  scale_x_continuous(trans = "asinh", breaks = c(10^(1:4)))
+```
+
+``` {r}
+# filter data for beads_out
+# produce scatter plot for DNA vs. Event_length
+# visualize a new 2D filter for filtering doublets + debris, save filter
+
+data %>%
+  filter(beads_out) %>%
+  ggplot(aes(DNA_191Ir, Event_length)) +
+  geom_point(size = 0.1) +
+  geom_density_2d() +
+  annotate("rect",
+           xmin = 70, xmax = 1300,
+           ymin = 12, ymax = 15,
+           col = "red", alpha = 0) +
+  scale_x_continuous(trans = "asinh",
+                     breaks = c(10^(1:4)),
+                     limits = c(0, 1e4)) +
+  background_grid(major = "xy",
+                  minor = "none")
+```
+
+``` {r}
+data <- data %>%
+  mutate(singlets = between(DNA_191Ir, 70, 1300) & 
+                    between(Event_length, 12, 15))
+
+#### detect apoptotic cells & cell debris
+#### use the CISPLATIN stained samples (compound binds covalently to proteins,
+#### but cannot easily penetrate the cell membrane)
+#### ==> only cells with a comprimised cell membrane should have a high signal in the PLATIN channel!
+#### make scatter plot of DNA vs. dead cells (no beads, singlets only)
+#### new filter against high platin content (apop + debris)
+
+data %>%
+  filter(beads_out) %>%
+  ggplot(aes(DNA_191Ir, Dead_cells_195Pt)) +
+  geom_point(size = 0.1) +
+  geom_density_2d() +
+  background_grid(major = "xy", minor = "none") +
+  scale_x_continuous(trans = "asinh", breaks = c(10^(1:4))) +
+  scale_y_continuous(trans = "asinh", breaks = c(10^(1:4))) +
+  # add polygon
+  annotate(geom = "polygon",
+           x = c(70, 70, 1300, 1300),
+           y = c(8, 1000, 6000, 19),
+           col = "blue",
+           fill = "transparent")
+```
+
+``` {r}
+data <- data %>%
+  mutate(low_plat = point.in.polygon(point.x = DNA_191Ir,
+                                     point.y = Dead_cells_195Pt,
+                                     pol.x = c(70, 70, 1300, 1300),
+                                     pol.y = c(8, 1000, 6000, 19)))
+
+```
+
+## 6.3 PCA Advanced
+``` {r}
+pca.plot.data <- data %>%
+  dplyr::filter(beads_out & low_plat & singlets) #%>%
+  filter(treatment == "untreated" & line == "KRAS")
+
+pca <- pca.plot.data %>%
+  dplyr::select(c(CD24, CD44, EphB2, Krt20, cCasp3)) %>%
+  mutate_all(asinh) %>%
+  scale() %>%
+  prcomp()
+
+
+pca.plot.data <- pca$x %>%
+  as_tibble() %>%
+  bind_cols(pca.plot.data, .)
+
+
+pca.plot <- pca.plot.data %>%
+  ggplot(aes(PC1, PC2)) +
+  geom_point(size = 0.1) +
+  scale_x_reverse()
+```
+
+``` {r}
+p1 <- pca.plot +
+  aes(col = pERK) +
+  scale_color_viridis(option = "inferno",
+                      trans = "asinh",
+                      breaks = c(10^(1:4)))
+p2 <- pca.plot +
+  aes(col = pS6) +
+  scale_color_viridis(option = "inferno",
+                      trans = "asinh",
+                      breaks = c(10^(1:4)))
+p3 <- pca.plot +
+  aes(col = EphB2) +
+  scale_color_viridis(option = "inferno",
+                      trans = "asinh",
+                      breaks = c(10^(1:4)))
+p4 <- pca.plot +
+  aes(col = cCasp3) +
+  scale_color_viridis(option = "inferno",
+                      trans = "asinh",
+                      breaks = c(10^(1:4)))
+plot_grid(p1, p2, p3, p4, nrow = 2) # col options above: inferno, magma, plasma, cividis
+```
+
+``` {r}
+plot_like_five <- pca.plot.data %>%
+  pivot_longer(values_to = "value",
+               names_to = "marker",
+               cols = c(pERK, pS6, EphB2, cCasp3)) %>%
+  dplyr::select(PC1, PC2, value, marker)
+
+
+plot_like_five %>%
+  ggplot(aes(PC1, PC2, col = value)) +
+  geom_point(size = 0.1) +
+  scale_x_reverse() +
+  scale_color_viridis(option = "inferno",
+                      trans = "asinh",
+                      breaks = c(10^(1:4))) +
+  facet_wrap(~ marker)
+```
+
+## 6.4 Clustering advanced (kMeans)
+``` {r}
+fitk <- pca.plot.data %>%
+  dplyr::select(c(CD24, CD44, EphB2, Krt20, cCasp3)) %>%
+  mutate_all(asinh) %>%
+  kmeans(centers = 6)
+
+pca.plot.data.fit <- pca.plot.data %>%
+  mutate(cluster = as_factor(fitk$cluster))
+
+pca.plot.data.fit %>%
+  ggplot(aes(PC1, PC2, col = cluster)) +
+  geom_point(size = 0.5)
+```
+
+## 6.5 Heatmap representation of perturbation data advanced
+``` {r}
+heatmap_data <- pca.plot.data.fit %>%
+  pivot_longer(c("p4e-BP1", "Axin2", "pERK", "IkBa", "pMEK", "p-p38", "pS6"),
+               names_to = "marker",
+               values_to = "value") %>%
+  group_by(cluster, treatment, line, marker) %>%
+  summarise(value = mean(value))
+
+heatmap_data %>%
+  ggplot(aes(marker,treatment, fill = value)) +
+  geom_tile() +
+  facet_grid(cluster ~ line) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_viridis(option = "inferno", 
+                     trans = "asinh", 
+                     breaks = c(10^(1:4)))
+```
+
+``` {r}
+# background stuff
+background <- pca.plot.data.fit %>%
+  pivot_longer(c("p4e-BP1", "Axin2", "pERK", "IkBa", "pMEK", "p-p38", "pS6"),
+               names_to = "marker",
+               values_to = "value") %>%
+  mutate(value = log2(value + 1)) %>% # forgot this line.. now everything works!
+  filter(treatment == "untreated", line == "FLUC") %>%
+  group_by(marker) %>%
+  summarise(background_value = mean(value))
+
+```
+
+## Bonus: Transform data points with log2(x + 1) to get more descriptive log2 fold changes
+``` {r}
+pca.plot.data.fit %>% 
+  pivot_longer(c("p4e-BP1", "Axin2", "pERK", "IkBa", "pMEK", "p-p38", "pS6"), 
+               names_to = "marker", 
+               values_to = "value") %>%
+  mutate(value = log2(value + 1)) %>% 
+  group_by(cluster, treatment, line, marker) %>% 
+  summarise(value = mean(value)) %>% 
+  left_join(background, by = "marker") %>%
+  mutate(log2fc = value - background_value) %>% 
+  
+  ggplot(aes(x = marker, y = treatment, fill = log2fc)) + 
+  geom_tile() + facet_grid( cluster ~ line) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  scale_fill_gradient2(low = "blue",
+                       high = "red", 
+                       midpoint = 0)
+```

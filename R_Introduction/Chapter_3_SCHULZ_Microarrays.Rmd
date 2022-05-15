@@ -1,0 +1,318 @@
+---
+title: "Computational Biology Course Summary SoSe21"
+author: Finn Lo
+output:
+  html_document:
+    toc: yes
+    number_section: no
+    fig_caption: true
+  pdf_document:
+    toc: yes
+  always_allow_html: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+
+
+# CHAPTER 3 - SCHULZ ET AL. - MICROARRAYS ########################################
+
+## 3.1 Loading libraries and data
+``` {r}
+library(tidyverse)
+library(dplyr)
+library(viridis)
+library(viridisLite)
+```
+
+``` {r}
+eset <- read_tsv(file = "CompBio_Data/eset_schulz.tsv.gz")
+go_0019827  <- read_tsv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/select.txt", col_names = F)
+```
+
+## 3.2 Calculate distances
+``` {r}
+eset_red <- eset %>% dplyr::select(-ensembl, -symbol)
+eset_red
+
+#### use dist() to calculate different distance matrices
+#### available distances: method = "manhattan" "euclidian", "maximum", "binary", "canberra", "minkowski"
+distanceMat <- eset_red %>%
+  t() %>%
+  dist() %>%
+  as.matrix()
+#distanceMat
+
+dis_Mat1 <- eset_red %>%
+  t() %>%
+  dist(method = "manhattan") %>% 
+  as.matrix()
+#dis_Mat1
+
+
+#### tidy up the table:
+  #### turn it into a tibble
+dis_table <- as_tibble(dis_Mat1, rownames = "Sample1") %>%
+  #### put each obs. in one row
+  pivot_longer(cols = -Sample1, 
+               names_to = "Sample2", 
+               values_to = "distance") %>%
+  #### remove "B" and "C" from sample names
+  mutate(Sample1 = str_remove(Sample1, "[BC]"),
+         Sample2 = str_remove(Sample2, "[BC]")) %>%
+  #### split Sample names into line + time
+  separate(Sample1, c("line1", "time1"), sep = "_", convert = T) %>%
+  separate(Sample2, c("line2", "time2"), sep = "_", convert = T)
+dis_table
+
+#### we want to look at similarities between XX and XO only  -> filter for all distances between line1 and line2
+distXXvsXO <- dis_table %>% 
+              filter(line1 == "XX",
+                     line2 == "XO")
+#### for easier comparison -> rescale distances to a range b/w 0 and 1
+#### after scaling we can immediately plot dist. as a heat map
+#### NO clustering in rows or columns, b/c this would change ordering in time
+distXXvsXO <- distXXvsXO %>% mutate(normalized = (distance - min(distance)) / (max(distance)-min(distance)))
+distXXvsXO %>%
+  ggplot(aes(time2, time1, fill = normalized)) +
+  geom_tile() +
+  scale_fill_viridis() +
+  labs(x = "XO", y = "XX")
+```
+
+``` {r}
+#### XO vs. XY cells
+distXOvsXY <- dis_table %>%
+  filter(line1 == "XO",
+         line2 == "XY")
+distXOvsXY <- distXOvsXY %>% mutate(normalized = (distance - min(distance)) / (max(distance)-min(distance)))
+distXOvsXY %>%
+  ggplot(aes(time2, time1, fill = normalized)) +
+  geom_tile() +
+  scale_fill_viridis() +
+  labs(x = "XY", y = "XO")
+```
+
+``` {r}
+#### XX vs. XY cells
+distXXvsXY <- dis_table %>%
+  filter(line1 == "XX",
+         line2 == "XY")
+distXXvsXY <- distXXvsXY %>% mutate(normalized = (distance - min(distance)) / (max(distance)-min(distance)))
+distXXvsXY %>%
+  ggplot(aes(time2, time1, fill = normalized)) +
+  geom_tile() +
+  #grayscale ==> scale_fill_gradient()
+  scale_fill_viridis() +
+  labs(x = "XY", y = "XX")
+
+```
+
+## 3.3 Annotation and PCA
+``` {r}
+#### Second Part: Goal --> reproduce fig. 2d with PCA of genes w/ GO-Term "Stem cell population maintenance"
+#### How many genes are annotated "-,-" for mouse? 182 genes
+#### How many genes are annotated "-,-" for human? 151 genes
+
+go_0019827  <- read_tsv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/select.txt", col_names = F)
+eset        <- read_tsv(file = "CompBio_Data/eset_schulz.tsv.gz")
+
+genes_stem_cell <- go_0019827 %>%
+                  pull(X2) %>%
+                  unique()
+genes_other <- eset %>%
+                  pull(symbol) %>%
+                  unique()
+
+#### extract genes related to the GO term, using the expression matrix from earlier (eset_red)
+stemcellEset <- eset %>%
+                filter(symbol %in% genes_stem_cell)
+
+
+#### use prcomp() --> performs principal components analysis on the dataset given
+stemcellEset_Matrix <- stemcellEset %>%
+                      dplyr::select(-ensembl, -symbol) %>%
+                      as.matrix()
+
+pcaAll <- stemcellEset_Matrix %>%
+  t() %>%
+  prcomp()
+
+plot(pcaAll$x, las = 1) # las = axis label orientation
+
+#### 3 trajectories --> do cells from the same line behave similarly?
+#### use ggplot to define colors for XX, XO, XY in PCA with color ad illustrate time w/ point size
+
+#### filter and change PCA data first:
+pcaAll1 <- pcaAll$x %>% 
+  as_tibble(rownames = "sample") %>%
+  mutate(sample = str_remove(sample, "[BC]")) %>%
+  separate(sample, c("line", "time"), sep = "_", convert = T) %>%
+  dplyr::select(line, time, PC1, PC2)
+
+# PC1 and PC2 represent the stem cell maintainers, better represent this signature
+pcaAll1 %>%
+  ggplot(aes(PC1, PC2, col = line, size = time)) +
+  geom_point()
+```
+
+# 3.4 Quantify delay
+``` {r}
+#### compare delays for all genes in XX vs. XO by calculating the delay scores
+#### (1) SMOOTHING:   apply running average over 24h to smooth out time series
+#### (2) SLOPE:       calculate slope (i.e. differentiate the time series)
+#### (3) DELAY SCORE: calculate average absolute slope
+####                  numbers == score on how quickly a gene is regulated
+####                  diff. between scores for diff. datasets allows assessment of 
+####                  how much each time series is delayed in respect to another.
+
+
+#### (1) SMOOTHING: apply running average over 24h to smooth out time series
+smooth <- function(x) {
+  stats::filter(x, rep(1/24, 24))
+}
+
+eset        <- read_tsv(file = "CompBio_Data/eset_schulz.tsv.gz")
+go_0019827  <- read_tsv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/select.txt", col_names = F)
+
+smoothed_eset <- eset %>%
+  pivot_longer(cols = XOB_0:XYC_84,
+               names_to = "samples",
+               values_to = "values") %>%
+  mutate(samples = str_remove(samples, "[BC]")) %>%
+  separate(samples, c("line", "time"), sep = "_", convert = T) %>%
+  group_by(ensembl, symbol, line) %>%
+  arrange(time) %>%
+  mutate(smoothed = smooth(values)) %>%
+  ungroup()
+smoothed_eset
+
+
+Nanog <- smoothed_eset %>%
+  filter(symbol == "Nanog") %>%
+  mutate(days = time / 24) %>%
+  ggplot(aes(x = days, color = line)) +
+  geom_point(aes(y = values),alpha = 0.5) +
+  geom_smooth(aes(y = values), size = 2)
+Nanog
+```
+
+``` {r}  
+
+#### (2) SLOPE: calculate slope
+diff_eset <- smoothed_eset %>%
+  group_by(ensembl, 
+           symbol, 
+           line) %>%
+  arrange(time) %>%
+  mutate(difference = c(diff(smoothed),NA))
+
+diff_eset %>%
+  filter(symbol == "Nanog") %>%
+  ggplot(aes(time, 
+             difference, 
+             col = line)) +
+  geom_line()
+```
+
+``` {r}
+#### (3) DELAY SCORE: calculate average absolute slope
+#### by averaging the absolute difference
+#### use pivot_wider() to generate 1 col per cell line
+#### then calculate delay score by subtracting delay of one cell line fr/ another
+
+# CORRECT THIS!
+mean_diff <- diff_eset %>%
+  filter(!is.na(difference)) %>%
+  group_by(symbol, ensembl, line) %>%
+  summarise(mean_delay = mean(abs(difference))) %>%
+  pivot_wider(names_from = line, 
+              values_from = mean_delay)
+mean_diff
+
+##### XO vs. XX
+score_delay <- mean_diff %>%
+  mutate(delay_score = XO-XX)
+
+score_delay_stem <- score_delay %>%
+  left_join(tibble(symbol = unique(go_0019827$X2), stem = T))
+  
+stemT <- score_delay_stem %>%
+  filter(stem == T) %>%
+  pull(delay_score)
+
+stemNA <- score_delay_stem %>%
+  filter(is.na(stem)) %>%
+  pull(delay_score)
+
+test <- t.test(stemT, stemNA)
+```
+
+``` {r}
+ggplot(score_delay_stem, aes(delay_score, color = stem)) +
+  ggtitle(paste0("Delay score XO vs. XX (p = ",round(test$p.value,6),")")) +
+  geom_density()
+# p-value = 0.0003876
+
+```
+
+``` {r}
+#### Here we compared XO vs. XX, how about the other comparisons?
+##### XX vs. XY
+score_delay <- mean_diff %>%
+  mutate(delay_score = XX-XY)
+
+score_delay_stem <- score_delay %>%
+  left_join(tibble(symbol = unique(go_0019827$X2), stem = T))
+
+stemT <- score_delay_stem %>%
+  filter(stem == T) %>%
+  pull(delay_score)
+
+stemNA <- score_delay_stem %>%
+  filter(is.na(stem)) %>%
+  pull(delay_score)
+
+test <- t.test(stemT, stemNA)
+```
+
+``` {r}
+ggplot(score_delay_stem, aes(delay_score, color = stem)) +
+  ggtitle(paste0("Delay score XX vs. XY (p = ",round(test$p.value,6),")")) +
+  geom_density()
+# p-value = 0.001819
+```
+
+``` {r}
+
+##### XO vs. XY
+score_delay <- mean_diff %>%
+  mutate(delay_score = XO-XY)
+score_delay
+
+score_delay_stem <- score_delay %>%
+  left_join(tibble(symbol = unique(go_0019827$X2), stem = T))
+
+stemT <- score_delay_stem %>%
+  filter(stem == T) %>%
+  pull(delay_score)
+
+stemNA <- score_delay_stem %>%
+  filter(is.na(stem)) %>%
+  pull(delay_score)
+
+test <- t.test(stemT, stemNA)
+# p-value = 0.6818
+```
+
+``` {r}
+  ggplot(score_delay_stem, aes(delay_score, color = stem)) +
+  ggtitle(paste0("Delay score XO vs. XY (p = ",round(test$p.value,4),")")) +
+  geom_density()
+
+
+# all p-values gathered:
+# p-value = 0.0003876   --> XX-XO
+# p-value = 0.001819    --> XX-XY
+# p-value = 0.6818      --> X0-XY
+```
+
+

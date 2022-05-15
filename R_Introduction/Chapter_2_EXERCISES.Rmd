@@ -1,0 +1,429 @@
+---
+title: "Computational Biology Course Summary SoSe21"
+author: Finn Lo
+output:
+  html_document:
+    toc: yes
+    number_section: no
+    fig_caption: true
+  pdf_document:
+    toc: yes
+  always_allow_html: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+
+# CHAPTER 2 - EXERCISES
+
+## 2.1 Setup
+``` {r, echo = F, message = F, warning = F}
+library(tidyverse)
+library(dplyr)
+```
+
+## 2.2 Plotting data sampled from a normal distribution
+``` {r, 2.2. Plotting}
+#### generate random data
+nd <- rnorm(1000, mean = 100, sd = 15)
+
+#### plot using base-R
+
+hist(nd)
+```
+
+``` {r}
+plot.ecdf(nd)
+```
+
+``` {r}
+#### convert data into tibble and use ggplot()
+dat <- tibble(iq = nd)
+
+#### plot histogram of data with ggplot
+??geom_vline # add reference lines, e.g. here on x-axis, but also horizontal or vertical
+ggplot(dat, aes(iq)) +
+  geom_histogram(fill = "blue") +
+  geom_vline(aes(xintercept = 100))
+```
+
+``` {r}
+#### plot cumulative distribution of the data
+ggplot(dat, aes(iq)) + 
+  stat_ecdf() +
+  geom_hline(yintercept = c(0,1), linetype = 4) +
+  labs(x = "Value", y = "Cumulative Distribution") +
+  theme_bw()
+```
+
+## 2.3 Summarising a dataset
+``` {r, 2.3. Summarizing}
+#### given is the age of patients in a study
+#### 31, 39, 21, 45, 26, 78, 40, 23, 61, 40, 36, 59, 43
+
+#### Our dataset
+data <- tibble(age = c(31, 39, 21, 45, 26, 78, 40, 23, 61, 40, 36, 59, 43))
+
+#### a) calculate median, lower + upper quartile, 10% quantile
+data %>%
+  summarise(median = median(age),
+            lower  = quantile(age, 0.25),
+            upper  = quantile(age, 0.75),
+            '10%'  = quantile(age, 0.1)
+            )
+
+
+#### b) calculate mean, SD, variance, coefficient of variation
+
+data %>%
+  summarise(mean = mean(age),
+            sd   = sd(age),
+            var  = sd^2,
+            cv   = sd / mean
+            )
+
+#### c) draw boxplot + histogram
+
+data %>%
+  ggplot(aes(y = age)) +
+  geom_boxplot() +
+  theme_classic()
+```
+
+``` {r}
+data %>%
+  ggplot(aes(x = age)) +
+  geom_histogram() +
+  theme_classic()
+```
+
+## 2.4 Estimating mean and SD
+``` {r, 2.4 Estimating}
+i_max <- 100
+n <- 3
+random_numbers <- tibble( x=rnorm(n*i_max),
+                          i=rep(1:i_max,n) ) # give index 1 to 100
+random_numbers
+random_numbers %>% 
+  group_by( i ) %>% 
+  summarise( m=mean(x) ) %>% 
+  mutate( sd_mean=sd(m) ) %>%# summarise or mutate is fine here
+  ggplot(aes(m)) +
+  geom_histogram()
+```
+
+``` {r}
+std_mean <- function(i_max,n)  { # how to create function in R
+  random_numbers <- tibble( x=rnorm(n*i_max),
+                            i=rep(1:i_max,n) )
+  ret_value <- random_numbers %>% # return value 
+    group_by( i ) %>% # group by index
+    summarise( m = mean(x) ) %>% 
+    summarise( sd_mean=sd(m) ) %>% pull(sd_mean) # to only take the sd_mean, "." or "$" also works
+  return( ret_value )
+}
+
+#### Try out the function
+std_mean( 100, 3 )
+std_mean(100, 100)
+std_mean(100, 1000)
+
+results<- tibble(n=1:100,sd_mean=NA) 
+for (n in 2:100) {
+  results$sd_mean[n]=std_mean(100,n)
+}
+results
+
+results <- results %>%
+  mutate(theo_sd_mean = 1 / sqrt(n))
+results
+results %>%
+  ggplot(aes(n, sd_mean)) +
+  geom_point() +
+  geom_line(aes(y = theo_sd_mean), color = "red")
+```
+
+``` {r}
+#### Estimating Variance 
+results %>%
+  ggplot(aes(n, sd_mean^2)) +
+  geom_point() +
+  geom_line(aes(y = theo_sd_mean^2), color = "red")
+```
+
+``` {r}
+#### another option
+meanvals <- NA
+results <- matrix(NA, nrow = 1000, ncol = 3) %>%
+  as.data.frame()
+colnames(results) <- c("n_samples", "sd_mean", "variance_mean")
+
+for (n in 1:1000) {
+  for(i in 1:100){
+    meanvals[i] <- rnorm(n, mean = 0, sd = 1) %>%
+      mean()
+  }
+  results$n_samples[n]      <- n
+  results$sd_mean[n]        <- sd(meanvals)
+  results$variance_mean[n]  <- var(meanvals)
+}
+```
+# 2.5 Multiple Testing 
+``` {r}
+#### load finger data
+finger1 <- read.csv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/finger1.csv", skip = 2)
+finger1
+  
+#### OFFICIAL CLEANING
+finger_clean <- finger1 %>%
+  mutate(PLZ = ifelse(PLZ > 100, PLZ-100, PLZ)) %>% # sorts wrongly input PLZ (eg. 105 --> 5)
+  mutate(include = !is.na(PLZ)) %>%
+  dplyr::filter(include) %>%
+  mutate(id = 1:n()) %>% # counts all entries
+  dplyr::select(!include) %>% # includes all entries that have a PLZ
+  mutate(id =1:n()) %>% # counts all entries w/ PLZ now
+  pivot_longer(values_to = "length",
+               names_to = "finger",
+               cols = !c(PLZ, id)) %>% # all cols are taken over except PLZ + id
+  mutate(length = ifelse(length > 10, # if finger length is longer than 10 cm ( = unlikely)
+                         length / 10, # simply divides those numbers by 10 to get a realistic number
+                         length)) %>%
+  pivot_wider(values_from = "length", # the purpose of the pivot_longer was
+              names_from = "finger" ) # to clean all the data and then put it back into the old cols
+
+finger_clean %>%
+  ggplot(aes(L1))+
+  geom_point(aes(y = L2), col = "red") +
+  geom_smooth(aes(y = L2), col = "red", se = F) +
+  geom_point(aes(y = L3), col = "blue") +
+  geom_smooth(aes(y = L3), col = "blue", se = F) +
+  geom_point(aes(y = L4), col = "green") +
+  geom_smooth(aes(y = L4), col = "green", se = F) +
+  geom_point(aes(y = L5), col = "yellow") +
+  geom_smooth(aes(y = L5), col = "yellow", se = F)
+```
+
+``` {r}
+finger_clean %>%
+  pivot_longer(values_to = "value",
+               names_to = "col",
+               !id) %>%
+  ggplot(aes(value)) +
+  geom_histogram() +
+  facet_wrap(~col)
+```
+
+``` {r}
+finger_ratios <- finger_clean %>%
+  mutate(L1_L2 = L1/L2, L1_L3 = L1/L3, L1_L4 = L1/L4, L1_L5 = L1/L5,
+         L2_L3 = L2/L3, L2_L4 = L2/L4, L2_L5 = L2/L5,
+         L3_L5 = L3/L5,
+         L4_L5 = L4/L5) %>%
+  mutate(R1_R2 = R1/R2, R1_R3 = R1/R3, R1_R4 = R1/R4, R1_R5 = R1/R5,
+         R2_R3 = R2/R3, R2_R4 = R2/R4, R2_R5 = R2/R5,
+         R3_R5 = R3/R5,
+         R4_R5 = R4/R5)
+finger_ratios
+
+
+finger_ratios %>%
+  dplyr::select(PLZ, contains("_")) %>%
+  pivot_longer(values_to = "value",
+               names_to = "ratios",
+               !PLZ) %>%
+  mutate(PLZclass = ifelse(PLZ < 5, TRUE, FALSE)) %>%
+  ggplot(aes(PLZclass, value, col = PLZclass)) + 
+  geom_boxplot() +
+  facet_grid(~ratios) +
+  theme(axis.text.x = element_text(angle = 90))
+  
+p_values <- finger_ratios %>%
+  summarise(across(matches("_"), ~t.test(.[PLZ>=5], .[PLZ < 5],var.equal = T) $p.value))
+
+p.adjust(p_values, method = 'bonferroni')
+p.adjust(p_values, method = 'BH')
+```
+
+# 2.6 Normalization of gene expression
+``` {r}
+data_norm <- read.csv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/normalisation.csv")
+data_norm
+
+plot(data_norm)
+
+data_norm %>%
+  ggplot(aes(set1, set2, label = Gen, col = Gen)) +
+  geom_point() +
+  geom_label()
+```
+
+``` {r}
+#### find gene with max change in expression
+maxgene <- data_norm %>%
+  mutate(change = abs(set1 - set2)) %>%
+  filter(change == max(change))
+  #%>% slice(1) in case of a tie
+maxgene
+
+# perform Z-Normalization (mean = 0, sd = 1)
+
+my_Scale = function(x) {
+  (x - mean(x)) / sd(x)
+}
+# Scale() does exactly the same, we don't have to define new function for this..
+
+z_norm_data <- data_norm %>%
+  mutate(across(c(set1, set2), my_Scale))
+z_norm_data
+
+library(tidyverse)
+library(dplyr)
+#### alternative to Z-normalization ==> do a quantile normalization
+quantile_norm_data <- data_norm %>%
+  pivot_longer(set1:set2, 
+               names_to = "set", 
+               values_to = "value") %>%
+  group_by(set) %>%
+  mutate(rank = rank(value)) %>%
+  ungroup() %>%
+  group_by(rank) %>%
+  mutate(value = mean(value)) %>%
+  ungroup() %>%
+  dplyr::select(-rank) %>%
+  pivot_wider(names_from = set,
+              values_from = value)
+
+quantile_norm_data
+```
+
+``` {r}
+#### find the gene with max change in expression after quant_norm
+new_maxgene <- quantile_norm_data %>%
+  mutate(change = abs(set1 - set2)) %>%
+  filter(change == max(change))
+  #%>% slice(1) in case of tie
+new_maxgene
+
+data_norm %>%
+  mutate(type = "original") %>%
+  rbind(z_norm_data %>%
+          mutate(type = "zscore")) %>%
+  rbind(quantile_norm_data %>%
+          mutate(type = "quantile")) %>%
+  ggplot(aes(set1, set2, col = Gen)) +
+  geom_point() +
+  facet_wrap(~ type, scale = "free")
+
+#### make Scatterplots with 
+#### raw data
+#### Z norm data
+#### quant norm data
+```
+
+``` {r}
+#### raw data
+data_norm %>%
+  ggplot(aes(set1, set2, col = Gen)) +
+  geom_point() +
+  theme_bw()
+```
+
+``` {r}
+#### Z norm data
+z_norm_data %>%
+  ggplot(aes(set1, set2, col = Gen)) +
+  geom_point() +
+  theme_bw()
+```
+
+``` {r}
+#### quant norm data
+quantile_norm_data %>%
+  ggplot(aes(set1, set2, col = Gen)) +
+  geom_point() +
+  theme_bw()
+```
+
+
+# 2.7 Correlation
+``` {r}
+data_norm <- read.csv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/normalisation.csv")
+data_norm
+
+#### calculate Pearson-Correlation between all raw and diff. normalized samples
+data_norm %>%
+  left_join(z_norm_data, by = "Gen", suffix = c("", "z")) %>%
+  left_join(quantile_norm_data, by = "Gen", suffix  = c("", "q")) %>%
+  select_if(is.numeric) %>%
+  cor(method = "pearson")
+#### calculate Rank-Correlation between all raw and diff. normalized samples
+data_norm %>%
+  left_join(z_norm_data, by = "Gen", suffix = c("", "z")) %>%
+  left_join(quantile_norm_data, by = "Gen", suffix  = c("", "q")) %>%
+  select_if(is.numeric) %>%
+  cor(method = "kendall")
+```
+
+# 2.8 Linear Regression
+``` {r}
+Water <- tibble(Gewaesser   = c("Fluss", "Teich", "Hafen", "See", "Bach"),
+                Schadstoffe = c(8,7,10,4,3),
+                Algen       = c(1500, 2100, 250, 3500, 3400))
+Water
+#Water <- data.frame(Water)
+
+#### Visualize + linReg
+Water %>%
+  ggplot(aes(Schadstoffe, Algen)) +
+  geom_point() +
+  geom_smooth(method = "lm") + # gray area == Standard Error, can be ignored with: , se = F
+  ggtitle("Schadstoffe vs. Algen") +
+  theme_bw()
+
+#### Calculate mean, SD of algae conc. and pollution conc.
+summary(Water)
+sd(Water$Schadstoffe)
+sd(Water$Algen)
+mean(Water$Schadstoffe)
+mean(Water$Algen)
+cov(Water$Schadstoffe, Water$Algen) # Covariance of x and y
+cor(Water$Schadstoffe, Water$Algen) # Correlation of x and y
+
+#### calc linReg
+lm(Algen ~ Schadstoffe, Water)
+# y = m * x + b
+# intercept ... y-value at x = 0
+# slope is negative here
+```
+
+# 2.9 Clustering
+``` {r}
+Cl_Data <- tibble(sample1 = c(1,2,3),
+                  sample2 = c(2,4,3),
+                  sample3 = c(4,8,12))
+Cl_Data
+
+library(tibble)
+library(scatterplot3d)
+
+scatterplot3d(x = Cl_Data[1,], 
+              y = Cl_Data[2,], 
+              z = Cl_Data[3,])
+
+#### Calculate distance matrix w/ Manhattan distance + Pearson Correlation as metric
+#### functions --> dist() and as.dist()
+distM <- Cl_Data %>%
+          t() %>%
+          dist(method = "manhattan")
+distM
+distP <- as.dist(1-cor(Cl_Data))
+distP
+
+#### cluster data with hierarchical clustering with one of the two dist. matrices
+hM <- distM %>% hclust(method = "average")
+hP <- distP %>% hclust(method = "average")
+
+#### draw dendrogram (pot new package needed)
+library(ggdendro)
+
+ggdendrogram(hM) + ggtitle("Manhattan")
+ggdendrogram(hP) + ggtitle("Pearson Col.")
+``` 

@@ -30,8 +30,8 @@ library(scales)     #install.packages('scales')     # for the percent() function
 #In R you will encounter data of different classes:
   
 # Logical  (e.g. TRUE/T or FALSE/F)
-#Numeric   (num, e.g. 1, 2.0, 3, 44.5, 100)
-#double    (dbl)
+  #Numeric   (num, e.g. 1, 2.0, 3, 44.5, 100)
+  #double    (dbl)
 #integer   (int)
 #Character (chr, e.g. 'Hello', 'a', '13.4', 'True')
 
@@ -39,7 +39,6 @@ class(165)
 class('Hello')
 class(T)     
 class(FALSE)
-
 
 
 
@@ -60,6 +59,7 @@ Days_Vector[10]  # not available
 #Lists = single row of data, but DIFFERENT data types possible
 List <- c(1, 'apple', T, 'BANANA')
 List
+
 #matrix     = 2D version of a vector
 #data frame = many vectors pasted together as columns
 
@@ -133,7 +133,7 @@ rm(dirty_tsv, dirty_xlsx)
     # EXAMPLE: setnames(df, old = c("old1", "old2", "old3"), new = c("new1", "new2", "new3"), skip_absent = T)
 
 #Alternatively, you can change the colnames individually, for example using this pattern:
-colnames(df)[colnames(df)%in%"Colname1_old"] <- "Colname1_new"
+colnames(df)[colnames(df) %in% "Colname1_old"] <- "Colname1_new"
 
 
 library(data.table)
@@ -203,7 +203,7 @@ dirty_csv
   #!duplicated()
   #!(df$colname %in% colset)
 
-
+library(tidyverse)
 # exclude Student_IDs that have no assigned name, not useful!
 dirty_csv <- dirty_csv %>% filter(!is.na(Student_ID))
 

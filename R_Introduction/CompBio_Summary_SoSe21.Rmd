@@ -122,7 +122,6 @@ aa %>% inner_join(bb)
 aa %>% full_join(bb)
 aa %>% bind_cols(bb)
 aa %>% bind_rows(bb)
-
 ```
 
 ## 1.4 Data transformation
@@ -730,6 +729,9 @@ library(ggdendro)
 ggdendrogram(hM) + ggtitle("Manhattan")
 ggdendrogram(hP) + ggtitle("Pearson Col.")
 ``` 
+
+
+
 # CHAPTER 3 - SCHULZ ET AL. - MICROARRAYS ########################################
 
 ## 3.1 Loading libraries and data
@@ -1058,17 +1060,17 @@ Annotations     <- read_delim("https://raw.githubusercontent.com/tlobnow/Resourc
 #### How is it organized?
 glimpse(Expression_Data)
 dim(Expression_Data)
-View(Expression_Data)
+#View(Expression_Data)
 arrange(Expression_Data)
 
 glimpse(Exp_Design)
 dim(Exp_Design)
-View(Exp_Design)
+#View(Exp_Design)
 arrange(Exp_Design)
 
 glimpse(Annotations)
 dim(Annotations)
-View(Annotations)
+#View(Annotations)
 arrange(Annotations)
 
 #### For how many genes do we have expression data?
@@ -1569,10 +1571,6 @@ diff <- setdiff(Go_Enriched_BP, Go_Enriched_BP_hyper)
 #### repeat analysis for GO-categories: "Cellular Compartment"
 ####                                    "Molecular Function"
 ```
-
-
-
-
 
 
 # CHAPTER 5 - BRANDT ET AL. 2019 - Cy_TOF NORMAL
@@ -2248,4 +2246,182 @@ pca.plot.data.fit %>%
   scale_fill_gradient2(low = "blue",
                        high = "red", 
                        midpoint = 0)
+```
+
+
+# ICARUS DATA
+``` {r}
+#setwd("/Users/finnLo/Documents/Github/R_Introduction/CompBio_Data/")
+icarus <- read.csv("icarus_timecourse_filtered.csv")
+icarus
+
+library(tidyverse)
+library(dplyr)
+library(cowplot)
+library(viridis)
+library(remotes)
+library(uwot)
+#remotes::install_github("jlmelville/uwot")
+#install.packages("uwot")
+
+# see molecular mechanisms, by which some cell lines are more resistant than others
+# radiotherapy w/ x-rays
+# esp. head + neck area --> what makes tumor/cell line more sensitive/resistent to radiation?
+# --> 1 cell line = Cal33 (very heterogenenous) --> 2 most abundant clones
+# sub clone 1 = 5E5 = more sensitive line
+# sub clone 2 = 2G11= more resistent clone
+# Sample 1 = purely resistent
+# Sample 2 = purely sensitive
+# Ctrl condition (0 Gy)
+# irradiated condition (6 Gy)
+# cell lines were irradiated at time = 0
+# measure selected proteins of single cells over 10 days after irradiation
+
+# observe main diff. b/w 3 cell lines in time
+# diff. markers
+# pH3, cPARP, Geminin, IdU
+# DNA damage markers, eg. pAMPKa
+
+# 60 Samples in different cell lines
+
+# how changes cell cycle 
+
+glimpse(icarus)
+
+icarus %>%
+  colnames()
+# 1) create a vector with the markers fr/ Cdt1:pFAK
+markers <- icarus %>%
+  dplyr::select(CDT1:pFAK) %>%
+  colnames()
+
+# 2) transform the marker expression by asinh
+# 3) calculate mean values per line, per irrad. condition, per time_point
+#    save it in a new variable
+mean_values <- icarus %>%
+  mutate_at(vars(markers), asinh) %>%
+  #mutate_at(vars(markers, scale)) %>%
+  group_by(line, irradiated, timepoint) %>%
+  summarise_at(vars(markers), mean)
+
+p <- mean_values %>%
+  pivot_longer(names_to = "marker",
+               values_to = "value",
+               markers) %>%
+  ggplot(aes(x = timepoint,
+             y = value,
+             col = line,
+             shape = irradiated)) +
+  geom_point(size = 2) +
+  geom_line() +
+  facet_wrap(~ marker, scale = "free")
+p
+```
+
+``` {r}
+save_plot(p, filename = "values_per_timepoint.jpg", base_height = 20, base_width = 30)
+
+# pH2A.X:
+# damage could be repaired over time
+# most damaged cells are dying and therefore expression goes down
+
+# cell cycle arrest marker pMAPKAPK2:
+# max. arrest observed was at ~ 50hrs after irradiation
+
+# plot distributions --> boxplot for every timepoint, not using the mean_value
+# use asinh
+
+# pH3 <- marker of M-Phase
+# IdU <- marker of S-Phase
+# Geminin <- high in all phases (except G0/1)
+# G0/G1 --> S --> M (few cells)
+
+```
+
+``` {r}
+
+# 0) transform data by asinh
+transformed_values <- icarus %>%
+  mutate_at(vars(markers), asinh) %>%
+  group_by(line, irradiated, timepoint)
+
+
+# 1) create geom_point plot of pH3 vs. IdU (adj. size + alpha + geom_density2D)
+transformed_values %>%
+  ggplot(aes(x = pH3, 
+             y = IdU)) +
+  geom_point(size = 0.5,
+             alpha = 0.2) +
+  geom_density2d() +
+  ylim(0,10)
+```
+
+``` {r}
+transformed_values <- transformed_values %>%
+  mutate(phase = ifelse(pH3 > 7.5, "M", 
+                        ifelse(IdU > 5, "S",
+                               ifelse(NA))))
+                               #ifelse(Geminin > 3.75, "G2", "G0/G1"))))
+transformed_values %>%
+  ggplot(aes(x = pH3, 
+             y = IdU,
+             col = phase)) +
+  geom_point(size = 0.1,
+             alpha = 0.1) +
+  geom_density2d() +
+  ylim(0,10)
+
+```
+
+``` {r}
+# 2) create geom_point plot of Geminin vs. pRb
+transformed_values %>%
+  ggplot(aes(x = Geminin, 
+             y = pRb,
+             col = phase)) +
+  geom_point(size = 0.5,
+             alpha = 0.2) +
+  geom_density2d() +
+  ylim(0,10)
+```
+
+``` {r}
+# 3) select a filter for cells in M-Phase (= cells w/ high pH3)
+# 4) for cells that are NOT in M, but have high IdU --> cells in S-phase
+# 5) for cells that are NOT in M, not in S, visualize w/ 
+transformed_values <- transformed_values %>%
+  mutate(phase = ifelse(pH3 > 7.5, "M", 
+                        ifelse(IdU > 5, "S",
+                               ifelse(Geminin > 3.75, "G2", "G0/G1"))))
+transformed_values %>%
+  ggplot(aes(x = pH3, 
+             y = IdU,
+             col = phase)) +
+  geom_point(size = 0.1,
+             alpha = 0.1) +
+  geom_density2d() +
+  ylim(0,10)
+```
+
+``` {r}
+# percentage of cells in each cell cycle phase
+# per line, irradiated, timepoint
+transformed_values %>%
+  count(phase, line, timepoint, irradiated) %>%
+  group_by(line, timepoint, irradiated) %>%
+  mutate(perc = n/sum(n) *100) %>%
+  ungroup() %>%
+  ggplot(aes(line, 
+             perc, 
+             fill = phase)) +
+  geom_col(position = "stack") +
+  facet_grid(irradiated~timepoint)  # first row --> non-irradiated condition
+#                                     second row --> irradiated condition
+# G2 goes down over time
+# perc of S phases also decreases
+
+# check cc distribution per line, per timepoint, irradiated
+# count how many cells per cc phase
+# group by line, time, irrad
+# use percentage 
 ```

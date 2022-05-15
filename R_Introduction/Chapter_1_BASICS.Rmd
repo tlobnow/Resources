@@ -1,0 +1,312 @@
+---
+title: "Computational Biology Course Summary SoSe21"
+author: Finn Lo
+output:
+  html_document:
+    toc: yes
+    number_section: no
+    fig_caption: true
+  pdf_document:
+    toc: yes
+  always_allow_html: true
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+
+```{r, echo = F, message = F, warning=F}
+#setwd("/Users/finnLo/Documents/Github/R_Introduction/CompBio_Data/")
+#R.version
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(BiocManager)
+library(bookdown)
+
+# INTRO
+library(BiocStyle)
+library(Biostrings)
+library(tidyverse)
+library(janitor)
+library(GEOquery)
+library(biomaRt)
+library(cgdsr)
+library(ggdendro)
+library(scatterplot3d)
+```
+
+# CHAPTER 1 - Data Analysis in R
+
+Pipe shortcut mac Shift + Command + M
+
+1.  Data loading
+2.  Data formatting (tidying or harmonization)
+3.  Data transformation
+4.  Data modeling
+5.  Data visualization
+6.  Reporting
+
+## 1.1. Data loading
+```{r}
+library(tidyverse)
+library(stringr)
+#### nested functions:
+x1 <- 1:5
+sqrt(
+  sum(
+    scale(
+      x1, center = T, scale = F
+    )^2
+  )
+)
+
+
+#### chain of functions:
+x1 %>%
+  scale(center = T, scale = F) %>% 
+  '^'(2) %>%
+  sum() %>%
+  sqrt()
+```
+
+## 1.1. Chains of Functions
+``` {r}
+x = "a, b, c;d:e-1"
+x %>%
+  str_replace_all(";", ":") %>%
+  str_replace_all(":", ",") %>%
+  str_remove("-1") %>%
+  str_split(",", simplify = T)
+```
+
+## 1.2. Data Wrangling: loading and formatting
+``` {r}
+library(readr)
+cdata <- read_tsv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/clinical_data.tsv")
+cdata
+```
+
+```{r}
+# Sex and gender columns are not harmonised
+
+unique(cdata$SEX)
+unique(cdata$GENDER)
+
+# reformat columns
+cdata <- cdata %>% 
+  replace_na(list(SEX = "", GENDER = "")) %>% # replace all NA values by an empty string
+  unite("SEX", SEX, GENDER, sep = "") %>%     # unite the SEX and GENDER column into a new SEX column
+  mutate(SEX = toupper(SEX)) %>%              # convert all letters to uppercase
+  mutate(SEX = ifelse(SEX == "FEMALE" | SEX == "MALE", SEX, "UNKNOWN")) 
+
+ifelse(10 > 1, "stimmt", "falsch")
+ifelse(10 < 1, "stimmt", "falsch")
+ifelse(10 == 10 & 1 == 2, "stimmt", "falsch")
+ifelse(10 == 10 | 1 == 2, "stimmt", "falsch")
+
+```
+
+## 1.3 Merging two data tables
+``` {r}
+#### left_join()
+#### inner_join()
+#### right_join()
+#### bind_cols()
+#### bind_rows()
+
+aa <- tibble(aa = 1:3, bb = c("a", "b", "c"))
+bb <- tibble(aa = 3:5, cc = c("d", "e", "f"))
+
+aa %>% left_join(bb)
+aa %>% right_join(bb)
+aa %>% inner_join(bb)
+aa %>% full_join(bb)
+aa %>% bind_cols(bb)
+aa %>% bind_rows(bb)
+```
+
+## 1.4 Data transformation
+```{r}
+#### select()
+#### filter()
+cdata
+cdata %>% dplyr::select(STUDY_ID, CASE_ID)
+cdata %>%dplyr::select(1:5)
+cdata %>%dplyr::select(-STUDY_ID, -CASE_ID)
+cdata %>%dplyr::select(-(1:5))
+cdata %>%dplyr::select(contains("OS"))
+
+cdata %>% filter(OS_STATUS == "DECEASED")
+cdata %>% filter(SEX != "MALE")
+cdata %>% filter(AGE > 50)
+cdata %>% filter(AGE > 50, SEX == "FEMALE")
+cdata %>% filter(OS_STATUS != "DECEASED", OS_STATUS != "LIVING")
+#### OS_STATUS columns isn't all caps, some data is wrong
+
+cdata <- cdata %>%
+  mutate(OS_STATUS = toupper(OS_STATUS))
+cdata %>% filter(OS_STATUS != "DECEASED", OS_STATUS != "LIVING")
+
+cdata %>% 
+  group_by(OS_STATUS, SEX) %>%
+  tally()
+
+cdata %>%
+  group_by(STUDY_ID, SEX) %>%
+  summarise(mean_age = mean(AGE, na.rm = T),
+            sd_age = sd(AGE, na.rm = T)) %>%
+  arrange(mean_age)
+
+#### a) write statement with group_by() and summarise() that reproduced tally() data
+#### b) write statement with group_by() and summarise() that calculates 
+#### median overall survival grouped by sex and study
+#### c) bonus: in what study do you find the lowest median value for patients of unknown sex
+
+?n()
+
+# a) 
+cdata %>%
+  group_by(OS_STATUS, SEX) %>%
+  summarise(n())
+
+# b) , c)
+cdata %>%
+  group_by(SEX, STUDY_ID) %>%
+  summarise(median_overall_survival = median(AGE, na.rm = T)) %>%
+  filter(SEX != "FEMALE", SEX != "MALE") %>%
+  arrange(desc(median_overall_survival))
+
+glimpse(cdata)
+```
+
+## 1.5 Data Visualization Examples
+``` {r}
+#### number of patients per study:
+cdata %>% 
+  group_by(STUDY_ID, SEX) %>% 
+  tally %>% 
+  ggplot(aes(STUDY_ID, n)) +
+  geom_bar(stat = "identity") +
+  coord_flip()
+```
+
+```{r}
+#### Histogram of overall Survival:
+ggplot(cdata, aes(OS_MONTHS)) +
+  geom_histogram()
+```
+
+```{r}
+#### Histogram of age in a subset of studies, colored by sex:
+filter(cdata, str_detect(STUDY_ID, "brca|gbm|coadread")) %>% 
+  ggplot(aes(AGE, fill = SEX)) +
+  geom_histogram(position = "dodge") +
+  facet_wrap(~STUDY_ID)
+```
+
+```{r}
+#### Density plot of overall survival, grouped by disease free survival status:
+filter(cdata, OS_STATUS == "LIVING") %>% 
+  ggplot(aes(OS_MONTHS, color = DFS_STATUS)) +
+  geom_density()
+```
+
+```{r}
+#### Scatter Plot pf age and overall survival values
+ggplot(cdata, aes(y = OS_MONTHS, x = AGE, color = SEX)) +
+  geom_point()
+```
+
+## 1.6. Analysis of SARS-Cov2 vaccination data
+```{r}
+#### analyse the time series data on vaccination against SARS-Cov2
+#### download at Impfdashboard
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+
+vac_deliveries  <- read_tsv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/germany_deliveries_timeseries_v2.tsv")
+vac_by_state    <- read_tsv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/germany_vaccinations_by_state.tsv")
+vac_timeseries  <- read_tsv("https://raw.githubusercontent.com/tlobnow/Resources/main/R_Introduction/CompBio_Data/germany_vaccinations_timeseries_v2.tsv")
+
+glimpse(vac_deliveries)
+glimpse(vac_by_state)
+glimpse(vac_timeseries)
+
+#### Deliveries over time
+vac_deliveries %>%
+  #filter(region == "DE-BB") %>%
+  ggplot(aes(date, dosen, col = region)) + 
+  geom_point()
+```
+
+```{r}
+#### better to look at cumulative delivery over time:
+#### define cum_dose
+
+glimpse(vac_deliveries$region)
+vac_deliveries %>%
+  #filter(region == c("DE-BY", "DE-BB", "DE-BW")) %>%
+  arrange(date) %>%
+  group_by(region) %>%
+  mutate(cum_doses = cumsum(dosen)) %>%
+  ggplot(aes(date, cum_doses, col = region)) +
+  geom_line()
+```
+
+```{r}
+#### change code so that you plot types of vaccine delivered:
+vac_deliveries %>%
+  arrange(date) %>%
+  group_by(impfstoff) %>%
+  mutate(cum_doses = cumsum(dosen)) %>%
+  ggplot(aes(date, cum_doses, col = impfstoff)) +
+  geom_line()
+```
+
+```{r}
+#### analyse delivered vaccine per state
+#### first calculate delivery until today:
+
+cumulative_deliveries_per_state <- vac_deliveries %>%
+  group_by(region) %>%
+  summarise(n = sum(dosen))
+
+#### now merge with vac per state --> define vac_rate
+vac_rate <- cumulative_deliveries_per_state %>%
+  left_join(vac_by_state, by = c("region"="code")) %>%
+  mutate(rate = vaccinationsTotal/n)
+```
+
+```{r}
+#### plot as bar graph:
+vac_rate %>%
+  ggplot(aes(region, rate)) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+```{r}
+#### plot number of vacs per time:
+
+vac_timeseries %>%
+  ggplot(aes(date, dosen_differenz_zum_vortag)) +
+  geom_point() +
+  geom_line()
+```
+
+```{r}
+#### weekdays have differing rates
+#### mark weekdays with color --> with wday() of lubridate
+
+library(lubridate)
+library(tidyverse)
+library(ggplot2)
+
+vac_timeseries %>%
+  mutate(day_of_week = date %>% wday() %>% as_factor()) %>%
+  ggplot(aes(date, dosen_differenz_zum_vortag, col = day_of_week)) +
+  #geom_point() +
+  geom_line() +
+  facet_wrap(~day_of_week)
+```
